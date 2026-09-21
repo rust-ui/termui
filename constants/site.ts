@@ -1,4 +1,4 @@
-export const FALLBACK_SITE_ORIGIN = "https://rust-ui.com" as const;
+export const FALLBACK_SITE_ORIGIN = "https://termui.rustify.app" as const;
 
 const getBaseUrl = () => {
   if (process.env.NODE_ENV !== "production") {
@@ -11,16 +11,16 @@ const baseUrl = getBaseUrl();
 
 export const SITE = {
   AUTHOR: {
-    NAME: "Rust/UI contributors",
+    NAME: "Term/UI contributors",
     TWITTER: "@termui",
   },
   DESCRIPTION: {
-    LONG: "Term/UI is a collection of accessible, customizable terminal UI components in the Rust/UI ecosystem. Its previews are generated from Rust.",
+    LONG: "Term/UI is a collection of accessible, customizable terminal UI components for Rust applications. Its previews are generated from Rust.",
     SHORT: "Beautiful terminal UIs, made simple",
   },
   KEYWORDS: [
     "Term/UI",
-    "Rust/UI",
+    "Rust terminal UI components",
     "terminal",
     "rust",
     "ink",

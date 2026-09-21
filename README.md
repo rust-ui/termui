@@ -1,6 +1,6 @@
 # Term/UI
 
-Term/UI is part of the Rust/UI ecosystem. It provides Rust terminal UI components and keeps the source site's Next.js documentation and component-site UI. Static preview frames come from a small native Rust renderer. The interactive button demo runs Ratatui in the browser through Ratzilla and WebAssembly.
+Term/UI is an independent product for Rust terminal UI components, with Next.js documentation and a component site. Static preview frames come from a small native Rust renderer. The interactive button demo runs Ratatui in the browser through Ratzilla and WebAssembly.
 
 `termui-renderer` draws Ratatui frames through `TestBackend`; `termui-registry/src/demos` holds one `demo_*.rs` file per demo, including interactive demos, and generates `lib/termui-registry/previews.generated.json`. The docs-driven build fails if a static Rust preview has no registered renderer. Checked-in WebAssembly assets live in `public/demos/button-interactive`, so production builds do not need a Rust toolchain.
 
@@ -49,7 +49,7 @@ The Sponsor page is intentionally omitted.
 
 ## Production deployment
 
-Term/UI runs on the shared Rustify server. GitHub Actions builds an amd64 Docker image, pushes it to Docker Hub, and deploys it over SSH. Host Nginx routes `rust-ui.com` to the app on `127.0.0.1:5103` and manages HTTPS with Certbot.
+Term/UI runs on the shared Rustify server at `termui.rustify.app`. GitHub Actions builds an amd64 Docker image, pushes it to Docker Hub, and deploys it over SSH. Host Nginx routes that hostname to the app on `127.0.0.1:5103` and manages HTTPS with Certbot.
 
 Set these repository variables in `rust-ui/termui`:
 
@@ -63,6 +63,6 @@ Set these repository secrets:
 - `DOCKER_TOKEN`: Docker Hub access token with read and write access
 - `SSH_PRIVATE_KEY`: private key whose public key can log in as `root` on shared-apps
 
-In Cloudflare, point the `@` A record for `rust-ui.com` to `23.88.45.210`. Keep it DNS only while the first deployment requests its TLS certificate. After the certificate is issued, enable the proxy if desired.
+In Cloudflare, point the `termui` A record for `rustify.app` to `23.88.45.210`. Keep it DNS only while the first deployment requests its TLS certificate. After the certificate is issued, enable the proxy if desired.
 
 Run **Actions → Build and Deploy Term/UI → Run workflow**. First run with `skip_build` off. Later, `skip_build` can redeploy the existing image.

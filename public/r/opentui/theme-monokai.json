@@ -4,7 +4,7 @@
   "title": "Monokai",
   "description": "A classic Monokai-inspired theme for terminal apps.",
   "registryDependencies": [
-    "https://rust-ui.com/r/opentui/types.json"
+    "https://termui.rustify.app/r/opentui/types.json"
   ],
   "files": [
     {

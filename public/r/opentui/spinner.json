@@ -8,8 +8,8 @@
     "cli-spinners"
   ],
   "registryDependencies": [
-    "https://rust-ui.com/r/opentui/use-theme.json",
-    "https://rust-ui.com/r/ink/use-animation.json"
+    "https://termui.rustify.app/r/opentui/use-theme.json",
+    "https://termui.rustify.app/r/ink/use-animation.json"
   ],
   "files": [
     {

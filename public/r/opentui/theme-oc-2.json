@@ -4,7 +4,7 @@
   "title": "OC-2",
   "description": "OC-2 - clean minimal theme.",
   "registryDependencies": [
-    "https://rust-ui.com/r/opentui/types.json"
+    "https://termui.rustify.app/r/opentui/types.json"
   ],
   "files": [
     {

@@ -4,8 +4,8 @@
   "title": "Use Theme",
   "description": "Provider-optional terminal theme context and hooks.",
   "registryDependencies": [
-    "https://rust-ui.com/r/opentui/theme-default.json",
-    "https://rust-ui.com/r/opentui/types.json"
+    "https://termui.rustify.app/r/opentui/theme-default.json",
+    "https://termui.rustify.app/r/opentui/types.json"
   ],
   "files": [
     {

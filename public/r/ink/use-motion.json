@@ -4,7 +4,7 @@
   "title": "Use Motion",
   "description": "Provider-optional reduced-motion context and hook.",
   "registryDependencies": [
-    "https://rust-ui.com/r/ink/types.json"
+    "https://termui.rustify.app/r/ink/types.json"
   ],
   "files": [
     {

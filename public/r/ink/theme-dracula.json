@@ -4,7 +4,7 @@
   "title": "Dracula",
   "description": "A purple-heavy Dracula theme for terminal UI components.",
   "registryDependencies": [
-    "https://rust-ui.com/r/ink/types.json"
+    "https://termui.rustify.app/r/ink/types.json"
   ],
   "files": [
     {

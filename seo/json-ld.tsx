@@ -16,11 +16,6 @@ export const WebsiteJsonLd = () => {
     "@type": "WebSite",
     description: SITE.DESCRIPTION.LONG,
     inLanguage: "en-US",
-    isPartOf: {
-      "@type": "Organization",
-      name: "Rust/UI",
-      url: LINK.PORTFOLIO,
-    },
     name: SITE.NAME,
     url: SITE.URL,
   };
@@ -66,14 +61,9 @@ export const OrganizationJsonLd = () => {
   const data = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    parentOrganization: {
-      "@type": "Organization",
-      name: "Rust/UI",
-      url: LINK.PORTFOLIO,
-    },
     logo: SITE.OG_IMAGE,
     name: SITE.NAME,
-    sameAs: [LINK.GITHUB, LINK.PORTFOLIO],
+    sameAs: [LINK.GITHUB],
     url: SITE.URL,
   };
   return <JsonLdScript data={data} />;

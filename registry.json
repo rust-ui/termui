@@ -1,6 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
-  "homepage": "https://rust-ui.com",
+  "homepage": "https://termui.rustify.app",
   "items": [
     {
       "categories": ["core"],
@@ -85,7 +85,7 @@
       "name": "ink/use-motion",
       "title": "Use Motion",
       "type": "registry:hook",
-      "registryDependencies": ["https://rust-ui.com/r/ink/types.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/ink/types.json"]
     },
     {
       "categories": ["core"],
@@ -100,8 +100,8 @@
       "title": "Use Theme",
       "type": "registry:hook",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/theme-default.json",
-        "https://rust-ui.com/r/ink/types.json"
+        "https://termui.rustify.app/r/ink/theme-default.json",
+        "https://termui.rustify.app/r/ink/types.json"
       ]
     },
     {
@@ -116,7 +116,7 @@
       "name": "ink/use-unicode",
       "title": "Use Unicode",
       "type": "registry:hook",
-      "registryDependencies": ["https://rust-ui.com/r/ink/types.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/ink/types.json"]
     },
     {
       "categories": ["core"],
@@ -132,8 +132,8 @@
       "title": "Motion Provider",
       "type": "registry:ui",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/types.json",
-        "https://rust-ui.com/r/ink/use-motion.json"
+        "https://termui.rustify.app/r/ink/types.json",
+        "https://termui.rustify.app/r/ink/use-motion.json"
       ]
     },
     {
@@ -150,8 +150,8 @@
       "title": "Unicode Provider",
       "type": "registry:ui",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/types.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/types.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ]
     },
     {
@@ -183,11 +183,11 @@
       "title": "Alert",
       "type": "registry:ui",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/terminal-style.json",
-        "https://rust-ui.com/r/ink/terminal-symbols.json",
-        "https://rust-ui.com/r/ink/types.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/terminal-style.json",
+        "https://termui.rustify.app/r/ink/terminal-symbols.json",
+        "https://termui.rustify.app/r/ink/types.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ]
     },
     {
@@ -202,12 +202,12 @@
       ],
       "name": "ink/app-shell",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/terminal-style.json",
-        "https://rust-ui.com/r/ink/terminal-text.json",
-        "https://rust-ui.com/r/ink/types.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/terminal-style.json",
+        "https://termui.rustify.app/r/ink/terminal-text.json",
+        "https://termui.rustify.app/r/ink/types.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "title": "App Shell",
       "type": "registry:ui"
@@ -239,10 +239,10 @@
       "title": "Badge",
       "type": "registry:ui",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/terminal-style.json",
-        "https://rust-ui.com/r/ink/types.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/terminal-style.json",
+        "https://termui.rustify.app/r/ink/types.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "dependencies": ["ink"]
     },
@@ -260,10 +260,10 @@
       "title": "Banner",
       "type": "registry:ui",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/terminal-symbols.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/terminal-symbols.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ]
     },
     {
@@ -279,11 +279,11 @@
       "title": "Bar Chart",
       "type": "registry:ui",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/accessibility.json",
-        "https://rust-ui.com/r/ink/terminal-symbols.json",
-        "https://rust-ui.com/r/ink/terminal-text.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/accessibility.json",
+        "https://termui.rustify.app/r/ink/terminal-symbols.json",
+        "https://termui.rustify.app/r/ink/terminal-text.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "dependencies": ["ink"]
     },
@@ -300,9 +300,9 @@
       "title": "Big Text",
       "type": "registry:ui",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/terminal-symbols.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/terminal-symbols.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "dependencies": ["ink"]
     },
@@ -320,9 +320,9 @@
       "title": "Box",
       "type": "registry:ui",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/terminal-style.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/terminal-style.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ]
     },
     {
@@ -336,10 +336,10 @@
       ],
       "name": "ink/breadcrumb",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/terminal-symbols.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/terminal-symbols.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "title": "Breadcrumb",
       "type": "registry:ui",
@@ -358,9 +358,9 @@
       "title": "Bullet List",
       "type": "registry:ui",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/terminal-symbols.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/terminal-symbols.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "dependencies": ["ink"]
     },
@@ -378,10 +378,10 @@
       "title": "Card",
       "type": "registry:ui",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/terminal-style.json",
-        "https://rust-ui.com/r/ink/types.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/terminal-style.json",
+        "https://termui.rustify.app/r/ink/types.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ]
     },
     {
@@ -409,10 +409,10 @@
       ],
       "name": "ink/chat-message",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/use-animation.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/use-animation.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "title": "Chat Message",
       "type": "registry:ui",
@@ -443,10 +443,10 @@
       ],
       "name": "ink/checkbox",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/terminal-symbols.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/terminal-symbols.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "title": "Checkbox",
       "type": "registry:ui",
@@ -463,10 +463,10 @@
       ],
       "name": "ink/checkbox-group",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/terminal-symbols.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/terminal-symbols.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "title": "Checkbox Group",
       "type": "registry:ui",
@@ -483,11 +483,11 @@
       ],
       "name": "ink/clipboard",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/terminal-style.json",
-        "https://rust-ui.com/r/ink/use-clipboard.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/terminal-style.json",
+        "https://termui.rustify.app/r/ink/use-clipboard.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "title": "Clipboard",
       "type": "registry:ui",
@@ -504,10 +504,10 @@
       ],
       "name": "ink/clock",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/terminal-symbols.json",
-        "https://rust-ui.com/r/ink/use-interval.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/terminal-symbols.json",
+        "https://termui.rustify.app/r/ink/use-interval.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "title": "Clock",
       "type": "registry:ui",
@@ -527,10 +527,10 @@
       "title": "Code",
       "type": "registry:ui",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/terminal-style.json",
-        "https://rust-ui.com/r/ink/types.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/terminal-style.json",
+        "https://termui.rustify.app/r/ink/types.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ]
     },
     {
@@ -544,10 +544,10 @@
       ],
       "name": "ink/color-picker",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/terminal-style.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/terminal-style.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "title": "Color Picker",
       "type": "registry:ui",
@@ -579,11 +579,11 @@
       ],
       "name": "ink/command-palette",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/terminal-style.json",
-        "https://rust-ui.com/r/ink/terminal-text.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/terminal-style.json",
+        "https://termui.rustify.app/r/ink/terminal-text.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "title": "Command Palette",
       "type": "registry:ui"
@@ -599,10 +599,10 @@
       ],
       "name": "ink/confirm",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/terminal-symbols.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/terminal-symbols.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "title": "Confirm",
       "type": "registry:ui",
@@ -619,9 +619,9 @@
       ],
       "name": "ink/conversation-history",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "title": "Conversation History",
       "type": "registry:ui",
@@ -638,12 +638,12 @@
       ],
       "name": "ink/data-grid",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/terminal-style.json",
-        "https://rust-ui.com/r/ink/terminal-text.json",
-        "https://rust-ui.com/r/ink/types.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/terminal-style.json",
+        "https://termui.rustify.app/r/ink/terminal-text.json",
+        "https://termui.rustify.app/r/ink/types.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "title": "Data Grid",
       "type": "registry:ui",
@@ -660,10 +660,10 @@
       ],
       "name": "ink/date-picker",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/terminal-style.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/terminal-style.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "title": "Date Picker",
       "type": "registry:ui",
@@ -681,7 +681,7 @@
       "name": "ink/definition",
       "title": "Definition",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/ink/use-theme.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/ink/use-theme.json"],
       "dependencies": ["ink"]
     },
     {
@@ -695,10 +695,10 @@
       ],
       "name": "ink/dialog",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/terminal-style.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/terminal-style.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "title": "Dialog",
       "type": "registry:ui",
@@ -718,8 +718,8 @@
       "title": "Diff View",
       "type": "registry:ui",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ]
     },
     {
@@ -735,9 +735,9 @@
       "title": "Digits",
       "type": "registry:ui",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/terminal-symbols.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/terminal-symbols.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "dependencies": ["ink"]
     },
@@ -752,10 +752,10 @@
       ],
       "name": "ink/directory-tree",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/terminal-symbols.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/terminal-symbols.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "title": "Directory Tree",
       "type": "registry:ui",
@@ -790,11 +790,11 @@
       "title": "Dither Area Chart",
       "type": "registry:ui",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/terminal-style.json",
-        "https://rust-ui.com/r/ink/use-motion.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/terminal-style.json",
+        "https://termui.rustify.app/r/ink/use-motion.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ]
     },
     {
@@ -826,11 +826,11 @@
       "title": "Dither Bar Chart",
       "type": "registry:ui",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/terminal-style.json",
-        "https://rust-ui.com/r/ink/use-motion.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/terminal-style.json",
+        "https://termui.rustify.app/r/ink/use-motion.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ]
     },
     {
@@ -862,11 +862,11 @@
       "title": "Dither Line Chart",
       "type": "registry:ui",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/terminal-style.json",
-        "https://rust-ui.com/r/ink/use-motion.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/terminal-style.json",
+        "https://termui.rustify.app/r/ink/use-motion.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ]
     },
     {
@@ -898,11 +898,11 @@
       "title": "Dither Pie Chart",
       "type": "registry:ui",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/terminal-style.json",
-        "https://rust-ui.com/r/ink/use-motion.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/terminal-style.json",
+        "https://termui.rustify.app/r/ink/use-motion.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ]
     },
     {
@@ -934,11 +934,11 @@
       "title": "Dither Radar Chart",
       "type": "registry:ui",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/terminal-style.json",
-        "https://rust-ui.com/r/ink/use-motion.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/terminal-style.json",
+        "https://termui.rustify.app/r/ink/use-motion.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ]
     },
     {
@@ -970,11 +970,11 @@
       "title": "Dither Sparkline",
       "type": "registry:ui",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/terminal-style.json",
-        "https://rust-ui.com/r/ink/use-motion.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/terminal-style.json",
+        "https://termui.rustify.app/r/ink/use-motion.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ]
     },
     {
@@ -990,9 +990,9 @@
       "title": "Divider",
       "type": "registry:ui",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/terminal-style.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/terminal-style.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "dependencies": ["ink"]
     },
@@ -1007,10 +1007,10 @@
       ],
       "name": "ink/drawer",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/terminal-style.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/terminal-style.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "title": "Drawer",
       "type": "registry:ui",
@@ -1027,12 +1027,12 @@
       ],
       "name": "ink/email-input",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/terminal-style.json",
-        "https://rust-ui.com/r/ink/terminal-symbols.json",
-        "https://rust-ui.com/r/ink/terminal-text.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/terminal-style.json",
+        "https://termui.rustify.app/r/ink/terminal-symbols.json",
+        "https://termui.rustify.app/r/ink/terminal-text.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "title": "Email Input",
       "type": "registry:ui",
@@ -1052,8 +1052,8 @@
       "title": "Embedded Terminal",
       "type": "registry:ui",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/terminal-style.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/terminal-style.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ]
     },
     {
@@ -1069,9 +1069,9 @@
       "title": "Error Boundary",
       "type": "registry:ui",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/terminal-style.json",
-        "https://rust-ui.com/r/ink/terminal-symbols.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/terminal-style.json",
+        "https://termui.rustify.app/r/ink/terminal-symbols.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "dependencies": ["ink"]
     },
@@ -1087,10 +1087,10 @@
       ],
       "name": "ink/error-retry",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/terminal-style.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/terminal-style.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "title": "Error Retry",
       "type": "registry:ui"
@@ -1106,11 +1106,11 @@
       ],
       "name": "ink/file-change",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/diff-view.json",
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/terminal-symbols.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/diff-view.json",
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/terminal-symbols.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "title": "File Change",
       "type": "registry:ui",
@@ -1127,10 +1127,10 @@
       ],
       "name": "ink/file-picker",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/terminal-style.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/terminal-style.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "title": "File Picker",
       "type": "registry:ui",
@@ -1148,8 +1148,8 @@
       ],
       "name": "ink/form",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/use-theme.json"
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/use-theme.json"
       ],
       "title": "Form",
       "type": "registry:ui"
@@ -1165,9 +1165,9 @@
       ],
       "name": "ink/form-field",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/terminal-symbols.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/terminal-symbols.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "title": "Form Field",
       "type": "registry:ui",
@@ -1186,9 +1186,9 @@
       "title": "Gauge",
       "type": "registry:ui",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/terminal-symbols.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/terminal-symbols.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "dependencies": ["ink"]
     },
@@ -1205,8 +1205,8 @@
       "title": "Git Status",
       "type": "registry:ui",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "dependencies": ["ink"]
     },
@@ -1222,7 +1222,7 @@
       "name": "ink/gradient",
       "title": "Gradient",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/ink/terminal-text.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/ink/terminal-text.json"],
       "dependencies": ["ink"]
     },
     {
@@ -1252,9 +1252,9 @@
       "title": "Heading",
       "type": "registry:ui",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/terminal-symbols.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/terminal-symbols.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "dependencies": ["ink"]
     },
@@ -1271,9 +1271,9 @@
       "title": "Heat Map",
       "type": "registry:ui",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/terminal-text.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/terminal-text.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "dependencies": ["ink"]
     },
@@ -1290,9 +1290,9 @@
       "title": "Help",
       "type": "registry:ui",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/terminal-style.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/terminal-style.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "dependencies": ["ink"]
     },
@@ -1307,9 +1307,9 @@
       ],
       "name": "ink/help-screen",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/big-text.json",
-        "https://rust-ui.com/r/ink/terminal-text.json",
-        "https://rust-ui.com/r/ink/use-theme.json"
+        "https://termui.rustify.app/r/ink/big-text.json",
+        "https://termui.rustify.app/r/ink/terminal-text.json",
+        "https://termui.rustify.app/r/ink/use-theme.json"
       ],
       "title": "Help Screen",
       "type": "registry:ui",
@@ -1329,9 +1329,9 @@
       "title": "Image",
       "type": "registry:ui",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/accessibility.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/accessibility.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ]
     },
     {
@@ -1347,10 +1347,10 @@
       "title": "Info Box",
       "type": "registry:ui",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/terminal-style.json",
-        "https://rust-ui.com/r/ink/types.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/terminal-style.json",
+        "https://termui.rustify.app/r/ink/types.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "dependencies": ["ink"]
     },
@@ -1365,8 +1365,8 @@
       ],
       "name": "ink/json",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/use-theme.json"
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/use-theme.json"
       ],
       "title": "JSON",
       "type": "registry:ui",
@@ -1385,8 +1385,8 @@
       "title": "Key Value",
       "type": "registry:ui",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/terminal-text.json",
-        "https://rust-ui.com/r/ink/use-theme.json"
+        "https://termui.rustify.app/r/ink/terminal-text.json",
+        "https://termui.rustify.app/r/ink/use-theme.json"
       ],
       "dependencies": ["ink"]
     },
@@ -1403,9 +1403,9 @@
       "title": "Keyboard Shortcuts",
       "type": "registry:ui",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/terminal-style.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/terminal-style.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "dependencies": ["ink"]
     },
@@ -1422,10 +1422,10 @@
       "title": "Line Chart",
       "type": "registry:ui",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/accessibility.json",
-        "https://rust-ui.com/r/ink/terminal-symbols.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/accessibility.json",
+        "https://termui.rustify.app/r/ink/terminal-symbols.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "dependencies": ["ink"]
     },
@@ -1443,8 +1443,8 @@
       "title": "Link",
       "type": "registry:ui",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/use-theme.json"
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/use-theme.json"
       ]
     },
     {
@@ -1458,12 +1458,12 @@
       ],
       "name": "ink/list",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/terminal-style.json",
-        "https://rust-ui.com/r/ink/terminal-symbols.json",
-        "https://rust-ui.com/r/ink/terminal-text.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/terminal-style.json",
+        "https://termui.rustify.app/r/ink/terminal-symbols.json",
+        "https://termui.rustify.app/r/ink/terminal-text.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "title": "List",
       "type": "registry:ui",
@@ -1480,9 +1480,9 @@
       ],
       "name": "ink/log",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "title": "Log",
       "type": "registry:ui",
@@ -1499,12 +1499,12 @@
       ],
       "name": "ink/login-flow",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/big-text.json",
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/terminal-style.json",
-        "https://rust-ui.com/r/ink/types.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/big-text.json",
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/terminal-style.json",
+        "https://termui.rustify.app/r/ink/types.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "title": "Login Flow",
       "type": "registry:ui",
@@ -1523,9 +1523,9 @@
       "title": "Markdown",
       "type": "registry:ui",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/use-animation.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/use-animation.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "dependencies": ["ink"]
     },
@@ -1540,11 +1540,11 @@
       ],
       "name": "ink/masked-input",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/terminal-style.json",
-        "https://rust-ui.com/r/ink/terminal-symbols.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/terminal-style.json",
+        "https://termui.rustify.app/r/ink/terminal-symbols.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "title": "Masked Input",
       "type": "registry:ui",
@@ -1561,10 +1561,10 @@
       ],
       "name": "ink/menu",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/terminal-style.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/terminal-style.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "title": "Menu",
       "type": "registry:ui",
@@ -1581,11 +1581,11 @@
       ],
       "name": "ink/modal",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/terminal-style.json",
-        "https://rust-ui.com/r/ink/types.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/terminal-style.json",
+        "https://termui.rustify.app/r/ink/types.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "title": "Modal",
       "type": "registry:ui",
@@ -1602,10 +1602,10 @@
       ],
       "name": "ink/model-selector",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/terminal-symbols.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/terminal-symbols.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "title": "Model Selector",
       "type": "registry:ui",
@@ -1624,9 +1624,9 @@
       "title": "Multi Progress",
       "type": "registry:ui",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/terminal-text.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/terminal-text.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "dependencies": ["ink"]
     },
@@ -1641,10 +1641,10 @@
       ],
       "name": "ink/multi-select",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/terminal-symbols.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/terminal-symbols.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "title": "Multi Select",
       "type": "registry:ui",
@@ -1666,11 +1666,11 @@
       ],
       "name": "ink/notification-center",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/terminal-style.json",
-        "https://rust-ui.com/r/ink/use-notifications.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/terminal-style.json",
+        "https://termui.rustify.app/r/ink/use-notifications.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "title": "Notification Center",
       "type": "registry:block"
@@ -1686,12 +1686,12 @@
       ],
       "name": "ink/number-input",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/terminal-style.json",
-        "https://rust-ui.com/r/ink/terminal-symbols.json",
-        "https://rust-ui.com/r/ink/types.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/terminal-style.json",
+        "https://termui.rustify.app/r/ink/terminal-symbols.json",
+        "https://termui.rustify.app/r/ink/types.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "title": "Number Input",
       "type": "registry:ui",
@@ -1723,7 +1723,7 @@
       "name": "opentui/use-motion",
       "title": "Use Motion",
       "type": "registry:hook",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/types.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/types.json"]
     },
     {
       "categories": ["core"],
@@ -1738,8 +1738,8 @@
       "title": "Use Theme",
       "type": "registry:hook",
       "registryDependencies": [
-        "https://rust-ui.com/r/opentui/theme-default.json",
-        "https://rust-ui.com/r/opentui/types.json"
+        "https://termui.rustify.app/r/opentui/theme-default.json",
+        "https://termui.rustify.app/r/opentui/types.json"
       ]
     },
     {
@@ -1754,7 +1754,7 @@
       "name": "opentui/use-unicode",
       "title": "Use Unicode",
       "type": "registry:hook",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/types.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/types.json"]
     },
     {
       "categories": ["core"],
@@ -1771,8 +1771,8 @@
       "title": "Motion Provider",
       "type": "registry:ui",
       "registryDependencies": [
-        "https://rust-ui.com/r/opentui/types.json",
-        "https://rust-ui.com/r/opentui/use-motion.json"
+        "https://termui.rustify.app/r/opentui/types.json",
+        "https://termui.rustify.app/r/opentui/use-motion.json"
       ]
     },
     {
@@ -1790,8 +1790,8 @@
       "title": "Unicode Provider",
       "type": "registry:ui",
       "registryDependencies": [
-        "https://rust-ui.com/r/opentui/types.json",
-        "https://rust-ui.com/r/opentui/use-unicode.json"
+        "https://termui.rustify.app/r/opentui/types.json",
+        "https://termui.rustify.app/r/opentui/use-unicode.json"
       ]
     },
     {
@@ -1808,7 +1808,7 @@
       "name": "opentui/alert",
       "title": "Alert",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["templates"],
@@ -1824,7 +1824,7 @@
       "name": "opentui/app-shell",
       "title": "App Shell",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["layout"],
@@ -1855,7 +1855,7 @@
       "name": "opentui/badge",
       "title": "Badge",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["feedback"],
@@ -1871,7 +1871,7 @@
       "name": "opentui/banner",
       "title": "Banner",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["charts"],
@@ -1887,7 +1887,7 @@
       "name": "opentui/bar-chart",
       "title": "Bar Chart",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["typography"],
@@ -1903,7 +1903,7 @@
       "name": "opentui/big-text",
       "title": "Big Text",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["layout"],
@@ -1919,7 +1919,7 @@
       "name": "opentui/box",
       "title": "Box",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["navigation"],
@@ -1935,7 +1935,7 @@
       "name": "opentui/breadcrumb",
       "title": "Breadcrumb",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["templates"],
@@ -1951,7 +1951,7 @@
       "name": "opentui/bullet-list",
       "title": "Bullet List",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["data"],
@@ -1967,7 +1967,7 @@
       "name": "opentui/card",
       "title": "Card",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["layout"],
@@ -1998,7 +1998,7 @@
       "name": "opentui/chat-message",
       "title": "Chat Message",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["ai"],
@@ -2029,7 +2029,7 @@
       "name": "opentui/checkbox",
       "title": "Checkbox",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["selection"],
@@ -2045,7 +2045,7 @@
       "name": "opentui/checkbox-group",
       "title": "Checkbox Group",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["utility"],
@@ -2062,8 +2062,8 @@
       "title": "Clipboard",
       "type": "registry:ui",
       "registryDependencies": [
-        "https://rust-ui.com/r/opentui/use-theme.json",
-        "https://rust-ui.com/r/ink/use-clipboard.json"
+        "https://termui.rustify.app/r/opentui/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-clipboard.json"
       ]
     },
     {
@@ -2080,7 +2080,7 @@
       "name": "opentui/clock",
       "title": "Clock",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["typography"],
@@ -2096,7 +2096,7 @@
       "name": "opentui/code",
       "title": "Code",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["selection"],
@@ -2112,7 +2112,7 @@
       "name": "opentui/color-picker",
       "title": "Color Picker",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["layout"],
@@ -2143,7 +2143,7 @@
       "name": "opentui/command-palette",
       "title": "Command Palette",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["forms"],
@@ -2159,7 +2159,7 @@
       "name": "opentui/confirm",
       "title": "Confirm",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["data"],
@@ -2175,7 +2175,7 @@
       "name": "opentui/data-grid",
       "title": "Data Grid",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["forms"],
@@ -2191,7 +2191,7 @@
       "name": "opentui/date-picker",
       "title": "Date Picker",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["data"],
@@ -2207,7 +2207,7 @@
       "name": "opentui/definition",
       "title": "Definition",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["overlays"],
@@ -2223,7 +2223,7 @@
       "name": "opentui/dialog",
       "title": "Dialog",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["data"],
@@ -2239,7 +2239,7 @@
       "name": "opentui/diff-view",
       "title": "Diff View",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["typography"],
@@ -2255,7 +2255,7 @@
       "name": "opentui/digits",
       "title": "Digits",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["data"],
@@ -2271,7 +2271,7 @@
       "name": "opentui/directory-tree",
       "title": "Directory Tree",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["data"],
@@ -2303,9 +2303,9 @@
       "title": "Dither Area Chart",
       "type": "registry:ui",
       "registryDependencies": [
-        "https://rust-ui.com/r/opentui/use-motion.json",
-        "https://rust-ui.com/r/opentui/use-theme.json",
-        "https://rust-ui.com/r/opentui/use-unicode.json"
+        "https://termui.rustify.app/r/opentui/use-motion.json",
+        "https://termui.rustify.app/r/opentui/use-theme.json",
+        "https://termui.rustify.app/r/opentui/use-unicode.json"
       ]
     },
     {
@@ -2338,9 +2338,9 @@
       "title": "Dither Bar Chart",
       "type": "registry:ui",
       "registryDependencies": [
-        "https://rust-ui.com/r/opentui/use-motion.json",
-        "https://rust-ui.com/r/opentui/use-theme.json",
-        "https://rust-ui.com/r/opentui/use-unicode.json"
+        "https://termui.rustify.app/r/opentui/use-motion.json",
+        "https://termui.rustify.app/r/opentui/use-theme.json",
+        "https://termui.rustify.app/r/opentui/use-unicode.json"
       ]
     },
     {
@@ -2373,9 +2373,9 @@
       "title": "Dither Line Chart",
       "type": "registry:ui",
       "registryDependencies": [
-        "https://rust-ui.com/r/opentui/use-motion.json",
-        "https://rust-ui.com/r/opentui/use-theme.json",
-        "https://rust-ui.com/r/opentui/use-unicode.json"
+        "https://termui.rustify.app/r/opentui/use-motion.json",
+        "https://termui.rustify.app/r/opentui/use-theme.json",
+        "https://termui.rustify.app/r/opentui/use-unicode.json"
       ]
     },
     {
@@ -2408,9 +2408,9 @@
       "title": "Dither Pie Chart",
       "type": "registry:ui",
       "registryDependencies": [
-        "https://rust-ui.com/r/opentui/use-motion.json",
-        "https://rust-ui.com/r/opentui/use-theme.json",
-        "https://rust-ui.com/r/opentui/use-unicode.json"
+        "https://termui.rustify.app/r/opentui/use-motion.json",
+        "https://termui.rustify.app/r/opentui/use-theme.json",
+        "https://termui.rustify.app/r/opentui/use-unicode.json"
       ]
     },
     {
@@ -2443,9 +2443,9 @@
       "title": "Dither Radar Chart",
       "type": "registry:ui",
       "registryDependencies": [
-        "https://rust-ui.com/r/opentui/use-motion.json",
-        "https://rust-ui.com/r/opentui/use-theme.json",
-        "https://rust-ui.com/r/opentui/use-unicode.json"
+        "https://termui.rustify.app/r/opentui/use-motion.json",
+        "https://termui.rustify.app/r/opentui/use-theme.json",
+        "https://termui.rustify.app/r/opentui/use-unicode.json"
       ]
     },
     {
@@ -2478,9 +2478,9 @@
       "title": "Dither Sparkline",
       "type": "registry:ui",
       "registryDependencies": [
-        "https://rust-ui.com/r/opentui/use-motion.json",
-        "https://rust-ui.com/r/opentui/use-theme.json",
-        "https://rust-ui.com/r/opentui/use-unicode.json"
+        "https://termui.rustify.app/r/opentui/use-motion.json",
+        "https://termui.rustify.app/r/opentui/use-theme.json",
+        "https://termui.rustify.app/r/opentui/use-unicode.json"
       ]
     },
     {
@@ -2497,7 +2497,7 @@
       "name": "opentui/divider",
       "title": "Divider",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["overlays"],
@@ -2513,7 +2513,7 @@
       "name": "opentui/drawer",
       "title": "Drawer",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["input"],
@@ -2529,7 +2529,7 @@
       "name": "opentui/email-input",
       "title": "Email Input",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["utility"],
@@ -2575,7 +2575,7 @@
       "name": "opentui/file-change",
       "title": "File Change",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["forms"],
@@ -2591,7 +2591,7 @@
       "name": "opentui/file-picker",
       "title": "File Picker",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["forms"],
@@ -2607,7 +2607,7 @@
       "name": "opentui/form",
       "title": "Form",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["forms"],
@@ -2623,7 +2623,7 @@
       "name": "opentui/form-field",
       "title": "Form Field",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["charts"],
@@ -2639,7 +2639,7 @@
       "name": "opentui/gauge",
       "title": "Gauge",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["data"],
@@ -2655,7 +2655,7 @@
       "name": "opentui/git-status",
       "title": "Git Status",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["typography"],
@@ -2701,7 +2701,7 @@
       "name": "opentui/heading",
       "title": "Heading",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["charts"],
@@ -2717,7 +2717,7 @@
       "name": "opentui/heat-map",
       "title": "Heat Map",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["utility"],
@@ -2733,7 +2733,7 @@
       "name": "opentui/help",
       "title": "Help",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["templates"],
@@ -2749,7 +2749,7 @@
       "name": "opentui/help-screen",
       "title": "Help Screen",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["utility"],
@@ -2765,7 +2765,7 @@
       "name": "opentui/image",
       "title": "Image",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["templates"],
@@ -2781,7 +2781,7 @@
       "name": "opentui/info-box",
       "title": "Info Box",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["data"],
@@ -2797,7 +2797,7 @@
       "name": "opentui/json",
       "title": "JSON",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["data"],
@@ -2813,7 +2813,7 @@
       "name": "opentui/key-value",
       "title": "Key Value",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["utility"],
@@ -2829,7 +2829,7 @@
       "name": "opentui/keyboard-shortcuts",
       "title": "Keyboard Shortcuts",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["charts"],
@@ -2845,7 +2845,7 @@
       "name": "opentui/line-chart",
       "title": "Line Chart",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["typography"],
@@ -2861,7 +2861,7 @@
       "name": "opentui/link",
       "title": "Link",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["data"],
@@ -2877,7 +2877,7 @@
       "name": "opentui/list",
       "title": "List",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["utility"],
@@ -2893,7 +2893,7 @@
       "name": "opentui/log",
       "title": "Log",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["templates"],
@@ -2909,7 +2909,7 @@
       "name": "opentui/login-flow",
       "title": "Login Flow",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["typography"],
@@ -2925,7 +2925,7 @@
       "name": "opentui/markdown",
       "title": "Markdown",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["input"],
@@ -2941,7 +2941,7 @@
       "name": "opentui/masked-input",
       "title": "Masked Input",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["navigation"],
@@ -2957,7 +2957,7 @@
       "name": "opentui/menu",
       "title": "Menu",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["overlays"],
@@ -2973,7 +2973,7 @@
       "name": "opentui/modal",
       "title": "Modal",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["ai"],
@@ -2989,7 +2989,7 @@
       "name": "opentui/model-selector",
       "title": "Model Selector",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["feedback"],
@@ -3005,7 +3005,7 @@
       "name": "opentui/multi-progress",
       "title": "Multi Progress",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["selection"],
@@ -3021,7 +3021,7 @@
       "name": "opentui/multi-select",
       "title": "Multi Select",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["feedback"],
@@ -3037,7 +3037,7 @@
       "name": "opentui/notification-badge",
       "title": "Notification Badge",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["overlays"],
@@ -3054,8 +3054,8 @@
       "title": "Notification Center",
       "type": "registry:block",
       "registryDependencies": [
-        "https://rust-ui.com/r/opentui/use-theme.json",
-        "https://rust-ui.com/r/ink/use-notifications.json"
+        "https://termui.rustify.app/r/opentui/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-notifications.json"
       ]
     },
     {
@@ -3072,7 +3072,7 @@
       "name": "opentui/number-input",
       "title": "Number Input",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["navigation"],
@@ -3088,7 +3088,7 @@
       "name": "opentui/pagination",
       "title": "Pagination",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["utility"],
@@ -3104,7 +3104,7 @@
       "name": "opentui/panel",
       "title": "Panel",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["input"],
@@ -3120,7 +3120,7 @@
       "name": "opentui/password-input",
       "title": "Password Input",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["input"],
@@ -3136,7 +3136,7 @@
       "name": "opentui/path-input",
       "title": "Path Input",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["charts"],
@@ -3152,7 +3152,7 @@
       "name": "opentui/pie-chart",
       "title": "Pie Chart",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["overlays"],
@@ -3168,7 +3168,7 @@
       "name": "opentui/popover",
       "title": "Popover",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["feedback"],
@@ -3184,7 +3184,7 @@
       "name": "opentui/progress-bar",
       "title": "Progress Bar",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["feedback"],
@@ -3200,7 +3200,7 @@
       "name": "opentui/progress-circle",
       "title": "Progress Circle",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["utility"],
@@ -3216,7 +3216,7 @@
       "name": "opentui/qr-code",
       "title": "QR Code",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["selection"],
@@ -3232,7 +3232,7 @@
       "name": "opentui/radio-group",
       "title": "Radio Group",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["layout"],
@@ -3248,7 +3248,7 @@
       "name": "opentui/scroll-view",
       "title": "Scroll View",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["input"],
@@ -3264,7 +3264,7 @@
       "name": "opentui/search-input",
       "title": "Search Input",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["selection"],
@@ -3280,7 +3280,7 @@
       "name": "opentui/select",
       "title": "Select",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["templates"],
@@ -3296,7 +3296,7 @@
       "name": "opentui/setup-flow",
       "title": "Setup Flow",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["navigation"],
@@ -3312,7 +3312,7 @@
       "name": "opentui/sidebar",
       "title": "Sidebar",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["feedback"],
@@ -3328,7 +3328,7 @@
       "name": "opentui/skeleton",
       "title": "Skeleton",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["layout"],
@@ -3359,7 +3359,7 @@
       "name": "opentui/sparkline",
       "title": "Sparkline",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["feedback"],
@@ -3376,8 +3376,8 @@
       "title": "Spinner",
       "type": "registry:ui",
       "registryDependencies": [
-        "https://rust-ui.com/r/opentui/use-theme.json",
-        "https://rust-ui.com/r/ink/use-animation.json"
+        "https://termui.rustify.app/r/opentui/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-animation.json"
       ]
     },
     {
@@ -3394,7 +3394,7 @@
       "name": "opentui/splash-screen",
       "title": "Splash Screen",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["layout"],
@@ -3425,7 +3425,7 @@
       "name": "opentui/status-message",
       "title": "Status Message",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["utility"],
@@ -3441,7 +3441,7 @@
       "name": "opentui/stopwatch",
       "title": "Stopwatch",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["ai"],
@@ -3457,7 +3457,7 @@
       "name": "opentui/streaming-text",
       "title": "Streaming Text",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["navigation"],
@@ -3473,7 +3473,7 @@
       "name": "opentui/tabbed-content",
       "title": "Tabbed Content",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["data"],
@@ -3489,7 +3489,7 @@
       "name": "opentui/table",
       "title": "Table",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["navigation"],
@@ -3505,7 +3505,7 @@
       "name": "opentui/tabs",
       "title": "Tabs",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["typography"],
@@ -3521,7 +3521,7 @@
       "name": "opentui/tag",
       "title": "Tag",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["selection"],
@@ -3537,7 +3537,7 @@
       "name": "opentui/tag-input",
       "title": "Tag Input",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["input"],
@@ -3553,7 +3553,7 @@
       "name": "opentui/text-area",
       "title": "Text Area",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["input"],
@@ -3569,7 +3569,7 @@
       "name": "opentui/text-input",
       "title": "Text Input",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["core"],
@@ -3586,9 +3586,9 @@
       "title": "Theme Provider",
       "type": "registry:ui",
       "registryDependencies": [
-        "https://rust-ui.com/r/opentui/types.json",
-        "https://rust-ui.com/r/opentui/theme-default.json",
-        "https://rust-ui.com/r/opentui/use-theme.json"
+        "https://termui.rustify.app/r/opentui/types.json",
+        "https://termui.rustify.app/r/opentui/theme-default.json",
+        "https://termui.rustify.app/r/opentui/use-theme.json"
       ]
     },
     {
@@ -3605,7 +3605,7 @@
       "name": "opentui/thinking-block",
       "title": "Thinking Block",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["forms"],
@@ -3621,7 +3621,7 @@
       "name": "opentui/time-picker",
       "title": "Time Picker",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["utility"],
@@ -3637,7 +3637,7 @@
       "name": "opentui/timer",
       "title": "Timer",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["feedback"],
@@ -3653,7 +3653,7 @@
       "name": "opentui/toast",
       "title": "Toast",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["utility"],
@@ -3669,7 +3669,7 @@
       "name": "opentui/toggle",
       "title": "Toggle",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["ai"],
@@ -3685,7 +3685,7 @@
       "name": "opentui/token-usage",
       "title": "Token Usage",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["ai"],
@@ -3701,7 +3701,7 @@
       "name": "opentui/tool-approval",
       "title": "Tool Approval",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["ai"],
@@ -3717,7 +3717,7 @@
       "name": "opentui/tool-call",
       "title": "Tool Call",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["overlays"],
@@ -3733,7 +3733,7 @@
       "name": "opentui/tooltip",
       "title": "Tooltip",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["data"],
@@ -3749,7 +3749,7 @@
       "name": "opentui/tree",
       "title": "Tree",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["selection"],
@@ -3765,7 +3765,7 @@
       "name": "opentui/tree-select",
       "title": "Tree Select",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["templates"],
@@ -3796,7 +3796,7 @@
       "name": "opentui/virtual-list",
       "title": "Virtual List",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["templates"],
@@ -3812,7 +3812,7 @@
       "name": "opentui/welcome-screen",
       "title": "Welcome Screen",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["forms"],
@@ -3828,7 +3828,7 @@
       "name": "opentui/wizard",
       "title": "Wizard",
       "type": "registry:ui",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/use-theme.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/use-theme.json"]
     },
     {
       "categories": ["navigation"],
@@ -3841,10 +3841,10 @@
       ],
       "name": "ink/pagination",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/terminal-symbols.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/terminal-symbols.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "title": "Pagination",
       "type": "registry:ui",
@@ -3864,10 +3864,10 @@
       "title": "Panel",
       "type": "registry:ui",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/terminal-style.json",
-        "https://rust-ui.com/r/ink/types.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/terminal-style.json",
+        "https://termui.rustify.app/r/ink/types.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ]
     },
     {
@@ -3882,13 +3882,13 @@
       ],
       "name": "ink/password-input",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/terminal-style.json",
-        "https://rust-ui.com/r/ink/terminal-symbols.json",
-        "https://rust-ui.com/r/ink/terminal-text.json",
-        "https://rust-ui.com/r/ink/types.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/terminal-style.json",
+        "https://termui.rustify.app/r/ink/terminal-symbols.json",
+        "https://termui.rustify.app/r/ink/terminal-text.json",
+        "https://termui.rustify.app/r/ink/types.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "title": "Password Input",
       "type": "registry:ui"
@@ -3904,12 +3904,12 @@
       ],
       "name": "ink/path-input",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/terminal-style.json",
-        "https://rust-ui.com/r/ink/terminal-symbols.json",
-        "https://rust-ui.com/r/ink/terminal-text.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/terminal-style.json",
+        "https://termui.rustify.app/r/ink/terminal-symbols.json",
+        "https://termui.rustify.app/r/ink/terminal-text.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "title": "Path Input",
       "type": "registry:ui",
@@ -3928,8 +3928,8 @@
       "title": "Pie Chart",
       "type": "registry:ui",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "dependencies": ["ink"]
     },
@@ -3944,10 +3944,10 @@
       ],
       "name": "ink/popover",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/terminal-style.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/terminal-style.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "title": "Popover",
       "type": "registry:ui",
@@ -3966,9 +3966,9 @@
       "title": "Progress Bar",
       "type": "registry:ui",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/terminal-symbols.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/terminal-symbols.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "dependencies": ["ink"]
     },
@@ -3985,9 +3985,9 @@
       "title": "Progress Circle",
       "type": "registry:ui",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/terminal-symbols.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/terminal-symbols.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "dependencies": ["ink"]
     },
@@ -4004,9 +4004,9 @@
       "title": "QR Code",
       "type": "registry:ui",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/accessibility.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/accessibility.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "dependencies": ["ink"]
     },
@@ -4021,10 +4021,10 @@
       ],
       "name": "ink/radio-group",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/terminal-symbols.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/terminal-symbols.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "title": "Radio Group",
       "type": "registry:ui",
@@ -4043,9 +4043,9 @@
       "title": "Scroll View",
       "type": "registry:ui",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "dependencies": ["ink"]
     },
@@ -4060,13 +4060,13 @@
       ],
       "name": "ink/search-input",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/terminal-style.json",
-        "https://rust-ui.com/r/ink/terminal-symbols.json",
-        "https://rust-ui.com/r/ink/terminal-text.json",
-        "https://rust-ui.com/r/ink/types.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/terminal-style.json",
+        "https://termui.rustify.app/r/ink/terminal-symbols.json",
+        "https://termui.rustify.app/r/ink/terminal-text.json",
+        "https://termui.rustify.app/r/ink/types.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "title": "Search Input",
       "type": "registry:ui",
@@ -4083,10 +4083,10 @@
       ],
       "name": "ink/select",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/terminal-symbols.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/terminal-symbols.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "title": "Select",
       "type": "registry:ui",
@@ -4103,11 +4103,11 @@
       ],
       "name": "ink/setup-flow",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/big-text.json",
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/use-animation.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/big-text.json",
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/use-animation.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "title": "Setup Flow",
       "type": "registry:ui",
@@ -4125,10 +4125,10 @@
       ],
       "name": "ink/sidebar",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/terminal-style.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/terminal-style.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "title": "Sidebar",
       "type": "registry:ui"
@@ -4144,9 +4144,9 @@
       ],
       "name": "ink/skeleton",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/use-animation.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/use-animation.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "title": "Skeleton",
       "type": "registry:ui",
@@ -4179,9 +4179,9 @@
       "title": "Sparkline",
       "type": "registry:ui",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/accessibility.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/accessibility.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "dependencies": ["ink"]
     },
@@ -4197,9 +4197,9 @@
       ],
       "name": "ink/spinner",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/use-animation.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/use-animation.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "title": "Spinner",
       "type": "registry:ui"
@@ -4215,9 +4215,9 @@
       ],
       "name": "ink/splash-screen",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/big-text.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/big-text.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "title": "Splash Screen",
       "type": "registry:ui",
@@ -4250,10 +4250,10 @@
       "title": "Status Message",
       "type": "registry:ui",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/spinner.json",
-        "https://rust-ui.com/r/ink/terminal-symbols.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/spinner.json",
+        "https://termui.rustify.app/r/ink/terminal-symbols.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "dependencies": ["ink"]
     },
@@ -4268,10 +4268,10 @@
       ],
       "name": "ink/stopwatch",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/use-interval.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/use-interval.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "title": "Stopwatch",
       "type": "registry:ui",
@@ -4291,10 +4291,10 @@
       "title": "Streaming Text",
       "type": "registry:ui",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/terminal-text.json",
-        "https://rust-ui.com/r/ink/use-motion.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/terminal-text.json",
+        "https://termui.rustify.app/r/ink/use-motion.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ]
     },
     {
@@ -4308,10 +4308,10 @@
       ],
       "name": "ink/tabbed-content",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/terminal-style.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/terminal-style.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "title": "Tabbed Content",
       "type": "registry:ui",
@@ -4328,10 +4328,10 @@
       ],
       "name": "ink/table",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/terminal-text.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/terminal-text.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "title": "Table",
       "type": "registry:ui",
@@ -4348,11 +4348,11 @@
       ],
       "name": "ink/tabs",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/terminal-style.json",
-        "https://rust-ui.com/r/ink/types.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/terminal-style.json",
+        "https://termui.rustify.app/r/ink/types.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "title": "Tabs",
       "type": "registry:ui",
@@ -4371,10 +4371,10 @@
       "title": "Tag",
       "type": "registry:ui",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/terminal-style.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/terminal-style.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "dependencies": ["ink"]
     },
@@ -4389,11 +4389,11 @@
       ],
       "name": "ink/tag-input",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/terminal-symbols.json",
-        "https://rust-ui.com/r/ink/terminal-text.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/terminal-symbols.json",
+        "https://termui.rustify.app/r/ink/terminal-text.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "title": "Tag Input",
       "type": "registry:ui",
@@ -4411,13 +4411,13 @@
       ],
       "name": "ink/text-area",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/terminal-style.json",
-        "https://rust-ui.com/r/ink/terminal-symbols.json",
-        "https://rust-ui.com/r/ink/terminal-text.json",
-        "https://rust-ui.com/r/ink/types.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/terminal-style.json",
+        "https://termui.rustify.app/r/ink/terminal-symbols.json",
+        "https://termui.rustify.app/r/ink/terminal-text.json",
+        "https://termui.rustify.app/r/ink/types.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "title": "Text Area",
       "type": "registry:ui"
@@ -4434,13 +4434,13 @@
       ],
       "name": "ink/text-input",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/terminal-style.json",
-        "https://rust-ui.com/r/ink/terminal-symbols.json",
-        "https://rust-ui.com/r/ink/terminal-text.json",
-        "https://rust-ui.com/r/ink/types.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/terminal-style.json",
+        "https://termui.rustify.app/r/ink/terminal-symbols.json",
+        "https://termui.rustify.app/r/ink/terminal-text.json",
+        "https://termui.rustify.app/r/ink/types.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "title": "Text Input",
       "type": "registry:ui"
@@ -4456,7 +4456,7 @@
         }
       ],
       "name": "ink/theme-catppuccin",
-      "registryDependencies": ["https://rust-ui.com/r/ink/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/ink/types.json"],
       "title": "Catppuccin",
       "type": "registry:file"
     },
@@ -4471,7 +4471,7 @@
         }
       ],
       "name": "ink/theme-default",
-      "registryDependencies": ["https://rust-ui.com/r/ink/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/ink/types.json"],
       "title": "Default",
       "type": "registry:file"
     },
@@ -4486,7 +4486,7 @@
         }
       ],
       "name": "ink/theme-dracula",
-      "registryDependencies": ["https://rust-ui.com/r/ink/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/ink/types.json"],
       "title": "Dracula",
       "type": "registry:file"
     },
@@ -4501,7 +4501,7 @@
         }
       ],
       "name": "ink/theme-high-contrast",
-      "registryDependencies": ["https://rust-ui.com/r/ink/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/ink/types.json"],
       "title": "High Contrast",
       "type": "registry:file"
     },
@@ -4516,7 +4516,7 @@
         }
       ],
       "name": "ink/theme-monokai",
-      "registryDependencies": ["https://rust-ui.com/r/ink/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/ink/types.json"],
       "title": "Monokai",
       "type": "registry:file"
     },
@@ -4531,7 +4531,7 @@
         }
       ],
       "name": "ink/theme-nord",
-      "registryDependencies": ["https://rust-ui.com/r/ink/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/ink/types.json"],
       "title": "Nord",
       "type": "registry:file"
     },
@@ -4546,7 +4546,7 @@
         }
       ],
       "name": "ink/theme-one-dark",
-      "registryDependencies": ["https://rust-ui.com/r/ink/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/ink/types.json"],
       "title": "One Dark",
       "type": "registry:file"
     },
@@ -4564,9 +4564,9 @@
       "title": "Theme Provider",
       "type": "registry:ui",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/theme-default.json",
-        "https://rust-ui.com/r/ink/types.json",
-        "https://rust-ui.com/r/ink/use-theme.json"
+        "https://termui.rustify.app/r/ink/theme-default.json",
+        "https://termui.rustify.app/r/ink/types.json",
+        "https://termui.rustify.app/r/ink/use-theme.json"
       ]
     },
     {
@@ -4580,7 +4580,7 @@
         }
       ],
       "name": "ink/theme-solarized",
-      "registryDependencies": ["https://rust-ui.com/r/ink/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/ink/types.json"],
       "title": "Solarized",
       "type": "registry:file"
     },
@@ -4595,7 +4595,7 @@
         }
       ],
       "name": "ink/theme-tokyo-night",
-      "registryDependencies": ["https://rust-ui.com/r/ink/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/ink/types.json"],
       "title": "Tokyo Night",
       "type": "registry:file"
     },
@@ -4610,7 +4610,7 @@
         }
       ],
       "name": "ink/theme-amoled",
-      "registryDependencies": ["https://rust-ui.com/r/ink/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/ink/types.json"],
       "title": "AMOLED",
       "type": "registry:file"
     },
@@ -4625,7 +4625,7 @@
         }
       ],
       "name": "ink/theme-aura",
-      "registryDependencies": ["https://rust-ui.com/r/ink/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/ink/types.json"],
       "title": "Aura",
       "type": "registry:file"
     },
@@ -4640,7 +4640,7 @@
         }
       ],
       "name": "ink/theme-ayu",
-      "registryDependencies": ["https://rust-ui.com/r/ink/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/ink/types.json"],
       "title": "Ayu",
       "type": "registry:file"
     },
@@ -4655,7 +4655,7 @@
         }
       ],
       "name": "ink/theme-carbonfox",
-      "registryDependencies": ["https://rust-ui.com/r/ink/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/ink/types.json"],
       "title": "Carbonfox",
       "type": "registry:file"
     },
@@ -4670,7 +4670,7 @@
         }
       ],
       "name": "ink/theme-catppuccin-frappe",
-      "registryDependencies": ["https://rust-ui.com/r/ink/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/ink/types.json"],
       "title": "Catppuccin Frappe",
       "type": "registry:file"
     },
@@ -4685,7 +4685,7 @@
         }
       ],
       "name": "ink/theme-catppuccin-macchiato",
-      "registryDependencies": ["https://rust-ui.com/r/ink/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/ink/types.json"],
       "title": "Catppuccin Macchiato",
       "type": "registry:file"
     },
@@ -4700,7 +4700,7 @@
         }
       ],
       "name": "ink/theme-cobalt2",
-      "registryDependencies": ["https://rust-ui.com/r/ink/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/ink/types.json"],
       "title": "Cobalt2",
       "type": "registry:file"
     },
@@ -4715,7 +4715,7 @@
         }
       ],
       "name": "ink/theme-cursor",
-      "registryDependencies": ["https://rust-ui.com/r/ink/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/ink/types.json"],
       "title": "Cursor",
       "type": "registry:file"
     },
@@ -4730,7 +4730,7 @@
         }
       ],
       "name": "ink/theme-everforest",
-      "registryDependencies": ["https://rust-ui.com/r/ink/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/ink/types.json"],
       "title": "Everforest",
       "type": "registry:file"
     },
@@ -4745,7 +4745,7 @@
         }
       ],
       "name": "ink/theme-flexoki",
-      "registryDependencies": ["https://rust-ui.com/r/ink/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/ink/types.json"],
       "title": "Flexoki",
       "type": "registry:file"
     },
@@ -4760,7 +4760,7 @@
         }
       ],
       "name": "ink/theme-github",
-      "registryDependencies": ["https://rust-ui.com/r/ink/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/ink/types.json"],
       "title": "GitHub",
       "type": "registry:file"
     },
@@ -4775,7 +4775,7 @@
         }
       ],
       "name": "ink/theme-gruvbox",
-      "registryDependencies": ["https://rust-ui.com/r/ink/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/ink/types.json"],
       "title": "Gruvbox",
       "type": "registry:file"
     },
@@ -4790,7 +4790,7 @@
         }
       ],
       "name": "ink/theme-kanagawa",
-      "registryDependencies": ["https://rust-ui.com/r/ink/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/ink/types.json"],
       "title": "Kanagawa",
       "type": "registry:file"
     },
@@ -4805,7 +4805,7 @@
         }
       ],
       "name": "ink/theme-lucent-orng",
-      "registryDependencies": ["https://rust-ui.com/r/ink/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/ink/types.json"],
       "title": "Lucent Orng",
       "type": "registry:file"
     },
@@ -4820,7 +4820,7 @@
         }
       ],
       "name": "ink/theme-material",
-      "registryDependencies": ["https://rust-ui.com/r/ink/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/ink/types.json"],
       "title": "Material",
       "type": "registry:file"
     },
@@ -4835,7 +4835,7 @@
         }
       ],
       "name": "ink/theme-matrix",
-      "registryDependencies": ["https://rust-ui.com/r/ink/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/ink/types.json"],
       "title": "Matrix",
       "type": "registry:file"
     },
@@ -4850,7 +4850,7 @@
         }
       ],
       "name": "ink/theme-mercury",
-      "registryDependencies": ["https://rust-ui.com/r/ink/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/ink/types.json"],
       "title": "Mercury",
       "type": "registry:file"
     },
@@ -4865,7 +4865,7 @@
         }
       ],
       "name": "ink/theme-nightowl",
-      "registryDependencies": ["https://rust-ui.com/r/ink/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/ink/types.json"],
       "title": "Night Owl",
       "type": "registry:file"
     },
@@ -4880,7 +4880,7 @@
         }
       ],
       "name": "ink/theme-oc-2",
-      "registryDependencies": ["https://rust-ui.com/r/ink/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/ink/types.json"],
       "title": "OC-2",
       "type": "registry:file"
     },
@@ -4895,7 +4895,7 @@
         }
       ],
       "name": "ink/theme-onedarkpro",
-      "registryDependencies": ["https://rust-ui.com/r/ink/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/ink/types.json"],
       "title": "One Dark Pro",
       "type": "registry:file"
     },
@@ -4910,7 +4910,7 @@
         }
       ],
       "name": "ink/theme-opencode",
-      "registryDependencies": ["https://rust-ui.com/r/ink/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/ink/types.json"],
       "title": "OpenCode",
       "type": "registry:file"
     },
@@ -4925,7 +4925,7 @@
         }
       ],
       "name": "ink/theme-orng",
-      "registryDependencies": ["https://rust-ui.com/r/ink/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/ink/types.json"],
       "title": "Orng",
       "type": "registry:file"
     },
@@ -4940,7 +4940,7 @@
         }
       ],
       "name": "ink/theme-osaka-jade",
-      "registryDependencies": ["https://rust-ui.com/r/ink/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/ink/types.json"],
       "title": "Osaka Jade",
       "type": "registry:file"
     },
@@ -4955,7 +4955,7 @@
         }
       ],
       "name": "ink/theme-palenight",
-      "registryDependencies": ["https://rust-ui.com/r/ink/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/ink/types.json"],
       "title": "Palenight",
       "type": "registry:file"
     },
@@ -4970,7 +4970,7 @@
         }
       ],
       "name": "ink/theme-rosepine",
-      "registryDependencies": ["https://rust-ui.com/r/ink/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/ink/types.json"],
       "title": "Rose Pine",
       "type": "registry:file"
     },
@@ -4985,7 +4985,7 @@
         }
       ],
       "name": "ink/theme-shadesofpurple",
-      "registryDependencies": ["https://rust-ui.com/r/ink/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/ink/types.json"],
       "title": "Shades of Purple",
       "type": "registry:file"
     },
@@ -5000,7 +5000,7 @@
         }
       ],
       "name": "ink/theme-synthwave84",
-      "registryDependencies": ["https://rust-ui.com/r/ink/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/ink/types.json"],
       "title": "Synthwave '84",
       "type": "registry:file"
     },
@@ -5015,7 +5015,7 @@
         }
       ],
       "name": "ink/theme-vercel",
-      "registryDependencies": ["https://rust-ui.com/r/ink/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/ink/types.json"],
       "title": "Vercel",
       "type": "registry:file"
     },
@@ -5030,7 +5030,7 @@
         }
       ],
       "name": "ink/theme-vesper",
-      "registryDependencies": ["https://rust-ui.com/r/ink/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/ink/types.json"],
       "title": "Vesper",
       "type": "registry:file"
     },
@@ -5045,7 +5045,7 @@
         }
       ],
       "name": "ink/theme-zenburn",
-      "registryDependencies": ["https://rust-ui.com/r/ink/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/ink/types.json"],
       "title": "Zenburn",
       "type": "registry:file"
     },
@@ -5061,10 +5061,10 @@
       ],
       "name": "ink/thinking-block",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/terminal-style.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/terminal-style.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "title": "Thinking Block",
       "type": "registry:ui"
@@ -5080,10 +5080,10 @@
       ],
       "name": "ink/time-picker",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/terminal-style.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/terminal-style.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "title": "Time Picker",
       "type": "registry:ui",
@@ -5100,10 +5100,10 @@
       ],
       "name": "ink/timer",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/use-interval.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/use-interval.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "title": "Timer",
       "type": "registry:ui",
@@ -5121,11 +5121,11 @@
       ],
       "name": "ink/toast",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/terminal-style.json",
-        "https://rust-ui.com/r/ink/terminal-symbols.json",
-        "https://rust-ui.com/r/ink/use-interval.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/terminal-style.json",
+        "https://termui.rustify.app/r/ink/terminal-symbols.json",
+        "https://termui.rustify.app/r/ink/use-interval.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "title": "Toast",
       "type": "registry:ui"
@@ -5141,12 +5141,12 @@
       ],
       "name": "ink/toggle",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/terminal-style.json",
-        "https://rust-ui.com/r/ink/terminal-symbols.json",
-        "https://rust-ui.com/r/ink/types.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/terminal-style.json",
+        "https://termui.rustify.app/r/ink/terminal-symbols.json",
+        "https://termui.rustify.app/r/ink/types.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "title": "Toggle",
       "type": "registry:ui",
@@ -5165,8 +5165,8 @@
       "title": "Token Usage",
       "type": "registry:ui",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "dependencies": ["ink"]
     },
@@ -5182,11 +5182,11 @@
       ],
       "name": "ink/tool-approval",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/terminal-style.json",
-        "https://rust-ui.com/r/ink/use-interval.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/terminal-style.json",
+        "https://termui.rustify.app/r/ink/use-interval.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "title": "Tool Approval",
       "type": "registry:ui"
@@ -5202,12 +5202,12 @@
       ],
       "name": "ink/tool-call",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/terminal-symbols.json",
-        "https://rust-ui.com/r/ink/use-animation.json",
-        "https://rust-ui.com/r/ink/use-interval.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/terminal-symbols.json",
+        "https://termui.rustify.app/r/ink/use-animation.json",
+        "https://termui.rustify.app/r/ink/use-interval.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "title": "Tool Call",
       "type": "registry:ui",
@@ -5227,10 +5227,10 @@
       "title": "Tooltip",
       "type": "registry:ui",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/terminal-style.json",
-        "https://rust-ui.com/r/ink/types.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/terminal-style.json",
+        "https://termui.rustify.app/r/ink/types.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ]
     },
     {
@@ -5244,10 +5244,10 @@
       ],
       "name": "ink/tree",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/terminal-symbols.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/terminal-symbols.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "title": "Tree",
       "type": "registry:ui",
@@ -5264,10 +5264,10 @@
       ],
       "name": "ink/tree-select",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/terminal-symbols.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/terminal-symbols.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "title": "Tree Select",
       "type": "registry:ui",
@@ -5284,8 +5284,8 @@
       ],
       "name": "ink/usage-monitor",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/use-interval.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/use-interval.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "title": "Usage Monitor",
       "type": "registry:ui",
@@ -5304,7 +5304,7 @@
       "name": "ink/use-animation",
       "title": "Use Animation",
       "type": "registry:hook",
-      "registryDependencies": ["https://rust-ui.com/r/ink/use-motion.json"]
+      "registryDependencies": ["https://termui.rustify.app/r/ink/use-motion.json"]
     },
     {
       "categories": ["core"],
@@ -5360,7 +5360,7 @@
       "name": "ink/use-interval",
       "title": "Use Interval",
       "type": "registry:hook",
-      "registryDependencies": ["https://rust-ui.com/r/ink/use-motion.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/ink/use-motion.json"],
       "dependencies": ["ink"]
     },
     {
@@ -5387,9 +5387,9 @@
       ],
       "name": "ink/virtual-list",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "title": "Virtual List",
       "type": "registry:ui",
@@ -5408,10 +5408,10 @@
       "title": "Welcome Screen",
       "type": "registry:ui",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/terminal-style.json",
-        "https://rust-ui.com/r/ink/types.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/terminal-style.json",
+        "https://termui.rustify.app/r/ink/types.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "dependencies": ["ink"]
     },
@@ -5426,10 +5426,10 @@
       ],
       "name": "ink/wizard",
       "registryDependencies": [
-        "https://rust-ui.com/r/ink/interaction.json",
-        "https://rust-ui.com/r/ink/terminal-symbols.json",
-        "https://rust-ui.com/r/ink/use-theme.json",
-        "https://rust-ui.com/r/ink/use-unicode.json"
+        "https://termui.rustify.app/r/ink/interaction.json",
+        "https://termui.rustify.app/r/ink/terminal-symbols.json",
+        "https://termui.rustify.app/r/ink/use-theme.json",
+        "https://termui.rustify.app/r/ink/use-unicode.json"
       ],
       "title": "Wizard",
       "type": "registry:ui",
@@ -5446,7 +5446,7 @@
         }
       ],
       "name": "opentui/theme-catppuccin",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/types.json"],
       "title": "Catppuccin",
       "type": "registry:file"
     },
@@ -5461,7 +5461,7 @@
         }
       ],
       "name": "opentui/theme-default",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/types.json"],
       "title": "Default",
       "type": "registry:file"
     },
@@ -5476,7 +5476,7 @@
         }
       ],
       "name": "opentui/theme-dracula",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/types.json"],
       "title": "Dracula",
       "type": "registry:file"
     },
@@ -5491,7 +5491,7 @@
         }
       ],
       "name": "opentui/theme-high-contrast",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/types.json"],
       "title": "High Contrast",
       "type": "registry:file"
     },
@@ -5506,7 +5506,7 @@
         }
       ],
       "name": "opentui/theme-monokai",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/types.json"],
       "title": "Monokai",
       "type": "registry:file"
     },
@@ -5521,7 +5521,7 @@
         }
       ],
       "name": "opentui/theme-nord",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/types.json"],
       "title": "Nord",
       "type": "registry:file"
     },
@@ -5536,7 +5536,7 @@
         }
       ],
       "name": "opentui/theme-one-dark",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/types.json"],
       "title": "One Dark",
       "type": "registry:file"
     },
@@ -5551,7 +5551,7 @@
         }
       ],
       "name": "opentui/theme-solarized",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/types.json"],
       "title": "Solarized",
       "type": "registry:file"
     },
@@ -5566,7 +5566,7 @@
         }
       ],
       "name": "opentui/theme-tokyo-night",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/types.json"],
       "title": "Tokyo Night",
       "type": "registry:file"
     },
@@ -5581,7 +5581,7 @@
         }
       ],
       "name": "opentui/theme-amoled",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/types.json"],
       "title": "AMOLED",
       "type": "registry:file"
     },
@@ -5596,7 +5596,7 @@
         }
       ],
       "name": "opentui/theme-aura",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/types.json"],
       "title": "Aura",
       "type": "registry:file"
     },
@@ -5611,7 +5611,7 @@
         }
       ],
       "name": "opentui/theme-ayu",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/types.json"],
       "title": "Ayu",
       "type": "registry:file"
     },
@@ -5626,7 +5626,7 @@
         }
       ],
       "name": "opentui/theme-carbonfox",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/types.json"],
       "title": "Carbonfox",
       "type": "registry:file"
     },
@@ -5641,7 +5641,7 @@
         }
       ],
       "name": "opentui/theme-catppuccin-frappe",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/types.json"],
       "title": "Catppuccin Frappe",
       "type": "registry:file"
     },
@@ -5656,7 +5656,7 @@
         }
       ],
       "name": "opentui/theme-catppuccin-macchiato",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/types.json"],
       "title": "Catppuccin Macchiato",
       "type": "registry:file"
     },
@@ -5671,7 +5671,7 @@
         }
       ],
       "name": "opentui/theme-cobalt2",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/types.json"],
       "title": "Cobalt2",
       "type": "registry:file"
     },
@@ -5686,7 +5686,7 @@
         }
       ],
       "name": "opentui/theme-cursor",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/types.json"],
       "title": "Cursor",
       "type": "registry:file"
     },
@@ -5701,7 +5701,7 @@
         }
       ],
       "name": "opentui/theme-everforest",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/types.json"],
       "title": "Everforest",
       "type": "registry:file"
     },
@@ -5716,7 +5716,7 @@
         }
       ],
       "name": "opentui/theme-flexoki",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/types.json"],
       "title": "Flexoki",
       "type": "registry:file"
     },
@@ -5731,7 +5731,7 @@
         }
       ],
       "name": "opentui/theme-github",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/types.json"],
       "title": "GitHub",
       "type": "registry:file"
     },
@@ -5746,7 +5746,7 @@
         }
       ],
       "name": "opentui/theme-gruvbox",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/types.json"],
       "title": "Gruvbox",
       "type": "registry:file"
     },
@@ -5761,7 +5761,7 @@
         }
       ],
       "name": "opentui/theme-kanagawa",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/types.json"],
       "title": "Kanagawa",
       "type": "registry:file"
     },
@@ -5776,7 +5776,7 @@
         }
       ],
       "name": "opentui/theme-lucent-orng",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/types.json"],
       "title": "Lucent Orng",
       "type": "registry:file"
     },
@@ -5791,7 +5791,7 @@
         }
       ],
       "name": "opentui/theme-material",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/types.json"],
       "title": "Material",
       "type": "registry:file"
     },
@@ -5806,7 +5806,7 @@
         }
       ],
       "name": "opentui/theme-matrix",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/types.json"],
       "title": "Matrix",
       "type": "registry:file"
     },
@@ -5821,7 +5821,7 @@
         }
       ],
       "name": "opentui/theme-mercury",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/types.json"],
       "title": "Mercury",
       "type": "registry:file"
     },
@@ -5836,7 +5836,7 @@
         }
       ],
       "name": "opentui/theme-nightowl",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/types.json"],
       "title": "Night Owl",
       "type": "registry:file"
     },
@@ -5851,7 +5851,7 @@
         }
       ],
       "name": "opentui/theme-oc-2",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/types.json"],
       "title": "OC-2",
       "type": "registry:file"
     },
@@ -5866,7 +5866,7 @@
         }
       ],
       "name": "opentui/theme-onedarkpro",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/types.json"],
       "title": "One Dark Pro",
       "type": "registry:file"
     },
@@ -5881,7 +5881,7 @@
         }
       ],
       "name": "opentui/theme-opencode",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/types.json"],
       "title": "OpenCode",
       "type": "registry:file"
     },
@@ -5896,7 +5896,7 @@
         }
       ],
       "name": "opentui/theme-orng",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/types.json"],
       "title": "Orng",
       "type": "registry:file"
     },
@@ -5911,7 +5911,7 @@
         }
       ],
       "name": "opentui/theme-osaka-jade",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/types.json"],
       "title": "Osaka Jade",
       "type": "registry:file"
     },
@@ -5926,7 +5926,7 @@
         }
       ],
       "name": "opentui/theme-palenight",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/types.json"],
       "title": "Palenight",
       "type": "registry:file"
     },
@@ -5941,7 +5941,7 @@
         }
       ],
       "name": "opentui/theme-rosepine",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/types.json"],
       "title": "Rose Pine",
       "type": "registry:file"
     },
@@ -5956,7 +5956,7 @@
         }
       ],
       "name": "opentui/theme-shadesofpurple",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/types.json"],
       "title": "Shades of Purple",
       "type": "registry:file"
     },
@@ -5971,7 +5971,7 @@
         }
       ],
       "name": "opentui/theme-synthwave84",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/types.json"],
       "title": "Synthwave '84",
       "type": "registry:file"
     },
@@ -5986,7 +5986,7 @@
         }
       ],
       "name": "opentui/theme-vercel",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/types.json"],
       "title": "Vercel",
       "type": "registry:file"
     },
@@ -6001,7 +6001,7 @@
         }
       ],
       "name": "opentui/theme-vesper",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/types.json"],
       "title": "Vesper",
       "type": "registry:file"
     },
@@ -6016,7 +6016,7 @@
         }
       ],
       "name": "opentui/theme-zenburn",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/types.json"],
       "title": "Zenburn",
       "type": "registry:file"
     },
@@ -6031,7 +6031,7 @@
         }
       ],
       "name": "ink/theme-high-contrast-light",
-      "registryDependencies": ["https://rust-ui.com/r/ink/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/ink/types.json"],
       "title": "High Contrast Light",
       "type": "registry:file"
     },
@@ -6046,7 +6046,7 @@
         }
       ],
       "name": "opentui/theme-high-contrast-light",
-      "registryDependencies": ["https://rust-ui.com/r/opentui/types.json"],
+      "registryDependencies": ["https://termui.rustify.app/r/opentui/types.json"],
       "title": "High Contrast Light",
       "type": "registry:file"
     }

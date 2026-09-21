@@ -4,7 +4,7 @@
   "title": "One Dark Pro",
   "description": "One Dark Pro - VS Code version.",
   "registryDependencies": [
-    "https://rust-ui.com/r/opentui/types.json"
+    "https://termui.rustify.app/r/opentui/types.json"
   ],
   "files": [
     {

@@ -7,10 +7,10 @@
     "ink"
   ],
   "registryDependencies": [
-    "https://rust-ui.com/r/ink/spinner.json",
-    "https://rust-ui.com/r/ink/terminal-symbols.json",
-    "https://rust-ui.com/r/ink/use-theme.json",
-    "https://rust-ui.com/r/ink/use-unicode.json"
+    "https://termui.rustify.app/r/ink/spinner.json",
+    "https://termui.rustify.app/r/ink/terminal-symbols.json",
+    "https://termui.rustify.app/r/ink/use-theme.json",
+    "https://termui.rustify.app/r/ink/use-unicode.json"
   ],
   "files": [
     {

@@ -4,8 +4,8 @@
   "title": "Motion Provider",
   "description": "Optional reduced-motion override provider.",
   "registryDependencies": [
-    "https://rust-ui.com/r/ink/types.json",
-    "https://rust-ui.com/r/ink/use-motion.json"
+    "https://termui.rustify.app/r/ink/types.json",
+    "https://termui.rustify.app/r/ink/use-motion.json"
   ],
   "files": [
     {
