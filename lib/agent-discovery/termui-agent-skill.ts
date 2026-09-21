@@ -13,7 +13,6 @@ Help users add **${SITE.NAME}** components via the shadcn CLI against the public
 ## Registry
 
 - Registry JSON: \`/r/registry.json\` (shadcn schema)
-- Docs: ${ROUTES.DOCS_REGISTRY}
 - shadcn MCP docs: ${LINK.SHADCN_MCP_DOCS}
 
 ## Install (shadcn)

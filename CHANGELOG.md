@@ -6,6 +6,7 @@ Notable Term/UI changes are recorded here. Format follows [Keep a Changelog](htt
 
 ### Added
 
+- Added an interactive Ratatui button demo running in Ratzilla/WebAssembly, with checked-in web assets for production.
 - Added a copyable Ratatui `Button` widget with shadcn-inspired color variants, focus and disabled states, docs, and a Rust-rendered ANSI preview.
 - Added `AGENTS.md` and `__SKILLS_LEARNINGS/LEARNINGS.md` to preserve project rules and reusable implementation lessons.
 - Added native Rust demo rendering that writes checked-in preview frames consumed by the site.
@@ -14,6 +15,7 @@ Notable Term/UI changes are recorded here. Format follows [Keep a Changelog](htt
 
 ### Changed
 
+- Removed the Registry overview page and centered the initial launch on a small set of simple Ratatui widgets.
 - Removed the duplicate Widgets link from the docs Sections navigation; widget links remain grouped below.
 - Added a Usage section after Source on each widget page.
 - Moved the button example into a dedicated Usage section after its source.
