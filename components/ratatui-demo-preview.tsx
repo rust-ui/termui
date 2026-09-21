@@ -192,7 +192,7 @@ export const RatatuiDemoPreview = ({
       }}
     >
       <pre
-        className="m-0 min-w-max font-mono text-xs leading-[18px]"
+        className="m-0 min-w-max select-none font-mono text-xs leading-[18px]"
         style={{ color: theme.colors.foreground, textAlign: "center", fontSize }}
       >
         {frame.map((line, row) => (

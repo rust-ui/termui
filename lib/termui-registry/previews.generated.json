@@ -3135,7 +3135,7 @@
     "\u001b[0m\u001b[36m│\u001b[0m                                        \u001b[0m\u001b[36m│\u001b[0m",
     "\u001b[0m\u001b[36m╰Esc Back────────────────────────────────╯\u001b[0m"
   ],
-  "rust/radio-group": [
+  "rust/radio-card": [
     "\u001b[0m\u001b[38;2;59;130;246m╭\u001b[0m\u001b[38;2;59;130;246;1m◉ Standard\u001b[0m\u001b[38;2;59;130;246m─────────╮\u001b[0m \u001b[0m\u001b[90m╭\u001b[0m\u001b[97m○ High contrast\u001b[0m\u001b[90m───╮\u001b[0m",
     "\u001b[0m\u001b[38;2;59;130;246m│\u001b[0m\u001b[37mBalanced palette   \u001b[0m\u001b[38;2;59;130;246m│\u001b[0m \u001b[0m\u001b[90m│\u001b[0m\u001b[37mStronger borders  \u001b[0m\u001b[90m│\u001b[0m",
     "\u001b[0m\u001b[38;2;59;130;246m│\u001b[0m\u001b[37m                   \u001b[0m\u001b[38;2;59;130;246m│\u001b[0m \u001b[0m\u001b[90m│\u001b[0m\u001b[37m                  \u001b[0m\u001b[90m│\u001b[0m",

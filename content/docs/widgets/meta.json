@@ -6,7 +6,7 @@
     "dialog",
     "key-bar",
     "panel",
-    "radio-group",
+    "radio-card",
     "select-list",
     "text-input",
     "toast"
