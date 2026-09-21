@@ -7,7 +7,7 @@ Notable Term/UI changes are recorded here. Format follows [Keep a Changelog](htt
 ### Added
 
 - Added separate Button default, variant, size, and interactive examples with a shared Preview/Code switcher; static examples render the actual widget API.
-- Added `ButtonSize::{Sm, Default, Lg}` for terminal-cell padding.
+- Added `ButtonSize::{Sm, Default, Lg}` for terminal-cell padding, with a larger default button and Button previews.
 - Added an interactive Ratatui button demo inside the terminal preview, running in Ratzilla/WebAssembly with checked-in web assets for production.
 - Added a copyable Ratatui `Button` widget with shadcn-inspired color variants, focus and disabled states, docs, and a Rust-rendered ANSI preview.
 - Added `AGENTS.md` and `__SKILLS_LEARNINGS/LEARNINGS.md` to preserve project rules and reusable implementation lessons.
