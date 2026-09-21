@@ -6,6 +6,7 @@ Notable Term/UI changes are recorded here. Format follows [Keep a Changelog](htt
 
 ### Added
 
+- Added terminal preview sections for every remaining widget in the all-widgets plan.
 - Added Calendar and Chart sections to the all-widgets plan with terminal previews.
 - Added a Checkbox section to the all-widgets plan with unchecked and checked states.
 - Added separate Button default, variant, size, and interactive examples with a shared Preview/Code switcher; static examples render the actual widget API.
