@@ -1,2 +1,23 @@
+# Supply-chain hardening for TERMUI dependencies. Keep aligned with RUSTIFY.
+minimumReleaseAge: 10080
+minimumReleaseAgeStrict: false
+minimumReleaseAgeIgnoreMissingTime: false
+
+trustPolicy: no-downgrade
+trustPolicyExclude:
+  - undici-types
+  # semver 6 has no newer published release; keep the exact transitive pin.
+  - semver@6.3.1
+blockExoticSubdeps: true
+trustLockfile: false
+
+strictDepBuilds: true
+dangerouslyAllowAllBuilds: false
 allowBuilds:
+  core-js: true
   esbuild: true
+  # MSW postinstall exits without changes unless workerDirectory is configured.
+  msw: true
+
+audit:
+  level: high

@@ -2,11 +2,7 @@
   "compilerOptions": {
     "ignoreDeprecations": "6.0",
     "target": "ES2017",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -25,9 +21,15 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "./*"
-      ]
+      "@/*": ["./*"],
+      "@opentui/react": ["./types/opentui-react.d.ts"],
+      "@opentui/react/jsx-runtime": [
+        "./lib/opentui-bridge/react-jsx-runtime.ts"
+      ],
+      "@opentui/react/jsx-dev-runtime": [
+        "./lib/opentui-bridge/react-jsx-dev-runtime.ts"
+      ],
+      "react": ["./node_modules/@types/react"]
     }
   },
   "include": [
@@ -35,10 +37,9 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
+    "scripts/build-registry.mts",
+    "next.config.mjs",
     ".next/dev/types/**/*.ts"
   ],
-  "exclude": [
-    "node_modules",
-    "__TMP"
-  ]
+  "exclude": ["node_modules", "examples", "registry", "audio", "__TMP"]
 }

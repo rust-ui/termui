@@ -40,7 +40,7 @@ export const getStargazers = unstable_cache(
         page += 1;
       }
 
-      return pages;
+      return pages.filter((s) => s.login !== GITHUB.org);
     } catch {
       return [];
     }

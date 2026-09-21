@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ink/accessibility",
+  "title": "Accessibility",
+  "description": "Accessibility contracts and summaries for Ink components.",
+  "files": [
+    {
+      "path": "registry/lib/accessibility.ts",
+      "content": "export type VisualAccessibilityProps =\n  | { \"aria-hidden\": true; alt?: never }\n  | { \"aria-hidden\"?: false; alt: string };\n\nexport interface AccessibleSeriesPoint {\n  label?: string;\n  value: number;\n}\n\nexport const summarizeSeries = (\n  label: string,\n  points: readonly AccessibleSeriesPoint[],\n  maximumPoints = 5\n): string => {\n  if (points.length === 0) {\n    return `${label}: no data`;\n  }\n\n  const values = points.map(({ value }) => value);\n  const minimum = Math.min(...values);\n  const maximum = Math.max(...values);\n  const current = values.at(-1) ?? 0;\n  const first = values[0] ?? current;\n  let trend = \"flat\";\n  if (current > first) {\n    trend = \"increasing\";\n  } else if (current < first) {\n    trend = \"decreasing\";\n  }\n  const samples = points\n    .slice(0, Math.max(0, maximumPoints))\n    .map((point, index) => `${point.label ?? index + 1}: ${point.value}`)\n    .join(\", \");\n  const omitted = Math.max(0, points.length - maximumPoints);\n\n  return `${label}. Current ${current}. Range ${minimum} to ${maximum}. Trend ${trend}.${\n    samples\n      ? ` Values: ${samples}${omitted > 0 ? `, and ${omitted} more` : \"\"}.`\n      : \"\"\n  }`;\n};\n",
+      "type": "registry:file",
+      "target": "lib/accessibility.ts"
+    }
+  ],
+  "categories": [
+    "core"
+  ],
+  "type": "registry:file"
+}

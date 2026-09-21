@@ -1,0 +1,120 @@
+---
+title: "Scroll View"
+description: "Scrollable container with scrollbar"
+---
+
+<ComponentPreview base="ink" name="scroll-view-demo" hideCode />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @termcn/ink/scroll-view
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install ink
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/ink/ui/types.ts"
+  title="components/ui/types.ts"
+/>
+
+<ComponentSource
+  src="registry/bases/ink/themes/default.ts"
+  title="lib/terminal-themes/default.ts"
+/>
+
+<ComponentSource
+  src="registry/bases/ink/hooks/use-theme.ts"
+  title="hooks/use-theme.ts"
+/>
+
+<ComponentSource
+  src="registry/bases/ink/hooks/use-unicode.ts"
+  title="hooks/use-unicode.ts"
+/>
+
+<ComponentSource
+  src="registry/bases/ink/hooks/use-interaction.tsx"
+  title="hooks/use-interaction.tsx"
+/>
+
+<ComponentSource
+  base="ink"
+  name="scroll-view"
+  title="components/ui/scroll-view.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ScrollView } from "@/components/ui/scroll-view";
+```
+
+```tsx
+<ScrollView height={5} contentHeight={20}>
+  <Text>Line 1</Text>
+  <Text>Line 2</Text>
+  <Text>Line 3</Text>
+</ScrollView>
+```
+
+## Examples
+
+### Scrollbar and keys
+
+Set `contentHeight` to the total line count of scrollable content so the thumb size reflects how much is hidden. Use arrow keys, Page Up/Down, Home, and End to scroll.
+
+<ComponentPreview base="ink" name="scroll-view-scrollbar" />
+
+## API Reference
+
+### ScrollView
+
+| Prop             | Type        | Default    |
+| ---------------- | ----------- | ---------- |
+| `height`         | `number`    | `required` |
+| `children`       | `ReactNode` | `required` |
+| `contentHeight`  | `number`    | `0`        |
+| `showScrollbar`  | `boolean`   | `true`     |
+| `scrollbarColor` | `string`    | -          |
+| `thumbColor`     | `string`    | -          |
+| `trackChar`      | `string`    | `"│"`      |
+| `thumbChar`      | `string`    | `"█"`      |
+
+## Notes
+
+### Accessibility
+
+termcn exposes the following behavior through Ink's terminal accessibility APIs. This is not a browser ARIA or general WCAG-conformance claim.
+
+- **Keyboard:** Arrow keys move the current item or viewport; `Home` / `End` move to the boundaries; `PageUp` / `PageDown` move by a page; `Enter` / `Space` select or expand when supported; `Tab` / `Shift+Tab` leave the composite.
+- **Focus and composition:** Input is active only while the component's focus target is focused, enabled, active, and inside the topmost focus scope.
+- **Screen reader:** Ink labels and semantic state expose the component without relying on visual styling alone.

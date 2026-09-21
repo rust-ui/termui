@@ -1,0 +1,100 @@
+---
+title: "Number Input"
+description: "Numeric input with increment/decrement and bounds"
+---
+
+<ComponentPreview base="opentui" name="number-input-demo" hideCode />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @termcn/opentui/number-input
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @opentui/react
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/opentui/ui/types.ts"
+  title="components/ui/types.ts"
+/>
+
+<ComponentSource
+  src="registry/bases/opentui/themes/default.ts"
+  title="lib/terminal-themes/default.ts"
+/>
+
+<ComponentSource
+  src="registry/bases/opentui/hooks/use-theme.ts"
+  title="hooks/use-theme.ts"
+/>
+
+<ComponentSource
+  base="opentui"
+  name="number-input"
+  title="components/ui/number-input.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { NumberInput } from "@/components/ui/number-input";
+```
+
+```tsx
+<NumberInput
+  label="Quantity"
+  min={0}
+  max={100}
+  step={1}
+  onChange={(value) => console.log("Value:", value)}
+/>
+```
+
+## API Reference
+
+### NumberInput
+
+| Prop          | Type                                                                                         | Default                  |
+| ------------- | -------------------------------------------------------------------------------------------- | ------------------------ |
+| `value`       | `number`                                                                                     | -                        |
+| `onChange`    | `(value: number) => void`                                                                    | -                        |
+| `onSubmit`    | `(value: number) => void`                                                                    | -                        |
+| `min`         | `number`                                                                                     | -                        |
+| `max`         | `number`                                                                                     | -                        |
+| `step`        | `number`                                                                                     | `1`                      |
+| `placeholder` | `string`                                                                                     | `""`                     |
+| `label`       | `string`                                                                                     | -                        |
+| `id`          | `string`                                                                                     | -                        |
+| `format`      | `(n: number) => string`                                                                      | -                        |
+| `borderStyle` | `"single" \| "double" \| "round" \| "bold" \| "singleDouble" \| "doubleSingle" \| "classic"` | `"round"`                |
+| `paddingX`    | `number`                                                                                     | `1`                      |
+| `cursor`      | `string`                                                                                     | `"█"`                    |
+| `stepHint`    | `string`                                                                                     | `"↑ +{step}  ↓ -{step}"` |

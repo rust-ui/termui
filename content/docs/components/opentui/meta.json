@@ -1,0 +1,16 @@
+{
+  "title": "OpenTUI",
+  "pages": [
+    "layout",
+    "typography",
+    "input",
+    "selection",
+    "data",
+    "feedback",
+    "navigation",
+    "overlays",
+    "forms",
+    "utility",
+    "ai"
+  ]
+}

@@ -1,0 +1,75 @@
+---
+title: "Introduction"
+description: "Copy-paste terminal UI components for React. Built on Ink and OpenTUI, works with the shadcn CLI."
+---
+
+**termcn** provides beautifully designed, accessible, and customizable terminal UI components. Built on [Ink](https://github.com/vadimdemedes/ink) and [OpenTUI](https://github.com/anomalyco/opentui), and designed to work seamlessly with the [shadcn CLI](https://ui.shadcn.com).
+
+## Philosophy
+
+termcn follows the shadcn model for terminal UIs: copy-paste components you can own, with zero lock-in and sensible defaults that work immediately.
+
+Terminal apps are often treated as afterthoughts — bolted together with ad-hoc formatting and inconsistent styling. termcn takes a different approach. It stays close to each renderer's primitives, keeps the API familiar, and lets you drop down to raw Ink or OpenTUI components whenever you need more control.
+
+The goal is simple: make terminal UIs feel like the rest of your stack — composable, themeable, accessible, and easy to customize.
+
+## Why termcn?
+
+Most terminal component setups are either too opinionated or too scattered. termcn is built for teams that want to ship quickly without giving up control:
+
+- **Own Your Code:** Copy the components into your project and customize everything.
+- **Start Fast:** Run one command and render your first terminal UI with production-ready defaults.
+- **Scale Safely:** Build on top of Ink or OpenTUI directly, then drop to raw APIs when needed.
+
+## Any Terminal Style
+
+termcn works with any terminal that supports ANSI escape codes and Unicode. This means your components look great everywhere:
+
+- [iTerm2](https://iterm2.com) — Full Unicode and true color support on macOS
+- [Kitty](https://sw.kovidgoyal.net/kitty/) — GPU-accelerated with image protocol support
+- [Alacritty](https://alacritty.org) — Fast, cross-platform, GPU-accelerated
+- [Windows Terminal](https://github.com/microsoft/terminal) — Modern terminal for Windows
+- [Ghostty](https://ghostty.org) — Modern, GPU-accelerated terminal emulator
+- And any other terminal with ANSI/Unicode support
+
+## Features
+
+<div className="not-prose grid gap-4 sm:grid-cols-2 mt-4">
+  <FeatureCard
+    icon={ZapIcon}
+    title="Zero Config"
+    description="Works out of the box with sensible defaults. No boilerplate needed."
+  />
+  <FeatureCard
+    icon={SunMoonIcon}
+    title="Theme Aware"
+    description="Automatically adapts colors to your chosen terminal theme."
+  />
+  <FeatureCard
+    icon={LayoutGridIcon}
+    title="Composable"
+    description="Build complex terminal UIs with simple, declarative components."
+  />
+  <FeatureCard
+    icon={Code2Icon}
+    title="TypeScript"
+    description="Full type safety with comprehensive TypeScript support."
+  />
+  <FeatureCard
+    icon={ClipboardCopyIcon}
+    title="Copy & Paste"
+    description="Own your code. No runtime dependencies, just install into your project."
+  />
+  <FeatureCard
+    icon={BlocksIcon}
+    title="shadcn Compatible"
+    description="Uses the same registry format — add components with npx shadcn add."
+  />
+</div>
+
+import { ZapIcon } from "lucide-react";
+import { SunMoonIcon } from "lucide-react";
+import { LayoutGridIcon } from "lucide-react";
+import { Code2Icon } from "lucide-react";
+import { ClipboardCopyIcon } from "lucide-react";
+import { BlocksIcon } from "lucide-react";

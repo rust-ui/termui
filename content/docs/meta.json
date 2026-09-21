@@ -1,0 +1,11 @@
+{
+  "pages": [
+    "(root)",
+    "registry",
+    "themes",
+    "components",
+    "charts",
+    "templates"
+  ],
+  "root": true
+}

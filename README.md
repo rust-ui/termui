@@ -1,35 +1,54 @@
-# termui
+# TERMUI
 
-Copy-paste terminal UI components for Ratatui, rendered live in the browser
-over WebAssembly.
+TERMUI preserves termcn’s Next.js documentation and component-site UI. Terminal preview frames come from a small native Rust renderer; the site displays those frames inside termcn’s preview chrome and theme controls.
 
-Unlike a docs site that replays a recorded terminal session, the demos here
-run the actual widget code: each component compiles to WASM via
-[ratzilla](https://github.com/ratatui/ratzilla) and mounts into the page
-through a real `ratatui::Terminal`.
+The Rust renderer runs at build time and generates `lib/rust-renderer/previews.generated.json`. It does not execute Rust in the browser. No Ratzilla runtime or browser terminal backend is used.
 
-## Layout
+## Structure
 
-- `crates/termui-widgets` — the components themselves. Struct + builder API +
-  `render(frame, area)`, meant to be copied into your own app, not pulled in
-  as a dependency.
-- `crates/termui-demo*` — one small binary per component, each compiled to
-  WASM with `trunk` and embedded in the docs site as a live iframe.
-- `app`, `components`, `lib` — the Next.js/TypeScript docs site (Tailwind v4,
-  shadcn conventions).
+- `crates/termui-widgets` — copyable Rust widgets.
+- `crates/termui-renderer` — Rust frame generator for site previews.
+- `app`, `components`, `content`, `lib`, `registry`, `public` — termcn-derived web app, docs, and registry assets.
+- `__TMP/termcn` — local termcn source used for UI parity comparisons.
 
-## Components
-
-- Panel — rounded bordered panel shell
-- Key Bar — bottom key-hint bar
-- Select List — keyboard-navigable list
-
-## Developing
+## Development
 
 ```sh
-# rebuild a demo's WASM bundle
-cd crates/termui-demo && trunk build --release --dist ../../public/demos/panel
-
-# run the docs site
-pnpm install && pnpm dev
+pnpm install
+pnpm dev
 ```
+
+The dev hook regenerates Rust previews. To regenerate them manually:
+
+```sh
+pnpm demos:build
+```
+
+Production build and verification:
+
+```sh
+pnpm typecheck
+pnpm build
+```
+
+The Sponsor page is intentionally omitted.
+
+## Production deployment
+
+TERMUI runs on the shared Rustify server. GitHub Actions builds an amd64 Docker image, pushes it to Docker Hub, and deploys it over SSH. Host Nginx routes `termui.rustify.app` to the app on `127.0.0.1:5103` and manages HTTPS with Certbot.
+
+Set these repository variables in `rust-ui/termui`:
+
+- `SERVER_IP`: `23.88.45.210`
+- `DOCKER_USERNAME`: Docker Hub account name
+- `DOCKER_REPOSITORY`: Docker Hub repository name, for example `termui`
+- `LETSENCRYPT_EMAIL`: email used for the first TLS certificate
+
+Set these repository secrets:
+
+- `DOCKER_TOKEN`: Docker Hub access token with read and write access
+- `SSH_PRIVATE_KEY`: private key whose public key can log in as `root` on shared-apps
+
+In Cloudflare, point the `termui` A record to `23.88.45.210`. Keep it DNS only while the first deployment requests its TLS certificate. After the certificate is issued, enable the proxy if desired.
+
+Run **Actions → Build and Deploy TERMUI → Run workflow**. First run with `skip_build` off. Later, `skip_build` can redeploy the existing image.

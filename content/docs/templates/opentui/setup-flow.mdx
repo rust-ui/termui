@@ -1,0 +1,140 @@
+---
+title: "Setup Flow"
+description: "@clack-style step flow with ◇/◆/│ visual language, badge, info steps, and multi-select"
+---
+
+<ComponentPreview base="opentui" name="setup-flow-demo" hideCode />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @termcn/opentui/setup-flow
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @opentui/react
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/opentui/ui/types.ts"
+  title="components/ui/types.ts"
+/>
+
+<ComponentSource
+  src="registry/bases/opentui/themes/default.ts"
+  title="lib/terminal-themes/default.ts"
+/>
+
+<ComponentSource
+  src="registry/bases/opentui/hooks/use-theme.ts"
+  title="hooks/use-theme.ts"
+/>
+
+<ComponentSource
+  base="opentui"
+  name="setup-flow"
+  title="components/ui/setup-flow.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { SetupFlow } from "@/components/ui/setup-flow";
+```
+
+```tsx
+<SetupFlow title="create-app">
+  <SetupFlow.Badge label="v1.0.0" />
+  <SetupFlow.Step status="done">Project name set to my-app</SetupFlow.Step>
+  <SetupFlow.Step status="done">Template selected: React</SetupFlow.Step>
+  <SetupFlow.Step status="active">Installing dependencies...</SetupFlow.Step>
+  <SetupFlow.MultiSelect
+    label="Select features"
+    hint="space to toggle, enter to confirm"
+    options={[
+      { value: "ts", label: "TypeScript" },
+      { value: "eslint", label: "ESLint", description: "Code linting" },
+      { value: "prettier", label: "Prettier", description: "Formatting" },
+    ]}
+    onSubmit={(values) => console.log(values)}
+  />
+</SetupFlow>
+```
+
+## API Reference
+
+### SetupFlow
+
+| Prop             | Type                                       | Default     |
+| ---------------- | ------------------------------------------ | ----------- |
+| `title`          | `string`                                   | -           |
+| `titleFont`      | `"block" \| "simple" \| "shade" \| "slim"` | `"block"`   |
+| `titleColor`     | `string`                                   | `"#888888"` |
+| `titleColorAlt`  | `string`                                   | -           |
+| `connectorChar`  | `string`                                   | `"│"`       |
+| `connectorColor` | `string`                                   | -           |
+| `children`       | `ReactNode`                                | `required`  |
+
+### SetupFlow.Badge
+
+| Prop    | Type     | Default    |
+| ------- | -------- | ---------- |
+| `label` | `string` | `required` |
+| `bg`    | `string` | `"cyan"`   |
+| `color` | `string` | `"black"`  |
+
+### SetupFlow.Step
+
+| Prop        | Type                                                      | Default    |
+| ----------- | --------------------------------------------------------- | ---------- |
+| `icon`      | `string`                                                  | -          |
+| `iconColor` | `string`                                                  | -          |
+| `status`    | `"done" \| "active" \| "pending" \| "success" \| "error"` | `"done"`   |
+| `children`  | `ReactNode`                                               | `required` |
+
+### SetupFlow.Spinner
+
+| Prop         | Type         | Default    |
+| ------------ | ------------ | ---------- |
+| `label`      | `string`     | `required` |
+| `onComplete` | `() => void` | -          |
+
+### SetupFlow.MultiSelect
+
+| Prop            | Type                                                       | Default    |
+| --------------- | ---------------------------------------------------------- | ---------- |
+| `label`         | `string`                                                   | `required` |
+| `hint`          | `string`                                                   | -          |
+| `options`       | `{ value: string; label: string; description?: string }[]` | `required` |
+| `values`        | `string[]`                                                 | -          |
+| `onChange`      | `(values: string[]) => void`                               | -          |
+| `onSubmit`      | `(values: string[]) => void`                               | -          |
+| `checkedChar`   | `string`                                                   | `"■"`      |
+| `uncheckedChar` | `string`                                                   | `"□"`      |
+| `checkedColor`  | `string`                                                   | `"green"`  |

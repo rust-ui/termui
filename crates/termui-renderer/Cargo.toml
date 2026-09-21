@@ -1,0 +1,10 @@
+[package]
+name = "termui-renderer"
+version = "0.1.0"
+edition.workspace = true
+license.workspace = true
+publish = false
+
+[[bin]]
+name = "render-demos"
+path = "src/main.rs"

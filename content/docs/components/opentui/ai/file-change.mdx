@@ -1,0 +1,97 @@
+---
+title: "File Change"
+description: "Interactive file-change review list with diff expansion, per-file accept/reject actions, and accept-all shortcut"
+---
+
+<ComponentPreview base="opentui" name="file-change-demo" hideCode />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @termcn/opentui/file-change
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @opentui/react
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/opentui/ui/types.ts"
+  title="components/ui/types.ts"
+/>
+
+<ComponentSource
+  src="registry/bases/opentui/themes/default.ts"
+  title="lib/terminal-themes/default.ts"
+/>
+
+<ComponentSource
+  src="registry/bases/opentui/hooks/use-theme.ts"
+  title="hooks/use-theme.ts"
+/>
+
+<ComponentSource
+  base="opentui"
+  name="file-change"
+  title="components/ui/file-change.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { FileChange } from "@/components/ui/file-change";
+```
+
+```tsx
+<FileChange
+  changes={[
+    { path: "src/utils.ts", type: "modify", diff: "-old line\n+new line" },
+    {
+      path: "src/helpers.ts",
+      type: "create",
+      content: "export const add = (a, b) => a + b;",
+    },
+    { path: "src/legacy.ts", type: "delete" },
+  ]}
+  onAccept={(path) => console.log("accepted", path)}
+  onReject={(path) => console.log("rejected", path)}
+  onAcceptAll={() => console.log("accepted all")}
+/>
+```
+
+## API Reference
+
+### FileChange
+
+| Prop          | Type                     | Default    |
+| ------------- | ------------------------ | ---------- |
+| `changes`     | `FileChangeItem[]`       | `required` |
+| `onAccept`    | `(path: string) => void` | -          |
+| `onReject`    | `(path: string) => void` | -          |
+| `onAcceptAll` | `() => void`             | -          |

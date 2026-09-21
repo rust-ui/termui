@@ -1,0 +1,100 @@
+---
+title: "File Picker"
+description: "Interactive file browser and picker"
+---
+
+<ComponentPreview base="opentui" name="file-picker-demo" hideCode />
+
+<Callout type="info">
+  File picker requires Node.js filesystem access and may not render in the
+  browser preview.
+</Callout>
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @termcn/opentui/file-picker
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @opentui/react
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/opentui/ui/types.ts"
+  title="components/ui/types.ts"
+/>
+
+<ComponentSource
+  src="registry/bases/opentui/themes/default.ts"
+  title="lib/terminal-themes/default.ts"
+/>
+
+<ComponentSource
+  src="registry/bases/opentui/hooks/use-theme.ts"
+  title="hooks/use-theme.ts"
+/>
+
+<ComponentSource
+  base="opentui"
+  name="file-picker"
+  title="components/ui/file-picker.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { FilePicker } from "@/components/ui/file-picker";
+```
+
+```tsx
+<FilePicker
+  label="Select a config file"
+  extensions={[".json", ".yaml", ".yml"]}
+  onSubmit={(path) => console.log("Selected:", path)}
+/>
+```
+
+## API Reference
+
+### FilePicker
+
+| Prop         | Type                     | Default         |
+| ------------ | ------------------------ | --------------- |
+| `value`      | `string`                 | -               |
+| `onChange`   | `(path: string) => void` | -               |
+| `onSubmit`   | `(path: string) => void` | -               |
+| `label`      | `string`                 | -               |
+| `startDir`   | `string`                 | `process.cwd()` |
+| `extensions` | `string[]`               | -               |
+| `dirsOnly`   | `boolean`                | `false`         |
+| `autoFocus`  | `boolean`                | `false`         |
+| `id`         | `string`                 | -               |
+| `width`      | `number`                 | `50`            |
+| `maxVisible` | `number`                 | `8`             |

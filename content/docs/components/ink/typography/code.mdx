@@ -1,0 +1,114 @@
+---
+title: "Code"
+description: "Syntax-highlighted code block (50+ languages)"
+---
+
+<ComponentPreview base="ink" name="code-demo" hideCode />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @termcn/ink/code
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install ink
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/ink/ui/types.ts"
+  title="components/ui/types.ts"
+/>
+
+<ComponentSource
+  src="registry/bases/ink/themes/default.ts"
+  title="lib/terminal-themes/default.ts"
+/>
+
+<ComponentSource
+  src="registry/bases/ink/hooks/use-theme.ts"
+  title="hooks/use-theme.ts"
+/>
+
+<ComponentSource
+  src="registry/bases/ink/hooks/use-unicode.ts"
+  title="hooks/use-unicode.ts"
+/>
+
+<ComponentSource
+  src="registry/bases/ink/lib/terminal-style.ts"
+  title="lib/terminal-style.ts"
+/>
+
+<ComponentSource base="ink" name="code" title="components/ui/code.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { Code } from "@/components/ui/code";
+```
+
+```tsx
+<Code language="typescript">
+  {`const greeting = "Hello, world!";\nconsole.log(greeting);`}
+</Code>
+```
+
+## Examples
+
+### Multiline
+
+<ComponentPreview base="ink" name="code-multiline" />
+
+## API Reference
+
+### Code
+
+| Prop                  | Type                                                                                         | Default    |
+| --------------------- | -------------------------------------------------------------------------------------------- | ---------- |
+| `children`            | `string`                                                                                     | `required` |
+| `language`            | `string`                                                                                     | -          |
+| `inline`              | `boolean`                                                                                    | `false`    |
+| `borderStyle`         | `"single" \| "double" \| "round" \| "bold" \| "singleDouble" \| "doubleSingle" \| "classic"` | `"single"` |
+| `showLineNumbers`     | `boolean`                                                                                    | `true`     |
+| `lineNumberSeparator` | `string`                                                                                     | `"│ "`     |
+| `keywordColor`        | `string`                                                                                     | -          |
+| `stringColor`         | `string`                                                                                     | -          |
+| `numberColor`         | `string`                                                                                     | -          |
+| `commentColor`        | `string`                                                                                     | -          |
+| `operatorColor`       | `string`                                                                                     | -          |
+| `plainColor`          | `string`                                                                                     | -          |
+
+## Notes
+
+### Accessibility
+
+termcn exposes the following behavior through Ink's terminal accessibility APIs. This is not a browser ARIA or general WCAG-conformance claim.
+
+- **Screen reader:** Screen-reader mode removes decorative output while preserving meaningful labels and state.
