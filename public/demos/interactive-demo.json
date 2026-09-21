@@ -7,9 +7,9 @@
   },
   "button-interactive": {
     "title": "Interactive Ratatui Button",
-    "hash": "7c11597955351d79",
+    "hash": "e719004482233f12",
     "jsIntegrity": "sha384-mmb5gfM3ieftrwcG3+q9j5zFJa82qo0yBmVbqPs1si0/rQDHjwTaW1NUHTRxunmu",
-    "wasmIntegrity": "sha384-rJkrC3DAkcFlvRakBthOJbtl1ElR6YF9u+AGS7hNn0UtguGQxYo6b+xcAhzPGVnA"
+    "wasmIntegrity": "sha384-fQzaCqYW6zGVapTLtolqewOBw3IY7JcDDUDqaicj3NuYOgcNKNnqsltg4+AgfcfI"
   },
   "calendar-interactive": {
     "title": "Interactive Ratatui Calendar",
@@ -55,9 +55,9 @@
   },
   "dialog-interactive": {
     "title": "Interactive Ratatui Dialog",
-    "hash": "3e5d1138cfd5bab1",
+    "hash": "a7cbaaf6753c0ce1",
     "jsIntegrity": "sha384-cKxaJBPcK9hP5lFga76hQVHTt2+CLvwhfp1r1CtqLuhFSSZ3vFFZxMLe4YSsTl/F",
-    "wasmIntegrity": "sha384-ZVuG54NFyZRx+EldOrd3lqYUHaEnDmu6fZr9AyI9HReM7GQDy+oMImjRqRrbiQDv"
+    "wasmIntegrity": "sha384-C21A789ntThTSRQx4g/IFnDFKBx9g5btUdvE7Ey0LLOvA/rrXzq1HvFgWGijSt1k"
   },
   "diff-viewer-interactive": {
     "title": "Interactive Ratatui Diff Viewer",
@@ -197,11 +197,11 @@
     "jsIntegrity": "sha384-7b0bZxCNAFXZS9FcpiB9AWBtQ1wGsrxIQsTSrzzGot4KUzCGEEn4uBhl/lwSrAa+",
     "wasmIntegrity": "sha384-l1XKKAhE89fMYUKQ9lDs/OgKeWZABpcrieJXJs2u4U+FVx36eeudrLRm0aZE09V+"
   },
-  "toast-interactive": {
-    "title": "Interactive Ratatui Toast",
-    "hash": "e0edb382b56c6fc5",
-    "jsIntegrity": "sha384-9Wj2u9FiDu2zomgH3YaqpA3ndTwi8LCzk5vRdbPcFkR57xSBgL6AnbtYDSQkQHn9",
-    "wasmIntegrity": "sha384-xh9DvLZnkQW7Ux2vu/WmqWSsjXlUAYLDpl9aN86CZw3t7qua9/e9QQGXO52KBBFZ"
+  "toast-tracker-interactive": {
+    "title": "Interactive Ratatui Toast Tracker",
+    "hash": "321dca88af7233d3",
+    "jsIntegrity": "sha384-NOFV8hzlFDATot44+r3n1bvtgAixsDx7aTWkv0u58yUquJ2xEMEcE6IEKefFvMeV",
+    "wasmIntegrity": "sha384-01EkpibfcalRRwkP7SWt10TsixHEAOjEp3zIMSSAAAxIYYxPlIID8LkkBGxbXuAw"
   },
   "toggle-switch-interactive": {
     "title": "Interactive Ratatui Toggle Switch",

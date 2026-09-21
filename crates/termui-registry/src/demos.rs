@@ -60,8 +60,6 @@ mod demo_empty_state;
 mod demo_file_picker;
 #[path = "demos/demo_form_field.rs"]
 mod demo_form_field;
-#[path = "demos/demo_progress.rs"]
-mod demo_progress;
 #[path = "demos/demo_help_screen.rs"]
 mod demo_help_screen;
 #[path = "demos/demo_list.rs"]
@@ -80,6 +78,8 @@ mod demo_multi_select_list;
 mod demo_panel;
 #[path = "demos/demo_password_input.rs"]
 mod demo_password_input;
+#[path = "demos/demo_progress.rs"]
+mod demo_progress;
 #[path = "demos/demo_progress_bar.rs"]
 mod demo_progress_bar;
 #[path = "demos/demo_radio_card.rs"]
@@ -112,6 +112,10 @@ mod demo_text_area;
 mod demo_text_input;
 #[path = "demos/demo_toast.rs"]
 mod demo_toast;
+#[path = "demos/demo_toast_non_dismissable.rs"]
+mod demo_toast_non_dismissable;
+#[path = "demos/demo_toast_variants.rs"]
+mod demo_toast_variants;
 #[path = "demos/demo_toggle_switch.rs"]
 mod demo_toggle_switch;
 #[path = "demos/demo_tooltip.rs"]
@@ -132,7 +136,10 @@ const DEMOS: &[(&str, DemoRenderer)] = &[
     ("rust/chart-area", demo_chart_area::render),
     ("rust/chart-area-multiple", demo_chart_area_multiple::render),
     ("rust/chart-bar", demo_chart_bar::render),
-    ("rust/chart-bar-horizontal", demo_chart_bar_horizontal::render),
+    (
+        "rust/chart-bar-horizontal",
+        demo_chart_bar_horizontal::render,
+    ),
     ("rust/chart-line", demo_chart_line::render),
     ("rust/chart-line-multiple", demo_chart_line_multiple::render),
     ("rust/chart-line-step", demo_chart_line_step::render),
@@ -178,6 +185,11 @@ const DEMOS: &[(&str, DemoRenderer)] = &[
     ("rust/text-area", demo_text_area::render),
     ("rust/text-input", demo_text_input::render),
     ("rust/toast", demo_toast::render),
+    (
+        "rust/toast-nondismissable",
+        demo_toast_non_dismissable::render,
+    ),
+    ("rust/toast-variants", demo_toast_variants::render),
     ("rust/tooltip", demo_tooltip::render),
     ("rust/toggle-switch", demo_toggle_switch::render),
     ("rust/tree-view", demo_tree_view::render),

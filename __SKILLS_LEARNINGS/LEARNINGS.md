@@ -9,6 +9,7 @@ One line per reusable project lesson. Format: `YYYY-MM-DD [domain] avoid X, do Y
 
 ## Inbox
 
+- 2026-09-21 [termui/widgets] compose stateful overlays from parent-owned state, trigger, content, and close controls; let the app route input so each part stays reusable.
 - 2026-09-21 [termui/demos] route independent Ratzilla binaries through one shared static shell, but keep wasm-bindgen JS glue per binary because generated imports vary.
 - 2026-09-21 [termui/demos] keep the Ratzilla terminal element flush with its viewport; padding shrinks the DOM grid while backend mouse coordinates still scale against the full viewport.
 - 2026-09-21 [termui/brand] treat Term/UI as an independent product; use `termui.rustify.app` as canonical domain and `@termui` as registry namespace.

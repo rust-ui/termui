@@ -37,14 +37,14 @@ pub enum ButtonSize {
     Lg,
 }
 
-/// End shape for a one-row terminal button.
+/// Shape for a one-row terminal button.
 #[derive(Clone, Copy, Debug, Default, PartialEq, Eq)]
 pub enum ButtonShape {
-    /// Curved pill ends (`( label )`).
+    /// Rectangular fill with no curved ends.
     #[default]
+    Rectangular,
+    /// Curved pill ends (`( label )`).
     Rounded,
-    /// Square bracket ends (`[ label ]`).
-    Square,
 }
 
 impl ButtonSize {
@@ -127,11 +127,18 @@ impl<'a> Button<'a> {
         } else {
             style
         };
-        let (left, right) = match self.shape {
-            ButtonShape::Rounded => ('(', ')'),
-            ButtonShape::Square => ('[', ']'),
-        };
         let padding = " ".repeat(self.size.padding());
+        let ends = match (self.shape, self.variant) {
+            (ButtonShape::Rounded, _) => Some(('(', ')')),
+            (ButtonShape::Rectangular, ButtonVariant::Outline) => Some(('[', ']')),
+            (ButtonShape::Rectangular, _) => None,
+        };
+        let Some((left, right)) = ends else {
+            return Line::from(Span::styled(
+                format!("{padding}{}{padding}", self.label),
+                style,
+            ));
+        };
         let end_style = Style {
             fg: Some(style.bg.or(style.fg).unwrap_or(Color::Reset)),
             add_modifier: style.add_modifier,

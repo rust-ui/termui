@@ -13,7 +13,7 @@ mod wasm_app {
         },
     };
     use termui_widgets::toast::{
-        Toast, ToastClose, ToastContent, ToastDescription, ToastTitle, ToastTracker, ToastTrigger,
+        Toast, ToastContent, ToastDescription, ToastTitle, ToastTracker, ToastTrigger,
     };
 
     #[derive(Default)]
@@ -25,7 +25,6 @@ mod wasm_app {
     #[derive(Clone, Copy, Debug, Default)]
     struct Areas {
         trigger: Rect,
-        close: Option<Rect>,
     }
 
     fn render(frame: &mut Frame, app: &mut App, areas: &mut Areas) {
@@ -37,7 +36,6 @@ mod wasm_app {
             .areas(area);
         let [trigger, hint] =
             Layout::vertical([Constraint::Length(1), Constraint::Length(2)]).areas(content);
-
         let trigger_width = 14.min(trigger.width);
         areas.trigger = Rect::new(
             trigger.x + trigger.width.saturating_sub(trigger_width) / 2,
@@ -50,27 +48,21 @@ mod wasm_app {
             .focused(app.hover.is_some_and(|point| areas.trigger.contains(point)))
             .render(frame, areas.trigger);
         frame.render_widget(
-            Paragraph::new("Click Show toast or press Enter. Click x to dismiss.")
-                .alignment(Alignment::Center)
-                .style(Style::default().fg(Color::Gray)),
+            Paragraph::new(
+                "Click Show toast or press Enter. Closes automatically after five seconds.",
+            )
+            .alignment(Alignment::Center)
+            .style(Style::default().fg(Color::Gray)),
             hint,
         );
 
         if let Some(toast_areas) = ToastContent::new().render(frame, area, &mut app.toast) {
-            ToastTitle::new("Changes saved").render(frame, toast_areas.title);
-            ToastDescription::new("Your preferences were saved successfully.")
+            ToastTitle::new("Upload in progress").render(frame, toast_areas.title);
+            ToastDescription::new("This notification cannot be closed manually.")
                 .render(frame, toast_areas.description);
-            areas.close = toast_areas.close;
-            if let Some(close) = toast_areas.close {
-                ToastClose::new()
-                    .focused(app.hover.is_some_and(|point| close.contains(point)))
-                    .render(frame, close);
-            }
             if let Some(tracker) = toast_areas.tracker {
                 ToastTracker::new().render(frame, tracker, &app.toast);
             }
-        } else {
-            areas.close = None;
         }
     }
 
@@ -79,11 +71,6 @@ mod wasm_app {
         match event.kind {
             MouseEventKind::Moved => app.hover = Some(point),
             MouseEventKind::Exited => app.hover = None,
-            MouseEventKind::ButtonDown(MouseButton::Left)
-                if areas.close.is_some_and(|area| area.contains(point)) =>
-            {
-                ToastClose::new().activate(&mut app.toast);
-            }
             MouseEventKind::ButtonDown(MouseButton::Left) if areas.trigger.contains(point) => {
                 ToastTrigger::new("Show toast").activate(&mut app.toast);
             }
@@ -92,20 +79,18 @@ mod wasm_app {
     }
 
     pub fn run() -> io::Result<()> {
-        let app = Rc::new(RefCell::new(App::default()));
+        let app = Rc::new(RefCell::new(App {
+            toast: Toast::new().dismissible(false),
+            hover: None,
+        }));
         let areas = Rc::new(RefCell::new(Areas::default()));
         let mut terminal = Terminal::new(DomBackend::new_by_id("terminal")?)?;
 
         terminal.on_key_event({
             let app = Rc::clone(&app);
             move |event| {
-                let mut app = app.borrow_mut();
-                match event.code {
-                    KeyCode::Esc => ToastClose::new().activate(&mut app.toast),
-                    KeyCode::Char(' ') | KeyCode::Enter => {
-                        ToastTrigger::new("Show toast").activate(&mut app.toast);
-                    }
-                    _ => {}
+                if matches!(event.code, KeyCode::Char(' ') | KeyCode::Enter) {
+                    ToastTrigger::new("Show toast").activate(&mut app.borrow_mut().toast);
                 }
             }
         })?;

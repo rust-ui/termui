@@ -14,18 +14,43 @@ mod wasm_app {
     };
     use termui_widgets::toast::{
         Toast, ToastClose, ToastContent, ToastDescription, ToastTitle, ToastTracker, ToastTrigger,
+        ToastVariant,
     };
+
+    const VARIANTS: [(ToastVariant, &str, &str); 5] = [
+        (
+            ToastVariant::Default,
+            "Notification",
+            "Your changes were saved.",
+        ),
+        (ToastVariant::Success, "Success", "Deployment completed."),
+        (
+            ToastVariant::Info,
+            "Information",
+            "A new version is available.",
+        ),
+        (ToastVariant::Warning, "Warning", "Storage is almost full."),
+        (ToastVariant::Error, "Error", "Could not save your changes."),
+    ];
 
     #[derive(Default)]
     struct App {
         toast: Toast,
         hover: Option<Position>,
+        active_variant: usize,
+        next_variant: usize,
     }
 
     #[derive(Clone, Copy, Debug, Default)]
     struct Areas {
         trigger: Rect,
         close: Option<Rect>,
+    }
+
+    fn activate_trigger(app: &mut App) {
+        app.active_variant = app.next_variant;
+        app.next_variant = (app.next_variant + 1) % VARIANTS.len();
+        ToastTrigger::new("Show next variant").activate(&mut app.toast);
     }
 
     fn render(frame: &mut Frame, app: &mut App, areas: &mut Areas) {
@@ -37,29 +62,34 @@ mod wasm_app {
             .areas(area);
         let [trigger, hint] =
             Layout::vertical([Constraint::Length(1), Constraint::Length(2)]).areas(content);
-
-        let trigger_width = 14.min(trigger.width);
+        let trigger_width = 19.min(trigger.width);
         areas.trigger = Rect::new(
             trigger.x + trigger.width.saturating_sub(trigger_width) / 2,
             trigger.y,
             trigger_width,
             trigger.height,
         );
-        ToastTrigger::new("Show toast")
+        ToastTrigger::new("Show next variant")
             .style(Style::default().fg(Color::Black).bg(Color::White))
             .focused(app.hover.is_some_and(|point| areas.trigger.contains(point)))
             .render(frame, areas.trigger);
         frame.render_widget(
-            Paragraph::new("Click Show toast or press Enter. Click x to dismiss.")
+            Paragraph::new("Click the trigger or press Enter to cycle variants.")
                 .alignment(Alignment::Center)
                 .style(Style::default().fg(Color::Gray)),
             hint,
         );
 
-        if let Some(toast_areas) = ToastContent::new().render(frame, area, &mut app.toast) {
-            ToastTitle::new("Changes saved").render(frame, toast_areas.title);
-            ToastDescription::new("Your preferences were saved successfully.")
-                .render(frame, toast_areas.description);
+        let (variant, title, description) = VARIANTS[app.active_variant];
+        if let Some(toast_areas) =
+            ToastContent::new()
+                .variant(variant)
+                .render(frame, area, &mut app.toast)
+        {
+            ToastTitle::new(title)
+                .variant(variant)
+                .render(frame, toast_areas.title);
+            ToastDescription::new(description).render(frame, toast_areas.description);
             areas.close = toast_areas.close;
             if let Some(close) = toast_areas.close {
                 ToastClose::new()
@@ -67,7 +97,9 @@ mod wasm_app {
                     .render(frame, close);
             }
             if let Some(tracker) = toast_areas.tracker {
-                ToastTracker::new().render(frame, tracker, &app.toast);
+                ToastTracker::new()
+                    .variant(variant)
+                    .render(frame, tracker, &app.toast);
             }
         } else {
             areas.close = None;
@@ -85,7 +117,7 @@ mod wasm_app {
                 ToastClose::new().activate(&mut app.toast);
             }
             MouseEventKind::ButtonDown(MouseButton::Left) if areas.trigger.contains(point) => {
-                ToastTrigger::new("Show toast").activate(&mut app.toast);
+                activate_trigger(app);
             }
             _ => {}
         }
@@ -102,9 +134,7 @@ mod wasm_app {
                 let mut app = app.borrow_mut();
                 match event.code {
                     KeyCode::Esc => ToastClose::new().activate(&mut app.toast),
-                    KeyCode::Char(' ') | KeyCode::Enter => {
-                        ToastTrigger::new("Show toast").activate(&mut app.toast);
-                    }
+                    KeyCode::Char(' ') | KeyCode::Enter => activate_trigger(&mut app),
                     _ => {}
                 }
             }

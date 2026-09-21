@@ -14,6 +14,7 @@ mod wasm_app {
     };
     use termui_widgets::toast::{
         Toast, ToastClose, ToastContent, ToastDescription, ToastTitle, ToastTracker, ToastTrigger,
+        ToastVariant,
     };
 
     #[derive(Default)]
@@ -56,9 +57,13 @@ mod wasm_app {
             hint,
         );
 
-        if let Some(toast_areas) = ToastContent::new().render(frame, area, &mut app.toast) {
-            ToastTitle::new("Changes saved").render(frame, toast_areas.title);
-            ToastDescription::new("Your preferences were saved successfully.")
+        if let Some(toast_areas) =
+            ToastContent::new()
+                .variant(ToastVariant::Default)
+                .render(frame, area, &mut app.toast)
+        {
+            ToastTitle::new("Build completed").render(frame, toast_areas.title);
+            ToastDescription::new("Production assets generated successfully.")
                 .render(frame, toast_areas.description);
             areas.close = toast_areas.close;
             if let Some(close) = toast_areas.close {

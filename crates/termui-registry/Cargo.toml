@@ -140,6 +140,18 @@ name = "toast-interactive"
 path = "src/demos/demo_toast_interactive.rs"
 
 [[bin]]
+name = "toast-nondismissable-interactive"
+path = "src/demos/demo_toast_non_dismissable_interactive.rs"
+
+[[bin]]
+name = "toast-variants-interactive"
+path = "src/demos/demo_toast_variants_interactive.rs"
+
+[[bin]]
+name = "toast-tracker-interactive"
+path = "src/demos/demo_toast_tracker_interactive.rs"
+
+[[bin]]
 name = "toggle-switch-interactive"
 path = "src/demos/demo_toggle_switch_interactive.rs"
 

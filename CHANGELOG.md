@@ -7,14 +7,15 @@ Notable Term/UI changes are recorded here. Format follows [Keep a Changelog](htt
 ### Added
 
 - Added keyboard-driven Ratzilla demos for stateful controls, pickers, navigation, text views, tables, chart tooltips, and overlays; checked in their WebAssembly assets.
-- Added `ButtonShape::{Rounded, Square}`; buttons default to rounded pill ends.
+- Added four independent interactive Toast demos; each opens from its centered trigger and shows its notification bottom-right.
+- Added `ButtonShape::{Rectangular, Rounded}`; buttons default to rectangular fills.
 - Added `CardBorderType::{Rounded, Square}`; cards default to rounded corners.
 - Add local per-component tests for Button and Text Input interactions, plus Card's Rust preview.
 - Added 35 planned widgets with copyable Rust source, documentation pages, and checked-in terminal previews.
 - Added modular area, bar, line, pie, radar, radial, and tooltip charts with Rust-rendered gallery previews, family routes, and a code sheet.
 - Added an interactive Ratatui Text Input demo with click, typing, field switching, and Backspace behavior; checked in its WebAssembly assets.
 - Added a composable `Card` widget with a prominent title, an RSX-style `termui!` macro, docs, and a Rust-rendered demo; removed the unused `CardAction` slot.
-- Added ColorPicker, Dialog, RadioCard, and TextInput widgets with Rust-rendered demos and copyable source pages; ported Ferrit's licensed `tui_overlay` and animated error Toast, with native mouse dismissal.
+- Added ColorPicker, Dialog, RadioCard, and TextInput widgets with Rust-rendered demos and copyable source pages; ported Ferrit's licensed `tui_overlay` and animated Toast surfaces with native mouse dismissal.
 - Split Ratatui frame rendering into `termui-renderer` and per-demo files plus ID dispatch into `termui-registry`; keep interactive and static demo sources together, and validate static previews from docs references during frame generation.
 - Added terminal preview sections for every remaining widget in the all-widgets plan.
 - Added Calendar and Chart sections to the all-widgets plan with terminal previews.

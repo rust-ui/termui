@@ -5,7 +5,7 @@ description: Shadcn-inspired terminal button with six color and style variants.
 
 `Button` draws a terminal button. The parent app owns focus, keyboard input, and activation.
 
-`ButtonShape::{Rounded, Square}` controls the button's ends. Buttons use rounded pill ends by default.
+`ButtonShape::{Rectangular, Rounded}` controls the button's ends. Buttons are rectangular by default.
 
 ## Examples
 
@@ -85,7 +85,7 @@ use termui_widgets::button::{Button, ButtonShape, ButtonVariant};
 
 Button::new("Save")
     .variant(ButtonVariant::Default)
-    .shape(ButtonShape::Rounded)
+    .shape(ButtonShape::Rectangular)
     .focused(true)
     .render(frame, area);
 ```

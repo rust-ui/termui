@@ -1,20 +1,114 @@
 ---
 title: Toast
-description: Bottom-right error notification with an eased slide-in animation.
+description: Composable bottom-right notifications with optional dismissal and auto-dismiss progress.
 ---
 
-`Toast` slides in from the bottom-right over a dimmed backdrop. Call `tick` with elapsed frame time to advance its 160 ms ease-out animation, and forward mouse events to `on_mouse`; clicking **x** closes it.
+`Toast` owns visibility, animation, and lifetime. Compose each notification from `ToastContent`, `ToastTitle`, `ToastDescription`, and optional `ToastClose` and `ToastTracker`. `ToastTrigger` exposes activation for your app's click and keyboard handlers. Toasts are dismissible by default and close automatically after five seconds.
+
+## Default
 
 <RustDemo
   name="toast"
-  src="/demos/interactive.html?demo=toast-interactive" title="Toast · Animated Error"
+  title="Toast · Default dismissal"
+  src="/demos/interactive.html?demo=toast-interactive"
+  height={370}
+  fontSize={16}
+  code={`use termui_widgets::toast::{Toast, ToastClose, ToastContent, ToastDescription, ToastTitle, ToastTrigger};
+
+let mut toast = Toast::new(); // Dismissible by default; five-second lifetime.
+if trigger_activated {
+    ToastTrigger::new("Show toast").activate(&mut toast);
+}
+
+if let Some(areas) = ToastContent::new().render(frame, area, &mut toast) {
+    ToastTitle::new("Changes saved").render(frame, areas.title);
+    ToastDescription::new("Your preferences were saved successfully.")
+        .render(frame, areas.description);
+    if let Some(close) = areas.close {
+        ToastClose::new().render(frame, close);
+    }
+}`}
+/>
+
+## Non-dismissible
+
+Manual close control is omitted and `Toast::close()` has no effect. The configured timer still closes the toast.
+
+<RustDemo
+  name="toast-nondismissable"
+  title="Toast · Non-dismissible"
+  src="/demos/interactive.html?demo=toast-nondismissable-interactive"
+  height={370}
+  fontSize={16}
+  code={`use termui_widgets::toast::{Toast, ToastContent, ToastDescription, ToastTitle};
+
+let mut toast = Toast::new().dismissible(false);
+if trigger_activated {
+    toast.open();
+}
+
+if let Some(areas) = ToastContent::new().render(frame, area, &mut toast) {
+    ToastTitle::new("Upload in progress").render(frame, areas.title);
+    ToastDescription::new("This notification closes after the upload completes.")
+        .render(frame, areas.description);
+    // No ToastClose: the five-second timer still runs.
+}`}
+/>
+
+## Variants
+
+<RustDemo
+  name="toast-variants"
+  title="Toast · Semantic variants"
+  src="/demos/interactive.html?demo=toast-variants-interactive"
+  height={370}
+  fontSize={16}
+  code={`use termui_widgets::toast::{ToastContent, ToastTitle, ToastVariant};
+
+let variants = [
+    (ToastVariant::Default, "Notification"),
+    (ToastVariant::Success, "Success"),
+    (ToastVariant::Info, "Information"),
+    (ToastVariant::Warning, "Warning"),
+    (ToastVariant::Error, "Error"),
+];
+
+for (variant, title) in variants {
+    if trigger_activated {
+        toast.open();
+    }
+    if let Some(areas) = ToastContent::new()
+        .variant(variant)
+        .render(frame, area, &mut toast)
+    {
+        ToastTitle::new(title).variant(variant).render(frame, areas.title);
+    }
+}`}
+/>
+
+## Auto-dismiss tracker
+
+<RustDemo
+  name="toast-tracker-interactive"
+  title="Toast · Live countdown"
+  src="/demos/interactive.html?demo=toast-tracker-interactive"
+  height={370}
   fontSize={16}
   code={`use std::time::Duration;
-use termui_widgets::toast::Toast;
+use termui_widgets::toast::{Toast, ToastContent, ToastDescription, ToastTitle, ToastTracker};
 
-let mut toast = Toast::error(error);
+let mut toast = Toast::new();
+toast.open(); // Trigger this from a click or keyboard handler.
 toast.tick(elapsed);
-toast.render(frame, area);`}
+
+if let Some(areas) = ToastContent::new().render(frame, area, &mut toast) {
+    ToastTitle::new("Build completed").render(frame, areas.title);
+    ToastDescription::new("Production assets generated successfully.")
+        .render(frame, areas.description);
+    if let Some(tracker) = areas.tracker {
+        ToastTracker::new().render(frame, tracker, &toast);
+    }
+}`}
 />
 
 ## Source
@@ -23,12 +117,14 @@ toast.render(frame, area);`}
 
 ## Usage
 
+Call `tick` with elapsed frame time. `ToastAreas` includes `close` only when dismissal is enabled and `tracker` only when a timer is configured.
+
 ```rust
 use std::time::Duration;
 use termui_widgets::toast::Toast;
 
-let mut toast = Toast::error(error);
-toast.tick(Duration::from_millis(16));
-toast.render(frame, area);
-toast.on_mouse(mouse_event);
+let mut toast = Toast::new().dismissible(false).duration(Duration::ZERO);
+toast.tick(elapsed);
 ```
+
+Use `.duration(Duration::ZERO)` to disable auto-dismiss; the tracker is then omitted. A non-dismissible toast still expires when its configured timer reaches zero.
