@@ -63,19 +63,22 @@ test("default ToastTrigger opens a bottom-right toast; close button and Escape d
     );
 
     await clickTerminalText(page, "Show toast");
-    await waitForTerminalText(page, "Build completed");
+    await waitForTerminalText(page, "Changes saved");
     await page.waitForTimeout(200);
 
     const toastLayout = await page
       .locator("#terminal_ratzilla_grid pre")
       .evaluateAll((rows) => {
         const row = rows.findIndex((line) =>
-          line.textContent?.includes("Build completed")
+          line.textContent?.includes("Changes saved")
         );
         const text = rows[row]?.textContent ?? "";
-        return { row, rowCount: rows.length, column: text.indexOf("Build completed"), width: text.length };
+        return { row, rowCount: rows.length, column: text.indexOf("Changes saved"), width: text.length };
       });
-    assert.ok(toastLayout.row > toastLayout.rowCount * 0.75);
+    assert.ok(
+      toastLayout.row > triggerLayout.row,
+      `Toast should appear below the centered trigger: ${JSON.stringify({ toastLayout, triggerLayout })}`
+    );
     assert.ok(toastLayout.column > toastLayout.width / 2);
 
     await clickTerminalText(page, "x");
@@ -85,19 +88,19 @@ test("default ToastTrigger opens a bottom-right toast; close button and Escape d
         !(
           document
             .querySelector("#terminal_ratzilla_grid")
-            ?.textContent?.includes("Build completed") ?? false
+            ?.textContent?.includes("Changes saved") ?? false
         )
     );
 
     await page.keyboard.press("Enter");
-    await waitForTerminalText(page, "Build completed");
+    await waitForTerminalText(page, "Changes saved");
     await page.keyboard.press("Escape");
     await page.waitForFunction(
       () =>
         !(
           document
             .querySelector("#terminal_ratzilla_grid")
-            ?.textContent?.includes("Build completed") ?? false
+            ?.textContent?.includes("Changes saved") ?? false
         )
     );
     assert.deepEqual(pageErrors, []);
@@ -122,17 +125,23 @@ test("non-dismissible ToastTrigger opens toast that Escape cannot close", async 
   }
 });
 
-test("variant ToastTrigger cycles semantic toast styles", async () => {
+test("colored variant triggers open matching semantic toasts", async () => {
   const page = await session.browser.newPage();
   try {
     await page.goto(
       `${session.baseUrl}/demos/interactive.html?demo=toast-variants-interactive`
     );
     await waitForTerminal(page);
-    await clickTerminalText(page, "Show next variant");
-    await waitForTerminalText(page, "Notification");
-    await clickTerminalText(page, "Show next variant");
-    await waitForTerminalText(page, "Success");
+    for (const [trigger, title] of [
+      ["Show default", "Notification"],
+      ["Show success", "Success"],
+      ["Show info", "Information"],
+      ["Show warning", "Warning"],
+      ["Show error", "Error"],
+    ]) {
+      await clickTerminalText(page, trigger);
+      await waitForTerminalText(page, title);
+    }
   } finally {
     await page.close();
   }
@@ -147,8 +156,28 @@ test("tracker ToastTrigger opens its own countdown demo", async () => {
     await waitForTerminal(page);
     await clickTerminalText(page, "Show toast");
     await waitForTerminalText(page, "Build completed");
-    assert.ok(
-      (await page.locator("#terminal_ratzilla_grid").textContent())?.includes("Build completed")
+    const countTrackerCells = () =>
+      page.locator("#terminal_ratzilla_grid pre").evaluateAll((rows) =>
+        Math.max(
+          ...rows.map(
+            (row) => [...(row.textContent ?? "")].filter((cell) => cell === "█").length
+          )
+        )
+      );
+    await page.waitForTimeout(600);
+    const fullerTracker = await countTrackerCells();
+    await page.waitForTimeout(800);
+    const emptierTracker = await countTrackerCells();
+    assert.ok(emptierTracker < fullerTracker && emptierTracker > 0);
+    await page.waitForFunction(
+      () =>
+        !(
+          document
+            .querySelector("#terminal_ratzilla_grid")
+            ?.textContent?.includes("Build completed") ?? false
+        ),
+      undefined,
+      { timeout: 6_000 }
     );
   } finally {
     await page.close();

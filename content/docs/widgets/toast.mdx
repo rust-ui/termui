@@ -13,7 +13,7 @@ description: Composable bottom-right notifications with optional dismissal and a
   src="/demos/interactive.html?demo=toast-interactive"
   height={370}
   fontSize={16}
-  code={`use termui_widgets::toast::{Toast, ToastClose, ToastContent, ToastDescription, ToastTitle, ToastTrigger};
+  code={`use termui_widgets::toast::{Toast, ToastClose, ToastContent, ToastDescription, ToastTitle, ToastTracker, ToastTrigger};
 
 let mut toast = Toast::new(); // Dismissible by default; five-second lifetime.
 if trigger_activated {
@@ -24,6 +24,9 @@ if let Some(areas) = ToastContent::new().render(frame, area, &mut toast) {
     ToastTitle::new("Changes saved").render(frame, areas.title);
     ToastDescription::new("Your preferences were saved successfully.")
         .render(frame, areas.description);
+    if let Some(tracker) = areas.tracker {
+        ToastTracker::new().render(frame, tracker, &toast);
+    }
     if let Some(close) = areas.close {
         ToastClose::new().render(frame, close);
     }
@@ -40,22 +43,28 @@ Manual close control is omitted and `Toast::close()` has no effect. The configur
   src="/demos/interactive.html?demo=toast-nondismissable-interactive"
   height={370}
   fontSize={16}
-  code={`use termui_widgets::toast::{Toast, ToastContent, ToastDescription, ToastTitle};
+  code={`use termui_widgets::toast::{Toast, ToastContent, ToastDescription, ToastTitle, ToastTracker, ToastTrigger};
 
 let mut toast = Toast::new().dismissible(false);
 if trigger_activated {
-    toast.open();
+    ToastTrigger::new("Show toast").activate(&mut toast);
 }
+toast.tick(elapsed);
 
 if let Some(areas) = ToastContent::new().render(frame, area, &mut toast) {
     ToastTitle::new("Upload in progress").render(frame, areas.title);
     ToastDescription::new("This notification closes after the upload completes.")
         .render(frame, areas.description);
+    if let Some(tracker) = areas.tracker {
+        ToastTracker::new().render(frame, tracker, &toast);
+    }
     // No ToastClose: the five-second timer still runs.
 }`}
 />
 
 ## Variants
+
+Click one of five colored triggers to show the matching notification. Keyboard keys `1`–`5` activate the same variants.
 
 <RustDemo
   name="toast-variants"
@@ -63,25 +72,26 @@ if let Some(areas) = ToastContent::new().render(frame, area, &mut toast) {
   src="/demos/interactive.html?demo=toast-variants-interactive"
   height={370}
   fontSize={16}
-  code={`use termui_widgets::toast::{ToastContent, ToastTitle, ToastVariant};
+  code={`use ratatui::style::{Color, Style};
+use termui_widgets::toast::{Toast, ToastContent, ToastTitle, ToastTracker, ToastTrigger, ToastVariant};
 
-let variants = [
-    (ToastVariant::Default, "Notification"),
-    (ToastVariant::Success, "Success"),
-    (ToastVariant::Info, "Information"),
-    (ToastVariant::Warning, "Warning"),
-    (ToastVariant::Error, "Error"),
-];
+let mut toast = Toast::new();
+if let Some((label, trigger_color)) = clicked_trigger {
+    ToastTrigger::new(label)
+        .style(Style::default().fg(Color::Black).bg(trigger_color))
+        .activate(&mut toast);
+}
+toast.tick(elapsed);
 
-for (variant, title) in variants {
-    if trigger_activated {
-        toast.open();
-    }
+if let Some((variant, title)) = active_variant {
     if let Some(areas) = ToastContent::new()
         .variant(variant)
         .render(frame, area, &mut toast)
     {
         ToastTitle::new(title).variant(variant).render(frame, areas.title);
+        if let Some(tracker) = areas.tracker {
+            ToastTracker::new().variant(variant).render(frame, tracker, &toast);
+        }
     }
 }`}
 />

@@ -43,38 +43,72 @@ mod wasm_app {
 
     #[derive(Clone, Copy, Debug, Default)]
     struct Areas {
-        trigger: Rect,
+        triggers: [Rect; 5],
         close: Option<Rect>,
     }
 
-    fn activate_trigger(app: &mut App) {
-        app.active_variant = app.next_variant;
-        app.next_variant = (app.next_variant + 1) % VARIANTS.len();
-        ToastTrigger::new("Show next variant").activate(&mut app.toast);
+    fn activate_variant(app: &mut App, index: usize) {
+        app.active_variant = index;
+        app.next_variant = (index + 1) % VARIANTS.len();
+        ToastTrigger::new(trigger_label(index)).activate(&mut app.toast);
+    }
+
+    fn trigger_label(index: usize) -> &'static str {
+        match index {
+            0 => "Show default",
+            1 => "Show success",
+            2 => "Show info",
+            3 => "Show warning",
+            _ => "Show error",
+        }
+    }
+
+    fn trigger_style(variant: ToastVariant) -> Style {
+        match variant {
+            ToastVariant::Default => Style::default().fg(Color::Black).bg(Color::White),
+            ToastVariant::Success => Style::default()
+                .fg(Color::Black)
+                .bg(Color::Rgb(34, 197, 94)),
+            ToastVariant::Info => Style::default()
+                .fg(Color::White)
+                .bg(Color::Rgb(59, 130, 246)),
+            ToastVariant::Warning => Style::default()
+                .fg(Color::Black)
+                .bg(Color::Rgb(245, 158, 11)),
+            ToastVariant::Error => Style::default()
+                .fg(Color::White)
+                .bg(Color::Rgb(239, 68, 68)),
+        }
     }
 
     fn render(frame: &mut Frame, app: &mut App, areas: &mut Areas) {
         app.toast.tick(Duration::from_millis(16));
 
         let area = frame.area();
-        let [content] = Layout::vertical([Constraint::Length(3)])
+        let [content] = Layout::vertical([Constraint::Length(7)])
             .flex(Flex::Center)
             .areas(area);
-        let [trigger, hint] =
-            Layout::vertical([Constraint::Length(1), Constraint::Length(2)]).areas(content);
-        let trigger_width = 19.min(trigger.width);
-        areas.trigger = Rect::new(
-            trigger.x + trigger.width.saturating_sub(trigger_width) / 2,
-            trigger.y,
-            trigger_width,
-            trigger.height,
-        );
-        ToastTrigger::new("Show next variant")
-            .style(Style::default().fg(Color::Black).bg(Color::White))
-            .focused(app.hover.is_some_and(|point| areas.trigger.contains(point)))
-            .render(frame, areas.trigger);
+        let [buttons, hint] =
+            Layout::vertical([Constraint::Length(5), Constraint::Length(2)]).areas(content);
+        for (index, (variant, _, _)) in VARIANTS.iter().enumerate() {
+            let button_width = 14.min(buttons.width);
+            areas.triggers[index] = Rect::new(
+                buttons.x + buttons.width.saturating_sub(button_width) / 2,
+                buttons.y + index as u16,
+                button_width,
+                1,
+            );
+            let label = trigger_label(index);
+            ToastTrigger::new(label)
+                .style(trigger_style(*variant))
+                .focused(
+                    app.hover
+                        .is_some_and(|point| areas.triggers[index].contains(point)),
+                )
+                .render(frame, areas.triggers[index]);
+        }
         frame.render_widget(
-            Paragraph::new("Click the trigger or press Enter to cycle variants.")
+            Paragraph::new("Click a colored trigger or press 1–5 to show that toast.")
                 .alignment(Alignment::Center)
                 .style(Style::default().fg(Color::Gray)),
             hint,
@@ -116,8 +150,10 @@ mod wasm_app {
             {
                 ToastClose::new().activate(&mut app.toast);
             }
-            MouseEventKind::ButtonDown(MouseButton::Left) if areas.trigger.contains(point) => {
-                activate_trigger(app);
+            MouseEventKind::ButtonDown(MouseButton::Left) => {
+                if let Some(index) = areas.triggers.iter().position(|area| area.contains(point)) {
+                    activate_variant(app, index);
+                }
             }
             _ => {}
         }
@@ -134,7 +170,15 @@ mod wasm_app {
                 let mut app = app.borrow_mut();
                 match event.code {
                     KeyCode::Esc => ToastClose::new().activate(&mut app.toast),
-                    KeyCode::Char(' ') | KeyCode::Enter => activate_trigger(&mut app),
+                    KeyCode::Char('1') => activate_variant(&mut app, 0),
+                    KeyCode::Char('2') => activate_variant(&mut app, 1),
+                    KeyCode::Char('3') => activate_variant(&mut app, 2),
+                    KeyCode::Char('4') => activate_variant(&mut app, 3),
+                    KeyCode::Char('5') => activate_variant(&mut app, 4),
+                    KeyCode::Char(' ') | KeyCode::Enter => {
+                        let index = app.next_variant;
+                        activate_variant(&mut app, index);
+                    }
                     _ => {}
                 }
             }

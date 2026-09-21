@@ -197,11 +197,29 @@
     "jsIntegrity": "sha384-7b0bZxCNAFXZS9FcpiB9AWBtQ1wGsrxIQsTSrzzGot4KUzCGEEn4uBhl/lwSrAa+",
     "wasmIntegrity": "sha384-l1XKKAhE89fMYUKQ9lDs/OgKeWZABpcrieJXJs2u4U+FVx36eeudrLRm0aZE09V+"
   },
+  "toast-interactive": {
+    "title": "Interactive Ratatui Toast",
+    "hash": "668ab409dfd102d7",
+    "jsIntegrity": "sha384-hTF+qnyreiO9rvKtrg5ZRAQk4M2E2LjK8UUcYMjYcU438m67UUA6qFs04jU8ZdB1",
+    "wasmIntegrity": "sha384-6mOw4FL8B9N+DUH2PyJdzgqmX+yn9k5gmsfs+P8j5rw3MiHd25PTu//4Vm/nYKlp"
+  },
+  "toast-nondismissable-interactive": {
+    "title": "Interactive Ratatui Toast Nondismissable",
+    "hash": "4aa5bc5d4c8c8aeb",
+    "jsIntegrity": "sha384-DUGLGr7saYFbru4CbIJwbencHzEEqknB2asi4QPf2AKdpK5bJmVcugIiuHu2h8C7",
+    "wasmIntegrity": "sha384-nfPVBtv1FYMFXN2NER8Gsb6nEmnUto23GTeLvEUtuh2Kmgy5OULYGBn3ZDPpz+UG"
+  },
   "toast-tracker-interactive": {
     "title": "Interactive Ratatui Toast Tracker",
     "hash": "321dca88af7233d3",
     "jsIntegrity": "sha384-NOFV8hzlFDATot44+r3n1bvtgAixsDx7aTWkv0u58yUquJ2xEMEcE6IEKefFvMeV",
     "wasmIntegrity": "sha384-01EkpibfcalRRwkP7SWt10TsixHEAOjEp3zIMSSAAAxIYYxPlIID8LkkBGxbXuAw"
+  },
+  "toast-variants-interactive": {
+    "title": "Interactive Ratatui Toast Variants",
+    "hash": "7a8ad29fa283d43f",
+    "jsIntegrity": "sha384-NJ755Bz15MMpLCtBbavIGY9fhVDekMgFC48PJ2n3q8Y+E4Gzu39GTFjGkcnPacvs",
+    "wasmIntegrity": "sha384-UmJykrD1K2LZdUPW4rlCVopPLu8vk08GQi0IEeJXr/GXQlTcnLcswa3peN7hs6yn"
   },
   "toggle-switch-interactive": {
     "title": "Interactive Ratatui Toggle Switch",
