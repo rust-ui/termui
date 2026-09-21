@@ -1,16 +1,16 @@
+use ratatui::Frame;
 use ratatui::layout::Rect;
 use ratatui::style::{Color, Style};
 use ratatui::widgets::Gauge as RatatuiGauge;
-use ratatui::Frame;
 
-/// A labeled percentage gauge for a metric such as CPU or memory usage.
+/// A labeled percentage progress indicator for a metric such as CPU or memory usage.
 #[must_use]
-pub struct Gauge<'a> {
+pub struct Progress<'a> {
     label: &'a str,
     percent: u16,
 }
 
-impl<'a> Gauge<'a> {
+impl<'a> Progress<'a> {
     pub fn new(label: &'a str, percent: u16) -> Self {
         Self {
             label,

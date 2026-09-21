@@ -55,7 +55,7 @@ export const BrandContextMenu = ({
         <ContextMenuSeparator />
 
         <ContextMenuItem asChild>
-          <a href="/termui-logo.svg" download>
+          <a href="/logo.svg" download>
             <DownloadIcon />
             Download the Term/UI logo
           </a>

@@ -19,7 +19,8 @@ Mode describes each demo: Static Rust frame or Dynamic Ratzilla/WASM.
 | Empty state | Static | ✅ Done |
 | File picker | Static | ✅ Done |
 | Form field with validation | Static | ✅ Done |
-| Gauge | Static | ✅ Done |
+| Progress | Static | ✅ Done |
+| Resizable Layout | Dynamic | ✅ Done |
 | Help screen | Static | ✅ Done |
 | List | Static | ✅ Done |
 | Loading state | Static | ✅ Done |
@@ -237,10 +238,20 @@ Formatted text and a list:
   ✓ Valid email address
 ```
 
-## Gauge
+## Progress
 
 ```text
   CPU  [████████░░]  80%
+```
+
+## Resizable Layout
+
+```text
+  Sidebar 32%  │  Main panel 68%  │  Active
+  ┌──────────┐┃┌──────────────────────┐
+  │ Files    │┃│ Content              │
+  │ Projects │┃│ Details              │
+  └──────────┘┃└──────────────────────┘
 ```
 
 ## Help screen

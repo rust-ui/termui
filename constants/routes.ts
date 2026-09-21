@@ -16,6 +16,7 @@ export const ROUTES = {
   DOCS_TEMPLATES: "/docs/templates",
   DOCS_THEMES: "/docs/themes",
   DOCS_THEMING: "/docs/theming",
+  CHARTS: "/charts",
   HOME: "/",
   LAUNCH_WEEK: "/launch-week",
   LLMS: "/llms.txt",

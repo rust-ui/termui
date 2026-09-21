@@ -14,6 +14,32 @@ mod demo_calendar;
 mod demo_card;
 #[path = "demos/demo_chart.rs"]
 mod demo_chart;
+#[path = "demos/demo_chart_area.rs"]
+mod demo_chart_area;
+#[path = "demos/demo_chart_area_multiple.rs"]
+mod demo_chart_area_multiple;
+#[path = "demos/demo_chart_bar.rs"]
+mod demo_chart_bar;
+#[path = "demos/demo_chart_bar_horizontal.rs"]
+mod demo_chart_bar_horizontal;
+#[path = "demos/demo_chart_line.rs"]
+mod demo_chart_line;
+#[path = "demos/demo_chart_line_multiple.rs"]
+mod demo_chart_line_multiple;
+#[path = "demos/demo_chart_line_step.rs"]
+mod demo_chart_line_step;
+#[path = "demos/demo_chart_pie.rs"]
+mod demo_chart_pie;
+#[path = "demos/demo_chart_pie_donut.rs"]
+mod demo_chart_pie_donut;
+#[path = "demos/demo_chart_radar.rs"]
+mod demo_chart_radar;
+#[path = "demos/demo_chart_radar_compare.rs"]
+mod demo_chart_radar_compare;
+#[path = "demos/demo_chart_radial.rs"]
+mod demo_chart_radial;
+#[path = "demos/demo_chart_tooltip.rs"]
+mod demo_chart_tooltip;
 #[path = "demos/demo_checkbox.rs"]
 mod demo_checkbox;
 #[path = "demos/demo_color_picker.rs"]
@@ -34,8 +60,8 @@ mod demo_empty_state;
 mod demo_file_picker;
 #[path = "demos/demo_form_field.rs"]
 mod demo_form_field;
-#[path = "demos/demo_gauge.rs"]
-mod demo_gauge;
+#[path = "demos/demo_progress.rs"]
+mod demo_progress;
 #[path = "demos/demo_help_screen.rs"]
 mod demo_help_screen;
 #[path = "demos/demo_list.rs"]
@@ -103,6 +129,19 @@ const DEMOS: &[(&str, DemoRenderer)] = &[
     ("rust/button-variants", demo_button_variants::render),
     ("rust/card", demo_card::render),
     ("rust/chart", demo_chart::render),
+    ("rust/chart-area", demo_chart_area::render),
+    ("rust/chart-area-multiple", demo_chart_area_multiple::render),
+    ("rust/chart-bar", demo_chart_bar::render),
+    ("rust/chart-bar-horizontal", demo_chart_bar_horizontal::render),
+    ("rust/chart-line", demo_chart_line::render),
+    ("rust/chart-line-multiple", demo_chart_line_multiple::render),
+    ("rust/chart-line-step", demo_chart_line_step::render),
+    ("rust/chart-pie", demo_chart_pie::render),
+    ("rust/chart-pie-donut", demo_chart_pie_donut::render),
+    ("rust/chart-radar", demo_chart_radar::render),
+    ("rust/chart-radar-compare", demo_chart_radar_compare::render),
+    ("rust/chart-radial", demo_chart_radial::render),
+    ("rust/chart-tooltip", demo_chart_tooltip::render),
     ("rust/checkbox", demo_checkbox::render),
     ("rust/command-palette", demo_command_palette::render),
     ("rust/confirmation-prompt", demo_confirmation_prompt::render),
@@ -113,7 +152,7 @@ const DEMOS: &[(&str, DemoRenderer)] = &[
     ("rust/empty-state", demo_empty_state::render),
     ("rust/form-field", demo_form_field::render),
     ("rust/file-picker", demo_file_picker::render),
-    ("rust/gauge", demo_gauge::render),
+    ("rust/progress", demo_progress::render),
     ("rust/help-screen", demo_help_screen::render),
     ("rust/loading-state", demo_loading_state::render),
     ("rust/list", demo_list::render),

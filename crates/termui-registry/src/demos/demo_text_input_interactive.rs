@@ -3,14 +3,14 @@ mod wasm_app {
     use std::{cell::RefCell, io, rc::Rc};
 
     use ratzilla::{
+        DomBackend, WebRenderer,
         event::{KeyCode, MouseButton, MouseEvent, MouseEventKind},
         ratatui::{
+            Frame, Terminal,
             layout::{Alignment, Position, Rect},
             style::{Color, Style},
             widgets::{Block, BorderType, Paragraph, Wrap},
-            Frame, Terminal,
         },
-        DomBackend, WebRenderer,
     };
     use termui_widgets::text_input::TextInput;
 
@@ -88,7 +88,9 @@ mod wasm_app {
             .render(frame, areas.workspace);
 
         let hint_y = stack_y.saturating_add(7);
-        let hint_height = content.height.saturating_sub(hint_y.saturating_sub(content.y));
+        let hint_height = content
+            .height
+            .saturating_sub(hint_y.saturating_sub(content.y));
         let hint = Rect::new(content.x, hint_y, content.width, hint_height.min(2));
         frame.render_widget(
             Paragraph::new(

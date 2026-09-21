@@ -3,14 +3,14 @@ mod wasm_app {
     use std::{cell::RefCell, io, rc::Rc, time::Duration};
 
     use ratzilla::{
+        DomBackend, WebRenderer,
         event::{KeyCode, MouseButton, MouseEvent, MouseEventKind},
         ratatui::{
+            Frame, Terminal,
             layout::{Constraint, Layout, Position, Rect},
             style::{Color, Style},
             widgets::{Paragraph, Wrap},
-            Frame, Terminal,
         },
-        DomBackend, WebRenderer,
     };
     use termui_widgets::{
         button::{Button, ButtonVariant},
@@ -45,6 +45,7 @@ mod wasm_app {
             1,
         );
         DialogTrigger::new("Delete project")
+            .style(Style::default().fg(Color::Black).bg(Color::White))
             .focused(
                 app.hover
                     .is_some_and(|point| hit_areas.trigger.contains(point)),

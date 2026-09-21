@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <script type="module">
-import init, * as bindings from '/demos/text-input-interactive/text-input-interactive-4807274de8778e57.js';
-const wasm = await init({ module_or_path: '/demos/text-input-interactive/text-input-interactive-4807274de8778e57_bg.wasm' });
+import init, * as bindings from '/demos/text-input-interactive/text-input-interactive-9f2539d5a7404e6.js';
+const wasm = await init({ module_or_path: '/demos/text-input-interactive/text-input-interactive-9f2539d5a7404e6_bg.wasm' });
 
 
 window.wasmBindings = bindings;
@@ -40,7 +40,7 @@ dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
       #terminal {
         width: 100%;
         height: 100%;
-        padding: 12px;
+        padding: 0;
         overflow: hidden;
         color: #fafafa;
         background: #09090b;
@@ -63,7 +63,7 @@ dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
         cursor: default;
       }
     </style>
-  <link rel="modulepreload" href="/demos/text-input-interactive/text-input-interactive-4807274de8778e57.js" crossorigin="anonymous" integrity="sha384-7b0bZxCNAFXZS9FcpiB9AWBtQ1wGsrxIQsTSrzzGot4KUzCGEEn4uBhl/lwSrAa+"><link rel="preload" href="/demos/text-input-interactive/text-input-interactive-4807274de8778e57_bg.wasm" crossorigin="anonymous" integrity="sha384-x8wh2Lxcp/6S+ZqSfpFzmtGJ1ClLfZmoHfpCBAHbr/18TnMlmIUKMQKDP9IKGZ/s" as="fetch" type="application/wasm"></head>
+  <link rel="modulepreload" href="/demos/text-input-interactive/text-input-interactive-9f2539d5a7404e6.js" crossorigin="anonymous" integrity="sha384-7b0bZxCNAFXZS9FcpiB9AWBtQ1wGsrxIQsTSrzzGot4KUzCGEEn4uBhl/lwSrAa+"><link rel="preload" href="/demos/text-input-interactive/text-input-interactive-9f2539d5a7404e6_bg.wasm" crossorigin="anonymous" integrity="sha384-Y2/OWKWju2l0VrEqYMx6Yz+3hzRTW495zxUuS5qPfrzyWPvedMOlzuqjsbOjD2mF" as="fetch" type="application/wasm"></head>
   <body>
     <div id="terminal"></div>
     <script>

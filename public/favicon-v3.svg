@@ -1,5 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
-  <title>Term/UI favicon v3</title>
-  <rect width="512" height="512" rx="115" ry="115" fill="#000"/>
-  <path d="M205 50H305Q355 50 355 100V200Q355 250 305 250H255L355 350V400H305L205 300V400H155V50H205Z M215 100H295Q305 100 305 110V190Q305 200 295 200H215Q205 200 205 190V110Q205 100 215 100Z" fill="#fff" fill-rule="evenodd" shape-rendering="crispEdges" transform="translate(47.856 47.25) scale(.8235 .915)"/>
-</svg>

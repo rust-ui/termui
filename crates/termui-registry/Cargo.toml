@@ -27,5 +27,9 @@ name = "dialog-interactive"
 path = "src/demos/demo_dialog_interactive.rs"
 
 [[bin]]
+name = "resizable-layout-interactive"
+path = "src/demos/demo_resizable_layout_interactive.rs"
+
+[[bin]]
 name = "text-input-interactive"
 path = "src/demos/demo_text_input_interactive.rs"

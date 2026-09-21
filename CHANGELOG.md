@@ -6,7 +6,9 @@ Notable Term/UI changes are recorded here. Format follows [Keep a Changelog](htt
 
 ### Added
 
+- Add local per-component tests for Button interactions and Card's Rust preview.
 - Added 35 planned widgets with copyable Rust source, documentation pages, and checked-in terminal previews.
+- Added modular area, bar, line, pie, radar, radial, and tooltip charts with Rust-rendered gallery previews, family routes, and a code sheet.
 - Added an interactive Ratatui Text Input demo with click, typing, field switching, and Backspace behavior; checked in its WebAssembly assets.
 - Added a composable `Card` widget with a prominent title, an RSX-style `termui!` macro, docs, and a Rust-rendered demo; removed the unused `CardAction` slot.
 - Added ColorPicker, Dialog, RadioCard, and TextInput widgets with Rust-rendered demos and copyable source pages; ported Ferrit's licensed `tui_overlay` and animated error Toast, with native mouse dismissal.
@@ -22,9 +24,13 @@ Notable Term/UI changes are recorded here. Format follows [Keep a Changelog](htt
 - Added native Rust demo rendering that writes checked-in preview frames consumed by the site.
 - Added a single dark/light theme toggle to the far right of the navigation.
 - Added Docker/Compose production packaging and a GitHub Actions SSH deploy workflow for the shared Rustify server.
+- Added an interactive Resizable Layout demo with a draggable divider, Tab activation, arrow-key resizing, and a live active state.
 
 ### Changed
 
+- Replaced the old header and downloadable logo mark with the pixel-grid R.
+- Renamed the labeled metric `Gauge` widget and docs page to `Progress`.
+- Added `DialogTrigger::style` and used white with black text for the Dialog demo trigger.
 - Replaced the active favicon with the pixel-grid R from V4 and regenerated ICO, PNG, Apple touch, and Android icon assets.
 - Reject widget docs that use `TerminalFrame` without a Preview/Code switcher.
 - Generate Ratzilla demo entry HTML from one shared template and MDX references.
@@ -47,6 +53,8 @@ Notable Term/UI changes are recorded here. Format follows [Keep a Changelog](htt
 
 ### Fixed
 
+- Use checked, overflow-safe sizing for scrollbars and Ratatui ratio constraints.
+- Keep the Ratzilla terminal viewport aligned with pointer coordinates so clicks hit the rendered controls.
 - Keep Toast's native `crossterm` mouse events out of WebAssembly builds.
 - Set Term/UI as an independent product with `termui.rustify.app` as its canonical site, registry, SEO, and deployment origin.
 - Replaced cloud-platform deployment with the shared-apps Docker, Docker Hub, SSH, Nginx, and Certbot deployment path.
