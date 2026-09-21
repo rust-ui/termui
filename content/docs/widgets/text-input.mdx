@@ -1,13 +1,15 @@
 ---
 title: Text Input
-description: Single-line input field with focused and placeholder states.
+description: Single-line input field with editable values, focus, and placeholder states.
 ---
 
 `TextInput` draws a single-line field with a label and optional placeholder. Your app owns the value, focus, and key handling.
 
 <RustDemo
   name="text-input"
-  title="Text Input"
+  title="Text Input · Interactive Ratatui"
+  src="/demos/text-input-interactive/index.html"
+  height={370}
   fontSize={16}
   code={`use termui_widgets::text_input::TextInput;
 
@@ -16,6 +18,8 @@ TextInput::new("Email")
     .focused(true)
     .render(frame, area);`}
 />
+
+Click a field, then type. Press **Tab** to switch fields and **Backspace** to delete.
 
 ## Source
 

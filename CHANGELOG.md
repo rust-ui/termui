@@ -6,6 +6,7 @@ Notable Term/UI changes are recorded here. Format follows [Keep a Changelog](htt
 
 ### Added
 
+- Added an interactive Ratatui Text Input demo with click, typing, field switching, and Backspace behavior; checked in its WebAssembly assets.
 - Added a composable `Card` widget with a prominent title, an RSX-style `termui!` macro, docs, and a Rust-rendered demo; removed the unused `CardAction` slot.
 - Added ColorPicker, Dialog, RadioCard, and TextInput widgets with Rust-rendered demos and copyable source pages; ported Ferrit's licensed `tui_overlay` and animated error Toast, with native mouse dismissal.
 - Split Ratatui frame rendering into `termui-renderer` and per-demo files plus ID dispatch into `termui-registry`; keep interactive and static demo sources together, and validate static previews from docs references during frame generation.
