@@ -1,10 +1,10 @@
-import { ComponentPreview } from "@/components/component-preview";
-import { DirectionalTransition } from "@/components/directional-transition";
-import { HomeCtas } from "@/components/home-ctas";
-import { PageHero } from "@/components/page-hero";
-import { RATATUI_COMPONENTS } from "@/constants/ratatui";
-import { ROUTES } from "@/constants/routes";
-import { createPageMetadata } from "@/seo/metadata";
+import { ComponentPreview } from "@/domains/docs/components/component-preview";
+import { DirectionalTransition } from "@/components/shared/directional-transition";
+import { HomeCtas } from "@/domains/site/components/home-ctas";
+import { PageHero } from "@/domains/site/components/page-hero";
+import { RATATUI_COMPONENTS } from "@/domains/ratatui/config";
+import { ROUTES } from "@/shared/config/routes";
+import { createPageMetadata } from "@/domains/site/seo/metadata";
 
 export const dynamic = "force-static";
 export const revalidate = false;

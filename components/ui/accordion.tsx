@@ -3,9 +3,9 @@
 import { ChevronDownIcon } from "lucide-react";
 import { Accordion as AccordionPrimitive } from "radix-ui";
 
-import type { FeedbackType } from "@/hooks/use-feedback";
-import { useFeedback } from "@/hooks/use-feedback";
-import { cn } from "@/lib/utils";
+import type { FeedbackType } from "@/shared/hooks/use-feedback";
+import { useFeedback } from "@/shared/hooks/use-feedback";
+import { cn } from "@/shared/lib/utils";
 
 const Accordion = ({
   ...props

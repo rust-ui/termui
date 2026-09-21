@@ -1,9 +1,9 @@
 import type { MetadataRoute } from "next";
 
-import { ROUTES } from "@/constants/routes";
-import { CHART_FAMILIES } from "@/constants/charts";
-import { SITE } from "@/constants/site";
-import { source } from "@/lib/source";
+import { ROUTES } from "@/shared/config/routes";
+import { CHART_FAMILIES } from "@/domains/charts/config";
+import { SITE } from "@/shared/config/site";
+import { source } from "@/domains/docs/source";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [

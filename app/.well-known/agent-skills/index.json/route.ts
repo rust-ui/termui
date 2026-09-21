@@ -1,6 +1,6 @@
-import { ROUTES } from "@/constants/routes";
-import { requestOrigin } from "@/lib/agent-discovery/request-origin";
-import { termuiAgentSkillDigest } from "@/lib/agent-discovery/termui-agent-skill";
+import { ROUTES } from "@/shared/config/routes";
+import { requestOrigin } from "@/domains/discovery/agent-discovery/request-origin";
+import { termuiAgentSkillDigest } from "@/domains/discovery/agent-discovery/termui-agent-skill";
 
 export const GET = (request: Request) => {
   const origin = requestOrigin(request);

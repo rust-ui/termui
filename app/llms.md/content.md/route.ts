@@ -1,7 +1,7 @@
-import { ROUTES } from "@/constants/routes";
-import { SITE } from "@/constants/site";
-import { requestOrigin } from "@/lib/agent-discovery/request-origin";
-import { markdownResponse } from "@/lib/api";
+import { ROUTES } from "@/shared/config/routes";
+import { SITE } from "@/shared/config/site";
+import { requestOrigin } from "@/domains/discovery/agent-discovery/request-origin";
+import { markdownResponse } from "@/domains/discovery/api";
 
 export const revalidate = false;
 

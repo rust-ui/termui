@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { ArrowRightIcon } from "lucide-react";
 
-import { ChartsNav } from "@/components/charts/charts-nav";
-import { PageHero } from "@/components/page-hero";
+import { ChartsNav } from "@/domains/charts/components/charts/charts-nav";
+import { PageHero } from "@/domains/site/components/page-hero";
 import { Button } from "@/components/ui/button";
 
 export default function ChartsLayout({ children }: { children: React.ReactNode }) {

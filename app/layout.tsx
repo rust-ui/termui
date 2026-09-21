@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 
-import { ThemeProvider } from "@/components/theme-provider";
+import { ThemeProvider } from "@/components/shared/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
-import { META_THEME_COLORS } from "@/constants/site";
-import { fontVariables } from "@/lib/fonts";
-import { cn } from "@/lib/utils";
-import { JsonLdScripts } from "@/seo/json-ld";
+import { META_THEME_COLORS } from "@/shared/config/site";
+import { fontVariables } from "@/shared/lib/fonts";
+import { cn } from "@/shared/lib/utils";
+import { JsonLdScripts } from "@/domains/site/seo/json-ld";
 
-import "@/styles/globals.css";
-import { baseMetadata } from "@/seo/metadata";
+import "@/shared/styles/globals.css";
+import { baseMetadata } from "@/domains/site/seo/metadata";
 
 export const metadata: Metadata = baseMetadata;
 

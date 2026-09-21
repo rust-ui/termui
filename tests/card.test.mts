@@ -3,7 +3,7 @@ import { promises as fs } from "node:fs";
 import path from "node:path";
 import test from "node:test";
 
-import { RATATUI_DEMO_BASE } from "../constants/ratatui.ts";
+import { RATATUI_DEMO_BASE } from "../domains/ratatui/config.ts";
 
 const root = process.cwd();
 

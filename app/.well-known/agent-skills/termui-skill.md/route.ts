@@ -1,4 +1,4 @@
-import { TERMUI_AGENT_SKILL_MD } from "@/lib/agent-discovery/termui-agent-skill";
+import { TERMUI_AGENT_SKILL_MD } from "@/domains/discovery/agent-discovery/termui-agent-skill";
 
 export const GET = () =>
   new Response(TERMUI_AGENT_SKILL_MD, {

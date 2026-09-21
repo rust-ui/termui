@@ -3,8 +3,8 @@
 import { Collapsible as CollapsiblePrimitive } from "radix-ui";
 import { useCallback, useEffect, useRef } from "react";
 
-import { collapse, expand } from "@/audio/core";
-import { useFeedback } from "@/hooks/use-feedback";
+import { collapse, expand } from "@/shared/audio/core";
+import { useFeedback } from "@/shared/hooks/use-feedback";
 
 const Collapsible = ({
   onOpenChange,

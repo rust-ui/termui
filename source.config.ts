@@ -6,8 +6,8 @@ import {
 } from "fumadocs-mdx/config";
 import { rehypePrettyCode } from "rehype-pretty-code";
 
-import { DOCS_DIR } from "@/lib/docs";
-import { transformers } from "@/lib/highlight-code";
+import { DOCS_DIR } from "@/domains/docs/docs";
+import { transformers } from "@/domains/docs/highlight-code";
 
 export default defineConfig({
   mdxOptions: {

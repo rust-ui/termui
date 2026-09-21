@@ -2,8 +2,8 @@ import { createMDX } from "fumadocs-mdx/next";
 import { createJiti } from "jiti";
 
 const jiti = createJiti(import.meta.url);
-const { ROUTES } = await jiti.import("./constants/routes");
-const { RATATUI_COMPONENTS } = await jiti.import("./constants/ratatui");
+const { ROUTES } = await jiti.import("./shared/config/routes");
+const { RATATUI_COMPONENTS } = await jiti.import("./domains/ratatui/config");
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {

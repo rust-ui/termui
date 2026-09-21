@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 
-import { markdownResponse } from "@/lib/api";
-import { getLLMText, getPageMarkdownUrl, source } from "@/lib/source";
+import { markdownResponse } from "@/domains/discovery/api";
+import { getLLMText, getPageMarkdownUrl, source } from "@/domains/docs/source";
 
 export const revalidate = false;
 

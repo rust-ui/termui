@@ -1,19 +1,19 @@
 import { ArrowRightIcon, CheckIcon, CircleDashedIcon } from "lucide-react";
 import Link from "next/link";
 
-import { DirectionalTransition } from "@/components/directional-transition";
-import { PageHero } from "@/components/page-hero";
+import { DirectionalTransition } from "@/components/shared/directional-transition";
+import { PageHero } from "@/domains/site/components/page-hero";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { ROUTES } from "@/constants/routes";
+import { ROUTES } from "@/shared/config/routes";
 import {
   formatLaunchWeekRange,
   getLaunchWeekHref,
   getLaunchWeeks,
-} from "@/lib/launch-week";
-import type { LaunchWeekData } from "@/lib/launch-week";
-import { BreadcrumbJsonLd } from "@/seo/json-ld";
-import { createPageMetadata } from "@/seo/metadata";
+} from "@/domains/launch-week/data";
+import type { LaunchWeekData } from "@/domains/launch-week/data";
+import { BreadcrumbJsonLd } from "@/domains/site/seo/json-ld";
+import { createPageMetadata } from "@/domains/site/seo/metadata";
 
 export const dynamic = "force-static";
 export const revalidate = false;

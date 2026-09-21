@@ -2,8 +2,8 @@
 
 import { ChevronDownIcon } from "lucide-react";
 
-import { useFeedback } from "@/hooks/use-feedback";
-import { cn } from "@/lib/utils";
+import { useFeedback } from "@/shared/hooks/use-feedback";
+import { cn } from "@/shared/lib/utils";
 
 const NativeSelect = ({
   className,

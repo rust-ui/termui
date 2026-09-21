@@ -4,9 +4,9 @@ import { XIcon } from "lucide-react";
 import { Dialog as SheetPrimitive } from "radix-ui";
 import { useCallback, useEffect, useRef } from "react";
 
-import { drawerOpen, drawerClose } from "@/audio/core";
-import { useFeedback } from "@/hooks/use-feedback";
-import { cn } from "@/lib/utils";
+import { drawerOpen, drawerClose } from "@/shared/audio/core";
+import { useFeedback } from "@/shared/hooks/use-feedback";
+import { cn } from "@/shared/lib/utils";
 
 const Sheet = ({
   onOpenChange,

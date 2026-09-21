@@ -34,6 +34,7 @@ Notable Term/UI changes are recorded here. Format follows [Keep a Changelog](htt
 
 ### Changed
 
+- Reorganized app source into feature-owned `domains/` and cross-feature `shared/` modules; kept Next.js `app/` and shadcn UI at the repository root.
 - Refined the Drawer demo trigger, centered hint, and panel contrast.
 - Refined Ratatui SEO metadata, page copy, and GitHub discovery links; removed mismatched FAQ markup and fabricated sitemap modification dates.
 - Added strict Biome and Knip checks, Rust formatting/lint/test gates, and repository Git hooks; retained the shadcn CLI and component configuration.

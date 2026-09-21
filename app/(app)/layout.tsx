@@ -1,6 +1,6 @@
-import { SiteFooter } from "@/components/site-footer";
-import { SiteHeader } from "@/components/site-header";
-import { WebMcpTools } from "@/components/web-mcp-tools";
+import { SiteFooter } from "@/domains/site/components/site-footer";
+import { SiteHeader } from "@/domains/site/components/site-header";
+import { WebMcpTools } from "@/domains/discovery/components/web-mcp-tools";
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   return (

@@ -4,9 +4,9 @@ import * as React from "react";
 import { useCallback, useEffect, useRef } from "react";
 import { Drawer as DrawerPrimitive } from "vaul";
 
-import { drawerClose, drawerOpen } from "@/audio/core";
-import { useFeedback } from "@/hooks/use-feedback";
-import { cn } from "@/lib/utils";
+import { drawerClose, drawerOpen } from "@/shared/audio/core";
+import { useFeedback } from "@/shared/hooks/use-feedback";
+import { cn } from "@/shared/lib/utils";
 
 const Drawer = ({
   onOpenChange,

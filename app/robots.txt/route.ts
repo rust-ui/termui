@@ -1,4 +1,4 @@
-import { SITE } from "@/constants/site";
+import { SITE } from "@/shared/config/site";
 
 export const GET = () => {
   const body = [

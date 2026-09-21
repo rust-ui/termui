@@ -1,14 +1,14 @@
 import { RssIcon } from "lucide-react";
 import Link from "next/link";
 
-import { DirectionalTransition } from "@/components/directional-transition";
-import { DocsTocFooter } from "@/components/docs-toc-footer";
+import { DirectionalTransition } from "@/components/shared/directional-transition";
+import { DocsTocFooter } from "@/domains/docs/components/docs-toc-footer";
 import { Button } from "@/components/ui/button";
-import { ROUTES } from "@/constants/routes";
-import { getChangelogPages } from "@/lib/changelog";
-import type { ChangelogPageData } from "@/lib/changelog";
+import { ROUTES } from "@/shared/config/routes";
+import { getChangelogPages } from "@/domains/docs/changelog";
+import type { ChangelogPageData } from "@/domains/docs/changelog";
 import { mdxComponents } from "@/mdx-components";
-import { createPageMetadata } from "@/seo/metadata";
+import { createPageMetadata } from "@/domains/site/seo/metadata";
 
 export const revalidate = false;
 export const dynamic = "force-static";

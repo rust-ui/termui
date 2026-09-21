@@ -1,6 +1,6 @@
-import { ROUTES } from "@/constants/routes";
-import { requestOrigin } from "@/lib/agent-discovery/request-origin";
-import { homeContentRoute } from "@/lib/docs";
+import { ROUTES } from "@/shared/config/routes";
+import { requestOrigin } from "@/domains/discovery/agent-discovery/request-origin";
+import { homeContentRoute } from "@/domains/docs/docs";
 
 const PROFILE = "https://www.rfc-editor.org/info/rfc9727";
 

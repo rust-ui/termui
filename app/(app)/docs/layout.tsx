@@ -1,6 +1,6 @@
-import { DocsSidebar } from "@/components/docs-sidebar";
+import { DocsSidebar } from "@/domains/docs/components/docs-sidebar";
 import { SidebarProvider } from "@/components/ui/sidebar";
-import { source } from "@/lib/source";
+import { source } from "@/domains/docs/source";
 
 export default function DocsLayout({ children }: { children: React.ReactNode }) {
   return (

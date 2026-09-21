@@ -2,17 +2,17 @@ import type { LucideIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-import { Callout } from "@/components/callout";
-import { CodeBlockCommand } from "@/components/code-block-command";
-import { CodeTabs } from "@/components/code-tabs";
-import { ComponentPreview } from "@/components/component-preview";
-import { ComponentSource } from "@/components/component-source";
-import { WidgetsList } from "@/components/widgets-list";
-import { CopyButton } from "@/components/copy-button";
-import { TerminalFrame } from "@/components/terminal-frame";
-import { RatzillaFrame } from "@/components/ratzilla-frame";
-import { RustDemo } from "@/components/rust-demo";
-import { getIconForLanguageExtension } from "@/components/icons";
+import { Callout } from "@/components/shared/callout";
+import { CodeBlockCommand } from "@/components/shared/code-block-command";
+import { CodeTabs } from "@/components/shared/code-tabs";
+import { ComponentPreview } from "@/domains/docs/components/component-preview";
+import { ComponentSource } from "@/domains/docs/components/component-source";
+import { WidgetsList } from "@/domains/docs/components/widgets-list";
+import { CopyButton } from "@/components/shared/copy-button";
+import { TerminalFrame } from "@/domains/ratatui/components/terminal-frame";
+import { RatzillaFrame } from "@/domains/ratatui/components/ratzilla-frame";
+import { RustDemo } from "@/domains/ratatui/components/rust-demo";
+import { getIconForLanguageExtension } from "@/components/shared/icons";
 import {
   Accordion,
   AccordionContent,
@@ -24,7 +24,7 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { cn } from "@/lib/utils";
+import { cn } from "@/shared/lib/utils";
 
 export const mdxComponents = {
   Accordion,

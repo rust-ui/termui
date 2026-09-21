@@ -2,9 +2,9 @@
 
 import { Tabs as TabsPrimitive } from "radix-ui";
 
-import type { FeedbackType } from "@/hooks/use-feedback";
-import { useFeedback } from "@/hooks/use-feedback";
-import { cn } from "@/lib/utils";
+import type { FeedbackType } from "@/shared/hooks/use-feedback";
+import { useFeedback } from "@/shared/hooks/use-feedback";
+import { cn } from "@/shared/lib/utils";
 
 const Tabs = ({
   className,

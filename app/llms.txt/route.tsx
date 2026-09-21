@@ -1,9 +1,9 @@
 import { llms } from "fumadocs-core/source";
 
-import { ROUTES } from "@/constants/routes";
-import { SITE } from "@/constants/site";
-import { requestOrigin } from "@/lib/agent-discovery/request-origin";
-import { source } from "@/lib/source";
+import { ROUTES } from "@/shared/config/routes";
+import { SITE } from "@/shared/config/site";
+import { requestOrigin } from "@/domains/discovery/agent-discovery/request-origin";
+import { source } from "@/domains/docs/source";
 
 export const revalidate = false;
 

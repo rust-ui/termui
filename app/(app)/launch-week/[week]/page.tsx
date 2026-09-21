@@ -1,16 +1,16 @@
 import { notFound } from "next/navigation";
 
-import { DirectionalTransition } from "@/components/directional-transition";
-import { LaunchWeek } from "@/components/launch-week";
-import { ROUTES } from "@/constants/routes";
+import { DirectionalTransition } from "@/components/shared/directional-transition";
+import { LaunchWeek } from "@/domains/launch-week/components/launch-week";
+import { ROUTES } from "@/shared/config/routes";
 import {
   formatLaunchWeekRange,
   getLaunchWeek,
   getLaunchWeekHref,
   getLaunchWeeks,
-} from "@/lib/launch-week";
-import { BreadcrumbJsonLd } from "@/seo/json-ld";
-import { createPageMetadata } from "@/seo/metadata";
+} from "@/domains/launch-week/data";
+import { BreadcrumbJsonLd } from "@/domains/site/seo/json-ld";
+import { createPageMetadata } from "@/domains/site/seo/metadata";
 
 export const dynamic = "force-static";
 export const dynamicParams = false;

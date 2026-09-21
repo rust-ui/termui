@@ -4,9 +4,9 @@ import { XIcon } from "lucide-react";
 import { Dialog as DialogPrimitive } from "radix-ui";
 import { useCallback, useEffect, useRef } from "react";
 
-import { modalOpen, modalClose } from "@/audio/core";
-import { useFeedback } from "@/hooks/use-feedback";
-import { cn } from "@/lib/utils";
+import { modalOpen, modalClose } from "@/shared/audio/core";
+import { useFeedback } from "@/shared/hooks/use-feedback";
+import { cn } from "@/shared/lib/utils";
 
 const Dialog = ({
   onOpenChange,
