@@ -10,12 +10,13 @@ through a real `ratatui::Terminal`.
 
 ## Layout
 
-- `rust/crates/termui-widgets` — the components themselves. Struct + builder
-  API + `render(frame, area)`, meant to be copied into your own app, not
-  pulled in as a dependency.
-- `rust/crates/termui-demo*` — one small binary per component, each compiled
-  to WASM with `trunk` and embedded in the docs site as a live iframe.
-- `web` — the Next.js/TypeScript docs site (Tailwind v4, shadcn conventions).
+- `crates/termui-widgets` — the components themselves. Struct + builder API +
+  `render(frame, area)`, meant to be copied into your own app, not pulled in
+  as a dependency.
+- `crates/termui-demo*` — one small binary per component, each compiled to
+  WASM with `trunk` and embedded in the docs site as a live iframe.
+- `app`, `components`, `lib` — the Next.js/TypeScript docs site (Tailwind v4,
+  shadcn conventions).
 
 ## Components
 
@@ -27,8 +28,8 @@ through a real `ratatui::Terminal`.
 
 ```sh
 # rebuild a demo's WASM bundle
-cd rust/crates/termui-demo && trunk build --release --dist ../../../web/public/demos/panel
+cd crates/termui-demo && trunk build --release --dist ../../public/demos/panel
 
 # run the docs site
-cd web && pnpm install && pnpm dev
+pnpm install && pnpm dev
 ```
