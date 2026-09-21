@@ -67,9 +67,9 @@
   },
   "drawer-interactive": {
     "title": "Interactive Ratatui Drawer",
-    "hash": "142aa55818cf081",
+    "hash": "77b8b8783d86bfc1",
     "jsIntegrity": "sha384-NmFiSjhvrmN/DBxOWl4iTAMFJtcxGfVW3+lHHhKeITSFVNTXM6K5ipW00r9yT3oh",
-    "wasmIntegrity": "sha384-/g3bkH5hh+45u3HuyjJSUsATQEDjd/HVJAkTuP6+kNZI7gSsGEkABbDp3/VvQLT2"
+    "wasmIntegrity": "sha384-waFMjKKxbfs1tjyiWgePnBHwd6LA3I4FOn+lMukyHyl+AoOZHjfXZpwPsTikRnPd"
   },
   "file-picker-interactive": {
     "title": "Interactive Ratatui File Picker",

@@ -18,7 +18,7 @@ after(async () => {
   await session?.close();
 });
 
-test("profile Drawer opens from 👤; inside clicks stay open and outside clicks close", async () => {
+test("Open Trigger opens profile Drawer; inside clicks stay open and outside clicks close", async () => {
   const page = await session.browser.newPage({
     viewport: { width: 1200, height: 762 },
   });
@@ -32,7 +32,35 @@ test("profile Drawer opens from 👤; inside clicks stay open and outside clicks
     await waitForTerminal(page);
     assert.equal(await page.title(), "Interactive Ratatui Drawer");
 
-    await clickTerminalText(page, "👤");
+    const initialLayout = await page
+      .locator("#terminal_ratzilla_grid pre")
+      .evaluateAll((rows) => {
+        const locate = (text: string) => {
+          const row = rows.findIndex((line) =>
+            line.textContent?.includes(text)
+          );
+          const content = rows[row]?.textContent ?? "";
+          return { row, column: content.indexOf(text), length: text.length };
+        };
+        return {
+          trigger: locate("Open Trigger"),
+          hintTitle: locate("Opens the profile drawer"),
+          hintDismiss: locate("Click outside or press Esc to close"),
+        };
+      });
+    assert.ok(initialLayout.trigger.row >= 0);
+    assert.ok(initialLayout.hintTitle.row >= initialLayout.trigger.row + 2);
+    assert.ok(initialLayout.hintDismiss.row > initialLayout.hintTitle.row);
+    const triggerCenter =
+      initialLayout.trigger.column + initialLayout.trigger.length / 2;
+    for (const hint of [initialLayout.hintTitle, initialLayout.hintDismiss]) {
+      assert.ok(
+        Math.abs(hint.column + hint.length / 2 - triggerCenter) <= 1,
+        `hint should align with trigger: ${JSON.stringify(initialLayout)}`
+      );
+    }
+
+    await clickTerminalText(page, "Open Trigger");
     await waitForTerminalText(page, "Profile");
     await clickTerminalText(page, "alex@example.com");
     await page.waitForTimeout(100);
@@ -41,8 +69,8 @@ test("profile Drawer opens from 👤; inside clicks stay open and outside clicks
       "click inside drawer must leave it open"
     );
 
-    // Only the hint's left fragment stays visible beside the open right drawer.
-    await clickTerminalText(page, "Click");
+    // The short hint remains visible to the left of the open right drawer.
+    await clickTerminalText(page, "Click outside");
     await page.waitForFunction(
       () =>
         !(
@@ -52,7 +80,7 @@ test("profile Drawer opens from 👤; inside clicks stay open and outside clicks
         )
     );
 
-    await clickTerminalText(page, "👤");
+    await clickTerminalText(page, "Open Trigger");
     await waitForTerminalText(page, "Profile");
     await clickTerminalText(page, " x ");
     await page.waitForFunction(

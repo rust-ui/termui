@@ -33,6 +33,7 @@ Notable Term/UI changes are recorded here. Format follows [Keep a Changelog](htt
 
 ### Changed
 
+- Refined the Drawer demo trigger, centered hint, and panel contrast.
 - Feature the Rust/UI site and theme-aware logo in the Labs Latest card.
 - Add an Ecosystem column with Rust/UI, Leptos UI, and Rustify links.
 - Add a slash separator after the Labs menu trigger.

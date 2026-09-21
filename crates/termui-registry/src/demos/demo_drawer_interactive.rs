@@ -32,24 +32,29 @@ mod wasm_app {
         app.drawer.tick(Duration::from_millis(16));
 
         let area = frame.area();
-        let [content] = Layout::vertical([Constraint::Length(3)])
+        let [content] = Layout::vertical([Constraint::Length(4)])
             .flex(Flex::Center)
             .areas(area);
-        let [trigger, hint] =
-            Layout::vertical([Constraint::Length(1), Constraint::Length(2)]).areas(content);
-        let trigger_width = 5.min(trigger.width);
+        let [trigger, spacer, hint] = Layout::vertical([
+            Constraint::Length(1),
+            Constraint::Length(1),
+            Constraint::Length(2),
+        ])
+        .areas(content);
+        let trigger_width = 16.min(trigger.width);
         areas.trigger = Rect::new(
             trigger.x + trigger.width.saturating_sub(trigger_width) / 2,
             trigger.y,
             trigger_width,
             trigger.height,
         );
-        DrawerTrigger::new("👤")
+        DrawerTrigger::new("Open Trigger")
             .style(Style::default().fg(Color::Black).bg(Color::White))
             .focused(app.hover.is_some_and(|point| areas.trigger.contains(point)))
             .render(frame, areas.trigger);
+        frame.render_widget(Paragraph::new(" "), spacer);
         frame.render_widget(
-            Paragraph::new("Click 👤 to open profile. Click outside the drawer to dismiss.")
+            Paragraph::new("Opens the profile drawer\nClick outside or press Esc to close")
                 .alignment(Alignment::Center)
                 .style(Style::default().fg(Color::Gray)),
             hint,
@@ -86,7 +91,7 @@ mod wasm_app {
                 DrawerClose::new().activate(&mut app.drawer);
             }
             MouseEventKind::ButtonDown(MouseButton::Left) if areas.trigger.contains(point) => {
-                DrawerTrigger::new("👤").activate(&mut app.drawer);
+                DrawerTrigger::new("Open Trigger").activate(&mut app.drawer);
             }
             MouseEventKind::ButtonDown(MouseButton::Left) => {
                 app.drawer.close_on_outside_click(point);
@@ -107,7 +112,7 @@ mod wasm_app {
                 match event.code {
                     KeyCode::Esc => DrawerClose::new().activate(&mut app.drawer),
                     KeyCode::Char(' ') | KeyCode::Enter if app.drawer.is_closed() => {
-                        DrawerTrigger::new("👤").activate(&mut app.drawer);
+                        DrawerTrigger::new("Open Trigger").activate(&mut app.drawer);
                     }
                     KeyCode::Char(' ') | KeyCode::Enter => app.drawer.close(),
                     _ => {}

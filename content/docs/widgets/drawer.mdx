@@ -18,8 +18,8 @@ use termui_widgets::drawer::{
 };
 
 let mut drawer = Drawer::new();
-if profile_button_was_clicked {
-    DrawerTrigger::new("👤").activate(&mut drawer);
+if open_trigger_was_clicked {
+    DrawerTrigger::new("Open Trigger").activate(&mut drawer);
 }
 drawer.tick(Duration::from_millis(16));
 

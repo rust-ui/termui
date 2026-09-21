@@ -14,6 +14,7 @@ use crate::tui_overlay::slide::Slide;
 use crate::tui_overlay::state::OverlayState;
 
 const DEFAULT_ANIMATION_TIME: Duration = Duration::from_millis(180);
+const DRAWER_BACKGROUND: Color = Color::Rgb(24, 24, 27);
 
 /// Owns visibility and animation for a composable side drawer.
 #[derive(Debug, Clone)]
@@ -190,7 +191,7 @@ impl DrawerContent {
                     .border_type(BorderType::Rounded)
                     .border_style(border),
             )
-            .bg(Color::Rgb(9, 9, 11));
+            .bg(DRAWER_BACKGROUND);
         frame.render_stateful_widget(overlay, area, &mut drawer.state);
 
         let outer = drawer.state.overlay_rect()?;
@@ -313,6 +314,7 @@ impl Default for DrawerClose<'_> {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use ratatui::{Terminal, backend::TestBackend};
 
     #[test]
     fn outside_click_closes_drawer_but_inside_click_does_not() {
@@ -332,5 +334,22 @@ mod tests {
 
         assert!(!drawer.close_on_outside_click(Position::new(2, 8)));
         assert!(drawer.is_closed());
+    }
+
+    #[test]
+    fn drawer_panel_has_contrast_against_backdrop() {
+        let mut terminal = Terminal::new(TestBackend::new(50, 20)).unwrap();
+        let mut drawer = Drawer::new().with_duration(Duration::ZERO);
+        drawer.open();
+
+        terminal
+            .draw(|frame| {
+                DrawerContent::new().render(frame, frame.area(), &mut drawer);
+            })
+            .unwrap();
+
+        let buffer = terminal.backend().buffer();
+        assert_eq!(buffer[(35, 5)].bg, DRAWER_BACKGROUND);
+        assert_eq!(buffer[(5, 5)].bg, Color::Black);
     }
 }
