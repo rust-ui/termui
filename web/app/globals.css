@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+}
+
+:root {
+  --radius: 0.75rem;
+  --background: oklch(0.15 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.19 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.24 0 0);
+  --muted-foreground: oklch(0.65 0 0);
+  --border: oklch(0.28 0 0);
+  --accent: oklch(0.7 0.15 255);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family:
+    ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+}

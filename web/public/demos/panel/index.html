@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/firacode/6.2.0/fira_code.min.css" />
+    
+<script type="module">
+import init, * as bindings from '/termui-demo-panel-2e4885f77fe179cb.js';
+const wasm = await init({ module_or_path: '/termui-demo-panel-2e4885f77fe179cb_bg.wasm' });
+
+
+window.wasmBindings = bindings;
+
+
+dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
+
+</script>
+    <title>Panel — termui</title>
+    <style>
+      body {
+        margin: 0;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #0a0a0a;
+      }
+      pre {
+        font-family: "Fira Code", monospace;
+        font-size: 16px;
+        margin: 0;
+      }
+    </style>
+  <link rel="modulepreload" href="/termui-demo-panel-2e4885f77fe179cb.js" crossorigin="anonymous" integrity="sha384-QOcC9NWsPAtFdF/Y+wPO08AX6M5FqR1G3Tp/DlxpRQ6bwuZblJcFOLg2e8l24qHD"><link rel="preload" href="/termui-demo-panel-2e4885f77fe179cb_bg.wasm" crossorigin="anonymous" integrity="sha384-rJrOeLpHlOHSKamsdD7qTrgfjYtGwwk6CH40mIcWdy+2zITfpXcim0FudMk1PKsf" as="fetch" type="application/wasm"></head>
+  <body></body>
+</html>

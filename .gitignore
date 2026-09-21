@@ -1,0 +1,8 @@
+__TMP/
+target/
+node_modules/
+dist/
+.next/
+next-env.d.ts
+*.tsbuildinfo
+.DS_Store

@@ -1,0 +1,12 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/termui-widgets",
+    "crates/termui-demo",
+    "crates/termui-demo-key-bar",
+    "crates/termui-demo-select-list",
+]
+
+[workspace.package]
+edition = "2021"
+license = "MIT"

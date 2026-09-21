@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/firacode/6.2.0/fira_code.min.css" />
+    
+<script type="module">
+import init, * as bindings from '/termui-demo-key-bar-f7cca8a93aed757d.js';
+const wasm = await init({ module_or_path: '/termui-demo-key-bar-f7cca8a93aed757d_bg.wasm' });
+
+
+window.wasmBindings = bindings;
+
+
+dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
+
+</script>
+    <title>Key Bar — termui</title>
+    <style>
+      body {
+        margin: 0;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #0a0a0a;
+      }
+      pre {
+        font-family: "Fira Code", monospace;
+        font-size: 16px;
+        margin: 0;
+      }
+    </style>
+  <link rel="modulepreload" href="/termui-demo-key-bar-f7cca8a93aed757d.js" crossorigin="anonymous" integrity="sha384-BOB6qo5TrhHzoUTyOE+/3qVYBV5h5uIHYfmJQvNVYECS3da5ARvUKVfO5CgQTF45"><link rel="preload" href="/termui-demo-key-bar-f7cca8a93aed757d_bg.wasm" crossorigin="anonymous" integrity="sha384-hdl62yooZkJpZaH0AqWZO1r1OJEVf9hW8qaqowNtF3H+bEgfbbv+kTozdFT1E1Rt" as="fetch" type="application/wasm"></head>
+  <body></body>
+</html>
