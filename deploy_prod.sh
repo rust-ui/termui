@@ -33,7 +33,8 @@ echo "Building production site..."
 pnpm build:production
 
 echo "Checking checked-in interactive demo assets..."
-test -s public/demos/button-interactive/index.html
+test -s public/demos/interactive.html
+test -s public/demos/interactive-demo.json
 wasm_found=false
 js_found=false
 for asset in public/demos/button-interactive/*_bg.wasm; do

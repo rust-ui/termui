@@ -5,7 +5,7 @@ description: A simple list with an optional active row marker.
 
 `List` renders plain text rows and can mark one row as active.
 
-<RustDemo name="list" title="List" rows={6} code={`use termui_widgets::list::List;
+<RustDemo name="list" src="/demos/interactive.html?demo=list-interactive" title="List" rows={6} code={`use termui_widgets::list::List;
 
 let items = ["First item", "Second item"];
 List::new(&items).selected(0).render(frame, area);`} />

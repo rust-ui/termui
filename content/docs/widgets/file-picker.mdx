@@ -5,7 +5,7 @@ description: A bordered list of files and folders with a selected path.
 
 `FilePicker` renders the entries and selected path supplied by your application.
 
-<RustDemo name="file-picker" title="File Picker" rows={9} code={`use termui_widgets::file_picker::FilePicker;
+<RustDemo name="file-picker" src="/demos/interactive.html?demo=file-picker-interactive" title="File Picker" rows={9} code={`use termui_widgets::file_picker::FilePicker;
 
 let entries = [("src/", true), ("main.rs", false)];
 FilePicker::new(&entries, 1).render(frame, area);`} />

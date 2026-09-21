@@ -5,6 +5,8 @@ description: Shadcn-inspired terminal button with six color and style variants.
 
 `Button` draws a terminal button. The parent app owns focus, keyboard input, and activation.
 
+`ButtonShape::{Rounded, Square}` controls the button's ends. Buttons use rounded pill ends by default.
+
 ## Examples
 
 ### Default
@@ -58,7 +60,7 @@ This live Ratatui app runs in Rust through Ratzilla and WebAssembly. Click **Inc
 <RustDemo
   name="button-interactive"
   title="Button · Interactive Ratatui"
-  src="/demos/button-interactive/index.html"
+  src="/demos/interactive.html?demo=button-interactive"
   height={370}
   fontSize={16}
   code={`use ratzilla::{DomBackend, WebRenderer};
@@ -79,10 +81,11 @@ terminal.draw_web(|frame| {
 ## Usage
 
 ```rust
-use termui_widgets::button::{Button, ButtonVariant};
+use termui_widgets::button::{Button, ButtonShape, ButtonVariant};
 
 Button::new("Save")
     .variant(ButtonVariant::Default)
+    .shape(ButtonShape::Rounded)
     .focused(true)
     .render(frame, area);
 ```

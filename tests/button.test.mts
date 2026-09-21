@@ -26,7 +26,9 @@ test("Button responds to mouse and keyboard actions", async () => {
   page.on("pageerror", (error) => pageErrors.push(error.message));
 
   try {
-    await page.goto(`${session.baseUrl}/demos/button-interactive/index.html`);
+    await page.goto(
+      `${session.baseUrl}/demos/interactive.html?demo=button-interactive`
+    );
     await waitForTerminal(page);
     assert.equal(await page.title(), "Interactive Ratatui Button");
 

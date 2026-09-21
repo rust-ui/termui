@@ -5,7 +5,7 @@ description: A list of labels with independent checked states.
 
 `MultiSelectList` displays a checked or unchecked mark for each item. Your application owns selection state.
 
-<RustDemo name="multi-select-list" title="Multi-select List" rows={6} code={`use termui_widgets::multi_select_list::MultiSelectList;
+<RustDemo name="multi-select-list" src="/demos/interactive.html?demo=multi-select-list-interactive" title="Multi-select List" rows={6} code={`use termui_widgets::multi_select_list::MultiSelectList;
 
 let items = [("Rust", true), ("Go", false)];
 MultiSelectList::new(&items).render(frame, area);`} />

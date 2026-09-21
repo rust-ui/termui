@@ -5,7 +5,7 @@ description: A question with cancel and confirm actions.
 
 `ConfirmationPrompt` lays out a question and two action labels. Your application handles the choices.
 
-<RustDemo name="confirmation-prompt" title="Confirmation Prompt" rows={5} code={`use termui_widgets::confirmation_prompt::ConfirmationPrompt;
+<RustDemo name="confirmation-prompt" src="/demos/interactive.html?demo=confirmation-prompt-interactive" title="Confirmation Prompt" rows={5} code={`use termui_widgets::confirmation_prompt::ConfirmationPrompt;
 
 let prompt = ConfirmationPrompt::new("Delete this file?")
     .actions("Cancel", "Delete")

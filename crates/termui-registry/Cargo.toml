@@ -34,3 +34,135 @@ path = "src/demos/demo_resizable_layout_interactive.rs"
 [[bin]]
 name = "text-input-interactive"
 path = "src/demos/demo_text_input_interactive.rs"
+
+[[bin]]
+name = "calendar-interactive"
+path = "src/demos/demo_calendar_interactive.rs"
+
+[[bin]]
+name = "checkbox-interactive"
+path = "src/demos/demo_checkbox_interactive.rs"
+
+[[bin]]
+name = "color-picker-interactive"
+path = "src/demos/demo_color_picker_interactive.rs"
+
+[[bin]]
+name = "command-palette-interactive"
+path = "src/demos/demo_command_palette_interactive.rs"
+
+[[bin]]
+name = "confirmation-prompt-interactive"
+path = "src/demos/demo_confirmation_prompt_interactive.rs"
+
+[[bin]]
+name = "date-picker-interactive"
+path = "src/demos/demo_date_picker_interactive.rs"
+
+[[bin]]
+name = "file-picker-interactive"
+path = "src/demos/demo_file_picker_interactive.rs"
+
+[[bin]]
+name = "form-field-interactive"
+path = "src/demos/demo_form_field_interactive.rs"
+
+[[bin]]
+name = "list-interactive"
+path = "src/demos/demo_list_interactive.rs"
+
+[[bin]]
+name = "log-viewer-interactive"
+path = "src/demos/demo_log_viewer_interactive.rs"
+
+[[bin]]
+name = "markdown-viewer-interactive"
+path = "src/demos/demo_markdown_viewer_interactive.rs"
+
+[[bin]]
+name = "menu-interactive"
+path = "src/demos/demo_menu_interactive.rs"
+
+[[bin]]
+name = "multi-select-list-interactive"
+path = "src/demos/demo_multi_select_list_interactive.rs"
+
+[[bin]]
+name = "password-input-interactive"
+path = "src/demos/demo_password_input_interactive.rs"
+
+[[bin]]
+name = "progress-interactive"
+path = "src/demos/demo_progress_interactive.rs"
+
+[[bin]]
+name = "progress-bar-interactive"
+path = "src/demos/demo_progress_bar_interactive.rs"
+
+[[bin]]
+name = "radio-card-interactive"
+path = "src/demos/demo_radio_card_interactive.rs"
+
+[[bin]]
+name = "scrollbar-interactive"
+path = "src/demos/demo_scrollbar_interactive.rs"
+
+[[bin]]
+name = "search-input-interactive"
+path = "src/demos/demo_search_input_interactive.rs"
+
+[[bin]]
+name = "select-list-interactive"
+path = "src/demos/demo_select_list_interactive.rs"
+
+[[bin]]
+name = "sortable-table-interactive"
+path = "src/demos/demo_sortable_table_interactive.rs"
+
+[[bin]]
+name = "split-pane-interactive"
+path = "src/demos/demo_split_pane_interactive.rs"
+
+[[bin]]
+name = "table-interactive"
+path = "src/demos/demo_table_interactive.rs"
+
+[[bin]]
+name = "tabs-interactive"
+path = "src/demos/demo_tabs_interactive.rs"
+
+[[bin]]
+name = "text-area-interactive"
+path = "src/demos/demo_text_area_interactive.rs"
+
+[[bin]]
+name = "toast-interactive"
+path = "src/demos/demo_toast_interactive.rs"
+
+[[bin]]
+name = "toggle-switch-interactive"
+path = "src/demos/demo_toggle_switch_interactive.rs"
+
+[[bin]]
+name = "tooltip-interactive"
+path = "src/demos/demo_tooltip_interactive.rs"
+
+[[bin]]
+name = "tree-view-interactive"
+path = "src/demos/demo_tree_view_interactive.rs"
+
+[[bin]]
+name = "breadcrumbs-interactive"
+path = "src/demos/demo_breadcrumbs_interactive.rs"
+
+[[bin]]
+name = "diff-viewer-interactive"
+path = "src/demos/demo_diff_viewer_interactive.rs"
+
+[[bin]]
+name = "sparkline-interactive"
+path = "src/demos/demo_sparkline_interactive.rs"
+
+[[bin]]
+name = "chart-tooltip-interactive"
+path = "src/demos/demo_chart_tooltip_interactive.rs"

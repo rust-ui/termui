@@ -26,7 +26,10 @@ async function collectMdxFiles(directory: string): Promise<string[]> {
 test("MDX reader distinguishes static and interactive Rust demos", () => {
   const references = collectMdxDemoReferences(`
     <RustDemo name="button" />
-    <RustDemo name="dialog" src="/demos/dialog-interactive/index.html" />
+    <RustDemo
+      name="dialog"
+      src="/demos/interactive.html?demo=dialog-interactive"
+    />
     <TerminalFrame title="Panel" src="panel" />
   `);
 
@@ -35,7 +38,7 @@ test("MDX reader distinguishes static and interactive Rust demos", () => {
     {
       tag: "RustDemo",
       name: "dialog",
-      src: "/demos/dialog-interactive/index.html",
+      src: "/demos/interactive.html?demo=dialog-interactive",
     },
     { tag: "TerminalFrame", name: undefined, src: "panel" },
   ]);
@@ -45,13 +48,13 @@ test("interactive demo discovery deduplicates MDX references and validates paths
   const demos = collectInteractiveDemos([
     {
       file: "widgets/dialog.mdx",
-      source: '<RustDemo src="/demos/dialog-interactive/index.html" />',
+      source: '<RustDemo src="/demos/interactive.html?demo=dialog-interactive" />',
     },
     {
       file: "widgets/button.mdx",
       source: [
-        '<RustDemo src="/demos/button-interactive/index.html" />',
-        '<RustDemo src="/demos/dialog-interactive/index.html" />',
+        '<RustDemo src="/demos/interactive.html?demo=button-interactive" />',
+        '<RustDemo src="/demos/interactive.html?demo=dialog-interactive" />',
         '<RustDemo name="static-demo" />',
       ].join("\n"),
     },
@@ -98,17 +101,23 @@ test("HTML template fills bins and escapes page titles", async () => {
   );
 });
 
-test("interactive terminal keeps viewport bounds aligned with mouse coordinates", async () => {
-  const template = await fs.readFile(
-    path.join(root, "crates/termui-registry/interactive-demo.template.html"),
+test("interactive shell keeps viewport bounds and keyboard handling shared", async () => {
+  const styles = await fs.readFile(
+    path.join(root, "scripts/ratzilla-demo-shell/interactive-demo.css"),
     "utf8"
   );
-  const terminalStyles = template.match(/#terminal\s*\{([^}]+)\}/)?.[1];
+  const loader = await fs.readFile(
+    path.join(root, "scripts/ratzilla-demo-shell/interactive-demo.js"),
+    "utf8"
+  );
+  const terminalStyles = styles.match(/#terminal\s*\{([^}]+)\}/)?.[1];
 
-  assert.ok(terminalStyles, "template must size the Ratzilla terminal");
+  assert.ok(terminalStyles, "shared shell must size the Ratzilla terminal");
   assert.match(terminalStyles, /\bwidth:\s*100%;/);
   assert.match(terminalStyles, /\bheight:\s*100%;/);
   assert.match(terminalStyles, /\bpadding:\s*0;/);
+  assert.match(loader, /event\.key === "Tab"/);
+  assert.match(loader, /event\.key === "Backspace"/);
 });
 
 test("MDX demos match checked-in Rust previews and interactive assets", async () => {
@@ -124,6 +133,20 @@ test("MDX demos match checked-in Rust previews and interactive assets", async ()
     collectMdxDemoReferences(source)
   );
   const demos = collectInteractiveDemos(sources);
+  const interactiveAssets = JSON.parse(
+    await fs.readFile(
+      path.join(root, "public/demos/interactive-demo.json"),
+      "utf8"
+    )
+  ) as Record<
+    string,
+    {
+      title: string;
+      hash: string;
+      jsIntegrity: string;
+      wasmIntegrity: string;
+    }
+  >;
   const cargoToml = await fs.readFile(
     path.join(root, "crates/termui-registry/Cargo.toml"),
     "utf8"
@@ -138,22 +161,50 @@ test("MDX demos match checked-in Rust previews and interactive assets", async ()
   for (const demo of demos) {
     assert.ok(cargoBins.has(demo.name), `${demo.name} must be a Cargo binary`);
 
-    const htmlPath = path.join(root, "public", "demos", demo.name, "index.html");
-    const html = await fs.readFile(htmlPath, "utf8");
-    const assetPaths = [
-      ...html.matchAll(/['"](\/demos\/[^'"]+\.(?:js|wasm))['"]/g),
-    ].map(([, assetPath]) => assetPath);
-    const publicPrefix = `/demos/${demo.name}/`;
-    const jsAssets = assetPaths.filter((assetPath) => assetPath.endsWith(".js"));
-    const wasmAssets = assetPaths.filter((assetPath) => assetPath.endsWith(".wasm"));
+    const html = await fs.readFile(
+      path.join(root, "public/demos/interactive.html"),
+      "utf8"
+    );
+    const assets = interactiveAssets[demo.name];
 
-    assert.ok(html.includes(`<title>${demo.title}</title>`));
-    assert.ok(jsAssets.length > 0, `${demo.name} must reference its JS loader`);
-    assert.ok(wasmAssets.length > 0, `${demo.name} must reference its WASM module`);
-    for (const assetPath of assetPaths) {
-      assert.ok(assetPath.startsWith(publicPrefix), `${assetPath} must use its demo URL`);
-      await fs.access(path.join(root, "public", assetPath.slice(1)));
-    }
+    assert.ok(assets, `${demo.name} must have a manifest entry`);
+    assert.equal(assets.title, demo.title);
+    assert.ok(
+      references.some(
+        (reference) =>
+          reference.src === `/demos/interactive.html?demo=${demo.name}`
+      ),
+      `${demo.name} MDX must use the shared demo page`
+    );
+    assert.match(html, /\/demos\/interactive-demo\.css/);
+    assert.match(html, /\/demos\/interactive-demo\.js\?v=/);
+    assert.match(html, /<div id="terminal"><\/div>/);
+    assert.match(assets.hash, /^[a-f0-9]+$/);
+    assert.match(assets.jsIntegrity, /^sha384-/);
+    assert.match(assets.wasmIntegrity, /^sha384-/);
+    await fs.access(
+      path.join(root, "public/demos", demo.name, `${demo.name}-${assets.hash}.js`)
+    );
+    await fs.access(
+      path.join(
+        root,
+        "public/demos",
+        demo.name,
+        `${demo.name}-${assets.hash}_bg.wasm`
+      )
+    );
+    await assert.rejects(
+      fs.access(path.join(root, "public/demos", demo.name, "index.html")),
+      { code: "ENOENT" }
+    );
+  }
+
+  for (const file of [
+    "interactive.html",
+    "interactive-demo.js",
+    "interactive-demo.css",
+  ]) {
+    await fs.access(path.join(root, "public/demos", file));
   }
 
   const constants = await fs.readFile(

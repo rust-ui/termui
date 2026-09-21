@@ -1,8 +1,8 @@
+use ratatui::Frame;
 use ratatui::layout::{Constraint, Layout, Rect};
 use ratatui::style::{Color, Modifier, Style};
 use ratatui::text::{Line, Text};
-use ratatui::widgets::{Paragraph, Widget, Wrap};
-use ratatui::Frame;
+use ratatui::widgets::{BorderType, Paragraph, Widget, Wrap};
 
 use crate::panel::Panel;
 
@@ -13,6 +13,26 @@ pub struct Card {
     header_rows: u16,
     footer_rows: u16,
     border_style: Style,
+    border_type: CardBorderType,
+}
+
+/// Corner style for a card's outer border.
+#[derive(Clone, Copy, Debug, Default, PartialEq, Eq)]
+pub enum CardBorderType {
+    /// Rounded Unicode corners (`╭`, `╮`, `╰`, `╯`).
+    #[default]
+    Rounded,
+    /// Square Unicode corners (`┌`, `┐`, `└`, `┘`).
+    Square,
+}
+
+impl From<CardBorderType> for BorderType {
+    fn from(value: CardBorderType) -> Self {
+        match value {
+            CardBorderType::Rounded => Self::Rounded,
+            CardBorderType::Square => Self::Plain,
+        }
+    }
 }
 
 /// Regions exposed by [`Card`] for composing card children.
@@ -30,6 +50,7 @@ impl Card {
             header_rows: 3,
             footer_rows: 2,
             border_style: Style::default().fg(Color::Rgb(63, 63, 70)),
+            border_type: CardBorderType::default(),
         }
     }
 
@@ -48,8 +69,16 @@ impl Card {
         self
     }
 
+    pub fn border_type(mut self, border_type: CardBorderType) -> Self {
+        self.border_type = border_type;
+        self
+    }
+
     pub fn render(self, frame: &mut Frame<'_>, area: Rect) -> CardAreas {
-        let block = Panel::new().border_style(self.border_style).block();
+        let block = Panel::new()
+            .border_style(self.border_style)
+            .border_type(self.border_type.into())
+            .block();
         let inner = block.inner(area);
         frame.render_widget(block, area);
 
@@ -319,7 +348,5 @@ macro_rules! termui {
                 p { $footer:literal }
             }
         }
-    ) => {{
-        $crate::card::__render_card_markup($frame, $area, $title, $description, $content, $footer)
-    }};
+    ) => {{ $crate::card::__render_card_markup($frame, $area, $title, $description, $content, $footer) }};
 }

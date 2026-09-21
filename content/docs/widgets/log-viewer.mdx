@@ -5,7 +5,7 @@ description: A compact time, level, and message log display.
 
 `LogViewer` colors each log level and shows time and message text.
 
-<RustDemo name="log-viewer" title="Log Viewer" rows={6} code={`use termui_widgets::log_viewer::LogViewer;
+<RustDemo name="log-viewer" src="/demos/interactive.html?demo=log-viewer-interactive" title="Log Viewer" rows={6} code={`use termui_widgets::log_viewer::LogViewer;
 
 let entries = [("10:42:01", "INFO", "Server started")];
 LogViewer::new(&entries).render(frame, area);`} />

@@ -19,7 +19,7 @@ export function RatzillaFrame({
         <span className="ml-2 text-xs text-muted-foreground">{title}</span>
       </div>
       <iframe
-        src={`/demos/${src}/index.html`}
+        src={`/demos/interactive.html?demo=${encodeURIComponent(src)}`}
         title={title}
         loading="lazy"
         className="block w-full border-0"

@@ -1,0 +1,224 @@
+{
+  "breadcrumbs-interactive": {
+    "title": "Interactive Ratatui Breadcrumbs",
+    "hash": "d393fad00227ba34",
+    "jsIntegrity": "sha384-C7ofw0QtugH2UYtzYDvGCyRI+Z8dQJnYKLZtjGZbHK0+LqSzCRmW3fSbg1LP8lO8",
+    "wasmIntegrity": "sha384-AVJfBRPg75JvelowVG+4/ZecME7qTdV0WNaVYap9HtyJihuYfSNr82FeQAi3sru6"
+  },
+  "button-interactive": {
+    "title": "Interactive Ratatui Button",
+    "hash": "7c11597955351d79",
+    "jsIntegrity": "sha384-mmb5gfM3ieftrwcG3+q9j5zFJa82qo0yBmVbqPs1si0/rQDHjwTaW1NUHTRxunmu",
+    "wasmIntegrity": "sha384-rJkrC3DAkcFlvRakBthOJbtl1ElR6YF9u+AGS7hNn0UtguGQxYo6b+xcAhzPGVnA"
+  },
+  "calendar-interactive": {
+    "title": "Interactive Ratatui Calendar",
+    "hash": "7f94753d11330de3",
+    "jsIntegrity": "sha384-HQLlECeY+6SazEf5IfTnVjctws8kQGNssICRHILbmC+5rDBJYCWwn9SdRgztCREg",
+    "wasmIntegrity": "sha384-b85TMOGfw8ddZi0z32zksBVoGYb+VaN8eRXFpInxgslZrc/sT6QlsAbutxWztLIW"
+  },
+  "chart-tooltip-interactive": {
+    "title": "Interactive Ratatui Chart Tooltip",
+    "hash": "ca62549e9870d52b",
+    "jsIntegrity": "sha384-czL1sxSviVGZ5O0WuVfjIyXJmY855nIqtQ8gnbIUvGN8WszUWvNEP6mVeBXRdykz",
+    "wasmIntegrity": "sha384-bZxt4wLsMJ2nLERWlKusSfrXOiIA66l+gyJofZUs0/LX7M7U9FGpGyLVpp9+BGG5"
+  },
+  "checkbox-interactive": {
+    "title": "Interactive Ratatui Checkbox",
+    "hash": "6f0bcacc82b88c",
+    "jsIntegrity": "sha384-ZJBuEaHXHZWYYzs5woVF+9sdpXojuV2f/DWRLXdQ2dVjZ1rsAQfoHxlpBnTwEGrK",
+    "wasmIntegrity": "sha384-q/Vi8JlMACY7ztPHsiTZQllXc+wp7hynH5eZwlxwXEQXhEc/BJNjLHieJHoAFHfX"
+  },
+  "color-picker-interactive": {
+    "title": "Interactive Ratatui Color Picker",
+    "hash": "a437a53319ef5219",
+    "jsIntegrity": "sha384-Js0eHfaOGbHxVZNZmi52fH4eOcYWzLUBK5cUkkLRih4EcB+a63YVmggQKy+iY+W7",
+    "wasmIntegrity": "sha384-sUutg/RwCvoXTUUdL3D4xNWg7beqI2NiFq8dhDL8+M3O/c5lvgq/xc+1uU4GaxwY"
+  },
+  "command-palette-interactive": {
+    "title": "Interactive Ratatui Command Palette",
+    "hash": "fe0af02b9b241784",
+    "jsIntegrity": "sha384-KZlb6xW1Q+uhruOi0KZrVNVNiczfAVsTNdn5JIMy9SXpNnwBHv5VjorEem89gMoA",
+    "wasmIntegrity": "sha384-9i+9cN3cXIEmMWD4dt7oh5pLOzVB8Zs+kcTlAWAGVKFzmJoGatZdNOqlBUugHhND"
+  },
+  "confirmation-prompt-interactive": {
+    "title": "Interactive Ratatui Confirmation Prompt",
+    "hash": "f7e7ac5e94fc8375",
+    "jsIntegrity": "sha384-3N/eg4BqR5uUBzp8dVDgyz3JpGK0858agbA6lj2UgaU6x/LalbIC2hc9p8pD4gMT",
+    "wasmIntegrity": "sha384-e9tG4Uo8zFYsBKxA2c3phecb6KcVsw9qtxpx1FWlMC9+ENRcTzIrUaPKH28j0cqj"
+  },
+  "date-picker-interactive": {
+    "title": "Interactive Ratatui Date Picker",
+    "hash": "319614fab1837d50",
+    "jsIntegrity": "sha384-1wsyqUYLkkCnR8U5VgMIEA3Av4xm38e/fEAjiXpb2hfmOvmV5p2Qfhno5FuWG9T+",
+    "wasmIntegrity": "sha384-MVfFebkRqDwBund2rqVqWGzh/c8pF5Pu1VFd3rW0LknhNaP0eAlhEEDPVIyL6EG2"
+  },
+  "dialog-interactive": {
+    "title": "Interactive Ratatui Dialog",
+    "hash": "3e5d1138cfd5bab1",
+    "jsIntegrity": "sha384-cKxaJBPcK9hP5lFga76hQVHTt2+CLvwhfp1r1CtqLuhFSSZ3vFFZxMLe4YSsTl/F",
+    "wasmIntegrity": "sha384-ZVuG54NFyZRx+EldOrd3lqYUHaEnDmu6fZr9AyI9HReM7GQDy+oMImjRqRrbiQDv"
+  },
+  "diff-viewer-interactive": {
+    "title": "Interactive Ratatui Diff Viewer",
+    "hash": "5ee33fde836514cb",
+    "jsIntegrity": "sha384-ekWdX2w+Rmf3yzzNsDVebXw0QrL0O56rMA2HqpnwK/OMXv9mEb7EnByk8COtIzBK",
+    "wasmIntegrity": "sha384-FsBjlPG/r0zP5kt9UC95iXfu3jahDjxlHOKU3XrSpJykxqXIsuugf0IAv8vn/hYP"
+  },
+  "file-picker-interactive": {
+    "title": "Interactive Ratatui File Picker",
+    "hash": "d34faa192b4b9b3",
+    "jsIntegrity": "sha384-OBWuTR48HSRK61I9qgR1YaMxK5Y+6BnD8zKknA35tyYqqwh2U+4gb0nySvXlP6eC",
+    "wasmIntegrity": "sha384-lumGx3W6bgcwImuFGyWa6IlnleZceL2hDOvHQ0Bs8/GNEon9sHOsZfQ2ZE5b05Z9"
+  },
+  "form-field-interactive": {
+    "title": "Interactive Ratatui Form Field",
+    "hash": "79acc75aad83c235",
+    "jsIntegrity": "sha384-3s5GPM7UB2B2ZxDTufQk371B8BHjH5ZDf9CJ9c5I1+oukFeBuSDk9dhrQPuPxu/l",
+    "wasmIntegrity": "sha384-jw5uun9ZkCJPVFePhWO3ZX8A/+Hz1xC5OmtljOBq9AjjQ3MlnbPUTm1AEq2rPt4z"
+  },
+  "list-interactive": {
+    "title": "Interactive Ratatui List",
+    "hash": "b0c4c158017b92fc",
+    "jsIntegrity": "sha384-9zvRF2o84hcoAXLeufdDHU/maEAvTG20qmaZa+Xu5JK6uBjh950jzmS8gICVIbMe",
+    "wasmIntegrity": "sha384-KxYFm9qLtDh0MUNbwKvQTQlLubNXlB5Fg3RivX/iLtD5Qz6jBz5PbwfnhMzofosq"
+  },
+  "log-viewer-interactive": {
+    "title": "Interactive Ratatui Log Viewer",
+    "hash": "cb45dae95190376a",
+    "jsIntegrity": "sha384-RR61UcnbjNx02ToXbsr9EjNm+0porojr+ecUBkeIlDVL7bWPnSrU/9NwGUMRGbCA",
+    "wasmIntegrity": "sha384-1WkoVKVymzpZiV5yBlao7887OTr5XWV7WZ/XVjke/KMMFqDWYbTuvbjEeiDVFCl8"
+  },
+  "markdown-viewer-interactive": {
+    "title": "Interactive Ratatui Markdown Viewer",
+    "hash": "bda77d6e8b373792",
+    "jsIntegrity": "sha384-zA6Xu6v4cUBkN4RR9JFEO/XvZDMemlcSdv2b3hs7ilRBViNm5HrfMDylypga10Ax",
+    "wasmIntegrity": "sha384-4kDd0UOfJ/uUhb0rcUWUUvy/ldfC3jxN3sfsqP5MaKEiIm+0yfzfveWLT+XyWzre"
+  },
+  "menu-interactive": {
+    "title": "Interactive Ratatui Menu",
+    "hash": "7a0fa7f29d0245d4",
+    "jsIntegrity": "sha384-ufCPmZWdR6/7ZIt3r39mJB/tDw8S6T87MxWP6MJdSmH+sauGRN4oGm2DDe+1JW4s",
+    "wasmIntegrity": "sha384-dRxyooFC9/sAG/xhzRmy09UIs9bei6FCF7G9uSSh8c0Wg+KF+C2TuNzEAnfQ++fB"
+  },
+  "multi-select-list-interactive": {
+    "title": "Interactive Ratatui Multi Select List",
+    "hash": "4f59e064510ff100",
+    "jsIntegrity": "sha384-zXw0obd2SkVDrwxar6BCGVLShfEBmtZ3Js+vHnyGfe2SBsx3LOICttieLWE2txpY",
+    "wasmIntegrity": "sha384-QvjWrw/S6RBHqARjGp/yniZW86YJ6Z8HRnp9VUHxr/MEvVgBMZGhmLxij56TuLus"
+  },
+  "password-input-interactive": {
+    "title": "Interactive Ratatui Password Input",
+    "hash": "1c01c1b8e81f56f8",
+    "jsIntegrity": "sha384-VR52xBvFT6I6rr3XZb7E/GbL349wS1YaiSy9/DIYmJ5+tKUh1s4Ty7UDwNCRfhP0",
+    "wasmIntegrity": "sha384-Og7vmauM3lJ3Ervny1j85PZB4RRlwE6OMaHKLkZqr3KSxA5Z7/gUIpExo69qHJj8"
+  },
+  "progress-bar-interactive": {
+    "title": "Interactive Ratatui Progress Bar",
+    "hash": "d1b4ca403bf7bc3d",
+    "jsIntegrity": "sha384-bMUU3OunB+JNsTEHS8Z8L75tdkxMuzTgxgNOnAjbBOhozbzAKVmcmGjMT1YLTNv/",
+    "wasmIntegrity": "sha384-SgzaQqTIXFMbk0EX/etSn2qcMIyRBauc0tn+1jqqud8BkDIfUOLCHLKkskEtxWNQ"
+  },
+  "progress-interactive": {
+    "title": "Interactive Ratatui Progress",
+    "hash": "e1eef86c96b6a7e1",
+    "jsIntegrity": "sha384-RWG/zVGlyFcp/6P+ve8Zrgdeofw+zmKNlLm/jtJyizhpF6LtvNrjVUaHatZM2ihe",
+    "wasmIntegrity": "sha384-ClYgvy2/xeY7U9ufRtwJadIeM+xy/D/2xxHHB8hEX2GV7jMA4t9yNXam63/FOe4W"
+  },
+  "radio-card-interactive": {
+    "title": "Interactive Ratatui Radio Card",
+    "hash": "6fd7f9da853c31db",
+    "jsIntegrity": "sha384-EeuwVrs+RzLew7VKDuIQDZcPUhdkeQLofv1bWmNZpRrbwWiAiXB1hQAshPfwu7I4",
+    "wasmIntegrity": "sha384-qwpE5k+5oKMwUAZV9aRPtlrJpIubqYTNhCO8TusGXCROdj7Y9U51aYC2lfSeep/K"
+  },
+  "resizable-layout-interactive": {
+    "title": "Interactive Ratatui Resizable Layout",
+    "hash": "c96039cc2942c40d",
+    "jsIntegrity": "sha384-/14btKNpzzdNLD2vg0mGpYKMb2b+kG3jMX/6jLy6SA9gutf80yZ8C1VGInYs8XML",
+    "wasmIntegrity": "sha384-7+uTKTr1YADERXgRxqzMWqXdptnIPMOZwRJ7rX8aZarJfpqVax/skCUhhnSq/oQS"
+  },
+  "scrollbar-interactive": {
+    "title": "Interactive Ratatui Scrollbar",
+    "hash": "cd26606baeb2261f",
+    "jsIntegrity": "sha384-dAu5B37MpQMYKsgw8RtQLGgxw0YjBEDnVV8GXrGEe9ANe59ZpmivedUL+C/TBgCc",
+    "wasmIntegrity": "sha384-l+nL/hk9Wpl8evinMLtgD60mhZi3fMrHyEXHsheqkBUJxIYn7xYJmV3aCSocpO59"
+  },
+  "search-input-interactive": {
+    "title": "Interactive Ratatui Search Input",
+    "hash": "4afb439fc261b431",
+    "jsIntegrity": "sha384-PTMgJT33uMuUQ6vLFZGgbBDMFTm5rHjsLNwIaammhIlCRKqthJbtnXwdWRpEXfDd",
+    "wasmIntegrity": "sha384-Gu8EMa7r6+vzxnNf9JoccSj44FbpcS4sfSb8qsPcgzkGbyGlmhbPv2LkpPiLivdv"
+  },
+  "select-list-interactive": {
+    "title": "Interactive Ratatui Select List",
+    "hash": "ee7106103dfa98b2",
+    "jsIntegrity": "sha384-VfDfEqrcE/n8eQRZqDaBHMp0O5CoZ7ZFBx/QMTfcpaic2G2do3sjx+UZbyOuHusj",
+    "wasmIntegrity": "sha384-g3rHZPG5kZxc1LsBJx4+6fwcvVCPNLJBFsi7s/F8MKY8BSS1JqrQIi7VMV0xgZMk"
+  },
+  "sortable-table-interactive": {
+    "title": "Interactive Ratatui Sortable Table",
+    "hash": "c07a16a4f74345a3",
+    "jsIntegrity": "sha384-2ztVMNheWEifEANK0kESA7P7okAnMArytEgoPPAvsvFzEVbdUZOtHQRfWboSjmIw",
+    "wasmIntegrity": "sha384-ve1V/Q2SshSF/hptLdAnGKDbxUTe925DjYNPDWhuh+Gtb7mMiqhUTnVnupeVg8QD"
+  },
+  "sparkline-interactive": {
+    "title": "Interactive Ratatui Sparkline",
+    "hash": "8b52f501864036b0",
+    "jsIntegrity": "sha384-BwuB/Oo5XP9kKQW0BFZiurjdk+tYMkAhUfbP8TNn/moIUNraqb1yQxmVeAva9Xff",
+    "wasmIntegrity": "sha384-1fs3rPmtBMRTpDcF8Or+97gAkFAfPVV0ttEooFum2mkabwPxLsSE4UDQOR5ph4Tw"
+  },
+  "split-pane-interactive": {
+    "title": "Interactive Ratatui Split Pane",
+    "hash": "205d371fdbf5a941",
+    "jsIntegrity": "sha384-xEtd4DlTlj9nFY2tjkJT8g5VhRAbgaBUsM9a7WEIvf5NV2NiZWw0QoskO8aFW+Xq",
+    "wasmIntegrity": "sha384-vUXtcWcnFR4Ihctmgsvs4/lv/OLgdE1o4W12aSy0obiPZ9F7ebVOpThKUAgEvKid"
+  },
+  "table-interactive": {
+    "title": "Interactive Ratatui Table",
+    "hash": "1f8bebf3fcb0b729",
+    "jsIntegrity": "sha384-zRngYfhPewOPBHHZpbw5JsQBfsuqj2R01ATNHlNDUofghvWWGVM771AZyqo/VGbJ",
+    "wasmIntegrity": "sha384-tB5JUgl8QQNxkKE08rm7je9UREkVViXeE/F273VoKNK9ArXJInk9mpWj55msquX1"
+  },
+  "tabs-interactive": {
+    "title": "Interactive Ratatui Tabs",
+    "hash": "1d9872caee968106",
+    "jsIntegrity": "sha384-rVB3v/COZIagyst5nMsh5hfx6BaN5AS3289XE5wCg+WV5NLKBt5htRRGGd6h5sGh",
+    "wasmIntegrity": "sha384-0fKGaHQfSn3xNcSvXiGsOiZT/k2w1eof25/EU7dQC1x0FALF+B1TbFNLUzMj1VDM"
+  },
+  "text-area-interactive": {
+    "title": "Interactive Ratatui Text Area",
+    "hash": "d2e4200ba6fc53a",
+    "jsIntegrity": "sha384-vhbVrrZ9gz/uU5JVny8TRE5MOTQezpHTUwlCIhuIZC1BLm+gYxVkB2dnZs+ndNit",
+    "wasmIntegrity": "sha384-37aYicmhGIKqu0Y/hUFTr4NfdZ3TusP9M2EFNKWUw2YMaNQqwuPuFcsUDfuptSlz"
+  },
+  "text-input-interactive": {
+    "title": "Interactive Ratatui Text Input",
+    "hash": "b095aa332cd54150",
+    "jsIntegrity": "sha384-7b0bZxCNAFXZS9FcpiB9AWBtQ1wGsrxIQsTSrzzGot4KUzCGEEn4uBhl/lwSrAa+",
+    "wasmIntegrity": "sha384-l1XKKAhE89fMYUKQ9lDs/OgKeWZABpcrieJXJs2u4U+FVx36eeudrLRm0aZE09V+"
+  },
+  "toast-interactive": {
+    "title": "Interactive Ratatui Toast",
+    "hash": "e0edb382b56c6fc5",
+    "jsIntegrity": "sha384-9Wj2u9FiDu2zomgH3YaqpA3ndTwi8LCzk5vRdbPcFkR57xSBgL6AnbtYDSQkQHn9",
+    "wasmIntegrity": "sha384-xh9DvLZnkQW7Ux2vu/WmqWSsjXlUAYLDpl9aN86CZw3t7qua9/e9QQGXO52KBBFZ"
+  },
+  "toggle-switch-interactive": {
+    "title": "Interactive Ratatui Toggle Switch",
+    "hash": "b75de3ebc65dc097",
+    "jsIntegrity": "sha384-pAH1IX5wCk9gIQUKqV3q0XCRiVwJwq9rCsZORpRYceQMzglg7kKfWjAWjtY841hj",
+    "wasmIntegrity": "sha384-bDyXhE3g9ijLh9pp3Sa0GsQjvtC23VNY6w3UvRzJBguT28aTp31eA3M3/YhCGvfk"
+  },
+  "tooltip-interactive": {
+    "title": "Interactive Ratatui Tooltip",
+    "hash": "77fbbc27b4aaf0fb",
+    "jsIntegrity": "sha384-UV1LMuEGkSvNPYFc3zuXNJ8hMwmGuNN8ifrcNx8uFNJNyrn3VdcNmoK21jbVBFTB",
+    "wasmIntegrity": "sha384-qBvHGYv3rpn1+RkYdxLmfrN92GYpI8iT1ast6jkP/jpajeA2GVfTQSnPibNObxAG"
+  },
+  "tree-view-interactive": {
+    "title": "Interactive Ratatui Tree View",
+    "hash": "d9549b12b8210144",
+    "jsIntegrity": "sha384-mYx/98z7OL8SXKq/1RLFhXrTv/nWKblkyEB0YsU+it/UBZ9Jcg8du6rObDFVM9bB",
+    "wasmIntegrity": "sha384-Qy+T1A7i4s3msP2Dt/WQ/qMfo/5vWFcz3Kg3w1GlXfJ+zllFb9/fCKxTgTMxMcQ/"
+  }
+}

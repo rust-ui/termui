@@ -5,7 +5,7 @@ description: A bordered list of actions with a selected row.
 
 `Menu` displays actions inside a titled border. Your application handles activation and navigation.
 
-<RustDemo name="menu" title="Menu" rows={7} code={`use termui_widgets::menu::Menu;
+<RustDemo name="menu" src="/demos/interactive.html?demo=menu-interactive" title="Menu" rows={7} code={`use termui_widgets::menu::Menu;
 
 let items = ["Open", "Save", "Quit"];
 Menu::new("File", &items, 0).render(frame, area);`} />

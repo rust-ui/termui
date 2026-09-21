@@ -10,7 +10,8 @@ export interface InteractiveDemo {
   title: string;
 }
 
-const INTERACTIVE_DEMO_SRC = /^\/demos\/([a-z0-9]+(?:-[a-z0-9]+)*)\/index\.html$/;
+const INTERACTIVE_DEMO_SRC =
+  /^\/demos\/interactive\.html\?demo=([a-z0-9]+(?:-[a-z0-9]+)*)$/;
 const INTERACTIVE_SUFFIX = "-interactive";
 
 export function collectInteractiveDemos(sources: readonly MdxSource[]) {

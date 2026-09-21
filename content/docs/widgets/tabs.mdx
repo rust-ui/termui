@@ -5,7 +5,7 @@ description: A static tab row with a caller-selected tab.
 
 `Tabs` renders the current tab and neighboring labels. Your application owns navigation and selection.
 
-<RustDemo name="tabs" title="Tabs" rows={5} code={`use termui_widgets::tabs::Tabs;
+<RustDemo name="tabs" src="/demos/interactive.html?demo=tabs-interactive" title="Tabs" rows={5} code={`use termui_widgets::tabs::Tabs;
 
 let labels = ["Overview", "Settings", "Logs"];
 let line = Tabs::new(&labels, 0).line();`} />

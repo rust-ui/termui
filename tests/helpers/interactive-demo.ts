@@ -5,7 +5,9 @@ import { chromium, type Browser, type Page } from "playwright";
 
 const publicRoot = path.resolve("public");
 const mimeTypes: Record<string, string> = {
+  ".css": "text/css; charset=utf-8",
   ".html": "text/html; charset=utf-8",
+  ".json": "application/json; charset=utf-8",
   ".js": "text/javascript; charset=utf-8",
   ".wasm": "application/wasm",
 };

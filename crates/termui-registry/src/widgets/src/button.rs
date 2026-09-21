@@ -1,8 +1,8 @@
+use ratatui::Frame;
 use ratatui::layout::Rect;
 use ratatui::style::{Color, Modifier, Style};
 use ratatui::text::{Line, Span};
 use ratatui::widgets::Paragraph;
-use ratatui::Frame;
 
 /// A compact terminal button. The parent app owns focus and activation.
 #[must_use]
@@ -13,6 +13,7 @@ pub struct Button<'a> {
     disabled: bool,
     variant: ButtonVariant,
     size: ButtonSize,
+    shape: ButtonShape,
 }
 
 /// Shadcn-inspired terminal button variants.
@@ -34,6 +35,16 @@ pub enum ButtonSize {
     #[default]
     Default,
     Lg,
+}
+
+/// End shape for a one-row terminal button.
+#[derive(Clone, Copy, Debug, Default, PartialEq, Eq)]
+pub enum ButtonShape {
+    /// Curved pill ends (`( label )`).
+    #[default]
+    Rounded,
+    /// Square bracket ends (`[ label ]`).
+    Square,
 }
 
 impl ButtonSize {
@@ -73,6 +84,7 @@ impl<'a> Button<'a> {
             disabled: false,
             variant: ButtonVariant::Default,
             size: ButtonSize::Default,
+            shape: ButtonShape::default(),
         }
     }
 
@@ -83,6 +95,11 @@ impl<'a> Button<'a> {
 
     pub fn size(mut self, size: ButtonSize) -> Self {
         self.size = size;
+        self
+    }
+
+    pub fn shape(mut self, shape: ButtonShape) -> Self {
+        self.shape = shape;
         self
     }
 
@@ -110,17 +127,22 @@ impl<'a> Button<'a> {
         } else {
             style
         };
-        let content = match self.variant {
-            ButtonVariant::Default | ButtonVariant::Secondary | ButtonVariant::Destructive => {
-                self.label.to_string()
-            }
-            ButtonVariant::Outline => format!("[{}]", self.label),
-            ButtonVariant::Ghost => self.label.to_string(),
-            ButtonVariant::Link => self.label.to_string(),
+        let (left, right) = match self.shape {
+            ButtonShape::Rounded => ('(', ')'),
+            ButtonShape::Square => ('[', ']'),
         };
         let padding = " ".repeat(self.size.padding());
-        let content = format!("{padding}{content}{padding}");
-        Line::from(Span::styled(content, style))
+        let end_style = Style {
+            fg: Some(style.bg.or(style.fg).unwrap_or(Color::Reset)),
+            add_modifier: style.add_modifier,
+            sub_modifier: style.sub_modifier,
+            ..Style::default()
+        };
+        Line::from(vec![
+            Span::styled(left.to_string(), end_style),
+            Span::styled(format!("{padding}{}{padding}", self.label), style),
+            Span::styled(right.to_string(), end_style),
+        ])
     }
 
     pub fn render(self, frame: &mut Frame<'_>, area: Rect) {

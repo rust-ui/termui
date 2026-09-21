@@ -6,6 +6,9 @@ Notable Term/UI changes are recorded here. Format follows [Keep a Changelog](htt
 
 ### Added
 
+- Added keyboard-driven Ratzilla demos for stateful controls, pickers, navigation, text views, tables, chart tooltips, and overlays; checked in their WebAssembly assets.
+- Added `ButtonShape::{Rounded, Square}`; buttons default to rounded pill ends.
+- Added `CardBorderType::{Rounded, Square}`; cards default to rounded corners.
 - Add local per-component tests for Button and Text Input interactions, plus Card's Rust preview.
 - Added 35 planned widgets with copyable Rust source, documentation pages, and checked-in terminal previews.
 - Added modular area, bar, line, pie, radar, radial, and tooltip charts with Rust-rendered gallery previews, family routes, and a code sheet.
@@ -28,6 +31,7 @@ Notable Term/UI changes are recorded here. Format follows [Keep a Changelog](htt
 
 ### Changed
 
+- Route interactive demos through one shared HTML shell; preserve per-demo Rust binaries and WebAssembly assets.
 - Moved the `termui-widgets` crate into `crates/termui-registry/src/widgets` and updated its workspace, dependency, and source references.
 - Extract Resizable Layout interaction state and input handling from its renderer; derive state labels with Strum.
 - Keep chart legends within plot bounds in area and line chart previews.

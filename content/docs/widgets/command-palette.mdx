@@ -5,7 +5,7 @@ description: A filtered command list with a highlighted result.
 
 `CommandPalette` presents a query and command results. Your application owns filtering, selection, and activation.
 
-<RustDemo name="command-palette" title="Command Palette" rows={8} code={`use termui_widgets::command_palette::CommandPalette;
+<RustDemo name="command-palette" src="/demos/interactive.html?demo=command-palette-interactive" title="Command Palette" rows={8} code={`use termui_widgets::command_palette::CommandPalette;
 
 let commands = ["Open file", "Toggle theme", "Quit"];
 CommandPalette::new("", &commands, 0).render(frame, area);`} />

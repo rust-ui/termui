@@ -9,6 +9,7 @@ pub struct Panel<'a> {
     title: Option<Line<'a>>,
     bottom_title: Option<Line<'a>>,
     border_style: Style,
+    border_type: Option<BorderType>,
 }
 
 impl<'a> Panel<'a> {
@@ -31,9 +32,14 @@ impl<'a> Panel<'a> {
         self
     }
 
+    pub fn border_type(mut self, border_type: BorderType) -> Self {
+        self.border_type = Some(border_type);
+        self
+    }
+
     pub fn block(self) -> Block<'a> {
         let mut block = Block::bordered()
-            .border_type(BorderType::Rounded)
+            .border_type(self.border_type.unwrap_or(BorderType::Rounded))
             .border_style(self.border_style);
         if let Some(title) = self.title {
             block = block.title(title);

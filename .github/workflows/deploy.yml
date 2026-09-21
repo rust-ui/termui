@@ -41,10 +41,10 @@ jobs:
 
       - name: Check checked-in interactive demo assets
         run: |
-          test -s public/demos/button-interactive/index.html
+          test -s public/demos/interactive.html
+          test -s public/demos/interactive-demo.json
           compgen -G 'public/demos/button-interactive/*.js' >/dev/null
           compgen -G 'public/demos/button-interactive/*_bg.wasm' >/dev/null
-          test -s public/demos/text-input-interactive/index.html
           compgen -G 'public/demos/text-input-interactive/*.js' >/dev/null
           compgen -G 'public/demos/text-input-interactive/*_bg.wasm' >/dev/null
 

@@ -26,7 +26,9 @@ test("Text Input supports typing, field switching, deletion, and mouse focus", a
   page.on("pageerror", (error) => pageErrors.push(error.message));
 
   try {
-    await page.goto(`${session.baseUrl}/demos/text-input-interactive/index.html`);
+    await page.goto(
+      `${session.baseUrl}/demos/interactive.html?demo=text-input-interactive`
+    );
     await waitForTerminal(page);
     assert.equal(await page.title(), "Interactive Ratatui Text Input");
     await waitForTerminalText(page, "ada@example.com");
