@@ -101,7 +101,7 @@ The syntax borrows JSX's nested tags and component names. Rust values and text s
 
 The new `Card` renderer is the second composition case after `Dialog`. It checks a different shape: a stateless root with header, content, and footer slots; nested title and description; and an optional action positioned beside the header text.
 
-Term/UI now has a generic `Card` in `crates/termui-widgets/src/card.rs`. `Panel` remains a rounded `Block` shell, while `RadioCard` is a selectable control. The new `Card` exposes Shadcn-style header, content, and footer composition.
+Term/UI now has a generic `Card` in `crates/termui-registry/src/widgets/src/card.rs`. `Panel` remains a rounded `Block` shell, while `RadioCard` is a selectable control. The new `Card` exposes Shadcn-style header, content, and footer composition.
 
 ### Before (low-level building blocks)
 
