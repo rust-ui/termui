@@ -1,51 +1,53 @@
 # Widgets plan
 
-| Widget | Status |
-|---|---|
-| Breadcrumbs | ⚠️ Waiting |
-| Button | ✅ Done |
-| Card | ✅ Done |
-| Calendar | ⚠️ Waiting |
-| Chart | ⚠️ Waiting |
-| Checkbox | ⚠️ Waiting |
-| Code viewer | ⚠️ Waiting |
-| Color picker | ✅ Done |
-| Command palette | ⚠️ Waiting |
-| Confirmation prompt | ⚠️ Waiting |
-| Date picker | ⚠️ Waiting |
-| Dialog | ✅ Done |
-| Diff viewer | ⚠️ Waiting |
-| Empty state | ⚠️ Waiting |
-| File picker | ⚠️ Waiting |
-| Form field with validation | ⚠️ Waiting |
-| Gauge | ⚠️ Waiting |
-| Help screen | ⚠️ Waiting |
-| List | ⚠️ Waiting |
-| Loading state | ⚠️ Waiting |
-| Log viewer | ⚠️ Waiting |
-| Markdown viewer | ⚠️ Waiting |
-| Menu | ⚠️ Waiting |
-| Multi-select list | ⚠️ Waiting |
-| Notification / toast | ✅ Done |
-| Panel | ✅ Done |
-| Password input | ⚠️ Waiting |
-| Progress bar | ⚠️ Waiting |
-| Radio card | ✅ Done |
-| Resizable layout | ⚠️ Waiting |
-| Scrollbar | ⚠️ Waiting |
-| Search input | ⚠️ Waiting |
-| Select list | ✅ Done |
-| Sortable table | ⚠️ Waiting |
-| Sparkline | ⚠️ Waiting |
-| Split pane | ⚠️ Waiting |
-| Spinner | ⚠️ Waiting |
-| Status bar | ⚠️ Waiting |
-| Table | ⚠️ Waiting |
-| Tabs | ⚠️ Waiting |
-| Text area | ⚠️ Waiting |
-| Text input | ✅ Done |
-| Toggle switch | ⚠️ Waiting |
-| Tree view | ⚠️ Waiting |
+Mode describes each demo: Static Rust frame or Dynamic Ratzilla/WASM.
+
+| Widget | Mode | Status |
+|---|---|---|
+| Breadcrumbs | Static | ✅ Done |
+| Button | Dynamic | ✅ Done |
+| Card | Static | ✅ Done |
+| Calendar | Static | ✅ Done |
+| Chart | Static | ✅ Done |
+| Checkbox | Static | ✅ Done |
+| Color picker | Static | ✅ Done |
+| Command palette | Static | ✅ Done |
+| Confirmation prompt | Static | ✅ Done |
+| Date picker | Static | ✅ Done |
+| Dialog | Dynamic | ✅ Done |
+| Diff viewer | Static | ✅ Done |
+| Empty state | Static | ✅ Done |
+| File picker | Static | ✅ Done |
+| Form field with validation | Static | ✅ Done |
+| Gauge | Static | ✅ Done |
+| Help screen | Static | ✅ Done |
+| List | Static | ✅ Done |
+| Loading state | Static | ✅ Done |
+| Log viewer | Static | ✅ Done |
+| Markdown viewer | Static | ✅ Done |
+| Menu | Static | ✅ Done |
+| Multi-select list | Static | ✅ Done |
+| Notification / toast | Static | ✅ Done |
+| Panel | Static | ✅ Done |
+| Password input | Static | ✅ Done |
+| Progress bar | Static | ✅ Done |
+| Radio card | Static | ✅ Done |
+| Resizable layout | Static | ✅ Done |
+| Scrollbar | Static | ✅ Done |
+| Search input | Static | ✅ Done |
+| Select list | Static | ✅ Done |
+| Sortable table | Static | ✅ Done |
+| Sparkline | Static | ✅ Done |
+| Split pane | Static | ✅ Done |
+| Spinner | Static | ✅ Done |
+| Status bar | Static | ✅ Done |
+| Table | Static | ✅ Done |
+| Tabs | Static | ✅ Done |
+| Text area | Static | ✅ Done |
+| Text input | Dynamic | ✅ Done |
+| Tooltip | Static | ✅ Done |
+| Toggle switch | Static | ✅ Done |
+| Tree view | Static | ✅ Done |
 
 
 ## Button
@@ -112,14 +114,6 @@ The box represents the button's blue area.
 Home / Projects / TermUI
 ```
 
-## Code viewer
-
-```text
- 1  fn main() {
- 2      println!("Hello");
- 3  }
-```
-
 ## Color picker
 
 ```text
@@ -161,6 +155,64 @@ Home / Projects / TermUI
 ╰───────────────────────────────╯
 ```
 
+## File picker
+
+```text
+╭─ Files ─────╮
+│   ▾ src/    │
+│ >   main.rs │
+│       lib.rs│
+╰─────────────╯
+```
+
+## Resizable layout
+
+```text
+Sidebar       │ Main panel
+Files         │ Content
+Projects      │ Details
+```
+
+## Sortable table
+
+```text
+Name ↑       Size
+README.md    2 KB
+src/         4 KB
+```
+
+## Split pane
+
+```text
+Editor         │ Preview
+# Hello        │ Hello
+```
+
+## Table
+
+```text
+Name       Status
+API        Online
+Worker     Offline
+```
+
+## Tree view
+
+```text
+▾ src/
+  main.rs
+  ▾ widgets/
+    button.rs
+```
+
+## Markdown viewer
+
+```text
+Heading
+Formatted text and a list:
+• First item
+```
+
 ## Diff viewer
 
 ```text
@@ -175,15 +227,6 @@ Home / Projects / TermUI
   No projects yet
   Create a project to get started.
        [ Create project ]
-```
-
-## File picker
-
-```text
-  src/
-  > main.rs
-    lib.rs
-    widgets/
 ```
 
 ## Form field with validation
@@ -228,14 +271,6 @@ Home / Projects / TermUI
   10:42:01 INFO  Server started
   10:42:03 WARN  Retry scheduled
   10:42:05 ERROR Request failed
-```
-
-## Markdown viewer
-
-```text
-  # Heading
-  Formatted **text** and a list:
-  • First item
 ```
 
 ## Menu
@@ -288,14 +323,6 @@ Home / Projects / TermUI
 ╰────────────────╯ ╰───────────────────╯
 ```
 
-## Resizable layout
-
-```text
-  Sidebar       │ Main panel
-  Files         │ Content
-  Projects      │ Details
-```
-
 ## Scrollbar
 
 ```text
@@ -310,25 +337,10 @@ Home / Projects / TermUI
   / Find in files...
 ```
 
-## Sortable table
-
-```text
-  Name ↑       Size
-  README.md    2 KB
-  src/         4 KB
-```
-
 ## Sparkline
 
 ```text
   Activity  ▁▃▂▅▄▇▆█
-```
-
-## Split pane
-
-```text
-  Editor         │ Preview
-  # Hello        │ Hello
 ```
 
 ## Spinner
@@ -341,14 +353,6 @@ Home / Projects / TermUI
 
 ```text
   main  │  Ln 12, Col 4  │  UTF-8
-```
-
-## Table
-
-```text
-  Name       Status
-  API        Online
-  Worker     Offline
 ```
 
 ## Tabs
@@ -379,11 +383,10 @@ Home / Projects / TermUI
   Notifications  [ ON ]
 ```
 
-## Tree view
+## Tooltip
 
 ```text
-  ▾ src/
-    ├─ main.rs
-    └─ widgets/
-       └─ button.rs
+╭───────────────────────────╮
+│ Press Enter to continue   │
+╰───────────────────────────╯
 ```

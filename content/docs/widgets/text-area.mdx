@@ -1,0 +1,22 @@
+---
+title: Text Area
+description: A bordered multi-line text presentation.
+---
+
+`TextArea` displays multi-line content. Your application owns editing and input state.
+
+<RustDemo name="text-area" title="Text Area" rows={6} code={`use termui_widgets::text_area::TextArea;
+
+TextArea::new("Message", value).render(frame, area);`} />
+
+## Source
+
+<ComponentSource src="crates/termui-widgets/src/text_area.rs" title="text_area.rs" language="rs" collapsible={false} />
+
+## Usage
+
+```rust
+use termui_widgets::text_area::TextArea;
+
+TextArea::new("Message", value).render(frame, area);
+```

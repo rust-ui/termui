@@ -1,0 +1,24 @@
+---
+title: Tree View
+description: Display nested labels with indentation and expanded markers.
+---
+
+`TreeView` renders flattened entries using caller-provided depth and expansion state.
+
+<RustDemo name="tree-view" title="Tree View" rows={8} code={`use termui_widgets::tree_view::TreeView;
+
+let entries = [("src/", 0, true), ("main.rs", 1, false)];
+TreeView::new(&entries).render(frame, area);`} />
+
+## Source
+
+<ComponentSource src="crates/termui-widgets/src/tree_view.rs" title="tree_view.rs" language="rs" collapsible={false} />
+
+## Usage
+
+```rust
+use termui_widgets::tree_view::TreeView;
+
+let entries = [("src/", 0, true), ("main.rs", 1, false)];
+TreeView::new(&entries).render(frame, area);
+```

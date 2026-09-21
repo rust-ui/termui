@@ -1,0 +1,22 @@
+---
+title: Loading State
+description: A short loading message for pending terminal content.
+---
+
+`LoadingState` displays a loading message. Your application owns refresh timing and any animation.
+
+<RustDemo name="loading-state" title="Loading State" rows={5} code={`use termui_widgets::loading_state::LoadingState;
+
+LoadingState::new("Loading data...").render(frame, area);`} />
+
+## Source
+
+<ComponentSource src="crates/termui-widgets/src/loading_state.rs" title="loading_state.rs" language="rs" collapsible={false} />
+
+## Usage
+
+```rust
+use termui_widgets::loading_state::LoadingState;
+
+LoadingState::new("Loading data...").render(frame, area);
+```

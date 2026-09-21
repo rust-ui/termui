@@ -5,7 +5,7 @@
 - Add a concise entry under `## [Unreleased]` in `CHANGELOG.md` for every visible or architectural change.
 - Add reusable project lessons to `__SKILLS_LEARNINGS/LEARNINGS.md`; keep one dated line per lesson.
 - Preserve the copied termcn UI and behavior. Sponsor page and Sponsor link stay omitted.
-- Render static demos from Rust-generated text frames. Requested interactive Ratatui demos may use Ratzilla and WebAssembly.
+- Default demos to Rust-generated static text frames. Use Ratzilla/WebAssembly when clicking or keyboard input meaningfully changes widget state; keep visual-only variant and size demos static.
 - Keep Rust demo frames and built interactive demo assets checked in. The production Next.js image uses `pnpm build:production` and does not require a Rust toolchain.
 - Keep pnpm supply-chain policies aligned with RUSTIFY. Fix vulnerable dependencies without weakening release-age or trust policies.
 - Preserve `content/docs/(root)/changelog/**`; this is the source site's visible changelog.

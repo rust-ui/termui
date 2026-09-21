@@ -1,0 +1,24 @@
+---
+title: List
+description: A simple list with an optional active row marker.
+---
+
+`List` renders plain text rows and can mark one row as active.
+
+<RustDemo name="list" title="List" rows={6} code={`use termui_widgets::list::List;
+
+let items = ["First item", "Second item"];
+List::new(&items).selected(0).render(frame, area);`} />
+
+## Source
+
+<ComponentSource src="crates/termui-widgets/src/list.rs" title="list.rs" language="rs" collapsible={false} />
+
+## Usage
+
+```rust
+use termui_widgets::list::List;
+
+let items = ["First item", "Second item"];
+List::new(&items).selected(0).render(frame, area);
+```

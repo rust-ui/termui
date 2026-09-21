@@ -1,0 +1,24 @@
+---
+title: Markdown Viewer
+description: A compact renderer for headings, bold text, and bullet lists.
+---
+
+`MarkdownViewer` formats headings, bold spans, and unordered list items without a runtime dependency.
+
+<RustDemo name="markdown-viewer" title="Markdown Viewer" rows={6} code={`use termui_widgets::markdown_viewer::MarkdownViewer;
+
+MarkdownViewer::new("# Heading\\nFormatted **text**\\n- First item")
+    .render(frame, area);`} />
+
+## Source
+
+<ComponentSource src="crates/termui-widgets/src/markdown_viewer.rs" title="markdown_viewer.rs" language="rs" collapsible={false} />
+
+## Usage
+
+```rust
+use termui_widgets::markdown_viewer::MarkdownViewer;
+
+MarkdownViewer::new("# Heading\nFormatted **text**\n- First item")
+    .render(frame, area);
+```

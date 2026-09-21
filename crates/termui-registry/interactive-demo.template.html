@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link data-trunk rel="rust" data-bin="button-interactive" data-wasm-opt="0" />
-    <title>Interactive Ratatui Button</title>
+<link data-trunk rel="rust" data-bin="{{BIN_NAME}}" data-wasm-opt="0" />
+    <title>{{PAGE_TITLE}}</title>
     <style>
       :root {
         color-scheme: dark;
@@ -55,5 +55,16 @@
   </head>
   <body>
     <div id="terminal"></div>
+    <script>
+      document.addEventListener(
+        "keydown",
+        (event) => {
+          if (event.key === "Tab" || event.key === "Backspace") {
+            event.preventDefault();
+          }
+        },
+        true,
+      );
+    </script>
   </body>
 </html>

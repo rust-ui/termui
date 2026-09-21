@@ -1,0 +1,24 @@
+---
+title: Menu
+description: A bordered list of actions with a selected row.
+---
+
+`Menu` displays actions inside a titled border. Your application handles activation and navigation.
+
+<RustDemo name="menu" title="Menu" rows={7} code={`use termui_widgets::menu::Menu;
+
+let items = ["Open", "Save", "Quit"];
+Menu::new("File", &items, 0).render(frame, area);`} />
+
+## Source
+
+<ComponentSource src="crates/termui-widgets/src/menu.rs" title="menu.rs" language="rs" collapsible={false} />
+
+## Usage
+
+```rust
+use termui_widgets::menu::Menu;
+
+let items = ["Open", "Save", "Quit"];
+Menu::new("File", &items, 0).render(frame, area);
+```

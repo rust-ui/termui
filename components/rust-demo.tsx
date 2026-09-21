@@ -6,6 +6,17 @@ import { CopyButton } from "@/components/copy-button";
 import { RatatuiDemoPreview } from "@/components/ratatui-demo-preview";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
+const DEMO_MODES = {
+  interactive: {
+    label: "Interactive",
+    indicatorClassName: "bg-emerald-500",
+  },
+  static: {
+    label: "Static",
+    indicatorClassName: "bg-muted-foreground",
+  },
+} as const;
+
 interface RustDemoProps {
   name: string;
   code: string;
@@ -16,7 +27,7 @@ interface RustDemoProps {
   fontSize?: number;
 }
 
-/** Preview/code switcher for checked-in Rust-rendered widget examples. */
+/** Preview/code switcher and mode label for widget demos. */
 export function RustDemo({
   name,
   code,
@@ -26,18 +37,29 @@ export function RustDemo({
   height = 370,
   fontSize = 12,
 }: RustDemoProps) {
+  const mode = src ? DEMO_MODES.interactive : DEMO_MODES.static;
+
   return (
     <Tabs defaultValue="preview" className="my-6 gap-2">
-      <TabsList className="self-start">
-        <TabsTrigger value="preview">
-          <Eye className="size-3.5" />
-          Preview
-        </TabsTrigger>
-        <TabsTrigger value="code">
-          <Code className="size-3.5" />
-          Code
-        </TabsTrigger>
-      </TabsList>
+      <div className="flex w-full items-center justify-between">
+        <TabsList className="self-start">
+          <TabsTrigger value="preview">
+            <Eye className="size-3.5" />
+            Preview
+          </TabsTrigger>
+          <TabsTrigger value="code">
+            <Code className="size-3.5" />
+            Code
+          </TabsTrigger>
+        </TabsList>
+        <span className="inline-flex items-center gap-1.5 rounded-full border bg-background px-2.5 py-1 text-xs text-muted-foreground">
+          <span
+            aria-hidden="true"
+            className={`size-1.5 rounded-full ${mode.indicatorClassName}`}
+          />
+          {mode.label}
+        </span>
+      </div>
       <TabsContent value="preview">
         <div className="flex min-h-[370px] items-center justify-center overflow-hidden rounded-xl border bg-background p-4">
           {src ? (

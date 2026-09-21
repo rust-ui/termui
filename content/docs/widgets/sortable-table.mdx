@@ -1,0 +1,26 @@
+---
+title: Sortable Table
+description: A table that marks its active sort column and direction.
+---
+
+`SortableTable` displays a sort marker. Your application owns sorting and row order.
+
+<RustDemo name="sortable-table" title="Sortable Table" rows={6} code={`use termui_widgets::sortable_table::SortableTable;
+
+let headers = ["Name", "Size"];
+let rows: [&[&str]; 1] = [&["README.md", "2 KB"]];
+SortableTable::new(&headers, &rows, 0, true).render(frame, area);`} />
+
+## Source
+
+<ComponentSource src="crates/termui-widgets/src/sortable_table.rs" title="sortable_table.rs" language="rs" collapsible={false} />
+
+## Usage
+
+```rust
+use termui_widgets::sortable_table::SortableTable;
+
+let headers = ["Name", "Size"];
+let rows: [&[&str]; 1] = [&["README.md", "2 KB"]];
+SortableTable::new(&headers, &rows, 0, true).render(frame, area);
+```

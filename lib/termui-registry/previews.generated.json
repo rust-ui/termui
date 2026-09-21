@@ -3093,6 +3093,9 @@
     "│   Interactive Rust example             │",
     "╰────────────────────────────────────────╯"
   ],
+  "rust/breadcrumbs": [
+    "Home / Projects / TermUI"
+  ],
   "rust/button": [
     "\u001b[0m\u001b[38;2;250;250;250;48;2;37;99;235m  Save changes  \u001b[0m"
   ],
@@ -3103,6 +3106,15 @@
     "\u001b[0m\u001b[38;2;250;250;250;48;2;37;99;235m  Default  \u001b[0m   \u001b[0m\u001b[38;2;250;250;250;48;2;63;63;70m  Secondary  \u001b[0m   \u001b[0m\u001b[38;2;250;250;250;48;2;220;38;38m  Delete  \u001b[0m",
     "",
     "\u001b[0m\u001b[38;2;228;228;231;4m  [Outline]  \u001b[0m   \u001b[0m\u001b[38;2;228;228;231m  Ghost  \u001b[0m   \u001b[0m\u001b[38;2;96;165;250;4m  Link  \u001b[0m"
+  ],
+  "rust/calendar": [
+    "September 2026",
+    "Su Mo Tu We Th Fr Sa",
+    "       1  2  3  4  5",
+    " 6  7  8  9 10 11 12",
+    "13 14 15 16 17 18 19",
+    "20 \u001b[0m\u001b[7m21 \u001b[0m22 23 24 25 26",
+    "27 28 29 30"
   ],
   "rust/card": [
     "\u001b[0m\u001b[38;2;63;63;70m╭────────────────────────────────────────╮\u001b[0m",
@@ -3115,6 +3127,16 @@
     "\u001b[0m\u001b[38;2;63;63;70m│\u001b[0m Card Footer                            \u001b[0m\u001b[38;2;63;63;70m│\u001b[0m",
     "\u001b[0m\u001b[38;2;63;63;70m╰────────────────────────────────────────╯\u001b[0m"
   ],
+  "rust/chart": [
+    "\u001b[0m\u001b[36mA ██████████████████ 4\u001b[0m",
+    "\u001b[0m\u001b[36mB ████████████████████████████████ 7\u001b[0m",
+    "\u001b[0m\u001b[36mC █████████████ 3\u001b[0m",
+    "\u001b[0m\u001b[36mD █████████████████████████████████████ 8\u001b[0m"
+  ],
+  "rust/checkbox": [
+    "\u001b[0m\u001b[37m[ ]\u001b[0m  Unchecked",
+    "\u001b[0m\u001b[36m[x]\u001b[0m  Checked"
+  ],
   "rust/color-picker": [
     "\u001b[0m\u001b[90m╭ Accent color ──────────────────────────╮\u001b[0m",
     "\u001b[0m\u001b[90m│\u001b[0m\u001b[38;2;100;116;139m● \u001b[0m\u001b[37mSlate  \u001b[0m\u001b[38;2;107;114;128m● \u001b[0m\u001b[37mGray   \u001b[0m\u001b[38;2;239;68;68m● \u001b[0m\u001b[37mRed    \u001b[0m\u001b[38;2;249;115;22m● \u001b[0m\u001b[37mOrange \u001b[0m    \u001b[0m\u001b[90m│\u001b[0m",
@@ -3125,8 +3147,92 @@
     "\u001b[0m\u001b[90m│\u001b[0m                                        \u001b[0m\u001b[90m│\u001b[0m",
     "\u001b[0m\u001b[90m╰────────────────────────────────────────╯\u001b[0m"
   ],
+  "rust/command-palette": [
+    "╭Commands────────────────────────────────╮",
+    "│\u001b[0m\u001b[36m> \u001b[0m                                      │",
+    "│\u001b[0m\u001b[97;48;2;37;99;235m  Open file\u001b[0m                             │",
+    "│  Toggle theme                          │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "rust/confirmation-prompt": [
+    "Delete this file?  \u001b[0m\u001b[37m[ Cancel ]\u001b[0m  \u001b[0m\u001b[38;2;96;165;250m[ Delete ]\u001b[0m"
+  ],
+  "rust/date-picker": [
+    "Select date: 2026-09-21",
+    "September 2026",
+    "Su Mo Tu We Th Fr Sa",
+    "       1  2  3  4  5",
+    " 6  7  8  9 10 11 12",
+    "13 14 15 16 17 18 19",
+    "20 \u001b[0m\u001b[7m21 \u001b[0m22 23 24 25 26",
+    "27 28 29 30"
+  ],
   "rust/dialog": [
     "           \u001b[0m\u001b[38;2;250;250;250;48;2;37;99;235m  Delete project  \u001b[0m"
+  ],
+  "rust/diff-viewer": [
+    "\u001b[0m\u001b[91m- old value\u001b[0m",
+    "\u001b[0m\u001b[92m+ new value\u001b[0m",
+    "\u001b[0m\u001b[37m  unchanged\u001b[0m"
+  ],
+  "rust/empty-state": [
+    "              \u001b[0m\u001b[97mNo projects yet\u001b[0m",
+    "     \u001b[0m\u001b[37mCreate a project to get started.\u001b[0m",
+    "            \u001b[0m\u001b[38;2;96;165;250m[ Create project ]\u001b[0m"
+  ],
+  "rust/file-picker": [
+    "╭Files───────────────────────────────────╮",
+    "│  ▾ src/                                │",
+    "│\u001b[0m\u001b[36m>   main.rs\u001b[0m                             │",
+    "│    lib.rs                              │",
+    "│  ▾ widgets/                            │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "rust/form-field": [
+    "Email",
+    "\u001b[0m\u001b[90m╭────────────────────────────────────────╮\u001b[0m",
+    "\u001b[0m\u001b[90m│\u001b[0mname@example.com                        \u001b[0m\u001b[90m│\u001b[0m",
+    "\u001b[0m\u001b[90m╰────────────────────────────────────────╯\u001b[0m",
+    "\u001b[0m\u001b[32m✓ Valid email address\u001b[0m"
+  ],
+  "rust/gauge": [
+    "CPU  \u001b[0m\u001b[38;2;59;130;246m████████████████\u001b[0m\u001b[48;2;59;130;246m  80% \u001b[0m\u001b[38;2;59;130;246m████████       \u001b[0m"
+  ],
+  "rust/help-screen": [
+    "\u001b[0m\u001b[97mKeyboard shortcuts\u001b[0m",
+    "\u001b[0m\u001b[36m↑/↓\u001b[0m  Navigate",
+    "\u001b[0m\u001b[36mEnter\u001b[0m  Select",
+    "\u001b[0m\u001b[36mEsc\u001b[0m  Back"
+  ],
+  "rust/list": [
+    "\u001b[0m\u001b[36m> \u001b[0mFirst item",
+    "  Second item",
+    "  Third item"
+  ],
+  "rust/loading-state": [
+    "\u001b[0m\u001b[36m… \u001b[0mLoading data..."
+  ],
+  "rust/log-viewer": [
+    "\u001b[0m\u001b[90m10:42:01\u001b[0m  \u001b[0m\u001b[92mINFO \u001b[0m Server started",
+    "\u001b[0m\u001b[90m10:42:03\u001b[0m  \u001b[0m\u001b[93mWARN \u001b[0m Retry scheduled",
+    "\u001b[0m\u001b[90m10:42:05\u001b[0m  \u001b[0m\u001b[91mERROR\u001b[0m Request failed"
+  ],
+  "rust/markdown-viewer": [
+    "\u001b[0m\u001b[36;1mHeading\u001b[0m",
+    "Formatted \u001b[0m\u001b[1mtext\u001b[0m and a list:",
+    "\u001b[0m\u001b[36m• \u001b[0mFirst item"
+  ],
+  "rust/menu": [
+    "╭File────────────────────────────────────╮",
+    "│\u001b[0m\u001b[97;48;2;37;99;235m Open \u001b[0m                                  │",
+    "│ Save                                   │",
+    "│ Quit                                   │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "rust/multi-select-list": [
+    "\u001b[0m\u001b[36m[x]\u001b[0m  Rust",
+    "\u001b[0m\u001b[37m[ ]\u001b[0m  Go",
+    "\u001b[0m\u001b[36m[x]\u001b[0m  TypeScript"
   ],
   "rust/panel": [
     "\u001b[0m\u001b[36m╭Activity────────────────────────────────╮\u001b[0m",
@@ -3137,6 +3243,14 @@
     "\u001b[0m\u001b[36m│\u001b[0m                                        \u001b[0m\u001b[36m│\u001b[0m",
     "\u001b[0m\u001b[36m╰Esc Back────────────────────────────────╯\u001b[0m"
   ],
+  "rust/password-input": [
+    "\u001b[0m\u001b[90m╭Password────────────────────────────────╮\u001b[0m",
+    "\u001b[0m\u001b[90m│\u001b[0m••••••••••                              \u001b[0m\u001b[90m│\u001b[0m",
+    "\u001b[0m\u001b[90m╰────────────────────────────────────────╯\u001b[0m"
+  ],
+  "rust/progress-bar": [
+    "Downloading   \u001b[0m\u001b[38;2;59;130;246m████████████\u001b[0m\u001b[48;2;59;130;246m60% \u001b[0m\u001b[38;2;59;130;246m█           \u001b[0m"
+  ],
   "rust/radio-card": [
     "\u001b[0m\u001b[38;2;59;130;246m╭\u001b[0m\u001b[38;2;59;130;246;1m◉ Standard\u001b[0m\u001b[38;2;59;130;246m─────────╮\u001b[0m \u001b[0m\u001b[90m╭\u001b[0m\u001b[97m○ High contrast\u001b[0m\u001b[90m───╮\u001b[0m",
     "\u001b[0m\u001b[38;2;59;130;246m│\u001b[0m\u001b[37mBalanced palette   \u001b[0m\u001b[38;2;59;130;246m│\u001b[0m \u001b[0m\u001b[90m│\u001b[0m\u001b[37mStronger borders  \u001b[0m\u001b[90m│\u001b[0m",
@@ -3144,11 +3258,62 @@
     "\u001b[0m\u001b[38;2;59;130;246m│\u001b[0m\u001b[37m                   \u001b[0m\u001b[38;2;59;130;246m│\u001b[0m \u001b[0m\u001b[90m│\u001b[0m\u001b[37m                  \u001b[0m\u001b[90m│\u001b[0m",
     "\u001b[0m\u001b[38;2;59;130;246m╰───────────────────╯\u001b[0m \u001b[0m\u001b[90m╰──────────────────╯\u001b[0m"
   ],
+  "rust/resizable-layout": [
+    "╭Sidebar────╮╭Main panel─────────────────╮",
+    "│Files      ││Content                    │",
+    "│Projects   ││Details                    │",
+    "╰───────────╯╰───────────────────────────╯"
+  ],
+  "rust/scrollbar": [
+    "\u001b[0m\u001b[90m░\u001b[0m",
+    "\u001b[0m\u001b[37m█\u001b[0m",
+    "\u001b[0m\u001b[90m░\u001b[0m",
+    "\u001b[0m\u001b[90m░\u001b[0m",
+    "\u001b[0m\u001b[90m░\u001b[0m"
+  ],
+  "rust/search-input": [
+    "\u001b[0m\u001b[36m/ \u001b[0m\u001b[90mFind in files...\u001b[0m"
+  ],
   "rust/select-list": [
     "Overview",
     "\u001b[0m\u001b[38;2;255;255;255;48;2;37;99;235mComponents                                \u001b[0m",
     "Themes",
     "Settings"
+  ],
+  "rust/sortable-table": [
+    "\u001b[0m\u001b[97mName ↑      Size\u001b[0m",
+    "README.md  2 KB",
+    "src/       4 KB"
+  ],
+  "rust/sparkline": [
+    "Activity  \u001b[0m\u001b[36m▁▃▂▅▄▇▆█\u001b[0m"
+  ],
+  "rust/spinner": [
+    "\u001b[0m\u001b[36m◐\u001b[0m Working..."
+  ],
+  "rust/split-pane": [
+    "╭Editor─────────────╮\u001b[0m\u001b[90m│\u001b[0m╭Preview───────────╮",
+    "│# Hello            │\u001b[0m\u001b[90m \u001b[0m│Hello             │",
+    "│                   │\u001b[0m\u001b[90m \u001b[0m│                  │",
+    "│                   │\u001b[0m\u001b[90m \u001b[0m│                  │",
+    "╰───────────────────╯\u001b[0m\u001b[90m \u001b[0m╰──────────────────╯"
+  ],
+  "rust/status-bar": [
+    "\u001b[0m\u001b[36mmain\u001b[0m\u001b[90m  │  \u001b[0mLn 12, Col 4  │  UTF-8"
+  ],
+  "rust/table": [
+    "\u001b[0m\u001b[97mName    Status \u001b[0m",
+    "API     Online",
+    "Worker  Offline"
+  ],
+  "rust/tabs": [
+    "\u001b[0m\u001b[97;1m[Overview]\u001b[0m  \u001b[0m\u001b[37mSettings\u001b[0m  \u001b[0m\u001b[37mLogs\u001b[0m"
+  ],
+  "rust/text-area": [
+    "\u001b[0m\u001b[90m╭Message─────────────────────────────────╮\u001b[0m",
+    "\u001b[0m\u001b[90m│\u001b[0mWrite a message...                      \u001b[0m\u001b[90m│\u001b[0m",
+    "\u001b[0m\u001b[90m│\u001b[0m                                        \u001b[0m\u001b[90m│\u001b[0m",
+    "\u001b[0m\u001b[90m╰────────────────────────────────────────╯\u001b[0m"
   ],
   "rust/text-input": [
     "\u001b[0m\u001b[38;2;59;130;246m╭Email───────────────────────────────────╮\u001b[0m",
@@ -3165,5 +3330,19 @@
     "\u001b[0m\u001b[38;2;220;38;38;1m│\u001b[0mTheme preferences could not be saved    \u001b[0m\u001b[38;2;220;38;38;1m│\u001b[0m",
     "\u001b[0m\u001b[38;2;220;38;38;1m│\u001b[0m                                        \u001b[0m\u001b[38;2;220;38;38;1m│\u001b[0m",
     "\u001b[0m\u001b[38;2;220;38;38;1m╰────────────────────────────────────────╯\u001b[0m"
+  ],
+  "rust/toggle-switch": [
+    "Notifications  \u001b[0m\u001b[32m[ ON ]\u001b[0m"
+  ],
+  "rust/tooltip": [
+    "\u001b[0m\u001b[90m╭────────────────────────────────────────╮\u001b[0m",
+    "\u001b[0m\u001b[90m│\u001b[0m\u001b[37m Press Enter to continue                \u001b[0m\u001b[90m│\u001b[0m",
+    "\u001b[0m\u001b[90m╰────────────────────────────────────────╯\u001b[0m"
+  ],
+  "rust/tree-view": [
+    "\u001b[0m\u001b[36m▾ \u001b[0msrc/",
+    "  \u001b[0m\u001b[36m  \u001b[0mmain.rs",
+    "  \u001b[0m\u001b[36m▾ \u001b[0mwidgets/",
+    "    \u001b[0m\u001b[36m  \u001b[0mbutton.rs"
   ]
 }

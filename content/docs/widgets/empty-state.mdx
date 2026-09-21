@@ -1,0 +1,28 @@
+---
+title: Empty State
+description: Centered guidance for views that have no content yet.
+---
+
+`EmptyState` centers a title, description, and optional action label.
+
+<RustDemo name="empty-state" title="Empty State" rows={9} code={`use termui_widgets::empty_state::EmptyState;
+
+EmptyState::new("No projects yet")
+    .description("Create a project to get started.")
+    .action("Create project")
+    .render(frame, area);`} />
+
+## Source
+
+<ComponentSource src="crates/termui-widgets/src/empty_state.rs" title="empty_state.rs" language="rs" collapsible={false} />
+
+## Usage
+
+```rust
+use termui_widgets::empty_state::EmptyState;
+
+EmptyState::new("No projects yet")
+    .description("Create a project to get started.")
+    .action("Create project")
+    .render(frame, area);
+```

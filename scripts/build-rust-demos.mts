@@ -1,6 +1,7 @@
 import { spawnSync } from "node:child_process";
 import { promises as fs } from "node:fs";
 import path from "node:path";
+import { collectMdxDemoReferences } from "./lib/demo-mdx.mts";
 
 const root = process.cwd();
 const examplesRoot = path.join(root, "examples");
@@ -47,16 +48,28 @@ async function collectMdxFiles(directory: string): Promise<string[]> {
 
 for (const file of await collectMdxFiles(docsRoot)) {
   const source = await fs.readFile(file, "utf8");
-  for (const [, tag, attributes] of source.matchAll(
-    /<(RustDemo|TerminalFrame)\b([\s\S]*?)\/>/g
-  )) {
-    const props = new Map(
-      [...attributes.matchAll(/\b(name|src)\s*=\s*["']([^"']+)["']/g)].map(
-        ([, key, value]) => [key, value]
-      )
-    );
-    if (tag === "RustDemo" && props.has("src")) continue;
-    const demoName = tag === "RustDemo" ? props.get("name") : props.get("src");
+  const isWidgetPage =
+    file.startsWith(`${path.join(docsRoot, "widgets")}${path.sep}`) &&
+    path.basename(file, ".mdx") !== "index";
+  if (isWidgetPage) {
+    if (/<TerminalFrame\b/.test(source)) {
+      throw new Error(
+        `Widget pages must use RustDemo with a Code tab instead of TerminalFrame: ${file}`
+      );
+    }
+    const rustDemos = [...source.matchAll(/<RustDemo\b([\s\S]*?)\/>/g)];
+    if (rustDemos.length === 0) {
+      throw new Error(`Widget page has no RustDemo with a Code tab: ${file}`);
+    }
+    for (const [, attributes] of rustDemos) {
+      if (!/\bcode\s*=/.test(attributes)) {
+        throw new Error(`Widget RustDemo is missing its code prop: ${file}`);
+      }
+    }
+  }
+  for (const { tag, name, src } of collectMdxDemoReferences(source)) {
+    if (tag === "RustDemo" && src) continue;
+    const demoName = tag === "RustDemo" ? name : src;
     if (!demoName) {
       throw new Error(`Missing ${tag === "RustDemo" ? "name" : "src"} in ${file}`);
     }

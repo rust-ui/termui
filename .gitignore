@@ -1,4 +1,5 @@
 __TMP/
+crates/termui-registry/.ratzilla-*.generated.html
 target/
 node_modules/
 dist/

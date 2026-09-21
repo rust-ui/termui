@@ -1,0 +1,26 @@
+---
+title: Status Bar
+description: A one-line display for view and cursor status.
+---
+
+`StatusBar` joins a left label with a right-hand status string.
+
+<RustDemo name="status-bar" title="Status Bar" rows={5} code={`use termui_widgets::status_bar::StatusBar;
+
+let line = StatusBar::new("main")
+    .right("Ln 12, Col 4  │  UTF-8")
+    .line();`} />
+
+## Source
+
+<ComponentSource src="crates/termui-widgets/src/status_bar.rs" title="status_bar.rs" language="rs" collapsible={false} />
+
+## Usage
+
+```rust
+use termui_widgets::status_bar::StatusBar;
+
+let line = StatusBar::new("main")
+    .right("Ln 12, Col 4  │  UTF-8")
+    .line();
+```

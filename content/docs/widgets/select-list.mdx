@@ -5,7 +5,17 @@ description: Selectable terminal rows with a full-width active-row highlight.
 
 `SelectList` highlights the selected row. Your application owns keyboard input and updates the selected index.
 
-<TerminalFrame title="Select List" src="select-list" height={220} />
+<RustDemo name="select-list" title="Select List" rows={13} code={`use ratatui::{
+    style::{Color, Style},
+    text::Line,
+};
+use termui_widgets::select_list::SelectList;
+
+let items = vec![Line::from("Overview"), Line::from("Settings")];
+
+SelectList::new(&items, 1)
+    .selection_style(Style::default().fg(Color::White).bg(Color::Blue))
+    .render(frame, area);`} />
 
 ## Source
 

@@ -1,0 +1,24 @@
+---
+title: Split Pane
+description: Two labeled content areas separated by a vertical divider.
+---
+
+`SplitPane` renders two bordered views with a caller-selected width ratio.
+
+<RustDemo name="split-pane" title="Split Pane" rows={8} code={`use termui_widgets::split_pane::SplitPane;
+
+SplitPane::new("Editor", source, "Preview", preview, 50)
+    .render(frame, area);`} />
+
+## Source
+
+<ComponentSource src="crates/termui-widgets/src/split_pane.rs" title="split_pane.rs" language="rs" collapsible={false} />
+
+## Usage
+
+```rust
+use termui_widgets::split_pane::SplitPane;
+
+SplitPane::new("Editor", source, "Preview", preview, 50)
+    .render(frame, area);
+```

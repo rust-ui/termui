@@ -36,6 +36,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Test Rust demo pipeline
+        run: pnpm demos:pipeline:test
+
       - name: Check checked-in interactive demo assets
         run: |
           test -s public/demos/button-interactive/index.html

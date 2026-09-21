@@ -1,0 +1,22 @@
+---
+title: Tooltip
+description: A compact bordered hint rendered at an area chosen by your application.
+---
+
+`Tooltip` draws a short hint inside the area you provide. Your application chooses when and where to show it.
+
+<RustDemo name="tooltip" title="Tooltip" rows={6} code={`use termui_widgets::tooltip::Tooltip;
+
+Tooltip::new("Press Enter to continue").render(frame, area);`} />
+
+## Source
+
+<ComponentSource src="crates/termui-widgets/src/tooltip.rs" title="tooltip.rs" language="rs" collapsible={false} />
+
+## Usage
+
+```rust
+use termui_widgets::tooltip::Tooltip;
+
+Tooltip::new("Press Enter to continue").render(frame, area);
+```
