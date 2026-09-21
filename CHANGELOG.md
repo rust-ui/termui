@@ -25,6 +25,7 @@ Notable Term/UI changes are recorded here. Format follows [Keep a Changelog](htt
 
 ### Changed
 
+- Replaced the active favicon with the pixel-grid R from V4 and regenerated ICO, PNG, Apple touch, and Android icon assets.
 - Reject widget docs that use `TerminalFrame` without a Preview/Code switcher.
 - Generate Ratzilla demo entry HTML from one shared template and MDX references.
 - Show whether each widget demo is interactive or static beside its Preview/Code tabs.
