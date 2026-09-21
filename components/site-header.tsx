@@ -14,9 +14,9 @@ import { source } from "@/lib/source";
 
 const navItems = [
   { href: ROUTES.DOCS, label: "Docs" },
-  { href: ROUTES.DOCS_COMPONENTS, label: "Components" },
-  { href: ROUTES.DOCS_CHARTS, label: "Charts" },
-  { href: ROUTES.DOCS_TEMPLATES, label: "Templates" },
+  { href: ROUTES.DOCS_INSTALLATION, label: "Installation" },
+  { href: ROUTES.DOCS_MCP, label: "MCP" },
+  { href: ROUTES.DOCS_REGISTRY, label: "Registry" },
 ];
 
 export const SiteHeader = () => (
@@ -40,11 +40,7 @@ export const SiteHeader = () => (
               className="hover:bg-transparent focus-visible:bg-transparent dark:hover:bg-transparent lg:size-9"
               sound="click"
             >
-              <Link
-                href="https://shadcn-labs.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <Link href="/">
                 <LogoMark className="size-5" />
               </Link>
             </Button>

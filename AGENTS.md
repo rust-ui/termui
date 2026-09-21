@@ -1,6 +1,7 @@
-# TERMUI agent guide
+# Term/UI agent guide
 
 - Keep project documentation and generated user-facing copy in English.
+- Treat Term/UI as a product in the Rust/UI ecosystem. Use `rust-ui.com` as canonical domain and `@termui` as registry namespace.
 - Add a concise entry under `## [Unreleased]` in `CHANGELOG.md` for every visible or architectural change.
 - Add reusable project lessons to `__SKILLS_LEARNINGS/LEARNINGS.md`; keep one dated line per lesson.
 - Preserve the copied termcn UI and behavior. Sponsor page and Sponsor link stay omitted.

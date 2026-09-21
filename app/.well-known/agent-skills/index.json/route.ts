@@ -1,6 +1,6 @@
 import { ROUTES } from "@/constants/routes";
 import { requestOrigin } from "@/lib/agent-discovery/request-origin";
-import { termcnAgentSkillDigest } from "@/lib/agent-discovery/termcn-agent-skill";
+import { termuiAgentSkillDigest } from "@/lib/agent-discovery/termui-agent-skill";
 
 export const GET = (request: Request) => {
   const origin = requestOrigin(request);
@@ -12,11 +12,11 @@ export const GET = (request: Request) => {
       skills: [
         {
           description:
-            "Install and use termcn terminal UI components via the public shadcn registry and documentation.",
-          digest: termcnAgentSkillDigest(),
-          name: "termcn-registry",
+            "Install and use Term/UI terminal UI components via the public shadcn registry and documentation.",
+          digest: termuiAgentSkillDigest(),
+          name: "termui-registry",
           type: "skill-md",
-          url: `${base}${ROUTES.AGENT_SKILLS_TERMCN_SKILL}`,
+          url: `${base}${ROUTES.AGENT_SKILLS_Term/UI_SKILL}`,
         },
       ],
     },

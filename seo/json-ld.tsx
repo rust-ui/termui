@@ -16,6 +16,11 @@ export const WebsiteJsonLd = () => {
     "@type": "WebSite",
     description: SITE.DESCRIPTION.LONG,
     inLanguage: "en-US",
+    isPartOf: {
+      "@type": "Organization",
+      name: "Rust/UI",
+      url: LINK.PORTFOLIO,
+    },
     name: SITE.NAME,
     url: SITE.URL,
   };
@@ -28,7 +33,7 @@ export const SoftwareSourceCodeJsonLd = () => {
     "@type": "SoftwareSourceCode",
     applicationCategory: "DeveloperApplication",
     author: {
-      "@type": "Person",
+      "@type": "Organization",
       name: SITE.AUTHOR.NAME,
       url: LINK.PORTFOLIO,
     },
@@ -39,7 +44,7 @@ export const SoftwareSourceCodeJsonLd = () => {
     keywords: SITE.KEYWORDS,
     license: LINK.LICENSE,
     maintainer: {
-      "@type": "Person",
+      "@type": "Organization",
       name: SITE.AUTHOR.NAME,
       url: LINK.PORTFOLIO,
     },
@@ -61,14 +66,14 @@ export const OrganizationJsonLd = () => {
   const data = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    founder: {
-      "@type": "Person",
-      name: SITE.AUTHOR.NAME,
+    parentOrganization: {
+      "@type": "Organization",
+      name: "Rust/UI",
       url: LINK.PORTFOLIO,
     },
     logo: SITE.OG_IMAGE,
     name: SITE.NAME,
-    sameAs: [LINK.GITHUB, LINK.PORTFOLIO, LINK.X],
+    sameAs: [LINK.GITHUB, LINK.PORTFOLIO],
     url: SITE.URL,
   };
   return <JsonLdScript data={data} />;

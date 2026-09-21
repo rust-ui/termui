@@ -1,6 +1,6 @@
-# TERMUI
+# Term/UI
 
-TERMUI preserves termcn’s Next.js documentation and component-site UI. Terminal preview frames come from a small native Rust renderer; the site displays those frames inside termcn’s preview chrome and theme controls.
+Term/UI is part of the Rust/UI ecosystem. It provides Rust terminal UI components and keeps the source site's Next.js documentation and component-site UI. Terminal preview frames come from a small native Rust renderer; the site displays those frames inside the existing preview chrome and theme controls.
 
 The Rust renderer runs at build time and generates `lib/rust-renderer/previews.generated.json`. It does not execute Rust in the browser. No Ratzilla runtime or browser terminal backend is used.
 
@@ -8,7 +8,7 @@ The Rust renderer runs at build time and generates `lib/rust-renderer/previews.g
 
 - `crates/termui-widgets` — copyable Rust widgets.
 - `crates/termui-renderer` — Rust frame generator for site previews.
-- `app`, `components`, `content`, `lib`, `registry`, `public` — termcn-derived web app, docs, and registry assets.
+- `app`, `components`, `content`, `lib`, `registry`, `public` — Term/UI web app, docs, and registry assets.
 - `__TMP/termcn` — local termcn source used for UI parity comparisons.
 
 ## Development
@@ -35,7 +35,7 @@ The Sponsor page is intentionally omitted.
 
 ## Production deployment
 
-TERMUI runs on the shared Rustify server. GitHub Actions builds an amd64 Docker image, pushes it to Docker Hub, and deploys it over SSH. Host Nginx routes `termui.rustify.app` to the app on `127.0.0.1:5103` and manages HTTPS with Certbot.
+Term/UI runs on the shared Rustify server. GitHub Actions builds an amd64 Docker image, pushes it to Docker Hub, and deploys it over SSH. Host Nginx routes `rust-ui.com` to the app on `127.0.0.1:5103` and manages HTTPS with Certbot.
 
 Set these repository variables in `rust-ui/termui`:
 
@@ -49,6 +49,6 @@ Set these repository secrets:
 - `DOCKER_TOKEN`: Docker Hub access token with read and write access
 - `SSH_PRIVATE_KEY`: private key whose public key can log in as `root` on shared-apps
 
-In Cloudflare, point the `termui` A record to `23.88.45.210`. Keep it DNS only while the first deployment requests its TLS certificate. After the certificate is issued, enable the proxy if desired.
+In Cloudflare, point the `@` A record for `rust-ui.com` to `23.88.45.210`. Keep it DNS only while the first deployment requests its TLS certificate. After the certificate is issued, enable the proxy if desired.
 
-Run **Actions → Build and Deploy TERMUI → Run workflow**. First run with `skip_build` off. Later, `skip_build` can redeploy the existing image.
+Run **Actions → Build and Deploy Term/UI → Run workflow**. First run with `skip_build` off. Later, `skip_build` can redeploy the existing image.

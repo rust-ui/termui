@@ -32,7 +32,7 @@ const GetStartedButton = () => {
   );
 };
 
-const BrowseComponentsButton = () => {
+const RegistryButton = () => {
   const { iconRef, onMouseEnter, onMouseLeave } =
     useIconAnimation<ComponentIconHandle>();
 
@@ -45,9 +45,9 @@ const BrowseComponentsButton = () => {
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-      <Link href={ROUTES.DOCS_COMPONENTS} transitionTypes={["nav-forward"]}>
+      <Link href={ROUTES.DOCS_REGISTRY} transitionTypes={["nav-forward"]}>
         <ComponentIcon className="hidden sm:inline" ref={iconRef} size={22} />
-        Browse Components
+        Registry
       </Link>
     </Button>
   );
@@ -61,6 +61,6 @@ export const HomeCtas = ({ className }: { className?: string }) => (
     )}
   >
     <GetStartedButton />
-    <BrowseComponentsButton />
+    <RegistryButton />
   </div>
 );

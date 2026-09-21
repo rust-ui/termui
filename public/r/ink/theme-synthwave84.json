@@ -4,7 +4,7 @@
   "title": "Synthwave '84",
   "description": "Synthwave '84 - retro neon.",
   "registryDependencies": [
-    "https://termcn.dev/r/ink/types.json"
+    "https://rust-ui.com/r/ink/types.json"
   ],
   "files": [
     {

@@ -1,4 +1,4 @@
-/** Sound payloads intentionally disabled for TERMUI. Keep exports for UI primitives. */
+/** Sound payloads intentionally disabled for Term/UI. Keep exports for UI primitives. */
 export const collapse = null;
 export const drawerClose = null;
 export const drawerOpen = null;

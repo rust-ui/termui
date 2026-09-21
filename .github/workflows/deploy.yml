@@ -1,4 +1,4 @@
-name: Build and Deploy TERMUI
+name: Build and Deploy Term/UI
 
 on:
   workflow_dispatch:
@@ -25,7 +25,7 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 11.24.0
+          version: 12.5.1
           run_install: false
 
       - name: Setup Node.js
@@ -133,18 +133,18 @@ jobs:
           : "${LETSENCRYPT_EMAIL:?Set repository variable LETSENCRYPT_EMAIL}"
           ssh -i "$HOME/.ssh/deploy_key" -o BatchMode=yes -o StrictHostKeyChecking=yes "root@$SERVER_IP" "LETSENCRYPT_EMAIL='$LETSENCRYPT_EMAIL' bash -s" <<'REMOTE'
           set -euo pipefail
-          if [ ! -s /etc/letsencrypt/live/termui.rustify.app/fullchain.pem ]; then
+          if [ ! -s /etc/letsencrypt/live/rust-ui.com/fullchain.pem ]; then
             install -m 0644 ~/termui/nginx.termui.bootstrap.conf /etc/nginx/conf.d/termui.conf
             nginx -t
             systemctl reload nginx
-            certbot certonly --nginx --non-interactive --agree-tos --email "$LETSENCRYPT_EMAIL" --cert-name termui.rustify.app -d termui.rustify.app
+            certbot certonly --nginx --non-interactive --agree-tos --email "$LETSENCRYPT_EMAIL" --cert-name rust-ui.com -d rust-ui.com
           fi
           install -m 0644 ~/termui/nginx.termui.conf /etc/nginx/conf.d/termui.conf
           nginx -t
           systemctl reload nginx
           REMOTE
 
-      - name: Pull and start TERMUI
+      - name: Pull and start Term/UI
         run: |
           set -euo pipefail
           ssh -i "$HOME/.ssh/deploy_key" -o BatchMode=yes -o StrictHostKeyChecking=yes "root@$SERVER_IP" "cd ~/termui && DOCKER_CONFIG=/root/termui/.docker docker compose pull && DOCKER_CONFIG=/root/termui/.docker docker compose up -d"
@@ -155,7 +155,7 @@ jobs:
           SSH=(ssh -i "$HOME/.ssh/deploy_key" -o BatchMode=yes -o StrictHostKeyChecking=yes "root@$SERVER_IP")
           for attempt in $(seq 1 30); do
             if "${SSH[@]}" "curl -fsS http://127.0.0.1:5103/api/status >/dev/null"; then
-              "${SSH[@]}" "curl -fsS --resolve termui.rustify.app:443:127.0.0.1 https://termui.rustify.app/health"
+              "${SSH[@]}" "curl -fsS --resolve rust-ui.com:443:127.0.0.1 https://rust-ui.com/health"
               exit 0
             fi
             sleep 2

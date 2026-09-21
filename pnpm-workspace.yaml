@@ -1,4 +1,4 @@
-# Supply-chain hardening for TERMUI dependencies. Keep aligned with RUSTIFY.
+# Supply-chain hardening for Term/UI dependencies. Keep aligned with RUSTIFY.
 minimumReleaseAge: 10080
 minimumReleaseAgeStrict: false
 minimumReleaseAgeIgnoreMissingTime: false

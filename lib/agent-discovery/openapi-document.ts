@@ -10,7 +10,7 @@ export const buildOpenApiDocument = (
   return {
     info: {
       description: `Read-only HTTP surfaces for the ${SITE.NAME} documentation site and shadcn component registry.`,
-      title: "termcn public HTTP API",
+      title: "Term/UI public HTTP API",
       version: "0.1.0",
     },
     openapi: "3.0.3",
@@ -23,12 +23,12 @@ export const buildOpenApiDocument = (
           summary: "Agent skills discovery index",
         },
       },
-      [ROUTES.AGENT_SKILLS_TERMCN_SKILL]: {
+      [ROUTES.AGENT_SKILLS_TERMUI_SKILL]: {
         get: {
           responses: {
             "200": { description: "Agent skill markdown" },
           },
-          summary: "termcn agent skill markdown",
+          summary: "Term/UI agent skill markdown",
         },
       },
       [ROUTES.API_CATALOG]: {

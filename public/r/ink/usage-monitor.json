@@ -7,8 +7,8 @@
     "ink"
   ],
   "registryDependencies": [
-    "https://termcn.dev/r/ink/use-interval.json",
-    "https://termcn.dev/r/ink/use-unicode.json"
+    "https://rust-ui.com/r/ink/use-interval.json",
+    "https://rust-ui.com/r/ink/use-unicode.json"
   ],
   "files": [
     {

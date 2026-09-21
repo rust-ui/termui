@@ -4,7 +4,7 @@
   "title": "Nord",
   "description": "A cool Nord palette tuned for terminal contrast.",
   "registryDependencies": [
-    "https://termcn.dev/r/opentui/types.json"
+    "https://rust-ui.com/r/opentui/types.json"
   ],
   "files": [
     {

@@ -15,9 +15,8 @@ ${SITE.DESCRIPTION.LONG}
 ## Quick links
 
 - [Get started](${base}${ROUTES.DOCS_INSTALLATION}.md)
-- [Browse components](${base}${ROUTES.DOCS_COMPONENTS}.md)
-- [Documentation](${base}${ROUTES.DOCS}.md)
 - [Registry docs](${base}${ROUTES.DOCS_REGISTRY}.md)
+- [Documentation](${base}${ROUTES.DOCS}.md)
 - [LLM index (llms.txt)](${base}${ROUTES.LLMS})
 - [API catalog](${base}${ROUTES.API_CATALOG})
 - [OpenAPI description](${base}${ROUTES.OPENAPI})

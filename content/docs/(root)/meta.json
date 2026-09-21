@@ -1,4 +1,4 @@
 {
-  "pages": ["index", "installation", "theming", "mcp", "registry"],
+  "pages": ["installation", "mcp", "registry", "changelog"],
   "title": "Overview"
 }

@@ -4,8 +4,8 @@
   "title": "Unicode Provider",
   "description": "Optional Unicode capability override provider.",
   "registryDependencies": [
-    "https://termcn.dev/r/ink/types.json",
-    "https://termcn.dev/r/ink/use-unicode.json"
+    "https://rust-ui.com/r/ink/types.json",
+    "https://rust-ui.com/r/ink/use-unicode.json"
   ],
   "files": [
     {

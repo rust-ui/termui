@@ -4,7 +4,7 @@
   "title": "Rose Pine",
   "description": "Rose Pine - warm rose tones.",
   "registryDependencies": [
-    "https://termcn.dev/r/opentui/types.json"
+    "https://rust-ui.com/r/opentui/types.json"
   ],
   "files": [
     {

@@ -1,6 +1,6 @@
 export const ROUTES = {
   AGENT_SKILLS_INDEX: "/.well-known/agent-skills/index.json",
-  AGENT_SKILLS_TERMCN_SKILL: "/.well-known/agent-skills/termcn-skill.md",
+  AGENT_SKILLS_TERMUI_SKILL: "/.well-known/agent-skills/termui-skill.md",
   API_CATALOG: "/.well-known/api-catalog",
   API_STATUS: "/api/status",
   DOCS: "/docs",

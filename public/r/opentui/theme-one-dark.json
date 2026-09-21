@@ -4,7 +4,7 @@
   "title": "One Dark",
   "description": "A One Dark theme for terminal components.",
   "registryDependencies": [
-    "https://termcn.dev/r/opentui/types.json"
+    "https://rust-ui.com/r/opentui/types.json"
   ],
   "files": [
     {

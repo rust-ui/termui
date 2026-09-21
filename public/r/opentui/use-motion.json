@@ -4,7 +4,7 @@
   "title": "Use Motion",
   "description": "Provider-optional reduced-motion context and hook.",
   "registryDependencies": [
-    "https://termcn.dev/r/opentui/types.json"
+    "https://rust-ui.com/r/opentui/types.json"
   ],
   "files": [
     {

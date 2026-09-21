@@ -4,7 +4,7 @@
   "title": "Kanagawa",
   "description": "Kanagawa - Japanese wave theme.",
   "registryDependencies": [
-    "https://termcn.dev/r/opentui/types.json"
+    "https://rust-ui.com/r/opentui/types.json"
   ],
   "files": [
     {

@@ -1,6 +1,6 @@
 "use client";
 
-import { DownloadIcon, SquareDashedIcon, TypeIcon } from "lucide-react";
+import { DownloadIcon, TypeIcon } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useCallback } from "react";
 import { toast } from "sonner";
@@ -55,24 +55,9 @@ export const BrandContextMenu = ({
         <ContextMenuSeparator />
 
         <ContextMenuItem asChild>
-          <a
-            href="https://shadcn-labs.com/brand"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <SquareDashedIcon />
-            Brand Guidelines
-          </a>
-        </ContextMenuItem>
-
-        <ContextMenuItem asChild>
-          <a
-            href="https://shadcn-labs.com/shadcn-labs-brand.zip"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href="/termui-logo.svg" download>
             <DownloadIcon />
-            Download Brand Assets
+            Download Term/UI logo, part of Rust/UI
           </a>
         </ContextMenuItem>
       </ContextMenuContent>

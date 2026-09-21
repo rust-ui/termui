@@ -1,4 +1,4 @@
-export const FALLBACK_SITE_ORIGIN = "https://termui.rustify.app" as const;
+export const FALLBACK_SITE_ORIGIN = "https://rust-ui.com" as const;
 
 const getBaseUrl = () => {
   if (process.env.NODE_ENV !== "production") {
@@ -11,14 +11,16 @@ const baseUrl = getBaseUrl();
 
 export const SITE = {
   AUTHOR: {
-    NAME: "TERMUI contributors",
+    NAME: "Rust/UI contributors",
     TWITTER: "@termui",
   },
   DESCRIPTION: {
-    LONG: "A collection of beautifully designed, accessible, and customizable terminal UI components, rendered from Rust.",
+    LONG: "Term/UI is a collection of accessible, customizable terminal UI components in the Rust/UI ecosystem. Its previews are generated from Rust.",
     SHORT: "Beautiful terminal UIs, made simple",
   },
   KEYWORDS: [
+    "Term/UI",
+    "Rust/UI",
     "terminal",
     "rust",
     "ink",
@@ -30,7 +32,7 @@ export const SITE = {
     "next.js",
     "npx shadcn add",
   ] as const,
-  NAME: "termui",
+  NAME: "Term/UI",
   OG_IMAGE: `${baseUrl}/og.png`,
   REGISTRY: "@termui",
   URL: baseUrl,

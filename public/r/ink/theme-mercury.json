@@ -4,7 +4,7 @@
   "title": "Mercury",
   "description": "Mercury - clean minimal theme.",
   "registryDependencies": [
-    "https://termcn.dev/r/ink/types.json"
+    "https://rust-ui.com/r/ink/types.json"
   ],
   "files": [
     {
