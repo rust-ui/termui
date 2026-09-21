@@ -21,6 +21,7 @@
     "test:button": "node --test tests/button.test.mts",
     "test:card": "node --test tests/card.test.mts",
     "test:toast": "node --test tests/toast.test.mts",
+    "test:drawer": "node --test tests/drawer.test.mts",
     "test:text-input": "node --test tests/text-input.test.mts",
     "examples:build": "node ./scripts/build-examples.mts",
     "registry:build": "pnpm examples:build && node ./scripts/build-registry.mts",

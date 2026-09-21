@@ -87,6 +87,9 @@ mod wasm_app {
             MouseEventKind::ButtonDown(MouseButton::Left) if areas.trigger.contains(point) => {
                 ToastTrigger::new("Show toast").activate(&mut app.toast);
             }
+            MouseEventKind::ButtonDown(MouseButton::Left) => {
+                app.toast.close_on_outside_click(point);
+            }
             _ => {}
         }
     }

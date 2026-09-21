@@ -153,6 +153,8 @@ mod wasm_app {
             MouseEventKind::ButtonDown(MouseButton::Left) => {
                 if let Some(index) = areas.triggers.iter().position(|area| area.contains(point)) {
                     activate_variant(app, index);
+                } else {
+                    app.toast.close_on_outside_click(point);
                 }
             }
             _ => {}

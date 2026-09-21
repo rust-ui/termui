@@ -81,7 +81,7 @@ test("default ToastTrigger opens a bottom-right toast; close button and Escape d
     );
     assert.ok(toastLayout.column > toastLayout.width / 2);
 
-    await clickTerminalText(page, "x");
+    await clickTerminalText(page, " x ");
 
     await page.waitForFunction(
       () =>
@@ -95,6 +95,18 @@ test("default ToastTrigger opens a bottom-right toast; close button and Escape d
     await page.keyboard.press("Enter");
     await waitForTerminalText(page, "Changes saved");
     await page.keyboard.press("Escape");
+    await page.waitForFunction(
+      () =>
+        !(
+          document
+            .querySelector("#terminal_ratzilla_grid")
+            ?.textContent?.includes("Changes saved") ?? false
+        )
+    );
+
+    await clickTerminalText(page, "Show toast");
+    await waitForTerminalText(page, "Changes saved");
+    await clickTerminalText(page, "Click Show toast");
     await page.waitForFunction(
       () =>
         !(
@@ -119,7 +131,14 @@ test("non-dismissible ToastTrigger opens toast that Escape cannot close", async 
     await clickTerminalText(page, "Show toast");
     await waitForTerminalText(page, "Upload in progress");
     await page.keyboard.press("Escape");
+    await page.waitForTimeout(100);
     await waitForTerminalText(page, "Upload in progress");
+    await clickTerminalText(page, "Click Show toast");
+    await page.waitForTimeout(100);
+    assert.ok(
+      (await page.locator("#terminal_ratzilla_grid").textContent())?.includes("Upload in progress"),
+      "outside click must not close a non-dismissible toast"
+    );
   } finally {
     await page.close();
   }

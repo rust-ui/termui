@@ -12,14 +12,13 @@ mod wasm_app {
             widgets::Paragraph,
         },
     };
-    use termui_widgets::toast::{
-        Toast, ToastClose, ToastContent, ToastDescription, ToastTitle, ToastTracker, ToastTrigger,
-        ToastVariant,
+    use termui_widgets::drawer::{
+        Drawer, DrawerClose, DrawerContent, DrawerDescription, DrawerTitle, DrawerTrigger,
     };
 
     #[derive(Default)]
     struct App {
-        toast: Toast,
+        drawer: Drawer,
         hover: Option<Position>,
     }
 
@@ -30,7 +29,7 @@ mod wasm_app {
     }
 
     fn render(frame: &mut Frame, app: &mut App, areas: &mut Areas) {
-        app.toast.tick(Duration::from_millis(16));
+        app.drawer.tick(Duration::from_millis(16));
 
         let area = frame.area();
         let [content] = Layout::vertical([Constraint::Length(3)])
@@ -38,42 +37,39 @@ mod wasm_app {
             .areas(area);
         let [trigger, hint] =
             Layout::vertical([Constraint::Length(1), Constraint::Length(2)]).areas(content);
-
-        let trigger_width = 14.min(trigger.width);
+        let trigger_width = 5.min(trigger.width);
         areas.trigger = Rect::new(
             trigger.x + trigger.width.saturating_sub(trigger_width) / 2,
             trigger.y,
             trigger_width,
             trigger.height,
         );
-        ToastTrigger::new("Show toast")
+        DrawerTrigger::new("👤")
             .style(Style::default().fg(Color::Black).bg(Color::White))
             .focused(app.hover.is_some_and(|point| areas.trigger.contains(point)))
             .render(frame, areas.trigger);
         frame.render_widget(
-            Paragraph::new("Click Show toast or press Enter. Click x to dismiss.")
+            Paragraph::new("Click 👤 to open profile. Click outside the drawer to dismiss.")
                 .alignment(Alignment::Center)
                 .style(Style::default().fg(Color::Gray)),
             hint,
         );
 
-        if let Some(toast_areas) =
-            ToastContent::new()
-                .variant(ToastVariant::Default)
-                .render(frame, area, &mut app.toast)
-        {
-            ToastTitle::new("Build completed").render(frame, toast_areas.title);
-            ToastDescription::new("Production assets generated successfully.")
-                .render(frame, toast_areas.description);
-            areas.close = toast_areas.close;
-            if let Some(close) = toast_areas.close {
-                ToastClose::new()
-                    .focused(app.hover.is_some_and(|point| close.contains(point)))
-                    .render(frame, close);
-            }
-            if let Some(tracker) = toast_areas.tracker {
-                ToastTracker::new().render(frame, tracker, &app.toast);
-            }
+        if let Some(drawer_areas) = DrawerContent::new().render(frame, area, &mut app.drawer) {
+            DrawerTitle::new("Profile").render(frame, drawer_areas.title);
+            DrawerDescription::new("Manage your account details.")
+                .render(frame, drawer_areas.description);
+            frame.render_widget(
+                Paragraph::new("Alex Morgan\nalex@example.com\n\nAccount\nPro plan · Active"),
+                drawer_areas.body,
+            );
+            areas.close = Some(drawer_areas.close);
+            DrawerClose::new()
+                .focused(
+                    app.hover
+                        .is_some_and(|point| drawer_areas.close.contains(point)),
+                )
+                .render(frame, drawer_areas.close);
         } else {
             areas.close = None;
         }
@@ -87,13 +83,13 @@ mod wasm_app {
             MouseEventKind::ButtonDown(MouseButton::Left)
                 if areas.close.is_some_and(|area| area.contains(point)) =>
             {
-                ToastClose::new().activate(&mut app.toast);
+                DrawerClose::new().activate(&mut app.drawer);
             }
             MouseEventKind::ButtonDown(MouseButton::Left) if areas.trigger.contains(point) => {
-                ToastTrigger::new("Show toast").activate(&mut app.toast);
+                DrawerTrigger::new("👤").activate(&mut app.drawer);
             }
             MouseEventKind::ButtonDown(MouseButton::Left) => {
-                app.toast.close_on_outside_click(point);
+                app.drawer.close_on_outside_click(point);
             }
             _ => {}
         }
@@ -109,10 +105,11 @@ mod wasm_app {
             move |event| {
                 let mut app = app.borrow_mut();
                 match event.code {
-                    KeyCode::Esc => ToastClose::new().activate(&mut app.toast),
-                    KeyCode::Char(' ') | KeyCode::Enter => {
-                        ToastTrigger::new("Show toast").activate(&mut app.toast);
+                    KeyCode::Esc => DrawerClose::new().activate(&mut app.drawer),
+                    KeyCode::Char(' ') | KeyCode::Enter if app.drawer.is_closed() => {
+                        DrawerTrigger::new("👤").activate(&mut app.drawer);
                     }
+                    KeyCode::Char(' ') | KeyCode::Enter => app.drawer.close(),
                     _ => {}
                 }
             }

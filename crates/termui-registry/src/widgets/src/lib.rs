@@ -15,6 +15,7 @@ pub mod confirmation_prompt;
 pub mod date_picker;
 pub mod dialog;
 pub mod diff_viewer;
+pub mod drawer;
 pub mod empty_state;
 pub mod file_picker;
 pub mod form_field;

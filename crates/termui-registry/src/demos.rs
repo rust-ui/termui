@@ -54,6 +54,8 @@ mod demo_date_picker;
 mod demo_dialog;
 #[path = "demos/demo_diff_viewer.rs"]
 mod demo_diff_viewer;
+#[path = "demos/demo_drawer.rs"]
+mod demo_drawer;
 #[path = "demos/demo_empty_state.rs"]
 mod demo_empty_state;
 #[path = "demos/demo_file_picker.rs"]
@@ -155,6 +157,7 @@ const DEMOS: &[(&str, DemoRenderer)] = &[
     ("rust/color-picker", demo_color_picker::render),
     ("rust/dialog", demo_dialog::render),
     ("rust/diff-viewer", demo_diff_viewer::render),
+    ("rust/drawer", demo_drawer::render),
     ("rust/date-picker", demo_date_picker::render),
     ("rust/empty-state", demo_empty_state::render),
     ("rust/form-field", demo_form_field::render),

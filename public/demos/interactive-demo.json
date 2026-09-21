@@ -65,6 +65,12 @@
     "jsIntegrity": "sha384-ekWdX2w+Rmf3yzzNsDVebXw0QrL0O56rMA2HqpnwK/OMXv9mEb7EnByk8COtIzBK",
     "wasmIntegrity": "sha384-FsBjlPG/r0zP5kt9UC95iXfu3jahDjxlHOKU3XrSpJykxqXIsuugf0IAv8vn/hYP"
   },
+  "drawer-interactive": {
+    "title": "Interactive Ratatui Drawer",
+    "hash": "142aa55818cf081",
+    "jsIntegrity": "sha384-NmFiSjhvrmN/DBxOWl4iTAMFJtcxGfVW3+lHHhKeITSFVNTXM6K5ipW00r9yT3oh",
+    "wasmIntegrity": "sha384-/g3bkH5hh+45u3HuyjJSUsATQEDjd/HVJAkTuP6+kNZI7gSsGEkABbDp3/VvQLT2"
+  },
   "file-picker-interactive": {
     "title": "Interactive Ratatui File Picker",
     "hash": "d34faa192b4b9b3",
@@ -199,27 +205,27 @@
   },
   "toast-interactive": {
     "title": "Interactive Ratatui Toast",
-    "hash": "668ab409dfd102d7",
+    "hash": "1dc55a5466ffd7d7",
     "jsIntegrity": "sha384-hTF+qnyreiO9rvKtrg5ZRAQk4M2E2LjK8UUcYMjYcU438m67UUA6qFs04jU8ZdB1",
-    "wasmIntegrity": "sha384-6mOw4FL8B9N+DUH2PyJdzgqmX+yn9k5gmsfs+P8j5rw3MiHd25PTu//4Vm/nYKlp"
+    "wasmIntegrity": "sha384-HvHO2E4/75ChwN64njATnGTAdGZZI+tfIcTdoJnRWtsM5LNwddXfnW3S+rk7JNgM"
   },
   "toast-nondismissable-interactive": {
     "title": "Interactive Ratatui Toast Nondismissable",
-    "hash": "4aa5bc5d4c8c8aeb",
+    "hash": "f2d7842c9877257c",
     "jsIntegrity": "sha384-DUGLGr7saYFbru4CbIJwbencHzEEqknB2asi4QPf2AKdpK5bJmVcugIiuHu2h8C7",
-    "wasmIntegrity": "sha384-nfPVBtv1FYMFXN2NER8Gsb6nEmnUto23GTeLvEUtuh2Kmgy5OULYGBn3ZDPpz+UG"
+    "wasmIntegrity": "sha384-eSkBzlPvhej0yvNCA46mP06uk9LadPq9LAnu/mlKEiWOaTHP3oi4KLPrAxRh4E/k"
   },
   "toast-tracker-interactive": {
     "title": "Interactive Ratatui Toast Tracker",
-    "hash": "321dca88af7233d3",
+    "hash": "5bf4af38f5bc8dab",
     "jsIntegrity": "sha384-NOFV8hzlFDATot44+r3n1bvtgAixsDx7aTWkv0u58yUquJ2xEMEcE6IEKefFvMeV",
-    "wasmIntegrity": "sha384-01EkpibfcalRRwkP7SWt10TsixHEAOjEp3zIMSSAAAxIYYxPlIID8LkkBGxbXuAw"
+    "wasmIntegrity": "sha384-137RqVmBcDqYPrhpxlpjCS2F1yZwEg44Ggyw/Dfscb5kloLxQQMOlvV0EEPCVn5P"
   },
   "toast-variants-interactive": {
     "title": "Interactive Ratatui Toast Variants",
-    "hash": "7a8ad29fa283d43f",
+    "hash": "27fb5343a23f1f7c",
     "jsIntegrity": "sha384-NJ755Bz15MMpLCtBbavIGY9fhVDekMgFC48PJ2n3q8Y+E4Gzu39GTFjGkcnPacvs",
-    "wasmIntegrity": "sha384-UmJykrD1K2LZdUPW4rlCVopPLu8vk08GQi0IEeJXr/GXQlTcnLcswa3peN7hs6yn"
+    "wasmIntegrity": "sha384-BJGwkwk3Z0IrAONY1FIst0AYB1mDGSxSHQNq9L6AHWjUoTpCSQdjEQ+TAd/iM7cW"
   },
   "toggle-switch-interactive": {
     "title": "Interactive Ratatui Toggle Switch",

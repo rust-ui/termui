@@ -1,0 +1,46 @@
+---
+title: Drawer
+description: Composable side panel with animated overlay and outside-click dismissal.
+---
+
+`Drawer` owns visibility and animation. Compose it from `DrawerTrigger`, `DrawerContent`, `DrawerTitle`, `DrawerDescription`, and `DrawerClose`. The profile button opens a right-side drawer; click outside it or press Escape to close.
+
+<RustDemo
+  name="drawer"
+  title="Drawer · Profile panel"
+  src="/demos/interactive.html?demo=drawer-interactive"
+  height={370}
+  fontSize={16}
+  code={`use std::time::Duration;
+use ratatui::widgets::Paragraph;
+use termui_widgets::drawer::{
+    Drawer, DrawerClose, DrawerContent, DrawerDescription, DrawerTitle, DrawerTrigger,
+};
+
+let mut drawer = Drawer::new();
+if profile_button_was_clicked {
+    DrawerTrigger::new("👤").activate(&mut drawer);
+}
+drawer.tick(Duration::from_millis(16));
+
+if let Some(areas) = DrawerContent::new().render(frame, area, &mut drawer) {
+    DrawerTitle::new("Profile").render(frame, areas.title);
+    DrawerDescription::new("Manage your account details.")
+        .render(frame, areas.description);
+    frame.render_widget(Paragraph::new("Alex Morgan\\nalex@example.com"), areas.body);
+    DrawerClose::new().render(frame, areas.close);
+}
+// In the mouse handler:
+drawer.close_on_outside_click(position);`}
+/>
+
+## Components
+
+- `Drawer` owns open state and animation. Call `open`, `close`, or `toggle` from event handlers and `tick` each frame.
+- `DrawerTrigger` and `DrawerClose` expose activation methods while leaving event routing to the parent app.
+- `DrawerContent` draws the animated side panel and backdrop, then returns areas for title, description, body, and close button. Choose left or right side and set panel width.
+- `close_on_outside_click(position)` uses the rendered overlay bounds; clicks inside the panel stay open.
+
+## Source
+
+<ComponentSource src="crates/termui-registry/src/widgets/src/drawer.rs" title="drawer.rs" language="rs" collapsible={false} />

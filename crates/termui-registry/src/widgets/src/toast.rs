@@ -1,7 +1,7 @@
 use std::time::Duration;
 
 use ratatui::Frame;
-use ratatui::layout::{Constraint, Layout, Rect};
+use ratatui::layout::{Constraint, Layout, Position, Rect};
 use ratatui::style::{Color, Modifier, Style};
 use ratatui::text::Line;
 use ratatui::widgets::{Block, BorderType, Gauge, Paragraph, Wrap};
@@ -58,6 +58,21 @@ impl Toast {
         if self.dismissible {
             self.state.close();
         }
+    }
+
+    /// Close when a click lands outside the rendered toast. Returns whether dismissal was requested.
+    pub fn close_on_outside_click(&mut self, position: Position) -> bool {
+        if !self.dismissible {
+            return false;
+        }
+        let Some(rect) = self.state.overlay_rect() else {
+            return false;
+        };
+        if rect.contains(position) {
+            return false;
+        }
+        self.close();
+        true
     }
 
     pub fn tick(&mut self, elapsed: Duration) {
@@ -421,6 +436,37 @@ mod tests {
         assert!(toast.is_animating());
         toast.tick(ANIMATION_TIME);
         assert!(toast.is_closed());
+    }
+
+    #[test]
+    fn outside_click_dismisses_only_when_outside_rendered_toast() {
+        let mut toast = Toast::new();
+        toast.state = OverlayState::new();
+        toast.open();
+        toast.state.overlay_rect = Some(Rect::new(10, 5, 20, 6));
+
+        assert!(!toast.close_on_outside_click(Position::new(12, 7)));
+        assert!(toast.is_open());
+        assert!(toast.close_on_outside_click(Position::new(2, 7)));
+        assert!(toast.is_closed());
+    }
+
+    #[test]
+    fn outside_click_does_not_dismiss_non_dismissible_or_unrendered_toast() {
+        let position = Position::new(2, 7);
+        let mut toast = Toast::new().dismissible(false);
+        toast.state = OverlayState::new();
+        toast.open();
+        toast.state.overlay_rect = Some(Rect::new(10, 5, 20, 6));
+
+        assert!(!toast.close_on_outside_click(position));
+        assert!(toast.is_open());
+
+        let mut unrendered = Toast::new();
+        unrendered.state = OverlayState::new();
+        unrendered.open();
+        assert!(!unrendered.close_on_outside_click(position));
+        assert!(unrendered.is_open());
     }
 
     #[test]

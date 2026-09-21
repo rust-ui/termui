@@ -6,6 +6,7 @@ Notable Term/UI changes are recorded here. Format follows [Keep a Changelog](htt
 
 ### Added
 
+- Added a composable right/left Drawer with profile-trigger demo, close button, Escape, and overlay-bounds outside-click dismissal; dismissible Toasts now close on outside click too.
 - Added keyboard-driven Ratzilla demos for stateful controls, pickers, navigation, text views, tables, chart tooltips, and overlays; checked in their WebAssembly assets.
 - Added four independent interactive Toast demos; each opens from its centered trigger and shows its notification bottom-right.
 - Added `ButtonShape::{Rectangular, Rounded}`; buttons default to rectangular fills.

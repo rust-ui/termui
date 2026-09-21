@@ -127,7 +127,7 @@ if let Some(areas) = ToastContent::new().render(frame, area, &mut toast) {
 
 ## Usage
 
-Call `tick` with elapsed frame time. `ToastAreas` includes `close` only when dismissal is enabled and `tracker` only when a timer is configured.
+Call `tick` with elapsed frame time. `ToastAreas` includes `close` only when dismissal is enabled and `tracker` only when a timer is configured. Route unmatched left clicks to `close_on_outside_click`; it checks the rendered overlay bounds and does nothing for non-dismissible toasts.
 
 ```rust
 use std::time::Duration;
@@ -135,6 +135,7 @@ use termui_widgets::toast::Toast;
 
 let mut toast = Toast::new().dismissible(false).duration(Duration::ZERO);
 toast.tick(elapsed);
+toast.close_on_outside_click(position); // Returns false when non-dismissible.
 ```
 
 Use `.duration(Duration::ZERO)` to disable auto-dismiss; the tracker is then omitted. A non-dismissible toast still expires when its configured timer reaches zero.
