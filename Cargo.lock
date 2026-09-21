@@ -946,6 +946,7 @@ dependencies = [
  "critical-section",
  "ratatui",
  "ratzilla",
+ "strum",
  "termui-renderer",
  "termui-widgets",
 ]

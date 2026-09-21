@@ -1,5 +1,5 @@
 use ratatui::Frame;
-use ratatui::layout::Rect;
+use ratatui::layout::{Constraint, Rect};
 use ratatui::style::Style;
 use ratatui::symbols::Marker;
 use ratatui::widgets::{Axis, Block, Chart as RatatuiChart, Dataset, GraphType};
@@ -116,6 +116,11 @@ impl<'a> LineChart<'a> {
         }
         if !self.legend {
             chart = chart.legend_position(None);
+        } else {
+            chart = chart.hidden_legend_constraints((
+                Constraint::Percentage(50),
+                Constraint::Percentage(50),
+            ));
         }
         frame.render_widget(chart, area);
     }

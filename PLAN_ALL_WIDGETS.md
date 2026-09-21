@@ -33,7 +33,6 @@ Mode describes each demo: Static Rust frame or Dynamic Ratzilla/WASM.
 | Password input | Static | ✅ Done |
 | Progress bar | Static | ✅ Done |
 | Radio card | Static | ✅ Done |
-| Resizable layout | Static | ✅ Done |
 | Scrollbar | Static | ✅ Done |
 | Search input | Static | ✅ Done |
 | Select list | Static | ✅ Done |

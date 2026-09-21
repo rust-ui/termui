@@ -28,6 +28,8 @@ Notable Term/UI changes are recorded here. Format follows [Keep a Changelog](htt
 
 ### Changed
 
+- Extract Resizable Layout interaction state and input handling from its renderer; derive state labels with Strum.
+- Keep chart legends within plot bounds in area and line chart previews.
 - Replaced the old header and downloadable logo mark with the pixel-grid R.
 - Renamed the labeled metric `Gauge` widget and docs page to `Progress`.
 - Added `DialogTrigger::style` and used white with black text for the Dialog demo trigger.
