@@ -1,9 +1,11 @@
 ---
 title: Text Input
-description: Single-line input field with editable values, focus, and placeholder states.
+description: Ratatui text input widget for single-line values, with caller-owned focus and key handling.
 ---
 
 `TextInput` draws a single-line field with a label and optional placeholder. Your app owns the value, focus, and key handling.
+
+Use it for editable values such as a name or email address. Keep query-only fields simple with [Search Input](/docs/widgets/search-input), or add a label and validation feedback with [Form Field](/docs/widgets/form-field).
 
 <RustDemo
   name="text-input"

@@ -1,10 +1,12 @@
 ---
-title: Introduction
-description: Rust terminal UI components with static previews rendered from Rust output.
+title: Ratatui Components
+description: Copyable Rust components for Ratatui terminal applications, with source code and Rust-rendered previews.
 ---
 
-Term/UI is a collection of copyable terminal UI components for Rust applications.
+Term/UI is a collection of copyable Rust widgets for Ratatui terminal applications. Each component page includes source, usage, and a terminal preview.
 
-The website generates preview frames at build time with a native Rust renderer. Browser pages display those frames as text; no terminal runtime or WebAssembly renderer runs in the browser.
+The website generates static preview frames at build time with a native Rust renderer. Interactive WebAssembly demos are used only where input meaningfully changes widget state.
 
-Components are not published as a crate. Copy the Rust source from each component page into your application and adapt it to your needs.
+The components are not published as a crate. Copy the Rust source from each page into your app; your application owns its event loop and state.
+
+Browse the [Ratatui widgets](/docs/widgets), follow the [installation guide](/docs/installation), or [build a Ratatui form](/docs/guides/build-a-ratatui-form) from copyable inputs.

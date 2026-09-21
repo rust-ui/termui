@@ -29,29 +29,20 @@ export const SoftwareSourceCodeJsonLd = () => {
     applicationCategory: "DeveloperApplication",
     author: {
       "@type": "Organization",
-      name: SITE.AUTHOR.NAME,
-      url: LINK.PORTFOLIO,
+      name: SITE.NAME,
+      url: SITE.URL,
     },
     codeRepository: LINK.GITHUB,
-    dateModified: new Date().toISOString().split("T")[0],
     description: SITE.DESCRIPTION.LONG,
     isAccessibleForFree: true,
-    keywords: SITE.KEYWORDS,
     license: LINK.LICENSE,
     maintainer: {
       "@type": "Organization",
-      name: SITE.AUTHOR.NAME,
-      url: LINK.PORTFOLIO,
+      name: SITE.NAME,
+      url: SITE.URL,
     },
     name: SITE.NAME,
-    offers: {
-      "@type": "Offer",
-      availability: "https://schema.org/InStock",
-      price: "0",
-      priceCurrency: "USD",
-    },
-    programmingLanguage: ["TypeScript", "React", "Next.js"],
-    runtimePlatform: "Node.js",
+    programmingLanguage: "Rust",
     url: SITE.URL,
   };
   return <JsonLdScript data={data} />;
@@ -61,43 +52,10 @@ export const OrganizationJsonLd = () => {
   const data = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    logo: SITE.OG_IMAGE,
+    logo: SITE.URL + "/logo.svg",
     name: SITE.NAME,
     sameAs: [LINK.GITHUB],
     url: SITE.URL,
-  };
-  return <JsonLdScript data={data} />;
-};
-
-export const FAQJsonLd = () => {
-  const faqs = [
-    {
-      answer: SITE.DESCRIPTION.LONG,
-      question: `What is ${SITE.NAME}?`,
-    },
-    {
-      answer:
-        "Add or edit components under registry/bases/ink/ or registry/bases/opentui/, register them in registry.json, run pnpm registry:build (which refreshes public/r/), then deploy. Consumers install with npx shadcn@latest add against your published registry URL.",
-      question: `How do I publish components with ${SITE.NAME}?`,
-    },
-    {
-      answer:
-        "Yes. The source is on GitHub and released under the MIT License.",
-      question: `Is ${SITE.NAME} open source?`,
-    },
-  ];
-
-  const data = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((faq) => ({
-      "@type": "Question",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: faq.answer,
-      },
-      name: faq.question,
-    })),
   };
   return <JsonLdScript data={data} />;
 };
@@ -130,6 +88,5 @@ export const JsonLdScripts = () => (
     <WebsiteJsonLd />
     <SoftwareSourceCodeJsonLd />
     <OrganizationJsonLd />
-    <FAQJsonLd />
   </>
 );

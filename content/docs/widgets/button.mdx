@@ -1,11 +1,13 @@
 ---
 title: Button
-description: Shadcn-inspired terminal button with six color and style variants.
+description: Ratatui button widget with six styles, three sizes, and caller-owned focus and activation.
 ---
 
 `Button` draws a terminal button. The parent app owns focus, keyboard input, and activation.
 
 `ButtonShape::{Rectangular, Rounded}` controls the button's ends. Buttons are rectangular by default.
+
+Use a button for one action in a form or dialog. Pair it with a [Dialog](/docs/widgets/dialog) for confirmation flows, or use a [Command Palette](/docs/widgets/command-palette) when users need to find an action from a list.
 
 ## Examples
 

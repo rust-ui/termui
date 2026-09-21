@@ -1,0 +1,64 @@
+---
+title: Build a Ratatui Form
+description: Compose a Ratatui form from copyable Rust text input, select list, and checkbox widgets, with app-owned state and keyboard handling.
+---
+
+A Ratatui form combines input widgets with state and validation owned by your application. This example renders an email field, a plan selector, and a terms checkbox from caller-provided values.
+
+The imports below assume you copied the `text_input`, `select_list`, and `checkbox` modules into `src/widgets/` and declared them in `src/widgets/mod.rs`. Term/UI widgets are source files, not a published Cargo crate; adjust the module paths to match your app.
+
+## Render the form
+
+Add Ratatui to your application and copy the three widget source files from [Text Input](/docs/widgets/text-input), [Select List](/docs/widgets/select-list), and [Checkbox](/docs/widgets/checkbox). Then compose them in one render function:
+
+```rust
+use ratatui::Frame;
+use ratatui::layout::{Constraint, Layout, Rect};
+use ratatui::style::{Color, Style};
+use ratatui::text::Line;
+use ratatui::widgets::Paragraph;
+
+use crate::widgets::{
+    checkbox::Checkbox,
+    select_list::SelectList,
+    text_input::TextInput,
+};
+
+pub fn render_signup_form(
+    frame: &mut Frame<'_>,
+    area: Rect,
+    email: &str,
+    selected_plan: usize,
+    accepted_terms: bool,
+) {
+    let [email_area, plan_label_area, plan_area, terms_area] = Layout::vertical([
+        Constraint::Length(3),
+        Constraint::Length(1),
+        Constraint::Length(3),
+        Constraint::Length(1),
+    ])
+    .areas(area);
+
+    TextInput::new("Email")
+        .value(email)
+        .focused(true)
+        .render(frame, email_area);
+
+    frame.render_widget(Paragraph::new("Plan"), plan_label_area);
+    let plans: [Line<'static>; 3] = ["Free", "Team", "Pro"].map(|plan| Line::from(plan));
+    SelectList::new(&plans, selected_plan)
+        .selection_style(Style::default().fg(Color::Black).bg(Color::Cyan))
+        .render(frame, plan_area);
+
+    let terms = Checkbox::new("Accept the terms").checked(accepted_terms);
+    frame.render_widget(Paragraph::new(terms.line()), terms_area);
+}
+```
+
+The widgets only draw their current values. Keep `email`, `selected_plan`, and `accepted_terms` in your app state. Route key events to the focused field, update that state, then call `render_signup_form` on the next draw. `SelectList` displays a selected row but does not move selection for you; clamp the index to the available plans in your event handler.
+
+## Add validation feedback
+
+Validate the email and form choices in the parent app before submitting. For a value that needs a label and feedback message, [Form Field](/docs/widgets/form-field) renders both; it also leaves editing and validation rules to your app.
+
+For a focused confirmation step after submission, compose the form with a [Dialog](/docs/widgets/dialog). See [Installation](/docs/installation) for the source-copy workflow and Ratatui dependency.

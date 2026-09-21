@@ -11,8 +11,6 @@ export const ROUTES = {
   DOCS_COMPONENTS_LEGACY: "/docs/components",
   DOCS_WIDGETS: "/docs/widgets",
   DOCS_INSTALLATION: "/docs/installation",
-  DOCS_MCP: "/docs/mcp",
-  DOCS_REGISTRY: "/docs/registry",
   DOCS_TEMPLATES: "/docs/templates",
   DOCS_THEMES: "/docs/themes",
   DOCS_THEMING: "/docs/theming",
@@ -24,6 +22,5 @@ export const ROUTES = {
   LLMS_MD: "/llms.md",
   LLMS_MDX: "/llms.mdx",
   OPENAPI: "/openapi.json",
-  REGISTRY_INDEX: "/r/registry.json",
   RSS: "/rss.xml",
 } as const;

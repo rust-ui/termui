@@ -3,7 +3,6 @@ import type {
   RatatuiComponentName,
   RatatuiComponentSource,
 } from "@/constants/ratatui";
-import { formatCode } from "@/lib/format-code";
 import { highlightCode } from "@/lib/highlight-code";
 import { readFileFromRoot } from "@/lib/read-file";
 import { getDemoSource } from "@/lib/registry";
@@ -69,10 +68,7 @@ export const ComponentSource = async ({
     return null;
   }
 
-  const lang = language ?? title?.split(".").pop() ?? (name ? "rs" : "tsx");
-  if (lang !== "rs") {
-    code = await formatCode(code);
-  }
+  const lang = language ?? title?.split(".").pop() ?? "rs";
   const highlightedCode = await highlightCode(code, lang);
 
   if (!collapsible) {

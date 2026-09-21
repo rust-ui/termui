@@ -1,9 +1,11 @@
 ---
 title: Command Palette
-description: A filtered command list with a highlighted result.
+description: Ratatui command palette widget for displaying filtered actions and a selected result.
 ---
 
 `CommandPalette` presents a query and command results. Your application owns filtering, selection, and activation.
+
+Use it to expose app-wide actions such as opening a file or changing a setting. Pass the matching commands and selected index from your app; use [Search Input](/docs/widgets/search-input) for query display alone or [Select List](/docs/widgets/select-list) for a general selectable list.
 
 <RustDemo name="command-palette" src="/demos/interactive.html?demo=command-palette-interactive" title="Command Palette" rows={8} code={`use termui_widgets::command_palette::CommandPalette;
 

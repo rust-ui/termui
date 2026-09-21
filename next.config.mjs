@@ -2,7 +2,6 @@ import { createMDX } from "fumadocs-mdx/next";
 import { createJiti } from "jiti";
 
 const jiti = createJiti(import.meta.url);
-const { LINK } = await jiti.import("./constants/links");
 const { ROUTES } = await jiti.import("./constants/routes");
 const { RATATUI_COMPONENTS } = await jiti.import("./constants/ratatui");
 
@@ -15,7 +14,6 @@ const nextConfig = {
       '</.well-known/api-catalog>; rel="api-catalog"',
       '</openapi.json>; rel="service-desc"',
       '</docs>; rel="service-doc"',
-      `<${LINK.SHADCN_MCP_DOCS}>; rel="service-doc"; title="shadcn MCP server"`,
       '</.well-known/agent-skills/index.json>; rel="describedby"',
     ].join(", ");
 
@@ -81,22 +79,6 @@ const nextConfig = {
         source: `${ROUTES.LEGACY_COMPONENTS}/${name}`,
       })),
     ];
-  },
-  rewrites() {
-    return {
-      // Legacy flat registry URLs → canonical nested paths under public/r/{ink,opentui}/.
-      // registry.json stays at /r/registry.json (served as a static file before these run).
-      afterFiles: [
-        {
-          destination: "/r/opentui/:slug.json",
-          source: "/r/opentui-:slug.json",
-        },
-        {
-          destination: "/r/ink/:slug.json",
-          source: "/r/:slug.json",
-        },
-      ],
-    };
   },
 };
 

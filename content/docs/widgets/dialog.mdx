@@ -1,9 +1,11 @@
 ---
 title: Dialog
-description: Composable modal components with animated Ratatui overlay, backdrop, and parent-owned state.
+description: Ratatui dialog widget with animated overlay, backdrop, outside-click dismissal, and parent-owned state.
 ---
 
 Build dialogs from small components. `Dialog` owns open state; `DialogTrigger` and `DialogClose` expose activation hooks; `DialogContent` draws the animated surface and returns regions for header, body, and footer children. Click the trigger in the live preview to open it.
+
+Use a dialog when an action needs focused content, such as a destructive-action confirmation. For a one-line question, use [Confirmation Prompt](/docs/widgets/confirmation-prompt); place [Buttons](/docs/widgets/button) in the dialog footer for its actions.
 
 <RustDemo
   name="dialog"

@@ -1,13 +1,8 @@
 "use client";
 
 import type { Root as PageTreeRoot } from "fumadocs-core/page-tree";
-import {
-  ArrowRightIcon,
-  CornerDownLeftIcon,
-  CircleDashedIcon,
-  SquareDashedIcon,
-} from "lucide-react";
-import { usePathname, useRouter } from "next/navigation";
+import { ArrowRightIcon, CornerDownLeftIcon, CircleDashedIcon } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import { Button } from "@/components/ui/button";
@@ -27,16 +22,11 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Separator } from "@/components/ui/separator";
 import { RATATUI_COMPONENTS } from "@/constants/ratatui";
 import type { RatatuiComponentName } from "@/constants/ratatui";
 import { ROUTES } from "@/constants/routes";
-import { SITE } from "@/constants/site";
-import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard";
-import { useFeedback } from "@/hooks/use-feedback";
 import { useIsMac } from "@/hooks/use-is-mac";
 import { useMutationObserver } from "@/hooks/use-mutation-observer";
-import { usePackageManager } from "@/hooks/use-package-manager";
 import { trackEvent } from "@/lib/events";
 import { getTreeGroups } from "@/lib/page-tree";
 import { cn } from "@/lib/utils";
@@ -124,52 +114,24 @@ const CommandMenuItem = ({
 };
 
 export const CommandMenu = ({
-  blocks,
   navItems,
   tree,
   ...props
 }: React.ComponentProps<typeof Dialog> & {
-  blocks?: { name: string; description: string; categories: string[] }[];
   navItems: { href: string; label: string }[];
   tree: PageTreeRoot;
 }) => {
   const router = useRouter();
-  const pathname = usePathname();
   const isMac = useIsMac();
-  const [packageManager] = usePackageManager();
   const [open, setOpen] = useState(false);
   const [showGoToPage, setShowGoToPage] = useState(false);
-  const [copyPayload, setCopyPayload] = useState("");
-  const copyFeedback = useFeedback({ sound: "copy" });
-
-  const { copyToClipboard } = useCopyToClipboard({
-    onCopy: () => {
-      if (copyPayload) {
-        trackEvent({
-          name: "copy_npm_command",
-          properties: { command: copyPayload, pm: packageManager },
-        });
-      }
-    },
-  });
 
   const treeGroups = useMemo(
     () => getTreeGroups(tree),
     [tree]
   );
 
-  const handleDocPageHighlight = useCallback(() => {
-    setShowGoToPage(true);
-    setCopyPayload("");
-  }, []);
-
-  const handleBlockHighlight = useCallback(
-    (block: { name: string; description: string; categories: string[] }) => {
-      setShowGoToPage(true);
-      setCopyPayload(`${packageManager} dlx shadcn@latest add ${block.name}`);
-    },
-    [packageManager]
-  );
+  const handleDocPageHighlight = useCallback(() => setShowGoToPage(true), []);
 
   const runCommand = useCallback((command: () => unknown) => {
     setOpen(false);
@@ -237,21 +199,11 @@ export const CommandMenu = ({
         });
       }
 
-      if (
-        e.key === "c" &&
-        (e.metaKey || e.ctrlKey) &&
-        copyPayload.includes("shadcn@latest")
-      ) {
-        runCommand(() => {
-          copyFeedback();
-          copyToClipboard(copyPayload);
-        });
-      }
     };
 
     document.addEventListener("keydown", down);
     return () => document.removeEventListener("keydown", down);
-  }, [copyPayload, runCommand, copyToClipboard, copyFeedback]);
+  }, []);
 
   return (
     <Dialog open={open} onOpenChange={setOpen} sounds>
@@ -278,7 +230,7 @@ export const CommandMenu = ({
       >
         <DialogHeader className="sr-only">
           <DialogTitle>Search documentation...</DialogTitle>
-          <DialogDescription>Search for a command to run...</DialogDescription>
+          <DialogDescription>Find a documentation page.</DialogDescription>
         </DialogHeader>
         <Command
           className="**:data-[slot=command-input-wrapper]:bg-input/50 **:data-[slot=command-input-wrapper]:border-input rounded-none bg-transparent **:data-[slot=command-input]:h-9! **:data-[slot=command-input]:py-0 **:data-[slot=command-input-wrapper]:mb-0 **:data-[slot=command-input-wrapper]:h-9! **:data-[slot=command-input-wrapper]:rounded-md **:data-[slot=command-input-wrapper]:border"
@@ -296,10 +248,7 @@ export const CommandMenu = ({
                     key={item.href}
                     value={`Navigation ${item.label}`}
                     keywords={["nav", "navigation", item.label.toLowerCase()]}
-                    onHighlight={() => {
-                      setShowGoToPage(true);
-                      setCopyPayload("");
-                    }}
+                    onHighlight={handleDocPageHighlight}
                     onSelect={() => runCommand(() => router.push(item.href))}
                   >
                     <ArrowRightIcon />
@@ -325,39 +274,6 @@ export const CommandMenu = ({
                 )}
               </CommandGroup>
             ))}
-            {blocks?.length ? (
-              <CommandGroup
-                heading="Blocks"
-                className="p-0! **:[[cmdk-group-heading]]:p-3!"
-              >
-                {blocks.map((block) => (
-                  <CommandMenuItem
-                    key={block.name}
-                    value={block.name}
-                    onHighlight={() => handleBlockHighlight(block)}
-                    keywords={[
-                      "block",
-                      block.name,
-                      block.description,
-                      ...block.categories,
-                    ]}
-                    onSelect={() =>
-                      runCommand(() =>
-                        router.push(
-                          `/blocks/${block.categories[0]}#${block.name}`
-                        )
-                      )
-                    }
-                  >
-                    <SquareDashedIcon />
-                    {block.description}
-                    <span className="text-muted-foreground ml-auto font-mono text-xs font-normal tabular-nums">
-                      {block.name}
-                    </span>
-                  </CommandMenuItem>
-                ))}
-              </CommandGroup>
-            ) : null}
           </CommandList>
         </Command>
         <div className="text-muted-foreground absolute inset-x-0 bottom-0 z-20 flex h-10 items-center gap-2 overflow-hidden rounded-b-xl border-t border-t-neutral-100 bg-neutral-50 px-4 text-xs font-medium dark:border-t-neutral-700 dark:bg-neutral-800">
@@ -369,16 +285,6 @@ export const CommandMenu = ({
               <span className="min-w-0 truncate">Go to Page</span>
             ) : null}
           </div>
-          {copyPayload && (
-            <>
-              <Separator orientation="vertical" className="h-4!" />
-              <div className="flex min-w-0 items-center gap-1">
-                <Kbd className="shrink-0">{isMac ? "⌘" : "Ctrl"}</Kbd>
-                <Kbd className="shrink-0">C</Kbd>
-                <span className="min-w-0 truncate">{copyPayload}</span>
-              </div>
-            </>
-          )}
         </div>
       </DialogContent>
     </Dialog>

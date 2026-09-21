@@ -1,4 +1,3 @@
-import { LINK } from "@/constants/links";
 import { ROUTES } from "@/constants/routes";
 import { requestOrigin } from "@/lib/agent-discovery/request-origin";
 import { homeContentRoute } from "@/lib/docs";
@@ -36,23 +35,6 @@ const catalogLinkset = (origin: string) => {
           { href: `${base}${ROUTES.LLMS}`, type: "text/plain" },
           { href: `${base}${ROUTES.LLMS_FULL}`, type: "text/plain" },
           { href: `${base}${homeContentRoute}`, type: "text/markdown" },
-          {
-            href: LINK.SHADCN_MCP_DOCS,
-            title: "shadcn MCP server",
-            type: "text/html",
-          },
-        ],
-        status: [
-          { href: `${base}${ROUTES.API_STATUS}`, type: "application/json" },
-        ],
-      },
-      {
-        anchor: `${base}${ROUTES.REGISTRY_INDEX}`,
-        "service-desc": [
-          { href: `${base}${ROUTES.OPENAPI}`, type: "application/json" },
-        ],
-        "service-doc": [
-          { href: `${base}${ROUTES.DOCS_REGISTRY}`, type: "text/html" },
         ],
         status: [
           { href: `${base}${ROUTES.API_STATUS}`, type: "application/json" },

@@ -4,7 +4,6 @@ import path from "node:path";
 import { collectMdxDemoReferences } from "./lib/demo-mdx.mts";
 
 const root = process.cwd();
-const examplesRoot = path.join(root, "examples");
 const docsRoot = path.join(root, "content", "docs");
 const ratatuiConstants = path.join(root, "constants", "ratatui.ts");
 const outputFile = path.join(
@@ -14,19 +13,7 @@ const outputFile = path.join(
   "previews.generated.json"
 );
 
-const bases = await fs.readdir(examplesRoot, { withFileTypes: true });
 const names: string[] = [];
-
-for (const base of bases.filter((entry) => entry.isDirectory())) {
-  const files = await fs.readdir(path.join(examplesRoot, base.name), {
-    withFileTypes: true,
-  });
-  for (const file of files) {
-    if (file.isFile() && file.name.endsWith(".tsx")) {
-      names.push(`${base.name}/${file.name.slice(0, -4)}`);
-    }
-  }
-}
 
 const constantsSource = await fs.readFile(ratatuiConstants, "utf8");
 const demoBase = constantsSource.match(/RATATUI_DEMO_BASE\s*=\s*["']([^"']+)["']/)?.[1];

@@ -1,36 +1,39 @@
-import { CommandBox } from "@/components/command-box";
 import { ComponentPreview } from "@/components/component-preview";
 import { DirectionalTransition } from "@/components/directional-transition";
 import { HomeCtas } from "@/components/home-ctas";
 import { PageHero } from "@/components/page-hero";
 import { RATATUI_COMPONENTS } from "@/constants/ratatui";
 import { ROUTES } from "@/constants/routes";
-import { BreadcrumbJsonLd } from "@/seo/json-ld";
+import { createPageMetadata } from "@/seo/metadata";
 
 export const dynamic = "force-static";
 export const revalidate = false;
 
+export const metadata = createPageMetadata({
+  description:
+    "Build Rust terminal UIs with copyable Ratatui components. Explore buttons, inputs, dialogs, charts, and more, with Rust source and terminal previews.",
+  path: ROUTES.HOME,
+  title: "Ratatui UI Components for Rust Terminal Apps",
+});
+
 export default function IndexPage() {
   return (
     <>
-      <BreadcrumbJsonLd items={[{ name: "Home", path: ROUTES.HOME }]} />
       <DirectionalTransition>
         <section className="container-wrapper relative">
           <div className="container flex flex-col items-center gap-4 py-16 text-center md:py-20 lg:py-24">
             <PageHero
               description={
                 <>
-                  Ready-to-use, customizable terminal components rendered from Rust.
+                  Copyable Ratatui widgets for Rust terminal applications.
                   <br className="hidden sm:block" />
-                  Built for Rust. Browse the source and adapt it to your app.
+                  Browse the Rust source and adapt each component to your app.
                 </>
               }
               descriptionClassName="max-w-2xl text-lg sm:text-xl"
-              title="Beautiful terminal UIs, made simple"
+              title="Ratatui UI Components for Rust Terminal Apps"
               titleClassName="max-w-7xl"
             />
-
-            <CommandBox className="mt-4 w-full max-w-xl" />
 
             <HomeCtas className="mt-4" />
           </div>

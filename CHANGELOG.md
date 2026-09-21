@@ -7,6 +7,7 @@ Notable Term/UI changes are recorded here. Format follows [Keep a Changelog](htt
 ### Added
 
 - Added a composable right/left Drawer with profile-trigger demo, close button, Escape, and overlay-bounds outside-click dismissal; dismissible Toasts now close on outside click too.
+- Added a Ratatui form composition guide built from copyable widgets and app-owned state.
 - Added keyboard-driven Ratzilla demos for stateful controls, pickers, navigation, text views, tables, chart tooltips, and overlays; checked in their WebAssembly assets.
 - Added four independent interactive Toast demos; each opens from its centered trigger and shows its notification bottom-right.
 - Added `ButtonShape::{Rectangular, Rounded}`; buttons default to rectangular fills.
@@ -34,6 +35,8 @@ Notable Term/UI changes are recorded here. Format follows [Keep a Changelog](htt
 ### Changed
 
 - Refined the Drawer demo trigger, centered hint, and panel contrast.
+- Refined Ratatui SEO metadata, page copy, and GitHub discovery links; removed mismatched FAQ markup and fabricated sitemap modification dates.
+- Removed the unused Ink/OpenTUI registries, MCP install flow, and TSX demo pipeline; preserved the Ratatui theme selector, Rust previews, and interactive assets.
 - Feature the Rust/UI site and theme-aware logo in the Labs Latest card.
 - Add an Ecosystem column with Rust/UI, Leptos UI, and Rustify links.
 - Add a slash separator after the Labs menu trigger.

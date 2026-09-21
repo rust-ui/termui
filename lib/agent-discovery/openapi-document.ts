@@ -9,7 +9,7 @@ export const buildOpenApiDocument = (
 
   return {
     info: {
-      description: `Read-only HTTP surfaces for the ${SITE.NAME} documentation site and shadcn component registry.`,
+      description: `Read-only HTTP surfaces for the ${SITE.NAME} Ratatui documentation site.`,
       title: "Term/UI public HTTP API",
       version: "0.1.0",
     },
@@ -92,21 +92,6 @@ export const buildOpenApiDocument = (
             },
           },
           summary: "This OpenAPI document",
-        },
-      },
-      [ROUTES.REGISTRY_INDEX]: {
-        get: {
-          responses: {
-            "200": {
-              content: {
-                "application/json": {
-                  schema: { type: "object" },
-                },
-              },
-              description: "Registry manifest",
-            },
-          },
-          summary: "shadcn/ui component registry index",
         },
       },
       [ROUTES.DOCS]: {

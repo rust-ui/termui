@@ -18,7 +18,6 @@ const navItems = [
   { href: ROUTES.DOCS_WIDGETS, label: RATATUI_WIDGETS_TITLE },
   { href: ROUTES.CHARTS, label: "Charts" },
   { href: ROUTES.DOCS_INSTALLATION, label: "Installation" },
-  { href: ROUTES.DOCS_MCP, label: "MCP" },
 ];
 
 export const SiteHeader = () => (

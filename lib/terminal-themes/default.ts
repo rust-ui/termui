@@ -1,1 +1,1 @@
-export { defaultTheme } from "@/registry/bases/ink/themes/default";
+export { defaultTheme } from "@/lib/terminal-themes/palettes/default";

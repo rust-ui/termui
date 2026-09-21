@@ -1,32 +1,28 @@
 import { createHash } from "node:crypto";
 
-import { LINK } from "@/constants/links";
 import { ROUTES } from "@/constants/routes";
 import { SITE } from "@/constants/site";
 
-export const TERMUI_AGENT_SKILL_MD = `# ${SITE.NAME} — terminal UI component registry
+export const TERMUI_AGENT_SKILL_MD = `# ${SITE.NAME} — Ratatui widgets
 
 ## Summary
 
-Help users add **${SITE.NAME}** components via the shadcn CLI against the public registry. Term/UI is an independent product.
+Help users find and copy **${SITE.NAME}** Rust widgets into Ratatui terminal applications. Term/UI is an independent product; its widgets are source modules, not a published Cargo crate.
 
-## Registry
+## Documentation
 
-- Registry JSON: \`/r/registry.json\` (shadcn schema)
-- shadcn MCP docs: ${LINK.SHADCN_MCP_DOCS}
+- Widget catalog: \`${ROUTES.DOCS_WIDGETS}\`
+- Installation: \`${ROUTES.DOCS_INSTALLATION}\`
+- Form guide: \`${ROUTES.DOCS}/guides/build-a-ratatui-form\`
 
-## Install (shadcn)
+## Use the widgets
 
-\`\`\`bash
-npx shadcn@latest add ${SITE.URL}/r/badge.json
-\`\`\`
-
-Prefer following the on-site installation guide: ${ROUTES.DOCS_INSTALLATION}
+Copy source from the relevant widget page. Include any sibling modules it imports and adapt the \`crate::\` paths to the host application. The application owns state, event handling, and its terminal event loop.
 
 ## When answering
 
-- Prefer linking to \`${ROUTES.DOCS}\` sections over guessing props.
-- Ratatui widgets live under \`${ROUTES.DOCS_WIDGETS}\`.
+- Prefer linking to the specific widget and guide pages over guessing API details.
+- Do not describe Term/UI as a Cargo dependency or a shadcn registry.
 `;
 
 export const termuiAgentSkillDigest = (): string => {

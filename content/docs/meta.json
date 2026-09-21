@@ -1,7 +1,8 @@
 {
   "pages": [
     "(root)",
-    "widgets"
+    "widgets",
+    "guides"
   ],
   "root": true
 }

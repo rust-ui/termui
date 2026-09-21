@@ -6,10 +6,6 @@ import { notFound } from "next/navigation";
 
 import { DirectionalTransition } from "@/components/directional-transition";
 import { DocsRustifyCta } from "@/components/docs-rustify-cta";
-import {
-  DocsBaseSwitcher,
-  getDocsBaseSwitcherProps,
-} from "@/components/docs-base-switcher";
 import { DocsCopyPage } from "@/components/docs-copy-page";
 import { DocsKeyboardShortcuts } from "@/components/docs-keyboard-shortcuts";
 import { DocsNavLink } from "@/components/docs-nav-link";
@@ -42,12 +38,24 @@ export const generateMetadata = async (props: {
   }
 
   const doc = page.data;
-
+  const isWidgetPage = page.url.startsWith(ROUTES.DOCS_WIDGETS + "/");
+  const title =
+    page.url === ROUTES.DOCS
+      ? "Ratatui Components"
+      : page.url === ROUTES.DOCS_WIDGETS
+        ? "Ratatui Widgets"
+        : page.url === ROUTES.DOCS_INSTALLATION
+          ? "Install Ratatui Components"
+          : isWidgetPage && doc.title === "Charts"
+            ? "Ratatui Chart Examples"
+            : isWidgetPage
+              ? "Ratatui " + doc.title + " Widget"
+              : doc.title;
   return createPageMetadata({
     description: doc.description,
     ogType: "article",
     path: page.url,
-    title: doc.title,
+    title,
   });
 };
 
@@ -92,7 +100,6 @@ const Page = async (props: { params: Promise<{ slug?: string[] }> }) => {
 
   const { links } = doc as { links?: { doc?: string; api?: string } };
   const breadcrumbs = buildBreadcrumbs(params.slug ?? [], doc.title, page.url);
-  const baseSwitcher = getDocsBaseSwitcherProps(params.slug);
 
   return (
     <>
@@ -182,9 +189,6 @@ const Page = async (props: { params: Promise<{ slug?: string[] }> }) => {
               </div>
               <DocsRustifyCta slot="content" />
               <div className="w-full flex-1 *:data-[slot=alert]:first:mt-0">
-                {baseSwitcher && (
-                  <DocsBaseSwitcher {...baseSwitcher} className="mb-4" />
-                )}
                 <MdxContent components={mdxComponents} />
               </div>
             </div>

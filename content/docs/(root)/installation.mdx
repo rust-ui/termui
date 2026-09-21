@@ -1,6 +1,6 @@
 ---
 title: "Installation"
-description: "Render terminal previews from native Rust output."
+description: "Copy Ratatui widget source into a Rust terminal app, add Ratatui and a backend, then adapt each render function."
 ---
 
 ## Prerequisites
@@ -21,17 +21,17 @@ Choose a different component by name:
 cargo run -p termui-renderer -- button
 ```
 
-The website renders the generated frame data. It does not run Ink, OpenTUI, or a terminal runtime in the browser.
+The website renders generated Rust frame data. Interactive demos use Rust and WebAssembly only where user input changes widget state.
 
 ## Use the Rust Source
 
-Component pages provide Rust source for copying into your application. Add Ratatui and a terminal backend to your project:
+Term/UI widgets are source modules, not a published crate. Copy the Rust source from a component page into your application, then add Ratatui and a terminal backend:
 
 ```bash
 cargo add ratatui crossterm
 ```
 
-Each example exposes a `render(frame, area)` function that you can adapt in your own application.
+Each example shows the widget's render call. Adapt its import path to your app's module tree. Some composed widgets use sibling Term/UI modules; copy those dependencies too and preserve or update their `crate::` imports. Your app owns the event loop, state, and input handling.
 
 ## Preview Themes
 

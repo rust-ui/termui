@@ -1,7 +1,7 @@
 # Term/UI SEO Plan: Ratatui and Rust Terminal UI
 
 Date: 2026-09-21
-Status: Audit complete; implementation not started
+Status: Repository Phase 1 complete; Phase 2 priority pages and Phase 3 pilot complete; Phase 4 README/link work started. Search Console and live production checks remain unavailable from this workspace.
 
 ## Goal
 
@@ -19,17 +19,17 @@ Primary audience: Rust developers already building, or choosing to build, a term
 - Docs are statically rendered. Site has 45 individual widget pages, Rust source, and Rust-generated previews.
 - content/docs/widgets/index.mdx already describes the collection as copyable Ratatui widgets.
 - English-only content matches project language policy. No language alternates needed.
-- llms.txt, Markdown routes, RSS, MCP, and registry endpoints support discovery, but do not replace searchable HTML pages.
+- llms.txt, Markdown routes, and RSS support discovery, but do not replace searchable HTML pages. Browser MCP and the Ink/OpenTUI shadcn registry were removed because Term/UI now focuses on copyable Ratatui source.
 
 ### Highest-value gaps
 
-1. **Homepage does not name Ratatui prominently.** Its title is inherited from the general brand slogan, and the visible hero says “Beautiful terminal UIs, made simple.” The site description says Rust terminal UI but omits Ratatui. This misses the clearest product category and target term.
-2. **Global structured data does not consistently describe the visible product.** FAQJsonLd is emitted from app/layout.tsx on every route, but those question-and-answer blocks are not visible on every page. SoftwareSourceCodeJsonLd describes the web stack (TypeScript, React, Next.js) but omits the Rust/Ratatui components that define the product. Decide which entity this schema represents and describe it accurately. It also sets dateModified to the current date at render time.
-3. **Sitemap timestamps are not trustworthy.** app/sitemap.ts sets every page’s lastModified to new Date(). Unchanged pages appear modified whenever the sitemap is generated. Use real source dates or omit the field.
+1. **Homepage did not name Ratatui prominently** (fixed in Phase 1). Its title was inherited from the general brand slogan, and the visible hero said “Beautiful terminal UIs, made simple.” The site description said Rust terminal UI but omitted Ratatui.
+2. **Global structured data did not consistently describe the visible product** (fixed in Phase 1). FAQJsonLd was emitted on every route, but its questions were not visible there. SoftwareSourceCodeJsonLd described the web stack (TypeScript, React, Next.js) instead of the Rust/Ratatui component source, and set dateModified to the render date.
+3. **Sitemap timestamps were not trustworthy** (fixed in Phase 1). app/sitemap.ts set every page’s lastModified to new Date(), making unchanged pages appear modified whenever the sitemap was generated. No reliable source dates exist, so the field is now omitted.
 4. **Widget pages have useful demos and code, but many have little explanatory prose.** Many widget MDX files have short descriptions and roughly 40–70 words of prose alongside demos and source. Word count alone is not a ranking issue; the opportunity is to answer practical search intent more fully and distinctly.
 5. **Search performance baseline is unknown.** No Search Console or analytics setup was found in tracked source. This does not prove external properties are absent. Production crawlability, indexing, selected canonicals, and query data were not confirmed in this audit.
-6. **The default keyword metadata mixes adjacent products.** constants/site.ts includes React, Next.js, Ink, and shadcn terms alongside Rust terminal UI. Do not treat this field as the SEO strategy; align or remove it if no other integration needs it, and put effort into visible page content.
-7. **Machine-readable routes need an indexation check.** public/r contains 345 JSON files. They are not in the HTML sitemap, but are reachable through the registry and legacy rewrite paths. Check Search Console before deciding whether to add an X-Robots-Tag; preserve registry access for tools and developers.
+6. **The former keyword metadata mixed adjacent products** (fixed in Phase 1). constants/site.ts included React, Next.js, Ink, and shadcn terms alongside Rust terminal UI. The field was removed; visible page content remains the SEO strategy.
+7. **Machine-readable routes need an indexation check.** llms.txt, Markdown, RSS, agent skills, and the API catalog remain. Check Search Console for their indexation and crawl impact; keep only routes that help developers discover or use the Ratatui source.
 
 ## Search intent and page map
 
@@ -43,7 +43,6 @@ Treat these as keyword hypotheses, not verified search-volume estimates. Use Sea
 | Add components to an app | copy Ratatui widgets, reusable Ratatui components, Rust terminal UI component library | /docs/installation | Exact copy workflow, dependencies, and integration boundaries |
 | Build a composed interface | Ratatui form, Ratatui dashboard, Ratatui dialog with buttons, Ratatui searchable list | A focused guide only when validated by query data | A real, runnable composition using several Term/UI widgets |
 | Explore charts | Ratatui chart examples, Rust terminal chart, Ratatui sparkline | /charts/type | Chart types, data shape, and usable source; link to the Chart source page |
-| Learn Term/UI integrations | shadcn MCP for Term/UI, Term/UI registry | /docs/mcp and installation docs | Accurate setup and troubleshooting |
 
 Use both “widget” and “component” naturally: Ratatui users may search either way. Prefer “Ratatui” and “Rust terminal UI/TUI” over broad “Rust UI,” which can mean desktop or web UI. Do not repeat keyword lists in page copy.
 
@@ -63,13 +62,26 @@ Before writing a guide, inspect the current top results for “Ratatui widgets,�
 
 ## Implementation roadmap
 
+### Work completed in this repository
+
+- Added a Ratatui-specific homepage title, description, hero, and direct widget/setup calls to action.
+- Aligned shared site description and source-code/organization JSON-LD with the copyable Rust widget product; removed inaccurate site-wide FAQ markup and unrelated web-stack keywords.
+- Removed generated sitemap `lastModified` values because source modification dates are not available.
+- Added Ratatui-aware metadata to docs and chart pages; improved the widget hub, introduction, installation workflow, and six priority widget pages with distinct use cases and contextual links.
+- Published one copy-ready Ratatui form guide with contextual links, using the pilot approach because Search Console data is unavailable.
+- Updated the GitHub README to link directly to the widget catalog and installation guide, and clarified that widgets are copyable Rust modules rather than a published crate.
+- Removed the unused Ink/OpenTUI registry, browser MCP install flow, registry API surfaces, and TSX demo pipeline; retained Rust widget previews, checked-in Ratzilla assets, and the site theme selector.
+- Kept all existing widget URLs and preserved the docs changelog source directory.
+
+Phase 1 repository work is complete. Phase 2 priority pages are improved; remaining component-page expansion waits for query evidence. Phase 3 has one pilot guide. Phase 4 has updated the GitHub README; broader link, redirect, and community outreach work remains. Search Console exports, production URL inspection, live SERP review, and production performance checks still need external access.
+
 ### Phase 0 — Establish evidence and indexing baseline
 
 - Verify ownership/access for Google Search Console and Bing Webmaster Tools for https://termui.rustify.app. Add the canonical sitemap in each console if absent.
 - Review the live SERP for the priority query groups and record result types, competing component libraries, terminology, and gaps. Use autocomplete/community language as input, then validate with Search Console; do not buy keyword tools or add a new package just for the audit.
 - In Search Console, export the last 3–6 months of queries and pages. Group branded vs non-branded queries; record impressions, clicks, CTR, average position, and indexing status for the homepage, widget hub, each widget page, installation, and chart pages.
 - Inspect important URLs with URL Inspection: homepage, widget hub, Button, Text Input, Dialog, Charts, and Installation. Confirm crawl allowed, HTTP 200, rendered text, index eligibility, selected canonical, and mobile rendering.
-- Check Search Console for machine-readable registry/LLM/API URLs, including the public/r JSON assets and legacy flat rewrite paths. They are developer resources, not intended search landing pages. If they are indexed or consuming crawl attention, add an appropriate noindex response header without blocking clients from fetching them.
+- Check Search Console for llms.txt, Markdown, RSS, agent-skill, and API-catalog URLs. They are supporting developer resources, not intended search landing pages. If indexed or consuming crawl attention, add an appropriate noindex response header without blocking clients that use them.
 - Check redirects and production environment values: HTTP/HTTPS and host variants must resolve to the canonical Term/UI domain; production metadata must not contain localhost or a different SITE_URL.
 - Record Core Web Vitals/PageSpeed on mobile and desktop, especially widget pages with interactive WebAssembly demos. RustDemo already lazy-loads its interactive iframe; confirm no page eagerly loads unrelated WASM or large assets.
 - Confirm sitemap and robots responses in production are 200, text/XML as appropriate, UTF-8, and contain the expected canonical URLs. The current Content-Signal robots line is an extra crawler directive; verify its intended consumers and keep the standard robots directives clear.
@@ -91,7 +103,7 @@ Before writing a guide, inspect the current top results for “Ratatui widgets,�
   - Keep BreadcrumbList on useful nested docs/chart pages; remove the one-item Home breadcrumb and add missing crumbs only where visible navigation supports that hierarchy.
 - Fix sitemap freshness in app/sitemap.ts: emit lastModified only from a reliable content date. If no reliable date exists, omit it. Keep only canonical, indexable HTML URLs; keep noindex launch-week pages and utility endpoints out.
 - Verify important routes have unique titles and descriptions, consistent canonical URLs, and appropriate index/noindex status. Keep the existing metadata helper; avoid a new SEO abstraction unless a real gap remains.
-- Verify markdown alternates resolve to their matching HTML canonical, and registry/API/LLM resources stay usable without becoming unnecessary search results.
+- Verify markdown alternates resolve to their matching HTML canonical, and retained API/LLM resources stay usable without becoming unnecessary search results.
 
 **Done when:** homepage source, page copy, and metadata identify the Ratatui component product; structured data matches visible content; sitemap dates and URLs are defensible.
 
@@ -136,7 +148,7 @@ Do not set a word-count quota. Do not make pages by swapping widget names into t
 - Ensure the widget hub links to all components with descriptive labels and organizes them by task where that helps users.
 - Add contextual links among related pages, not just sidebar or previous/next navigation. Review route redirects so internal links use canonical destinations directly.
 - Audit all docs links, MDX links, and navigation destinations for dead routes, redirect chains, and links that use only vague labels such as “here.”
-- Update the project GitHub README and registry-facing instructions to link to the widget hub and installation guide, not only the homepage.
+- Keep the project GitHub README linked to the widget hub and installation guide; remove or update any remaining registry-facing instructions.
 - Share real component examples in relevant Ratatui/Rust communities and submit the project to maintained ecosystem directories when appropriate. Contribute useful examples upstream. Do not buy links or use mass directory submissions.
 - Keep the sitemap, RSS, and Markdown/LLM endpoints aligned with canonical public content. Do not add machine-readable endpoints to the HTML sitemap unless they are intended as search landing pages.
 

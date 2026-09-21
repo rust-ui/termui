@@ -29,14 +29,7 @@ export const LAUNCH_WEEKS = [
       {
         date: "2026-08-03T00:00:00.000Z",
         day: "Monday",
-        releases: [
-          {
-            changelogHref: ROUTES.DOCS_CHANGELOG,
-            summary:
-              "Improved Ink keyboard interaction, focus behavior, readable status output, motion and Unicode fallbacks, and nonvisual output.",
-            title: "Accessibility improvements for Ink",
-          },
-        ],
+        releases: [],
         status: "shipped",
       },
       {

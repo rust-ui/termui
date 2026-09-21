@@ -1,16 +1,18 @@
 # Term/UI
 
-Term/UI is an independent product for Rust terminal UI components, with Next.js documentation and a component site. Static preview frames come from a small native Rust renderer. The interactive button demo runs Ratatui in the browser through Ratzilla and WebAssembly.
+Term/UI provides copyable Ratatui widgets for Rust terminal applications. Browse the [Ratatui widget catalog](https://termui.rustify.app/docs/widgets) for Rust source and terminal previews, or follow the [installation guide](https://termui.rustify.app/docs/installation) to copy widgets into your app. Widgets are source modules, not a published Cargo crate.
 
-`termui-renderer` draws Ratatui frames through `TestBackend`; `termui-registry/src/demos` holds one `demo_*.rs` file per demo, including interactive demos, and generates `lib/termui-registry/previews.generated.json`. The docs-driven build fails if a static Rust preview has no registered renderer. Checked-in WebAssembly assets live in `public/demos/button-interactive`, so production builds do not need a Rust toolchain.
+Static Ratatui preview frames come from a small native Rust renderer; stateful browser demos run Ratatui through Ratzilla and WebAssembly.
+
+`termui-renderer` draws Ratatui frames through `TestBackend`; `termui-registry/src/demos` holds one `demo_*.rs` file per demo, including interactive demos, and generates `lib/termui-registry/previews.generated.json`. The docs-driven build fails if a static Rust preview has no registered renderer. Checked-in WebAssembly assets live under `public/demos/`, so production builds do not need a Rust toolchain.
 
 ## Structure
 
 - `crates/termui-registry/src/widgets` — copyable Rust widgets.
 - `crates/termui-renderer` — Ratatui buffer-to-ANSI renderer.
 - `crates/termui-registry` — one source file per demo, exact demo ID registry, and frame generator.
-- `crates/termui-registry/src/demos/demo_button_interactive.rs` — interactive Ratatui button demo compiled to WebAssembly with Ratzilla.
-- `app`, `components`, `content`, `lib`, `registry`, `public` — Term/UI web app, docs, and registry assets.
+- `crates/termui-registry/src/demos` — static and interactive Ratatui demos; stateful demos compile to WebAssembly with Ratzilla.
+- `app`, `components`, `content`, `lib`, `public` — Term/UI web app, docs, and generated demo assets.
 - `__TMP/termcn` — local termcn source used for UI parity comparisons.
 
 ## Development

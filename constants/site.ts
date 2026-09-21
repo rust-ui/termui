@@ -15,26 +15,11 @@ export const SITE = {
     TWITTER: "@termui",
   },
   DESCRIPTION: {
-    LONG: "Term/UI is a collection of accessible, customizable terminal UI components for Rust applications. Its previews are generated from Rust.",
-    SHORT: "Beautiful terminal UIs, made simple",
+    LONG: "Term/UI is a collection of copyable, customizable Ratatui widgets for Rust terminal applications. Browse Rust source and Rust-rendered previews, then adapt each component to your app.",
+    SHORT: "Copyable Ratatui widgets for Rust terminal apps",
   },
-  KEYWORDS: [
-    "Term/UI",
-    "Rust terminal UI components",
-    "terminal",
-    "rust",
-    "ink",
-    "react terminal",
-    "next.js terminal",
-    "shadcn",
-    "component registry",
-    "react components",
-    "next.js",
-    "npx shadcn add",
-  ] as const,
   NAME: "Term/UI",
   OG_IMAGE: `${baseUrl}/og.png`,
-  REGISTRY: "@termui",
   URL: baseUrl,
 };
 

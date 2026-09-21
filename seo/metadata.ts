@@ -119,7 +119,6 @@ export const baseMetadata: Metadata = {
     ],
     shortcut: "/favicon-16x16.png",
   },
-  keywords: [...SITE.KEYWORDS],
   metadataBase: new URL(SITE.URL),
   openGraph: {
     description: SITE.DESCRIPTION.LONG,

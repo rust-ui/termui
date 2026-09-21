@@ -1,6 +1,5 @@
 import { llms } from "fumadocs-core/source";
 
-import { LINK } from "@/constants/links";
 import { ROUTES } from "@/constants/routes";
 import { SITE } from "@/constants/site";
 import { requestOrigin } from "@/lib/agent-discovery/request-origin";
@@ -24,7 +23,7 @@ const docsIndex = async (origin: string) => {
 
   return `# ${SITE.NAME}
 
-> ${SITE.DESCRIPTION.LONG} Use this index to discover the available documentation pages, markdown mirrors, and registry resources before browsing.
+> ${SITE.DESCRIPTION.LONG} Use this index to find the widget catalog, copy instructions, Rust source, and terminal demos.
 
 ${await documentationIndex()}
 
@@ -35,7 +34,6 @@ ${await documentationIndex()}
 - [OpenAPI description](${base}${ROUTES.OPENAPI})
 - [API catalog](${base}${ROUTES.API_CATALOG})
 - [Agent skill](${base}${ROUTES.AGENT_SKILLS_TERMUI_SKILL})
-- [shadcn MCP server documentation](${LINK.SHADCN_MCP_DOCS})
 `;
 };
 

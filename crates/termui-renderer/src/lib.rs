@@ -197,18 +197,12 @@ fn humanize(name: &str) -> String {
 
 pub fn render_example_preview(name: &str) -> Vec<String> {
     let title = humanize(name);
-    let base = name.split('/').next().unwrap_or("Rust");
-    let label = match base {
-        "opentui" => "OpenTUI",
-        "rust" => "Rust",
-        _ => "Ink",
-    };
     let title_room = (PREVIEW_WIDTH as usize).saturating_sub(title.chars().count() + 4);
     let mut lines = vec![
         format!("╭─ {}{}╮", title, "─".repeat(title_room)),
         row("Rust-rendered terminal component"),
         row(&format!("Example: {title}")),
-        row(&format!("Docs variant: {label}")),
+        row("Ratatui widget preview"),
     ];
 
     match classify_generic_demo(name) {

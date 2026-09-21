@@ -12,9 +12,9 @@ export const GET = (request: Request) => {
       skills: [
         {
           description:
-            "Install and use Term/UI terminal UI components via the public shadcn registry and documentation.",
+            "Find and copy Term/UI Ratatui widgets, Rust source, and composition guidance.",
           digest: termuiAgentSkillDigest(),
-          name: "termui-registry",
+          name: "termui-ratatui-widgets",
           type: "skill-md",
           url: `${base}${ROUTES.AGENT_SKILLS_TERMUI_SKILL}`,
         },
