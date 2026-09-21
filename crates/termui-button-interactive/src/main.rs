@@ -6,8 +6,7 @@ mod wasm_app {
         event::{KeyCode, MouseButton, MouseEvent, MouseEventKind},
         ratatui::{
             layout::{Alignment, Constraint, Direction, Layout, Position, Rect},
-            style::{Color, Modifier, Style},
-            text::{Line, Span},
+            style::{Color, Style},
             widgets::{Block, BorderType, Paragraph},
             Frame, Terminal,
         },
@@ -31,7 +30,7 @@ mod wasm_app {
         let columns = Layout::default()
             .direction(Direction::Horizontal)
             .constraints([
-                Constraint::Length(18),
+                Constraint::Length(24),
                 Constraint::Length(3),
                 Constraint::Length(12),
             ])
@@ -44,44 +43,8 @@ mod wasm_app {
         }
     }
 
-    fn render_variants(frame: &mut Frame, area: Rect) {
-        let columns = Layout::default()
-            .direction(Direction::Horizontal)
-            .constraints([
-                Constraint::Length(12),
-                Constraint::Length(1),
-                Constraint::Length(14),
-                Constraint::Length(1),
-                Constraint::Length(12),
-                Constraint::Length(1),
-                Constraint::Length(10),
-                Constraint::Length(1),
-                Constraint::Length(7),
-                Constraint::Length(1),
-                Constraint::Length(6),
-            ])
-            .split(area);
-
-        for (index, (label, variant)) in [
-            ("Default", ButtonVariant::Default),
-            ("Secondary", ButtonVariant::Secondary),
-            ("Destructive", ButtonVariant::Destructive),
-            ("Outline", ButtonVariant::Outline),
-            ("Ghost", ButtonVariant::Ghost),
-            ("Link", ButtonVariant::Link),
-        ]
-        .into_iter()
-        .enumerate()
-        {
-            Button::new(label)
-                .variant(variant)
-                .render(frame, columns[index * 2]);
-        }
-    }
-
     fn render(frame: &mut Frame, app: &App, hit_areas: &mut ButtonAreas) {
         let outer = Block::bordered()
-            .title(" Button · Ratatui + Ratzilla ")
             .border_type(BorderType::Rounded)
             .border_style(Color::Rgb(63, 63, 70));
         let content = outer.inner(frame.area());
@@ -90,44 +53,21 @@ mod wasm_app {
         let rows = Layout::default()
             .direction(Direction::Vertical)
             .constraints([
+                Constraint::Length(1),
                 Constraint::Length(2),
-                Constraint::Length(2),
-                Constraint::Length(3),
-                Constraint::Length(2),
-                Constraint::Length(3),
+                Constraint::Length(1),
                 Constraint::Min(1),
             ])
             .split(content);
 
         frame.render_widget(
-            Paragraph::new("Click Increment or press Space. Press R to reset.")
+            Paragraph::new(format!("Count: {}", app.count))
                 .alignment(Alignment::Center)
-                .style(Style::default().fg(Color::Rgb(161, 161, 170))),
+                .style(Style::default().fg(Color::Rgb(250, 250, 250))),
             rows[0],
         );
-        frame.render_widget(
-            Paragraph::new(Line::from(vec![
-                Span::styled("count: ", Style::default().fg(Color::Rgb(161, 161, 170))),
-                Span::styled(
-                    app.count.to_string(),
-                    Style::default()
-                        .fg(Color::Rgb(250, 250, 250))
-                        .add_modifier(Modifier::BOLD),
-                ),
-            ]))
-            .alignment(Alignment::Center),
-            rows[1],
-        );
 
-        render_variants(frame, rows[2]);
-        frame.render_widget(
-            Paragraph::new("Interactive controls")
-                .alignment(Alignment::Center)
-                .style(Style::default().fg(Color::Rgb(161, 161, 170))),
-            rows[3],
-        );
-
-        *hit_areas = action_areas(rows[4]);
+        *hit_areas = action_areas(rows[1]);
         Button::new("Increment +1")
             .variant(ButtonVariant::Default)
             .focused(
@@ -144,10 +84,10 @@ mod wasm_app {
             .render(frame, hit_areas.reset);
 
         frame.render_widget(
-            Paragraph::new("[Space] Increment     [R] Reset")
+            Paragraph::new("Click Increment or press Space · R resets")
                 .alignment(Alignment::Center)
                 .style(Style::default().fg(Color::Rgb(113, 113, 122))),
-            rows[5],
+            rows[2],
         );
     }
 
@@ -156,10 +96,10 @@ mod wasm_app {
         match event.kind {
             MouseEventKind::Moved => app.hover = Some(point),
             MouseEventKind::Exited => app.hover = None,
-            MouseEventKind::SingleClick(MouseButton::Left) if areas.increment.contains(point) => {
+            MouseEventKind::ButtonDown(MouseButton::Left) if areas.increment.contains(point) => {
                 app.count = app.count.saturating_add(1);
             }
-            MouseEventKind::SingleClick(MouseButton::Left) if areas.reset.contains(point) => {
+            MouseEventKind::ButtonDown(MouseButton::Left) if areas.reset.contains(point) => {
                 app.count = 0;
             }
             _ => {}

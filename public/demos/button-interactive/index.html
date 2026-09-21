@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
 <script type="module">
-import init, * as bindings from '/demos/button-interactive/termui-button-interactive-12f1feeff012f6e3.js';
-const wasm = await init({ module_or_path: '/demos/button-interactive/termui-button-interactive-12f1feeff012f6e3_bg.wasm' });
+import init, * as bindings from '/demos/button-interactive/termui-button-interactive-d8d4deefe0a47e46.js';
+const wasm = await init({ module_or_path: '/demos/button-interactive/termui-button-interactive-d8d4deefe0a47e46_bg.wasm' });
 
 
 window.wasmBindings = bindings;
@@ -39,7 +39,7 @@ dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
 
       #terminal {
         width: 100%;
-        height: 320px;
+        height: 100%;
         padding: 12px;
         overflow: hidden;
         color: #fafafa;
@@ -58,9 +58,12 @@ dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
         width: 100%;
         height: 100%;
         outline: none;
+        user-select: none;
+        -webkit-user-select: none;
+        cursor: default;
       }
     </style>
-  <link rel="modulepreload" href="/demos/button-interactive/termui-button-interactive-12f1feeff012f6e3.js" crossorigin="anonymous" integrity="sha384-GQjQ5LHPehy0T+lbGLjmvsa1pm+QvAOmf4vnHCqAA9fji6NoyP9mmkp1X1kKAz5i"><link rel="preload" href="/demos/button-interactive/termui-button-interactive-12f1feeff012f6e3_bg.wasm" crossorigin="anonymous" integrity="sha384-A8iPRAZt6KcoK60+6iFI8hLkdlz1G9JTnPUD7+cUVco/tk0CNg0Ph18HES13Vqw1" as="fetch" type="application/wasm"></head>
+  <link rel="modulepreload" href="/demos/button-interactive/termui-button-interactive-d8d4deefe0a47e46.js" crossorigin="anonymous" integrity="sha384-GQjQ5LHPehy0T+lbGLjmvsa1pm+QvAOmf4vnHCqAA9fji6NoyP9mmkp1X1kKAz5i"><link rel="preload" href="/demos/button-interactive/termui-button-interactive-d8d4deefe0a47e46_bg.wasm" crossorigin="anonymous" integrity="sha384-wIFkGJYATbwbf0RmDzsbX/JjfmF4uav5xuCs2bU2xeATthD5m9/0fU02I6qjfPrK" as="fetch" type="application/wasm"></head>
   <body>
     <div id="terminal"></div>
   </body>
