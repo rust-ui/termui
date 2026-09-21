@@ -30,13 +30,10 @@ fn resolve_constraint(constraint: Constraint, available: u16) -> u16 {
         Constraint::Length(l) => l,
         Constraint::Min(m) => available.max(m),
         Constraint::Max(m) => available.min(m),
-        Constraint::Ratio(n, d) => {
-            if d == 0 {
-                0
-            } else {
-                (available as u32 * n / d) as u16
-            }
-        }
+        Constraint::Ratio(n, d) => (u64::from(available) * u64::from(n))
+            .checked_div(u64::from(d))
+            .unwrap_or_default()
+            .min(u64::from(u16::MAX)) as u16,
         Constraint::Fill(_) => available,
     }
 }

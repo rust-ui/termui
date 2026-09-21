@@ -3,11 +3,12 @@ title: Resizable Layout
 description: Two horizontal areas sized by a caller-controlled percentage.
 ---
 
-`ResizableLayout` computes two side-by-side areas from a percentage. Your application owns resize input and updates the ratio.
+`ResizableLayout` computes two side-by-side areas from a percentage. Drag the divider, or press Tab to activate it and use the arrow keys. The active state and panel widths update as you resize.
 
-<RustDemo name="resizable-layout" title="Resizable Layout" rows={7} code={`use termui_widgets::resizable_layout::ResizableLayout;
+<RustDemo name="resizable-layout" src="/demos/resizable-layout-interactive/index.html" title="Resizable Layout" rows={12} code={`use termui_widgets::resizable_layout::ResizableLayout;
 
-let [sidebar, main] = ResizableLayout::new(30).areas(frame.area());`} />
+let [sidebar, handle, main] = ResizableLayout::new(30).areas_with_handle(frame.area());
+// Update the percentage while dragging or when the active handle gets ← / →.`} />
 
 ## Source
 
@@ -18,5 +19,5 @@ let [sidebar, main] = ResizableLayout::new(30).areas(frame.area());`} />
 ```rust
 use termui_widgets::resizable_layout::ResizableLayout;
 
-let [sidebar, main] = ResizableLayout::new(30).areas(frame.area());
+let [sidebar, handle, main] = ResizableLayout::new(30).areas_with_handle(frame.area());
 ```

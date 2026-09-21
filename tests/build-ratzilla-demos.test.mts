@@ -3,11 +3,11 @@ import { promises as fs } from "node:fs";
 import path from "node:path";
 import test from "node:test";
 
-import { collectMdxDemoReferences } from "./lib/demo-mdx.mts";
+import { collectMdxDemoReferences } from "../scripts/lib/demo-mdx.mts";
 import {
   collectInteractiveDemos,
   renderInteractiveDemo,
-} from "./lib/ratzilla-demos.mts";
+} from "../scripts/lib/ratzilla-demos.mts";
 
 const root = process.cwd();
 
@@ -96,6 +96,19 @@ test("HTML template fills bins and escapes page titles", async () => {
       }),
     /Missing template marker \{\{BIN_NAME\}\}/
   );
+});
+
+test("interactive terminal keeps viewport bounds aligned with mouse coordinates", async () => {
+  const template = await fs.readFile(
+    path.join(root, "crates/termui-registry/interactive-demo.template.html"),
+    "utf8"
+  );
+  const terminalStyles = template.match(/#terminal\s*\{([^}]+)\}/)?.[1];
+
+  assert.ok(terminalStyles, "template must size the Ratzilla terminal");
+  assert.match(terminalStyles, /\bwidth:\s*100%;/);
+  assert.match(terminalStyles, /\bheight:\s*100%;/);
+  assert.match(terminalStyles, /\bpadding:\s*0;/);
 });
 
 test("MDX demos match checked-in Rust previews and interactive assets", async () => {

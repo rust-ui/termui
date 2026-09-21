@@ -1,9 +1,11 @@
 ---
-title: Chart
-description: A compact horizontal bar chart for labeled values.
+title: Charts
+description: Modular terminal charts for comparing, tracking, and presenting data.
 ---
 
 `Chart` scales each value against the largest value in the series.
+
+The modular chart API includes area, bar, line, pie, radar, radial, and tooltip components. Browse the [chart gallery](/charts/area) to see every rendered example and copy its Rust source from the code sheet.
 
 <RustDemo name="chart" title="Chart" rows={7} code={`use termui_widgets::chart::Chart;
 
@@ -22,3 +24,88 @@ use termui_widgets::chart::Chart;
 let values = [("Build", 4), ("Test", 7)];
 Chart::new(&values).render(frame, area);
 ```
+
+## Area charts
+
+<RustDemo name="chart-area" title="Area chart" rows={14} code={`AreaChart::new()
+    .series(ChartSeries::new("Desktop", &desktop).color(Color::Cyan))
+    .series(ChartSeries::new("Mobile", &mobile).color(Color::Yellow))
+    .title("Page views")
+    .render(frame, area);`} />
+
+<RustDemo name="chart-area-multiple" title="Multiple area series" rows={14} code={`AreaChart::new()
+    .series(ChartSeries::new("API", &api).color(Color::Cyan))
+    .series(ChartSeries::new("Worker", &worker).color(Color::Magenta))
+    .title("Requests by service")
+    .render(frame, area);`} />
+
+## Bar charts
+
+<RustDemo name="chart-bar" title="Vertical bars" rows={14} code={`BarChart::new(&values)
+    .orientation(BarOrientation::Vertical)
+    .color(Color::Cyan)
+    .title("Weekly activity")
+    .render(frame, area);`} />
+
+<RustDemo name="chart-bar-horizontal" title="Horizontal bars" rows={14} code={`BarChart::new(&values)
+    .orientation(BarOrientation::Horizontal)
+    .color(Color::Green)
+    .title("Downloads by language")
+    .render(frame, area);`} />
+
+## Line charts
+
+<RustDemo name="chart-line" title="Line chart" rows={14} code={`LineChart::new()
+    .series(ChartSeries::new("Visitors", &visitors).color(Color::Cyan))
+    .title("Visitors")
+    .render(frame, area);`} />
+
+<RustDemo name="chart-line-multiple" title="Multiple line series" rows={14} code={`LineChart::new()
+    .series(ChartSeries::new("Desktop", &desktop).color(Color::Cyan))
+    .series(ChartSeries::new("Mobile", &mobile).color(Color::Yellow))
+    .title("Sessions")
+    .render(frame, area);`} />
+
+<RustDemo name="chart-line-step" title="Step line with markers" rows={14} code={`LineChart::new()
+    .series(ChartSeries::new("Deployments", &deployments).color(Color::Yellow))
+    .step(true)
+    .markers(true)
+    .title("Deployments")
+    .render(frame, area);`} />
+
+## Pie charts
+
+<RustDemo name="chart-pie" title="Pie chart" rows={14} code={`PieChart::new(&slices)
+    .title("Traffic sources")
+    .render(frame, area);`} />
+
+<RustDemo name="chart-pie-donut" title="Donut chart" rows={14} code={`PieChart::new(&slices)
+    .donut(true)
+    .title("Package downloads")
+    .render(frame, area);`} />
+
+## Radar charts
+
+<RustDemo name="chart-radar" title="Radar chart" rows={14} code={`RadarChart::new()
+    .series(RadarSeries::new("Term/UI", &profile).color(Color::Cyan))
+    .max(10.0)
+    .title("Crate profile")
+    .render(frame, area);`} />
+
+<RustDemo name="chart-radar-compare" title="Compare radar series" rows={14} code={`RadarChart::new()
+    .series(RadarSeries::new("Term/UI", &termui).color(Color::Cyan))
+    .series(RadarSeries::new("Ratatui", &ratatui).color(Color::Yellow))
+    .max(10.0)
+    .title("Framework comparison")
+    .render(frame, area);`} />
+
+## Radial charts
+
+<RustDemo name="chart-radial" title="Radial progress" rows={14} code={`RadialChart::new("CPU", 72.0, 100.0)
+    .color(Color::Green)
+    .title("System load")
+    .render(frame, area);`} />
+
+## Chart tooltips
+
+<RustDemo name="chart-tooltip" title="Chart tooltip" rows={10} code={`ChartTooltip::new("Apr 18", &entries).render(frame, area);`} />

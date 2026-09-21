@@ -9,9 +9,11 @@ One line per reusable project lesson. Format: `YYYY-MM-DD [domain] avoid X, do Y
 
 ## Inbox
 
+- 2026-09-21 [termui/demos] keep the Ratzilla terminal element flush with its viewport; padding shrinks the DOM grid while backend mouse coordinates still scale against the full viewport.
 - 2026-09-21 [termui/brand] treat Term/UI as an independent product; use `termui.rustify.app` as canonical domain and `@termui` as registry namespace.
 - 2026-09-21 [termui/toolchain] keep `packageManager` aligned with the installed pnpm major; Corepack follows the repo pin even when a newer global pnpm exists.
 - 2026-09-21 [termui/docs] check Fumadocs route groups when moving docs; `(root)` does not create a distinct URL segment, so same-slug pages collide.
 - 2026-09-21 [termui/types] derive route and widget types from centralized catalogs; avoid duplicated string literals that drift as the catalog grows.
 - 2026-09-21 [termui/demos] register Rust demos by exact ID and keep each demo renderer separate; substring-based renderer chains drift as examples grow.
 - 2026-09-21 [termui/docs] use `RustDemo` on widget pages because `TerminalFrame` has no Code tab; reject bare `TerminalFrame` during demo generation.
+- 2026-09-21 [termui/charts] keep chart families in named modules and share only series data; this keeps each renderer composable and keeps APIs discoverable.

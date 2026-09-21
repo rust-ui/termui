@@ -1,10 +1,10 @@
 use std::time::Duration;
 
+use ratatui::Frame;
 use ratatui::layout::{Constraint, Layout, Position, Rect};
 use ratatui::style::{Color, Modifier, Style};
 use ratatui::text::{Line, Text};
 use ratatui::widgets::{Block, BorderType, Paragraph, Wrap};
-use ratatui::Frame;
 
 use crate::button::{Button, ButtonVariant};
 use crate::tui_overlay::anchor::Anchor;
@@ -95,6 +95,11 @@ impl<'a> DialogTrigger<'a> {
 
     pub fn activate(&self, dialog: &mut Dialog) {
         dialog.open();
+    }
+
+    pub fn style(mut self, style: Style) -> Self {
+        self.button = self.button.style(style);
+        self
     }
 
     pub fn focused(mut self, focused: bool) -> Self {

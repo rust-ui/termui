@@ -1,4 +1,5 @@
 use ratatui::layout::Rect;
+use ratatui::style::{Color, Style};
 use termui_renderer::render_frame;
 use termui_widgets::dialog::DialogTrigger;
 
@@ -12,6 +13,8 @@ pub(super) fn render() -> Vec<String> {
             width,
             1,
         );
-        DialogTrigger::new("Delete project").render(frame, button);
+        DialogTrigger::new("Delete project")
+            .style(Style::default().fg(Color::Black).bg(Color::White))
+            .render(frame, button);
     })
 }
