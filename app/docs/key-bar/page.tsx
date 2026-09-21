@@ -4,7 +4,7 @@ import { TerminalFrame } from "@/components/terminal-frame";
 
 const SOURCE_PATH = path.join(
   process.cwd(),
-  "../rust/crates/termui-widgets/src/key_bar.rs"
+  "crates/termui-widgets/src/key_bar.rs"
 );
 
 export default function KeyBarPage() {
