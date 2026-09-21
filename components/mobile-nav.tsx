@@ -15,20 +15,8 @@ import {
 import { TOP_LEVEL_SECTIONS } from "@/constants/nav";
 import { ROUTES } from "@/constants/routes";
 import { useFeedback } from "@/hooks/use-feedback";
-import {
-  getDocsSidebarPanel,
-  isChartsFolder,
-  isComponentsFolder,
-  isDitherChartUrl,
-  isTemplatesFolder,
-  isThemesFolder,
-} from "@/lib/docs";
-import {
-  getCategoryFolders,
-  getCurrentBase,
-  getFolderPages,
-  getTreeGroups,
-} from "@/lib/page-tree";
+import { getDocsSidebarPanel, isWidgetsFolder } from "@/lib/docs";
+import { getFolderSections, getTreeGroups } from "@/lib/page-tree";
 import type { PageTreeFolder } from "@/lib/page-tree";
 import { cn } from "@/lib/utils";
 
@@ -91,7 +79,6 @@ const MobileNavGroup = ({
 };
 
 interface MobilePanelProps {
-  currentBase: string;
   setOpen: (open: boolean) => void;
   tree: PageTreeRoot;
 }
@@ -104,86 +91,23 @@ const findTopLevelFolder = (
     (item): item is PageTreeFolder => item.type === "folder" && predicate(item)
   );
 
-const ComponentsMobilePanel = ({
-  currentBase,
+const WidgetsMobilePanel = ({
   setOpen,
   tree,
 }: MobilePanelProps) => {
-  const folder = findTopLevelFolder(tree, isComponentsFolder);
+  const folder = findTopLevelFolder(tree, isWidgetsFolder);
   if (!folder) {
     return null;
   }
 
-  return getCategoryFolders(folder, currentBase).map((category) => (
+  return getFolderSections(folder).map((category) => (
     <MobileNavGroup
-      key={category.$id}
-      label={category.name}
-      pages={getFolderPages(category)}
+      key={category.id}
+      label={category.label}
+      pages={category.pages}
       setOpen={setOpen}
     />
   ));
-};
-
-const TemplatesMobilePanel = ({
-  currentBase,
-  setOpen,
-  tree,
-}: MobilePanelProps) => {
-  const folder = findTopLevelFolder(tree, isTemplatesFolder);
-  if (!folder) {
-    return null;
-  }
-
-  return (
-    <MobileNavGroup
-      label="Templates"
-      pages={getFolderPages(folder, currentBase)}
-      setOpen={setOpen}
-    />
-  );
-};
-
-const ChartsMobilePanel = ({
-  currentBase,
-  setOpen,
-  tree,
-}: MobilePanelProps) => {
-  const folder = findTopLevelFolder(tree, isChartsFolder);
-  if (!folder) {
-    return null;
-  }
-
-  const pages = getFolderPages(folder, currentBase).filter(
-    (page) => page.url !== `${ROUTES.DOCS_CHARTS}/${currentBase}`
-  );
-  const charts = pages.filter((page) => !isDitherChartUrl(page.url));
-  const dither = pages.filter((page) => isDitherChartUrl(page.url));
-
-  return (
-    <>
-      <MobileNavGroup label="Basic Charts" pages={charts} setOpen={setOpen} />
-      <MobileNavGroup label="Dither Charts" pages={dither} setOpen={setOpen} />
-    </>
-  );
-};
-
-const ThemesMobilePanel = ({
-  currentBase,
-  setOpen,
-  tree,
-}: MobilePanelProps) => {
-  const folder = findTopLevelFolder(tree, isThemesFolder);
-  if (!folder) {
-    return null;
-  }
-
-  return (
-    <MobileNavGroup
-      label="Themes"
-      pages={getFolderPages(folder, currentBase)}
-      setOpen={setOpen}
-    />
-  );
 };
 
 export const MobileNav = ({
@@ -197,26 +121,15 @@ export const MobileNav = ({
 }) => {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
-  const currentBase = getCurrentBase(pathname);
   const panel = getDocsSidebarPanel(pathname);
   const treeGroups = useMemo(
-    () => getTreeGroups(tree, currentBase),
-    [tree, currentBase]
+    () => getTreeGroups(tree),
+    [tree]
   );
 
   const renderCatalogPanel = () => {
-    const panelProps = { currentBase, setOpen, tree };
-    if (panel === "components") {
-      return <ComponentsMobilePanel {...panelProps} />;
-    }
-    if (panel === "templates") {
-      return <TemplatesMobilePanel {...panelProps} />;
-    }
-    if (panel === "charts") {
-      return <ChartsMobilePanel {...panelProps} />;
-    }
-    if (panel === "themes") {
-      return <ThemesMobilePanel {...panelProps} />;
+    if (panel === "widgets") {
+      return <WidgetsMobilePanel setOpen={setOpen} tree={tree} />;
     }
     return null;
   };

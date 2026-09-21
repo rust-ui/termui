@@ -4,15 +4,8 @@ import type {
 } from "fumadocs-core/page-tree";
 
 import { ROUTES } from "@/constants/routes";
-import {
-  EXCLUDED_SECTIONS,
-  isChartsFolder,
-  isComponentsFolder,
-  isDitherChartUrl,
-  isTemplatesFolder,
-  isThemesFolder,
-} from "@/lib/docs";
-import { DEFAULT_BASE_NAME } from "@/registry/bases";
+import { RATATUI_WIDGETS_TITLE } from "@/constants/ratatui";
+import { EXCLUDED_SECTIONS, isWidgetsFolder } from "@/lib/docs";
 
 export type PageTreeFolder = Extract<PageTreeNode, { type: "folder" }>;
 export type PageTreePage = Extract<PageTreeNode, { type: "page" }>;
@@ -42,128 +35,25 @@ export const getAllPagesFromFolder = (
   return pages;
 };
 
-export const findChildFolder = (
-  folder: PageTreeFolder,
-  name: string
-): PageTreeFolder | undefined => {
-  for (const child of folder.children) {
-    if (child.type !== "folder") {
-      continue;
-    }
-    if (
-      child.$id === name ||
-      String(child.$id ?? "").endsWith(`/${name}`) ||
-      (typeof child.name === "string" &&
-        child.name.toLowerCase() === name.toLowerCase())
-    ) {
-      return child;
-    }
-  }
-};
-
-export const getCategoryFolders = (
-  folder: PageTreeFolder,
-  base: string
-): PageTreeFolder[] => {
-  const baseFolder = findChildFolder(folder, base);
-  if (!baseFolder) {
-    return [];
-  }
-
-  return baseFolder.children.filter(
-    (c): c is PageTreeFolder => c.type === "folder"
-  );
-};
-
-export const getFolderPages = (
-  folder: PageTreeFolder,
-  base?: string
-): PageTreePage[] => {
-  if (base) {
-    const baseFolder = findChildFolder(folder, base);
-    if (!baseFolder) {
-      return [];
-    }
-
-    return getAllPagesFromFolder(baseFolder);
-  }
-
-  return getAllPagesFromFolder(folder);
-};
+export const getFolderPages = (folder: PageTreeFolder): PageTreePage[] =>
+  getAllPagesFromFolder(folder);
 
 export const getFolderSections = (
-  folder: PageTreeFolder,
-  base: string
+  folder: PageTreeFolder
 ): FolderSection[] => {
-  if (isComponentsFolder(folder)) {
-    return getCategoryFolders(folder, base).flatMap((category) => {
-      const pages = getFolderPages(category);
-      if (pages.length === 0) {
-        return [];
-      }
-
-      const fallbackId = String(category.name)
-        .trim()
-        .toLowerCase()
-        .replaceAll(" ", "-");
-
-      return [
-        {
-          id:
-            String(category.$id ?? "")
-              .split("/")
-              .at(-1) ?? fallbackId,
-          label: String(category.name),
-          pages,
-        },
-      ];
-    });
+  if (isWidgetsFolder(folder)) {
+    const pages = getFolderPages(folder).filter(
+      (page) => page.url !== ROUTES.DOCS_WIDGETS
+    );
+    return pages.length > 0
+      ? [{ id: ROUTES.DOCS_WIDGETS, label: RATATUI_WIDGETS_TITLE, pages }]
+      : [];
   }
-
-  if (!isChartsFolder(folder)) {
-    return [];
-  }
-
-  const pages = getFolderPages(folder, base).filter(
-    (page) => page.url !== `${ROUTES.DOCS_CHARTS}/${base}`
-  );
-
-  return [
-    {
-      id: "basic",
-      label: "Basic",
-      pages: pages.filter((page) => !isDitherChartUrl(page.url)),
-    },
-    {
-      id: "dither",
-      label: "Dither",
-      pages: pages.filter((page) => isDitherChartUrl(page.url)),
-    },
-  ].filter((section) => section.pages.length > 0);
-};
-
-export const getCurrentBase = (pathname: string): string => {
-  const baseScopedMatch = pathname.match(
-    /\/docs\/(?:components|templates|charts|theming)\/([^/]+)(?:\/|$)/
-  );
-  if (baseScopedMatch) {
-    return baseScopedMatch[1];
-  }
-
-  const themesMatch = pathname.match(/\/docs\/themes\/([^/]+)\//);
-  if (
-    themesMatch &&
-    (themesMatch[1] === "ink" || themesMatch[1] === "opentui")
-  ) {
-    return themesMatch[1];
-  }
-
-  return DEFAULT_BASE_NAME;
+  return [];
 };
 
 export const getTreeGroups = (
-  tree: PageTreeRoot,
-  currentBase: string
+  tree: PageTreeRoot
 ): TreeGroup[] => {
   const groups: TreeGroup[] = [];
 
@@ -175,20 +65,11 @@ export const getTreeGroups = (
       continue;
     }
 
-    const isChartSection = isChartsFolder(item);
-    if (isComponentsFolder(item) || isChartSection) {
-      for (const section of getFolderSections(item, currentBase)) {
+    if (isWidgetsFolder(item)) {
+      for (const section of getFolderSections(item)) {
         groups.push({
-          label: `${section.label}${isChartSection ? " Charts" : ""}`,
+          label: section.label,
           pages: section.pages,
-        });
-      }
-    } else if (isTemplatesFolder(item) || isThemesFolder(item)) {
-      const pages = getFolderPages(item, currentBase);
-      if (pages.length > 0) {
-        groups.push({
-          label: typeof item.name === "string" ? item.name : String(item.name),
-          pages,
         });
       }
     } else {

@@ -30,7 +30,6 @@ type SectionId = (typeof LABS_NAV_SECTIONS)[number]["id"];
 
 const SECTION_WIDTH: Partial<Record<SectionId, string>> = {
   registries: "w-72",
-  skills: "w-72",
 };
 
 const SECTION_LIST: Partial<Record<SectionId, string>> = {

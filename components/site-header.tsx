@@ -10,10 +10,12 @@ import { NavItemGithub } from "@/components/nav-item-github";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
 import { ROUTES } from "@/constants/routes";
+import { RATATUI_WIDGETS_TITLE } from "@/constants/ratatui";
 import { source } from "@/lib/source";
 
 const navItems = [
   { href: ROUTES.DOCS, label: "Docs" },
+  { href: ROUTES.DOCS_WIDGETS, label: RATATUI_WIDGETS_TITLE },
   { href: ROUTES.DOCS_INSTALLATION, label: "Installation" },
   { href: ROUTES.DOCS_MCP, label: "MCP" },
   { href: ROUTES.DOCS_REGISTRY, label: "Registry" },

@@ -1,21 +1,19 @@
 "use client";
 
 import { RustPreview } from "@/components/rust-preview";
+import { RATATUI_DEMO_BASE } from "@/constants/ratatui";
+import type { RatatuiComponentName } from "@/constants/ratatui";
 import type { terminalThemeMap } from "@/lib/terminal-themes";
-import type { BaseName } from "@/registry/bases";
-import { DEFAULT_BASE_NAME } from "@/registry/bases";
 
 export interface TerminalPreviewProps {
-  base: BaseName;
-  name: string;
+  name: RatatuiComponentName;
   rows?: number;
   theme?: keyof typeof terminalThemeMap;
 }
 
 export const TerminalPreview = ({
-  base = DEFAULT_BASE_NAME,
   name,
   rows = 18,
 }: TerminalPreviewProps) => (
-  <RustPreview base={base} name={name} rows={rows} />
+  <RustPreview name={name} rows={rows} />
 );

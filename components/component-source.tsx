@@ -1,10 +1,13 @@
 import { CodeCollapsibleWrapper } from "@/components/code-collapsible-wrapper";
+import type {
+  RatatuiComponentName,
+  RatatuiComponentSource,
+} from "@/constants/ratatui";
 import { formatCode } from "@/lib/format-code";
 import { highlightCode } from "@/lib/highlight-code";
 import { readFileFromRoot } from "@/lib/read-file";
-import { getDemoSource, getRegistrySource } from "@/lib/registry";
+import { getDemoSource } from "@/lib/registry";
 import { cn } from "@/lib/utils";
-import type { BaseName } from "@/registry/bases";
 
 import { CopyButton } from "./copy-button";
 import { getIconForLanguageExtension } from "./icons";
@@ -40,15 +43,13 @@ const ComponentCode = ({
 export const ComponentSource = async ({
   name,
   src,
-  base,
   title,
   collapsible = true,
   className,
   language,
 }: {
-  name?: string;
-  src?: string;
-  base?: BaseName;
+  name?: RatatuiComponentName;
+  src?: RatatuiComponentSource;
   title?: string;
   collapsible?: boolean;
   className?: string;
@@ -57,9 +58,7 @@ export const ComponentSource = async ({
   let code: string | null = null;
 
   if (name) {
-    code =
-      (await getDemoSource(name, base)) ??
-      (await getRegistrySource(name, base));
+    code = await getDemoSource(name);
   }
 
   if (src) {

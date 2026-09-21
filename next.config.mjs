@@ -4,6 +4,7 @@ import { createJiti } from "jiti";
 const jiti = createJiti(import.meta.url);
 const { LINK } = await jiti.import("./constants/links");
 const { ROUTES } = await jiti.import("./constants/routes");
+const { RATATUI_COMPONENTS } = await jiti.import("./constants/ratatui");
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -46,7 +47,6 @@ const nextConfig = {
       },
       ...[
         ROUTES.DOCS_CHARTS,
-        ROUTES.DOCS_COMPONENTS,
         ROUTES.DOCS_TEMPLATES,
         ROUTES.DOCS_THEMES,
         ROUTES.DOCS_THEMING,
@@ -54,6 +54,31 @@ const nextConfig = {
         destination: ROUTES.DOCS_REGISTRY,
         permanent: true,
         source: `${source}/:path*`,
+      })),
+      {
+        destination: ROUTES.DOCS_WIDGETS,
+        permanent: true,
+        source: ROUTES.WIDGETS,
+      },
+      {
+        destination: `${ROUTES.DOCS_WIDGETS}/:path*`,
+        permanent: true,
+        source: `${ROUTES.DOCS_COMPONENTS_LEGACY}/:path*`,
+      },
+      ...RATATUI_COMPONENTS.map(({ name }) => ({
+        destination: `${ROUTES.DOCS_WIDGETS}/${name}`,
+        permanent: true,
+        source: `${ROUTES.WIDGETS}/${name}`,
+      })),
+      {
+        destination: ROUTES.DOCS_WIDGETS,
+        permanent: true,
+        source: ROUTES.LEGACY_COMPONENTS,
+      },
+      ...RATATUI_COMPONENTS.map(({ name }) => ({
+        destination: `${ROUTES.DOCS_WIDGETS}/${name}`,
+        permanent: true,
+        source: `${ROUTES.LEGACY_COMPONENTS}/${name}`,
       })),
     ];
   },

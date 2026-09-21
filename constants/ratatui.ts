@@ -1,0 +1,28 @@
+export const RATATUI_DEMO_BASE = "rust";
+export const RATATUI_WIDGETS_TITLE = "Widgets";
+
+export const RATATUI_COMPONENTS = [
+  {
+    description: "Rounded panel shell for Ratatui widgets, with optional top and bottom titles.",
+    name: "panel",
+    source: "crates/termui-widgets/src/panel.rs",
+    title: "Panel",
+  },
+  {
+    description: "Keyboard hint bar for terminal app shortcuts.",
+    name: "key-bar",
+    source: "crates/termui-widgets/src/key_bar.rs",
+    title: "Key Bar",
+  },
+  {
+    description: "Selectable terminal rows with a full-width active-row highlight.",
+    name: "select-list",
+    source: "crates/termui-widgets/src/select_list.rs",
+    title: "Select List",
+  },
+] as const;
+
+export type RatatuiComponent = (typeof RATATUI_COMPONENTS)[number];
+export type RatatuiComponentName = RatatuiComponent["name"];
+export type RatatuiComponentSource = RatatuiComponent["source"];
+export type ComponentPreviewBase = typeof RATATUI_DEMO_BASE;

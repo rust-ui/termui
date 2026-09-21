@@ -1,9 +1,10 @@
 import { cn } from "@/lib/utils";
 import { RustPreview } from "@/components/rust-preview";
+import type { RatatuiComponentName } from "@/constants/ratatui";
 
 interface TerminalFrameProps {
   title: string;
-  src: string;
+  src: RatatuiComponentName;
   height?: number;
   className?: string;
 }
@@ -30,11 +31,7 @@ export function TerminalFrame({
         <span className="h-3 w-3 rounded-full bg-green-500/80" />
         <span className="ml-2 text-xs text-muted-foreground">{title}</span>
       </div>
-      <RustPreview
-        base="rust"
-        name={src.split("/").at(-2) ?? "demo"}
-        rows={Math.ceil(height / 18)}
-      />
+      <RustPreview name={src} rows={Math.ceil(height / 18)} />
     </div>
   );
 }

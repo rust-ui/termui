@@ -27,7 +27,7 @@ Prefer following the on-site installation guide: ${ROUTES.DOCS_INSTALLATION}
 ## When answering
 
 - Prefer linking to \`${ROUTES.DOCS}\` sections over guessing props.
-- Components live under Ink and OpenTUI namespaces in the docs.
+- Ratatui widgets live under \`${ROUTES.DOCS_WIDGETS}\`.
 `;
 
 export const termuiAgentSkillDigest = (): string => {

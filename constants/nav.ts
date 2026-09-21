@@ -1,4 +1,5 @@
 import { ROUTES } from "./routes";
+import { RATATUI_WIDGETS_TITLE } from "./ratatui";
 
 export interface LabsNavLink {
   href: string;
@@ -22,6 +23,7 @@ export const LABS_NAV_SECTIONS = [
 
 export const TOP_LEVEL_SECTIONS = [
   { href: ROUTES.DOCS, name: "Introduction" },
+  { href: ROUTES.DOCS_WIDGETS, name: RATATUI_WIDGETS_TITLE },
   { href: ROUTES.DOCS_INSTALLATION, name: "Installation" },
   { href: ROUTES.DOCS_MCP, name: "MCP" },
   { href: ROUTES.DOCS_REGISTRY, name: "Registry" },

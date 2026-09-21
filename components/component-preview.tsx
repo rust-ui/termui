@@ -4,18 +4,15 @@ import type { TerminalPreviewProps } from "@/components/terminal-preview";
 import { TerminalPreview } from "@/components/terminal-preview";
 import { TerminalTheme } from "@/components/terminal-theme";
 import { cn } from "@/lib/utils";
-import { DEFAULT_BASE_NAME } from "@/registry/bases";
 
 export const ComponentPreview = ({
-  base = DEFAULT_BASE_NAME,
   name,
   title = "Terminal",
   className,
   hideCode = false,
   rows,
   theme,
-}: Omit<TerminalPreviewProps, "base"> & {
-  base?: TerminalPreviewProps["base"];
+}: TerminalPreviewProps & {
   title?: string;
   className?: string;
   hideCode?: boolean;
@@ -26,8 +23,8 @@ export const ComponentPreview = ({
       title={title}
       trailing={<TerminalTheme />}
     >
-      <TerminalPreview base={base} name={name} rows={rows} theme={theme} />
+      <TerminalPreview name={name} rows={rows} theme={theme} />
     </MacWindow>
-    {!hideCode && <ComponentSource base={base} name={name} />}
+    {!hideCode && <ComponentSource name={name} />}
   </>
 );
