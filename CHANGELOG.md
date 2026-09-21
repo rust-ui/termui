@@ -6,6 +6,7 @@ Notable Term/UI changes are recorded here. Format follows [Keep a Changelog](htt
 
 ### Added
 
+- Added a composable `Card` widget with header, title, description, action, content, footer, docs, and a Rust-rendered demo.
 - Added ColorPicker, Dialog, RadioCard, and TextInput widgets with Rust-rendered demos and copyable source pages; ported Ferrit's licensed `tui_overlay` and animated error Toast, with native mouse dismissal.
 - Split Ratatui frame rendering into `termui-renderer` and per-demo files plus ID dispatch into `termui-registry`; keep interactive and static demo sources together, and validate static previews from docs references during frame generation.
 - Added terminal preview sections for every remaining widget in the all-widgets plan.
@@ -22,7 +23,7 @@ Notable Term/UI changes are recorded here. Format follows [Keep a Changelog](htt
 
 ### Changed
 
-- Rebuilt Dialog as composable trigger, content, header, title, description, footer, and close components; added a Ratzilla demo that opens it on click.
+- Rebuilt Dialog as composable trigger, content, header, title, description, footer, and close components; added a Ratzilla demo with a blue trigger that opens on click.
 - Removed the KeyBar widget, page, component catalog entry, and preview.
 - Renamed the Rust Radio Group page and preview to Radio Card; disable text selection in static terminal previews while leaving code samples selectable.
 - Use the repository's `packageManager` pin as the sole pnpm version source in CI.

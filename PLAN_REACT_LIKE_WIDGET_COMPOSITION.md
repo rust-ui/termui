@@ -1,12 +1,12 @@
 # Plan: React-Like Composition Syntax for Term/UI
 
-**Status:** Exploration draft
+**Status:** Card renderer implemented; JSX-like macro remains a proposal.
 
 **Scope:** API and syntax proposal; no implementation decision yet.
 
 ## Summary
 
-Term/UI's `Dialog` API now exposes composable parts, but callers still render each part and route the layout areas themselves. Explore a JSX-like Rust macro so nested component structure is easier to read and closer to the React API that Term/UI users may already know. Validate the syntax against both `Dialog` and a proposed `Card` component.
+Term/UI's `Dialog` and `Card` APIs expose composable parts, but callers still render each part and route layout areas themselves. Explore a JSX-like Rust macro so nested component structure is easier to read and closer to the React API that Term/UI users may already know. The Card renderer and Rust demo now provide a second composition case; the macro remains unimplemented.
 
 Rust has no native JSX syntax. A function-like macro can define an embedded UI DSL and expand it into ordinary Rust. The macro would improve the call-site syntax; it would not add React's runtime, implicit state, or event system.
 
@@ -99,11 +99,11 @@ The syntax borrows JSX's nested tags and component names. Rust values and text s
 
 ## Second Composition Case: Card
 
-Use `Card` as the second prototype after `Dialog`. It checks a different composition shape: a stateless root with header, content, and footer slots; nested title and description; and an optional action positioned beside the header text.
+The new `Card` renderer is the second composition case after `Dialog`. It checks a different shape: a stateless root with header, content, and footer slots; nested title and description; and an optional action positioned beside the header text.
 
-Term/UI does not currently have a generic `Card`. `Panel` provides a rounded `Block` shell, while `RadioCard` is a selectable control. Neither exposes the Shadcn-style `CardHeader`, `CardContent`, and `CardFooter` composition.
+Term/UI now has a generic `Card` in `crates/termui-widgets/src/card.rs`. `Panel` remains a rounded `Block` shell, while `RadioCard` is a selectable control. The new `Card` exposes Shadcn-style header, content, and footer composition.
 
-### Before (current building blocks)
+### Before (low-level building blocks)
 
 The equivalent layout today uses `Panel` for the border and Ratatui layout/render calls for each region:
 
@@ -136,7 +136,7 @@ frame.render_widget(Paragraph::new("Card Content"), content);
 frame.render_widget(Paragraph::new("Card Footer"), footer);
 ```
 
-This has the right ingredients but no semantic card parts. The caller owns the slot layout, including the header's two-column arrangement.
+Before the `Card` component, this had the right ingredients but no semantic card parts. The caller owned the slot layout, including the header's two-column arrangement.
 
 ### After (proposal)
 

@@ -89,7 +89,7 @@ pub struct DialogTrigger<'a> {
 impl<'a> DialogTrigger<'a> {
     pub fn new(label: &'a str) -> Self {
         Self {
-            button: Button::new(label).variant(ButtonVariant::Outline),
+            button: Button::new(label).variant(ButtonVariant::Default),
         }
     }
 

@@ -5,9 +5,9 @@ mod wasm_app {
     use ratzilla::{
         event::{KeyCode, MouseButton, MouseEvent, MouseEventKind},
         ratatui::{
-            layout::{Alignment, Constraint, Layout, Position, Rect},
+            layout::{Constraint, Layout, Position, Rect},
             style::{Color, Style},
-            widgets::{Block, BorderType, Paragraph, Wrap},
+            widgets::{Paragraph, Wrap},
             Frame, Terminal,
         },
         DomBackend, WebRenderer,
@@ -37,37 +37,12 @@ mod wasm_app {
         app.dialog.tick(Duration::from_millis(16));
 
         let area = frame.area();
-        let shell = Block::bordered()
-            .border_type(BorderType::Rounded)
-            .border_style(Color::Rgb(63, 63, 70));
-        let content = shell.inner(area);
-        frame.render_widget(shell, area);
-
-        let stack_height = content.height.min(5);
-        let stack_y = content.y + content.height.saturating_sub(stack_height) / 2;
-        let stack = Rect::new(content.x, stack_y, content.width, stack_height);
-        let [title, description, trigger_row, hint, _] =
-            Layout::vertical([Constraint::Length(1); 5]).areas(stack);
-
-        frame.render_widget(
-            Paragraph::new("Project settings")
-                .alignment(Alignment::Center)
-                .style(Style::default().fg(Color::White)),
-            title,
-        );
-        frame.render_widget(
-            Paragraph::new("Review before deleting")
-                .alignment(Alignment::Center)
-                .style(Style::default().fg(Color::Gray)),
-            description,
-        );
-
-        let trigger_width = 22.min(content.width);
+        let trigger_width = 22.min(area.width);
         hit_areas.trigger = Rect::new(
-            content.x + content.width.saturating_sub(trigger_width) / 2,
-            trigger_row.y,
+            area.x + area.width.saturating_sub(trigger_width) / 2,
+            area.y + area.height / 2,
             trigger_width,
-            trigger_row.height,
+            1,
         );
         DialogTrigger::new("Delete project")
             .focused(
@@ -75,12 +50,6 @@ mod wasm_app {
                     .is_some_and(|point| hit_areas.trigger.contains(point)),
             )
             .render(frame, hit_areas.trigger);
-        frame.render_widget(
-            Paragraph::new("Click to open · Enter also works")
-                .alignment(Alignment::Center)
-                .style(Style::default().fg(Color::Rgb(113, 113, 122))),
-            hint,
-        );
 
         let Some(dialog_areas) = DialogContent::new()
             .width(Constraint::Length(44))

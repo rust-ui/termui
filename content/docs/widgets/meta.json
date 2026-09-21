@@ -2,6 +2,7 @@
   "pages": [
     "index",
     "button",
+    "card",
     "color-picker",
     "dialog",
     "panel",
