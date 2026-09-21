@@ -66,7 +66,7 @@ The box represents the button's blue area.
 
 ```text
 ╭────────────────────────────────────────╮
-│ Card Title              Card Action    │
+│ Card Title                             │
 │ Card Description                       │
 │ Card Content                           │
 │────────────────────────────────────────│

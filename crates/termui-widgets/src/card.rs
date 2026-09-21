@@ -83,12 +83,11 @@ impl Default for Card {
     }
 }
 
-/// Splits a card header into title, description, and optional action regions.
+/// Splits a card header into title and description regions.
 #[derive(Clone, Copy, Debug)]
 #[must_use]
 pub struct CardHeader {
     description_rows: u16,
-    action_width: u16,
     horizontal_padding: u16,
 }
 
@@ -97,25 +96,18 @@ pub struct CardHeader {
 pub struct CardHeaderAreas {
     pub title: Rect,
     pub description: Rect,
-    pub action: Rect,
 }
 
 impl CardHeader {
     pub fn new() -> Self {
         Self {
             description_rows: 1,
-            action_width: 0,
             horizontal_padding: 1,
         }
     }
 
     pub fn description_rows(mut self, rows: u16) -> Self {
         self.description_rows = rows;
-        self
-    }
-
-    pub fn action_width(mut self, width: u16) -> Self {
-        self.action_width = width;
         self
     }
 
@@ -132,26 +124,15 @@ impl CardHeader {
             area.width.saturating_sub(padding.saturating_mul(2)),
             area.height,
         );
-        let action_width = self.action_width.min(inner.width);
-        let [main, action] =
-            Layout::horizontal([Constraint::Min(0), Constraint::Length(action_width)]).areas(inner);
-        let description_rows = self.description_rows.min(main.height);
-        let title_rows = main.height.saturating_sub(description_rows);
+        let description_rows = self.description_rows.min(inner.height);
+        let title_rows = inner.height.saturating_sub(description_rows);
         let [title, description] = Layout::vertical([
             Constraint::Length(title_rows),
             Constraint::Length(description_rows),
         ])
-        .areas(main);
+        .areas(inner);
 
-        CardHeaderAreas {
-            title,
-            description,
-            action: if action_width == 0 {
-                Rect::default()
-            } else {
-                action
-            },
-        }
+        CardHeaderAreas { title, description }
     }
 }
 
@@ -178,7 +159,7 @@ impl<'a> CardTitle<'a> {
         frame.render_widget(
             Paragraph::new(self.title).style(
                 Style::default()
-                    .fg(Color::White)
+                    .fg(Color::LightCyan)
                     .add_modifier(Modifier::BOLD),
             ),
             area,
@@ -204,24 +185,6 @@ impl<'a> CardDescription<'a> {
                 .wrap(Wrap { trim: true }),
             area,
         );
-    }
-}
-
-/// Action child wrapper for a card header.
-#[must_use]
-pub struct CardAction<W> {
-    child: W,
-}
-
-impl<W> CardAction<W> {
-    pub fn new(child: W) -> Self {
-        Self { child }
-    }
-}
-
-impl<W: Widget> CardAction<W> {
-    pub fn render(self, frame: &mut Frame<'_>, area: Rect) {
-        frame.render_widget(self.child, area);
     }
 }
 
@@ -259,18 +222,16 @@ impl<W: Widget> CardContent<W> {
     }
 }
 
-/// Card footer with separator and a padded child widget.
+/// Card footer separator; returns padded area for footer children.
 #[must_use]
-pub struct CardFooter<W> {
-    child: W,
+pub struct CardFooter {
     horizontal_padding: u16,
     separator_style: Style,
 }
 
-impl<W> CardFooter<W> {
-    pub fn new(child: W) -> Self {
+impl CardFooter {
+    pub fn new() -> Self {
         Self {
-            child,
             horizontal_padding: 1,
             separator_style: Style::default().fg(Color::Rgb(63, 63, 70)),
         }
@@ -287,10 +248,10 @@ impl<W> CardFooter<W> {
     }
 }
 
-impl<W: Widget> CardFooter<W> {
-    pub fn render(self, frame: &mut Frame<'_>, area: Rect) {
+impl CardFooter {
+    pub fn render(self, frame: &mut Frame<'_>, area: Rect) -> Rect {
         if area.height == 0 {
-            return;
+            return area;
         }
         frame.render_widget(
             Paragraph::new(Line::styled(
@@ -301,12 +262,64 @@ impl<W: Widget> CardFooter<W> {
         );
 
         let padding = self.horizontal_padding.min(area.width / 2);
-        let child = Rect::new(
+        Rect::new(
             area.x.saturating_add(padding),
             area.y.saturating_add(1),
             area.width.saturating_sub(padding.saturating_mul(2)),
             area.height.saturating_sub(1),
-        );
-        frame.render_widget(self.child, child);
+        )
     }
+}
+
+impl Default for CardFooter {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
+#[doc(hidden)]
+pub fn __render_card_markup(
+    frame: &mut Frame<'_>,
+    area: Rect,
+    title: &str,
+    description: &str,
+    content: &str,
+    footer: &str,
+) {
+    let areas = Card::new()
+        .header_rows(2)
+        .footer_rows(2)
+        .render(frame, area);
+    let header = CardHeader::new().description_rows(1).layout(areas.header);
+
+    CardTitle::new(title).render(frame, header.title);
+    CardDescription::new(description).render(frame, header.description);
+    CardContent::new(Paragraph::new(content)).render(frame, areas.content);
+    let footer_area = CardFooter::new().render(frame, areas.footer);
+    frame.render_widget(Paragraph::new(footer), footer_area);
+}
+
+/// Render a Card from an RSX-style component tree.
+///
+/// The first version accepts literal text and the standard Card slots.
+#[macro_export]
+macro_rules! termui {
+    (
+        frame: $frame:expr,
+        area: $area:expr,
+        Card {
+            CardHeader {
+                CardTitle { $title:literal }
+                CardDescription { $description:literal }
+            }
+            CardContent {
+                p { $content:literal }
+            }
+            CardFooter {
+                p { $footer:literal }
+            }
+        }
+    ) => {{
+        $crate::card::__render_card_markup($frame, $area, $title, $description, $content, $footer)
+    }};
 }
