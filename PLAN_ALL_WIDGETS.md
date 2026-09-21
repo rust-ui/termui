@@ -7,6 +7,7 @@ Mode describes each demo: Static Rust frame or Dynamic Ratzilla/WASM.
 | Breadcrumbs | Static | ✅ Done |
 | Button | Dynamic | ✅ Done |
 | Card | Static | ✅ Done |
+| Chat message / thread | Static | 📝 Planned |
 | Calendar | Static | ✅ Done |
 | Chart | Static | ✅ Done |
 | Checkbox | Static | ✅ Done |
@@ -18,7 +19,10 @@ Mode describes each demo: Static Rust frame or Dynamic Ratzilla/WASM.
 | Diff viewer | Static | ✅ Done |
 | Empty state | Static | ✅ Done |
 | File picker | Static | ✅ Done |
+| File change | Static | 📝 Planned |
 | Form field with validation | Static | ✅ Done |
+| Gauge | Static | 📝 Planned |
+| Git status | Static | 📝 Planned |
 | Progress | Static | ✅ Done |
 | Resizable Layout | Dynamic | ✅ Done |
 | Help screen | Static | ✅ Done |
@@ -41,13 +45,18 @@ Mode describes each demo: Static Rust frame or Dynamic Ratzilla/WASM.
 | Split pane | Static | ✅ Done |
 | Spinner | Static | ✅ Done |
 | Status bar | Static | ✅ Done |
+| Streaming text | Static | 📝 Planned |
 | Table | Static | ✅ Done |
 | Tabs | Static | ✅ Done |
+| Token usage / context meter | Static | 📝 Planned |
 | Text area | Static | ✅ Done |
 | Text input | Dynamic | ✅ Done |
+| Tool call | Static | 📝 Planned |
+| Tool approval | Dynamic | 📝 Planned |
 | Tooltip | Static | ✅ Done |
 | Toggle switch | Static | ✅ Done |
 | Tree view | Static | ✅ Done |
+| Wizard / setup flow | Dynamic | 📝 Planned |
 
 
 ## Button
@@ -399,4 +408,70 @@ Formatted text and a list:
 ╭───────────────────────────╮
 │ Press Enter to continue   │
 ╰───────────────────────────╯
+```
+
+## Chat message / thread
+
+```text
+You  │ How did the build fail?
+╭─ Assistant ───────────────────────╮
+│ Missing feature `serde` in Cargo. │
+╰───────────────────────────────────╯
+```
+
+## File change
+
+```text
+ M src/main.rs
+ A src/widgets/gauge.rs
+ D old-demo.rs
+```
+
+## Gauge
+
+```text
+       CPU
+    ◜██████◝
+       72%
+```
+
+## Git status
+
+```text
+  main*  +2  ~1  -1
+  M src/main.rs
+  ?? docs/new-widget.md
+```
+
+## Streaming text
+
+```text
+  Assistant  Building widget demos…▌
+```
+
+## Token usage / context meter
+
+```text
+  Context  12.4k / 32k  [████░░░░░░] 39%
+```
+
+## Tool call
+
+```text
+  $ cargo test
+  ✓ Finished in 1.42s
+```
+
+## Tool approval
+
+```text
+  Run `cargo test`?
+  [a] Approve   [d] Deny
+```
+
+## Wizard / setup flow
+
+```text
+  Setup · Step 2/3
+  ✓ Project   > Features   ○ Confirm
 ```
