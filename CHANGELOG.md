@@ -61,6 +61,8 @@ Notable Term/UI changes are recorded here. Format follows [Keep a Changelog](htt
 
 ### Fixed
 
+- Restore NavigationMenu open/close animations when `viewport=false`.
+- Gate Tooltip enter animations on Radix's `delayed-open` and `instant-open` states; keep exit animation on `closed`.
 - Use checked, overflow-safe sizing for scrollbars and Ratatui ratio constraints.
 - Keep the Ratzilla terminal viewport aligned with pointer coordinates so clicks hit the rendered controls.
 - Keep Toast's native `crossterm` mouse events out of WebAssembly builds.
