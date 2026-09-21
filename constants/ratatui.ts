@@ -15,12 +15,6 @@ export const RATATUI_COMPONENTS = [
     title: "Panel",
   },
   {
-    description: "Keyboard hint bar for terminal app shortcuts.",
-    name: "key-bar",
-    source: "crates/termui-widgets/src/key_bar.rs",
-    title: "Key Bar",
-  },
-  {
     description: "Selectable terminal rows with a full-width active-row highlight.",
     name: "select-list",
     source: "crates/termui-widgets/src/select_list.rs",

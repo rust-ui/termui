@@ -1,23 +1,49 @@
 ---
 title: Dialog
-description: Centered modal shell that returns body and footer areas for composition.
+description: Composable modal components with animated Ratatui overlay, backdrop, and parent-owned state.
 ---
 
-`Dialog` clears and draws a centered shell, then returns separate body and footer rectangles for your widgets.
+Build dialogs from small components. `Dialog` owns open state; `DialogTrigger` and `DialogClose` expose activation hooks; `DialogContent` draws the animated surface and returns regions for header, body, and footer children. Click the trigger in the live preview to open it.
 
 <RustDemo
   name="dialog"
-  title="Dialog · Confirmation"
+  title="Dialog · Interactive confirmation"
+  src="/demos/dialog-interactive/index.html"
+  height={370}
   fontSize={16}
-  code={`use termui_widgets::dialog::Dialog;
+  code={`use std::time::Duration;
+use ratatui::layout::Constraint;
+use termui_widgets::dialog::{
+  Dialog, DialogContent, DialogDescription, DialogFooter, DialogTrigger,
+  DialogHeader, DialogTitle,
+};
 
-let areas = Dialog::new("Delete project?")
-    .size(34, 7)
-    .footer_rows(1)
-    .render(frame, area);
-render_body(frame, areas.body);
-render_actions(frame, areas.footer);`}
+let mut dialog = Dialog::new(); // 180 ms animation by default
+if trigger_was_activated {
+  DialogTrigger::new("Delete project").activate(&mut dialog);
+}
+dialog.tick(elapsed);
+
+if let Some(areas) = DialogContent::new()
+  .width(Constraint::Length(48))
+  .render(frame, area, &mut dialog)
+{
+  DialogHeader::new(DialogTitle::new("Delete project?"))
+    .description(DialogDescription::new("This action cannot be undone."))
+    .render(frame, areas.header);
+  render_body(frame, areas.body);
+  let actions = DialogFooter::new().render(frame, areas.footer);
+  render_actions(frame, actions);
+}`}
 />
+
+## Components
+
+- `Dialog` owns open state and animation timing. Call `open`, `close`, or `toggle` from your app's event handler, then call `tick` with elapsed time each frame.
+- `DialogTrigger::activate(&mut dialog)` opens its parent dialog when the trigger receives activation. `DialogClose::activate(&mut dialog)` closes it.
+- `DialogContent` uses `tui_overlay` for centered placement, bottom-slide animation, rounded chrome, and dim backdrop. Its `DialogAreas` let you compose content with your own Ratatui widgets.
+- `DialogHeader`, `DialogTitle`, and `DialogDescription` compose the heading area. `DialogFooter` draws a separator and returns an area for action buttons.
+- `dialog.close_on_outside_click(position)` closes the dialog when a click lands outside its rendered surface.
 
 ## Source
 
@@ -25,11 +51,18 @@ render_actions(frame, areas.footer);`}
 
 ## Usage
 
-```rust
-use termui_widgets::dialog::Dialog;
+Handle activation in the parent event loop so the dialog stays easy to compose with app-specific input and focus behavior:
 
-let areas = Dialog::new("Settings")
-    .size(40, 10)
-    .footer_rows(1)
-    .render(frame, area);
+```rust
+if trigger_was_activated {
+    trigger.activate(&mut dialog);
+}
+if close_button_was_activated {
+    close_button.activate(&mut dialog);
+}
+if let Some(position) = clicked_position {
+    dialog.close_on_outside_click(position);
+}
+
+dialog.tick(elapsed);
 ```

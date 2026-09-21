@@ -6,7 +6,6 @@
 pub mod button;
 pub mod color_picker;
 pub mod dialog;
-pub mod key_bar;
 pub mod panel;
 pub mod radio_card;
 pub mod select_list;

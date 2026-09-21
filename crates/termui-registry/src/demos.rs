@@ -10,8 +10,6 @@ mod demo_button_variants;
 mod demo_color_picker;
 #[path = "demos/demo_dialog.rs"]
 mod demo_dialog;
-#[path = "demos/demo_key_bar.rs"]
-mod demo_key_bar;
 #[path = "demos/demo_panel.rs"]
 mod demo_panel;
 #[path = "demos/demo_radio_card.rs"]
@@ -31,7 +29,6 @@ const DEMOS: &[(&str, DemoRenderer)] = &[
     ("rust/button-variants", demo_button_variants::render),
     ("rust/color-picker", demo_color_picker::render),
     ("rust/dialog", demo_dialog::render),
-    ("rust/key-bar", demo_key_bar::render),
     ("rust/panel", demo_panel::render),
     ("rust/radio-card", demo_radio_card::render),
     ("rust/select-list", demo_select_list::render),

@@ -1,29 +1,38 @@
-use ratatui::layout::Alignment;
+use ratatui::layout::{Alignment, Constraint, Layout};
 use ratatui::style::{Color, Style};
-use ratatui::text::{Line, Span};
-use ratatui::widgets::Paragraph;
+use ratatui::widgets::{Block, BorderType, Paragraph};
 use termui_renderer::render_frame;
-use termui_widgets::dialog::Dialog;
+use termui_widgets::dialog::DialogTrigger;
 
 pub(super) fn render() -> Vec<String> {
-    render_frame(11, |frame| {
-        let areas = Dialog::new("Delete project?")
-            .size(34, 7)
-            .footer_rows(1)
-            .border_style(Style::default().fg(Color::Rgb(63, 63, 70)))
-            .render(frame, frame.area());
+    render_frame(7, |frame| {
+        let area = frame.area();
+        let shell = Block::bordered()
+            .border_type(BorderType::Rounded)
+            .border_style(Color::Rgb(63, 63, 70));
+        let inner = shell.inner(area);
+        frame.render_widget(shell, area);
 
+        let [title, description, trigger, _] =
+            Layout::vertical([Constraint::Length(1); 4]).areas(inner);
         frame.render_widget(
-            Paragraph::new("This action cannot be undone.").style(Style::default().fg(Color::Gray)),
-            areas.body,
+            Paragraph::new("Project settings")
+                .alignment(Alignment::Center)
+                .style(Style::default().fg(Color::White)),
+            title,
         );
         frame.render_widget(
-            Paragraph::new(Line::from(vec![
-                Span::raw("[ Cancel ]  "),
-                Span::styled("[ Delete ]", Style::default().fg(Color::Rgb(239, 68, 68))),
-            ]))
-            .alignment(Alignment::Right),
-            areas.footer,
+            Paragraph::new("Review before deleting")
+                .alignment(Alignment::Center)
+                .style(Style::default().fg(Color::Gray)),
+            description,
         );
+        let button = ratatui::layout::Rect::new(
+            inner.x + inner.width.saturating_sub(20) / 2,
+            trigger.y,
+            20.min(inner.width),
+            1,
+        );
+        DialogTrigger::new("Delete project").render(frame, button);
     })
 }

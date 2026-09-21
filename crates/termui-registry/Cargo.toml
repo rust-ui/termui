@@ -21,3 +21,7 @@ path = "src/main.rs"
 [[bin]]
 name = "button-interactive"
 path = "src/demos/demo_button_interactive.rs"
+
+[[bin]]
+name = "dialog-interactive"
+path = "src/demos/demo_dialog_interactive.rs"

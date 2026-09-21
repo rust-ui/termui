@@ -15,7 +15,7 @@
     "start": "next start",
     "typecheck": "next typegen && tsc --noEmit",
     "demos:build": "node ./scripts/build-rust-demos.mts",
-    "demos:ratzilla:build": "cd crates/termui-registry && env -u NO_COLOR trunk build --release --dist ../../public/demos/button-interactive",
+    "demos:ratzilla:build": "cd crates/termui-registry && env -u NO_COLOR trunk build --release --dist ../../public/demos/button-interactive index.html && env -u NO_COLOR trunk build --release --config Trunk.toml --dist ../../public/demos/dialog-interactive --public-url /demos/dialog-interactive/ dialog-interactive.html",
     "demos:ratzilla:serve": "cd crates/termui-registry && env -u NO_COLOR trunk serve --public-url / --serve-base / --address 127.0.0.1 --port 8081",
     "examples:build": "node ./scripts/build-examples.mts",
     "registry:build": "pnpm examples:build && node ./scripts/build-registry.mts",
