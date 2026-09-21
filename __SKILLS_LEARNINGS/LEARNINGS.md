@@ -10,6 +10,7 @@ One line per reusable project lesson. Format: `YYYY-MM-DD [domain] avoid X, do Y
 ## Inbox
 
 - 2026-09-21 [termui/content] mirror RUSTIFY's validated Fumadocs article model under `domains/` and `app/(seo)/`, but adapt author claims, CTAs, and UI to Term/UI's independent product.
+- 2026-09-21 [termui/refactors] update test fixtures and generators alongside domain moves; lint/typecheck can pass while runtime checks still read old paths.
 - 2026-09-21 [termui/overlays] hit-test outside clicks against `OverlayState::overlay_rect` after child controls; inside clicks and triggers must keep their own behavior.
 - 2026-09-21 [termui/seo] use Search Console query/page data to choose Ratatui content work; improve component pages with distinct use cases and verified Rust examples instead of generic long-form word-count targets.
 - 2026-09-21 [termui/widgets] compose stateful overlays from parent-owned state, trigger, content, and close controls; let the app route input so each part stays reusable.

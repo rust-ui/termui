@@ -5,8 +5,14 @@ import { collectMdxDemoReferences } from "./lib/demo-mdx.mts";
 
 const root = process.cwd();
 const docsRoot = path.join(root, "content", "docs");
-const ratatuiConstants = path.join(root, "constants", "ratatui.ts");
-const outputFile = path.join(root, "lib", "termui-registry", "previews.generated.json");
+const ratatuiConstants = path.join(root, "domains", "ratatui", "config.ts");
+const outputFile = path.join(
+  root,
+  "domains",
+  "ratatui",
+  "registry",
+  "previews.generated.json",
+);
 
 const names: string[] = [];
 

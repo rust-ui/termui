@@ -3,6 +3,8 @@ import { promises as fs } from "node:fs";
 import path from "node:path";
 import test from "node:test";
 
+import { RATATUI_DEMO_BASE } from "../domains/ratatui/config.ts";
+
 import { collectMdxDemoReferences } from "../scripts/lib/demo-mdx.mts";
 import {
   collectInteractiveDemos,
@@ -196,13 +198,9 @@ test("MDX demos match checked-in Rust previews and interactive assets", async ()
     await fs.access(path.join(root, "public/demos", file));
   }
 
-  const constants = await fs.readFile(path.join(root, "constants/ratatui.ts"), "utf8");
-  const demoBase = constants.match(/RATATUI_DEMO_BASE\s*=\s*["']([^"']+)["']/)?.[1];
-  assert.ok(demoBase, "RATATUI_DEMO_BASE must be defined");
-
   const previews = JSON.parse(
     await fs.readFile(
-      path.join(root, "lib/termui-registry/previews.generated.json"),
+      path.join(root, "domains/ratatui/registry/previews.generated.json"),
       "utf8",
     ),
   ) as Record<string, unknown>;
@@ -218,7 +216,7 @@ test("MDX demos match checked-in Rust previews and interactive assets", async ()
 
   assert.ok(staticRefs.length > 0, "MDX must reference static demos");
   for (const name of new Set(staticRefs)) {
-    const frames = previews[`${demoBase}/${name}`];
+    const frames = previews[`${RATATUI_DEMO_BASE}/${name}`];
     assert.ok(
       Array.isArray(frames) && frames.length > 0,
       `${name} needs generated frames`,

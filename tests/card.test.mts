@@ -14,7 +14,7 @@ test("Card docs use the checked-in Rust preview", async () => {
   );
   const previews = JSON.parse(
     await fs.readFile(
-      path.join(root, "lib/termui-registry/previews.generated.json"),
+      path.join(root, "domains/ratatui/registry/previews.generated.json"),
       "utf8",
     ),
   ) as Record<string, unknown>;
