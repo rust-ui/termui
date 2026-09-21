@@ -62,9 +62,11 @@ function parseAnsiLine(line: string) {
 export const RustPreview = ({
   name,
   rows = 18,
+  fontSize = 12,
 }: {
   name: string;
   rows?: number;
+  fontSize?: number;
 }) => {
   const [themeKey] = useTerminalTheme();
   const theme = terminalThemeMap[themeKey];
@@ -94,7 +96,7 @@ export const RustPreview = ({
     >
       <pre
         className="m-0 min-w-max font-mono text-xs leading-[18px]"
-        style={{ color: theme.colors.foreground, textAlign: "center" }}
+        style={{ color: theme.colors.foreground, textAlign: "center", fontSize }}
       >
         {frame.map((line, row) => (
           <span key={row}>

@@ -39,9 +39,9 @@ pub enum ButtonSize {
 impl ButtonSize {
     const fn padding(self) -> usize {
         match self {
-            Self::Sm => 0,
-            Self::Default => 1,
-            Self::Lg => 2,
+            Self::Sm => 1,
+            Self::Default => 2,
+            Self::Lg => 3,
         }
     }
 }

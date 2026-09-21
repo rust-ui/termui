@@ -12,6 +12,7 @@ description: Shadcn-inspired terminal button with six color and style variants.
 <RustDemo
   name="button"
   title="Button · Default"
+  fontSize={16}
   code={`use termui_widgets::button::Button;
 
 Button::new("Save changes").render(frame, area);`}
@@ -24,6 +25,7 @@ Button::new("Save changes").render(frame, area);`}
 <RustDemo
   name="button-variants"
   title="Button · Variants"
+  fontSize={16}
   code={`use termui_widgets::button::{Button, ButtonVariant};
 
 Button::new("Save").variant(ButtonVariant::Default).render(frame, area);
@@ -41,6 +43,7 @@ Sizes adjust horizontal padding in terminal cells.
 <RustDemo
   name="button-sizes"
   title="Button · Sizes"
+  fontSize={16}
   code={`use termui_widgets::button::{Button, ButtonSize};
 
 Button::new("Small").size(ButtonSize::Sm).render(frame, area);
@@ -57,6 +60,7 @@ This live Ratatui app runs in Rust through Ratzilla and WebAssembly. Click **Inc
   title="Button · Interactive Ratatui"
   src="/demos/button-interactive/index.html"
   height={370}
+  fontSize={16}
   code={`use ratzilla::{DomBackend, WebRenderer};
 use ratzilla::ratatui::Terminal;
 

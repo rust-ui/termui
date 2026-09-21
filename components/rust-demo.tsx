@@ -13,6 +13,7 @@ interface RustDemoProps {
   title?: string;
   rows?: number;
   height?: number;
+  fontSize?: number;
 }
 
 /** Preview/code switcher for checked-in Rust-rendered widget examples. */
@@ -23,6 +24,7 @@ export function RustDemo({
   title = name,
   rows = 18,
   height = 370,
+  fontSize = 12,
 }: RustDemoProps) {
   return (
     <Tabs defaultValue="preview" className="my-6 gap-2">
@@ -47,7 +49,7 @@ export function RustDemo({
               style={{ height }}
             />
           ) : (
-            <RustPreview name={name} rows={rows} />
+            <RustPreview name={name} rows={rows} fontSize={fontSize} />
           )}
         </div>
       </TabsContent>
