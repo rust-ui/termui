@@ -14,6 +14,7 @@ Notable Term/UI changes are recorded here. Format follows [Keep a Changelog](htt
 
 ### Changed
 
+- Removed the duplicate Widgets link from the docs Sections navigation; widget links remain grouped below.
 - Added a Usage section after Source on each widget page.
 - Moved the button example into a dedicated Usage section after its source.
 - Replaced Carbon Ads in the documentation with a Rustify CTA linking to `rustify.rs`.
