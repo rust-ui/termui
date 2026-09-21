@@ -1,0 +1,198 @@
+---
+title: "Usage Monitor"
+description: "Real-time dashboard with diamond header, progress metrics, burn rate, predictions, and status bar"
+---
+
+<ComponentPreview base="opentui" name="usage-monitor-demo" hideCode />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @termcn/opentui/usage-monitor
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @opentui/react
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/opentui/ui/types.ts"
+  title="components/ui/types.ts"
+/>
+
+<ComponentSource
+  src="registry/bases/opentui/themes/default.ts"
+  title="lib/terminal-themes/default.ts"
+/>
+
+<ComponentSource
+  src="registry/bases/opentui/hooks/use-theme.ts"
+  title="hooks/use-theme.ts"
+/>
+
+<ComponentSource
+  base="opentui"
+  name="usage-monitor"
+  title="components/ui/usage-monitor.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { UsageMonitor } from "@/components/ui/usage-monitor";
+```
+
+```tsx
+<UsageMonitor refreshInterval={2000}>
+  <UsageMonitor.Header title="API Usage Dashboard" />
+  <UsageMonitor.Tags items={["Pro Plan", "Billing: Monthly", "US-East"]} />
+  <UsageMonitor.Section icon="📊" title="Requests">
+    <UsageMonitor.Metric
+      label="API Calls"
+      value={8420}
+      max={10000}
+      percent={84.2}
+      status="yellow"
+      format="number"
+    />
+  </UsageMonitor.Section>
+  <UsageMonitor.Stats>
+    <UsageMonitor.StatRow label="Avg Latency" value="142ms" />
+    <UsageMonitor.StatRow label="Error Rate" value="0.3%" valueColor="green" />
+  </UsageMonitor.Stats>
+  <UsageMonitor.StatusBar clock sessionLabel="dashboard" exitHint="q to quit" />
+</UsageMonitor>
+```
+
+## API Reference
+
+### UsageMonitor
+
+| Prop              | Type        | Default    |
+| ----------------- | ----------- | ---------- |
+| `refreshInterval` | `number`    | `1000`     |
+| `separatorChar`   | `string`    | `"─"`      |
+| `children`        | `ReactNode` | `required` |
+
+### UsageMonitor.Header
+
+| Prop             | Type     | Default     |
+| ---------------- | -------- | ----------- |
+| `title`          | `string` | `required`  |
+| `titleColor`     | `string` | `"cyan"`    |
+| `decorator`      | `string` | `"◆ ✦ ◆ ✦"` |
+| `separatorChar`  | `string` | `"═"`       |
+| `separatorColor` | `string` | -           |
+
+### UsageMonitor.Tags
+
+| Prop             | Type       | Default    |
+| ---------------- | ---------- | ---------- |
+| `items`          | `string[]` | `required` |
+| `bracketColor`   | `string`   | `"cyan"`   |
+| `separatorColor` | `string`   | `"cyan"`   |
+
+### UsageMonitor.Section
+
+| Prop       | Type        | Default    |
+| ---------- | ----------- | ---------- |
+| `icon`     | `string`    | -          |
+| `title`    | `string`    | -          |
+| `subtitle` | `string`    | -          |
+| `children` | `ReactNode` | `required` |
+
+### UsageMonitor.Metric
+
+| Prop           | Type                                                            | Default    |
+| -------------- | --------------------------------------------------------------- | ---------- |
+| `icon`         | `string`                                                        | -          |
+| `label`        | `string`                                                        | `required` |
+| `value`        | `number`                                                        | `required` |
+| `max`          | `number`                                                        | `required` |
+| `percent`      | `number`                                                        | `required` |
+| `status`       | `"green" \| "yellow" \| "red" \| "blue"`                        | `required` |
+| `format`       | `"number" \| "currency" \| "duration" \| "percent" \| "custom"` | `required` |
+| `formatFn`     | `(v: number, max: number) => string`                            | -          |
+| `barWidth`     | `number`                                                        | `22`       |
+| `barFillChar`  | `string`                                                        | `"█"`      |
+| `barEmptyChar` | `string`                                                        | `"░"`      |
+| `barColor`     | `string`                                                        | `"white"`  |
+| `maxDim`       | `boolean`                                                       | `false`    |
+| `showMax`      | `boolean`                                                       | `true`     |
+
+### UsageMonitor.DistributionMetric
+
+| Prop       | Type                                                   | Default    |
+| ---------- | ------------------------------------------------------ | ---------- |
+| `icon`     | `string`                                               | -          |
+| `label`    | `string`                                               | `required` |
+| `segments` | `{ label: string; percent: number; color?: string }[]` | `required` |
+| `barWidth` | `number`                                               | `22`       |
+
+### UsageMonitor.Stats
+
+| Prop       | Type        | Default    |
+| ---------- | ----------- | ---------- |
+| `children` | `ReactNode` | `required` |
+
+### UsageMonitor.StatRow
+
+| Prop          | Type     | Default    |
+| ------------- | -------- | ---------- |
+| `icon`        | `string` | -          |
+| `label`       | `string` | `required` |
+| `value`       | `string` | `required` |
+| `valueSuffix` | `string` | -          |
+| `valueColor`  | `string` | `"white"`  |
+
+### UsageMonitor.Predictions
+
+| Prop       | Type        | Default    |
+| ---------- | ----------- | ---------- |
+| `children` | `ReactNode` | `required` |
+
+### UsageMonitor.Prediction
+
+| Prop         | Type     | Default    |
+| ------------ | -------- | ---------- |
+| `label`      | `string` | `required` |
+| `value`      | `string` | `required` |
+| `valueColor` | `string` | `"yellow"` |
+
+### UsageMonitor.StatusBar
+
+| Prop           | Type                           | Default   |
+| -------------- | ------------------------------ | --------- |
+| `clock`        | `boolean`                      | `false`   |
+| `clockColor`   | `string`                       | `"cyan"`  |
+| `sessionLabel` | `string`                       | -         |
+| `sessionColor` | `string`                       | `"green"` |
+| `exitHint`     | `string`                       | -         |
+| `statusDot`    | `"green" \| "yellow" \| "red"` | `"green"` |
+| `separator`    | `string`                       | `" \| "`  |

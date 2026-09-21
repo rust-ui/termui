@@ -1,0 +1,136 @@
+---
+title: "Alert"
+description: "Alert box with success/error/warning/info variants"
+---
+
+<ComponentPreview base="ink" name="alert-demo" hideCode />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @termcn/ink/alert
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install ink
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/ink/ui/types.ts"
+  title="components/ui/types.ts"
+/>
+
+<ComponentSource
+  src="registry/bases/ink/themes/default.ts"
+  title="lib/terminal-themes/default.ts"
+/>
+
+<ComponentSource
+  src="registry/bases/ink/hooks/use-theme.ts"
+  title="hooks/use-theme.ts"
+/>
+
+<ComponentSource
+  src="registry/bases/ink/hooks/use-unicode.ts"
+  title="hooks/use-unicode.ts"
+/>
+
+<ComponentSource
+  src="registry/bases/ink/lib/terminal-style.ts"
+  title="lib/terminal-style.ts"
+/>
+
+<ComponentSource
+  src="registry/bases/ink/lib/terminal-symbols.ts"
+  title="lib/terminal-symbols.ts"
+/>
+
+<ComponentSource base="ink" name="alert" title="components/ui/alert.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { Alert } from "@/components/ui/alert";
+```
+
+```tsx
+<Alert variant="success" title="Build complete">
+  Everything is ready to ship.
+</Alert>
+```
+
+## Examples
+
+### Error
+
+Use `variant="error"` to display an error alert.
+
+<ComponentPreview base="ink" name="alert-error" />
+
+### Warning
+
+Use `variant="warning"` to display a warning alert.
+
+<ComponentPreview base="ink" name="alert-warning" />
+
+### Without Border
+
+Set `bordered={false}` to remove the border.
+
+<ComponentPreview base="ink" name="alert-no-border" />
+
+### Custom Icon and Color
+
+Override the icon and color with `icon` and `color` props.
+
+<ComponentPreview base="ink" name="alert-custom" />
+
+## API Reference
+
+### Alert
+
+| Prop          | Type                                                                                         | Default  |
+| ------------- | -------------------------------------------------------------------------------------------- | -------- |
+| `variant`     | `"success" \| "error" \| "warning" \| "info"`                                                | `"info"` |
+| `title`       | `string`                                                                                     | -        |
+| `children`    | `ReactNode`                                                                                  | -        |
+| `icon`        | `string`                                                                                     | -        |
+| `bordered`    | `boolean`                                                                                    | `true`   |
+| `borderStyle` | `"single" \| "double" \| "round" \| "bold" \| "singleDouble" \| "doubleSingle" \| "classic"` | -        |
+| `color`       | `string`                                                                                     | -        |
+| `paddingX`    | `number`                                                                                     | `1`      |
+| `paddingY`    | `number`                                                                                     | `0`      |
+
+## Notes
+
+### Accessibility
+
+termcn exposes the following behavior through Ink's terminal accessibility APIs. This is not a browser ARIA or general WCAG-conformance claim.
+
+- **Screen reader:** Screen-reader mode removes decorative output while preserving meaningful labels and state.

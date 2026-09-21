@@ -1,0 +1,94 @@
+---
+title: "Multi Select"
+description: "Multi-select list with checkboxes and select-all"
+---
+
+<ComponentPreview base="opentui" name="multi-select-demo" hideCode />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @termcn/opentui/multi-select
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @opentui/react
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/opentui/ui/types.ts"
+  title="components/ui/types.ts"
+/>
+
+<ComponentSource
+  src="registry/bases/opentui/themes/default.ts"
+  title="lib/terminal-themes/default.ts"
+/>
+
+<ComponentSource
+  src="registry/bases/opentui/hooks/use-theme.ts"
+  title="hooks/use-theme.ts"
+/>
+
+<ComponentSource
+  base="opentui"
+  name="multi-select"
+  title="components/ui/multi-select.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { MultiSelect } from "@/components/ui/multi-select";
+```
+
+```tsx
+<MultiSelect
+  options={[
+    { value: "react", label: "React" },
+    { value: "vue", label: "Vue" },
+    { value: "svelte", label: "Svelte" },
+  ]}
+  onChange={(values) => {}}
+/>
+```
+
+## API Reference
+
+### MultiSelect
+
+| Prop        | Type                     | Default    |
+| ----------- | ------------------------ | ---------- |
+| `options`   | `MultiSelectOption<T>[]` | `required` |
+| `value`     | `T[]`                    | -          |
+| `onChange`  | `(values: T[]) => void`  | -          |
+| `onSubmit`  | `(values: T[]) => void`  | -          |
+| `cursor`    | `string`                 | `"›"`      |
+| `checkmark` | `string`                 | `"◉"`      |
+| `height`    | `number`                 | -          |

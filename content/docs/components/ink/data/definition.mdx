@@ -1,0 +1,102 @@
+---
+title: "Definition"
+description: "Term–description definition list"
+---
+
+<ComponentPreview base="ink" name="definition-demo" hideCode />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @termcn/ink/definition
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install ink
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/ink/ui/types.ts"
+  title="components/ui/types.ts"
+/>
+
+<ComponentSource
+  src="registry/bases/ink/themes/default.ts"
+  title="lib/terminal-themes/default.ts"
+/>
+
+<ComponentSource
+  src="registry/bases/ink/hooks/use-theme.ts"
+  title="hooks/use-theme.ts"
+/>
+
+<ComponentSource
+  base="ink"
+  name="definition"
+  title="components/ui/definition.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { Definition } from "@/components/ui/definition";
+```
+
+```tsx
+<Definition
+  items={[
+    { term: "CLI", description: "Command Line Interface" },
+    { term: "TUI", description: "Terminal User Interface" },
+  ]}
+/>
+```
+
+## API Reference
+
+### Definition
+
+| Prop        | Type               | Default    |
+| ----------- | ------------------ | ---------- |
+| `items`     | `DefinitionItem[]` | `required` |
+| `termColor` | `string`           | -          |
+
+### DefinitionItem
+
+| Prop          | Type     | Default    |
+| ------------- | -------- | ---------- |
+| `term`        | `string` | `required` |
+| `description` | `string` | `required` |
+
+## Notes
+
+### Accessibility
+
+termcn exposes the following behavior through Ink's terminal accessibility APIs. This is not a browser ARIA or general WCAG-conformance claim.
+
+- **Screen reader:** Ink labels and semantic state expose the component without relying on visual styling alone.

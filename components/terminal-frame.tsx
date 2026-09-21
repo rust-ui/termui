@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { RustPreview } from "@/components/rust-preview";
 
 interface TerminalFrameProps {
   title: string;
@@ -8,9 +9,7 @@ interface TerminalFrameProps {
 }
 
 /**
- * macOS-style window chrome around a live Ratatui-over-WASM demo.
- * The chrome is plain CSS; the body is a real Rust binary (ratzilla)
- * running in an iframe, not a replayed recording.
+ * macOS-style window chrome around a frame rendered by the native Rust demo renderer.
  */
 export function TerminalFrame({
   title,
@@ -31,11 +30,10 @@ export function TerminalFrame({
         <span className="h-3 w-3 rounded-full bg-green-500/80" />
         <span className="ml-2 text-xs text-muted-foreground">{title}</span>
       </div>
-      <iframe
-        src={src}
-        title={title}
-        style={{ height }}
-        className="w-full border-0 bg-background"
+      <RustPreview
+        base="rust"
+        name={src.split("/").at(-2) ?? "demo"}
+        rows={Math.ceil(height / 18)}
       />
     </div>
   );

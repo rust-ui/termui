@@ -1,0 +1,113 @@
+---
+title: "Progress Bar"
+description: "Determinate progress bar with percent and value/total display"
+---
+
+<ComponentPreview base="ink" name="progress-bar-demo" hideCode />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @termcn/ink/progress-bar
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install ink
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/ink/ui/types.ts"
+  title="components/ui/types.ts"
+/>
+
+<ComponentSource
+  src="registry/bases/ink/themes/default.ts"
+  title="lib/terminal-themes/default.ts"
+/>
+
+<ComponentSource
+  src="registry/bases/ink/hooks/use-theme.ts"
+  title="hooks/use-theme.ts"
+/>
+
+<ComponentSource
+  src="registry/bases/ink/hooks/use-unicode.ts"
+  title="hooks/use-unicode.ts"
+/>
+
+<ComponentSource
+  src="registry/bases/ink/lib/terminal-symbols.ts"
+  title="lib/terminal-symbols.ts"
+/>
+
+<ComponentSource
+  base="ink"
+  name="progress-bar"
+  title="components/ui/progress-bar.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ProgressBar } from "@/components/ui/progress-bar";
+```
+
+```tsx
+<ProgressBar value={42} total={100} label="Uploading" />
+```
+
+## Examples
+
+### Custom Characters and Color
+
+<ComponentPreview base="ink" name="progress-bar-custom" />
+
+## API Reference
+
+### ProgressBar
+
+| Prop          | Type      | Default    |
+| ------------- | --------- | ---------- |
+| `value`       | `number`  | `required` |
+| `total`       | `number`  | -          |
+| `width`       | `number`  | `30`       |
+| `showPercent` | `boolean` | `true`     |
+| `showEta`     | `boolean` | `false`    |
+| `fillChar`    | `string`  | `"█"`      |
+| `emptyChar`   | `string`  | `"░"`      |
+| `color`       | `string`  | -          |
+| `label`       | `string`  | -          |
+
+## Notes
+
+### Accessibility
+
+termcn exposes the following behavior through Ink's terminal accessibility APIs. This is not a browser ARIA or general WCAG-conformance claim.
+
+- **Screen reader:** Ink labels and semantic state expose the component without relying on visual styling alone.

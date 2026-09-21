@@ -1,0 +1,128 @@
+---
+title: "Tool Call"
+description: "Displays an AI tool invocation with status indicator, args, result, and elapsed time"
+---
+
+<ComponentPreview base="ink" name="tool-call-demo" hideCode />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @termcn/ink/tool-call
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install ink
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/ink/ui/types.ts"
+  title="components/ui/types.ts"
+/>
+
+<ComponentSource
+  src="registry/bases/ink/themes/default.ts"
+  title="lib/terminal-themes/default.ts"
+/>
+
+<ComponentSource
+  src="registry/bases/ink/hooks/use-theme.ts"
+  title="hooks/use-theme.ts"
+/>
+
+<ComponentSource
+  src="registry/bases/ink/hooks/use-unicode.ts"
+  title="hooks/use-unicode.ts"
+/>
+
+<ComponentSource
+  src="registry/bases/ink/hooks/use-motion.ts"
+  title="hooks/use-motion.ts"
+/>
+
+<ComponentSource
+  src="registry/bases/ink/hooks/use-animation.ts"
+  title="hooks/use-animation.ts"
+/>
+
+<ComponentSource
+  src="registry/bases/ink/hooks/use-interaction.tsx"
+  title="hooks/use-interaction.tsx"
+/>
+
+<ComponentSource
+  src="registry/bases/ink/lib/terminal-symbols.ts"
+  title="lib/terminal-symbols.ts"
+/>
+
+<ComponentSource
+  base="ink"
+  name="tool-call"
+  title="components/ui/tool-call.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ToolCall } from "@/components/ui/tool-call";
+```
+
+```tsx
+<ToolCall
+  name="search_codebase"
+  args={{ query: "handleSubmit", maxResults: 10 }}
+  status="success"
+  result="Found 3 matches in src/components/"
+  duration={245}
+/>
+```
+
+## API Reference
+
+### ToolCall
+
+| Prop               | Type                                             | Default    |
+| ------------------ | ------------------------------------------------ | ---------- |
+| `name`             | `string`                                         | `required` |
+| `args`             | `Record<string, unknown>`                        | -          |
+| `status`           | `"pending" \| "running" \| "success" \| "error"` | `required` |
+| `result`           | `unknown`                                        | -          |
+| `duration`         | `number`                                         | -          |
+| `collapsible`      | `boolean`                                        | `true`     |
+| `defaultCollapsed` | `boolean`                                        | `true`     |
+
+## Notes
+
+### Accessibility
+
+termcn exposes the following behavior through Ink's terminal accessibility APIs. This is not a browser ARIA or general WCAG-conformance claim.
+
+- **Keyboard:** `Enter` / `Space` activate the focused action when enabled; `Escape` dismisses or cancels when supported; `Tab` / `Shift+Tab` move through Ink focus targets.
+- **Focus and composition:** Input is active only while the component's focus target is focused, enabled, active, and inside the topmost focus scope.
+- **Screen reader:** Ink labels and semantic state expose the component without relying on visual styling alone.

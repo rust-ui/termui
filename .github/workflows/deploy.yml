@@ -1,0 +1,164 @@
+name: Build and Deploy TERMUI
+
+on:
+  workflow_dispatch:
+    inputs:
+      skip_build:
+        description: Skip image build and redeploy the current image
+        required: false
+        default: false
+        type: boolean
+
+concurrency:
+  group: termui-shared-apps-production
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 11.24.0
+          run_install: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Typecheck
+        run: pnpm typecheck
+
+  build:
+    runs-on: ubuntu-latest
+    if: inputs.skip_build != true
+    outputs:
+      image_tag: ${{ steps.tag.outputs.sha }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ vars.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_TOKEN }}
+
+      - name: Generate image tag
+        id: tag
+        run: echo "sha=${GITHUB_SHA::7}" >> "$GITHUB_OUTPUT"
+
+      - name: Build and push image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: |
+            ${{ vars.DOCKER_USERNAME }}/${{ vars.DOCKER_REPOSITORY }}:${{ steps.tag.outputs.sha }}
+            ${{ vars.DOCKER_USERNAME }}/${{ vars.DOCKER_REPOSITORY }}:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+  deploy:
+    needs: [build, quality]
+    if: always() && (needs.build.result == 'success' || needs.build.result == 'skipped') && needs.quality.result == 'success'
+    runs-on: ubuntu-latest
+    env:
+      SERVER_IP: ${{ vars.SERVER_IP }}
+      DOCKER_USERNAME: ${{ vars.DOCKER_USERNAME }}
+      DOCKER_REPOSITORY: ${{ vars.DOCKER_REPOSITORY }}
+      IMAGE_TAG: ${{ needs.build.outputs.image_tag }}
+      LETSENCRYPT_EMAIL: ${{ vars.LETSENCRYPT_EMAIL }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up SSH key
+        env:
+          DEPLOY_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        run: |
+          set -euo pipefail
+          mkdir -p "$HOME/.ssh"
+          chmod 700 "$HOME/.ssh"
+          printf '%s\n' "$DEPLOY_KEY" > "$HOME/.ssh/deploy_key"
+          chmod 600 "$HOME/.ssh/deploy_key"
+          ssh-keyscan -H "$SERVER_IP" >> "$HOME/.ssh/known_hosts"
+
+      - name: Prepare deploy directory and copy configs
+        run: |
+          set -euo pipefail
+          SSH=(ssh -i "$HOME/.ssh/deploy_key" -o BatchMode=yes -o StrictHostKeyChecking=yes "root@$SERVER_IP")
+          SCP=(scp -i "$HOME/.ssh/deploy_key" -o BatchMode=yes -o StrictHostKeyChecking=yes)
+          "${SSH[@]}" "install -d -m 0700 ~/termui ~/termui/.docker"
+          "${SCP[@]}" docker-compose.yml nginx.termui.conf nginx.termui.bootstrap.conf "root@$SERVER_IP:~/termui/"
+
+      - name: Log in to Docker Hub on shared-apps
+        env:
+          DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
+        run: |
+          set -euo pipefail
+          printf '%s' "$DOCKER_TOKEN" | ssh -i "$HOME/.ssh/deploy_key" -o BatchMode=yes -o StrictHostKeyChecking=yes "root@$SERVER_IP" "DOCKER_CONFIG=/root/termui/.docker docker login --username '$DOCKER_USERNAME' --password-stdin"
+
+      - name: Write deployment config
+        run: |
+          set -euo pipefail
+          SSH=(ssh -i "$HOME/.ssh/deploy_key" -o BatchMode=yes -o StrictHostKeyChecking=yes "root@$SERVER_IP")
+          IMAGE_TAG="$IMAGE_TAG"
+          if [ -z "$IMAGE_TAG" ]; then
+            IMAGE_TAG="$("${SSH[@]}" "grep -m1 '^IMAGE_TAG=' ~/termui/.env 2>/dev/null | cut -d= -f2- || true")"
+          fi
+          test -n "$IMAGE_TAG" || { echo "No image tag available; run with skip_build=false first."; exit 1; }
+          printf 'DOCKER_USERNAME=%s\nDOCKER_REPOSITORY=%s\nIMAGE_TAG=%s\n' "$DOCKER_USERNAME" "$DOCKER_REPOSITORY" "$IMAGE_TAG" > "$RUNNER_TEMP/termui.env"
+          chmod 600 "$RUNNER_TEMP/termui.env"
+          scp -i "$HOME/.ssh/deploy_key" -o BatchMode=yes -o StrictHostKeyChecking=yes "$RUNNER_TEMP/termui.env" "root@$SERVER_IP:~/termui/.env"
+          rm -f "$RUNNER_TEMP/termui.env"
+
+      - name: Provision TLS and configure Nginx
+        run: |
+          set -euo pipefail
+          : "${LETSENCRYPT_EMAIL:?Set repository variable LETSENCRYPT_EMAIL}"
+          ssh -i "$HOME/.ssh/deploy_key" -o BatchMode=yes -o StrictHostKeyChecking=yes "root@$SERVER_IP" "LETSENCRYPT_EMAIL='$LETSENCRYPT_EMAIL' bash -s" <<'REMOTE'
+          set -euo pipefail
+          if [ ! -s /etc/letsencrypt/live/termui.rustify.app/fullchain.pem ]; then
+            install -m 0644 ~/termui/nginx.termui.bootstrap.conf /etc/nginx/conf.d/termui.conf
+            nginx -t
+            systemctl reload nginx
+            certbot certonly --nginx --non-interactive --agree-tos --email "$LETSENCRYPT_EMAIL" --cert-name termui.rustify.app -d termui.rustify.app
+          fi
+          install -m 0644 ~/termui/nginx.termui.conf /etc/nginx/conf.d/termui.conf
+          nginx -t
+          systemctl reload nginx
+          REMOTE
+
+      - name: Pull and start TERMUI
+        run: |
+          set -euo pipefail
+          ssh -i "$HOME/.ssh/deploy_key" -o BatchMode=yes -o StrictHostKeyChecking=yes "root@$SERVER_IP" "cd ~/termui && DOCKER_CONFIG=/root/termui/.docker docker compose pull && DOCKER_CONFIG=/root/termui/.docker docker compose up -d"
+
+      - name: Smoke test
+        run: |
+          set -euo pipefail
+          SSH=(ssh -i "$HOME/.ssh/deploy_key" -o BatchMode=yes -o StrictHostKeyChecking=yes "root@$SERVER_IP")
+          for attempt in $(seq 1 30); do
+            if "${SSH[@]}" "curl -fsS http://127.0.0.1:5103/api/status >/dev/null"; then
+              "${SSH[@]}" "curl -fsS --resolve termui.rustify.app:443:127.0.0.1 https://termui.rustify.app/health"
+              exit 0
+            fi
+            sleep 2
+          done
+          "${SSH[@]}" "cd ~/termui && docker compose logs --tail=80 app"
+          exit 1

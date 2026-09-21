@@ -1,0 +1,3124 @@
+{
+  "ink/alert-custom": [
+    "╭─ Alert Custom──────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Alert Custom                  │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/alert-demo": [
+    "╭─ Alert Demo────────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Alert Demo                    │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/alert-error": [
+    "╭─ Alert Error───────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Alert Error                   │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/alert-no-border": [
+    "╭─ Alert No Border───────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Alert No Border               │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/alert-warning": [
+    "╭─ Alert Warning─────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Alert Warning                 │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/app-shell-demo": [
+    "╭─ App Shell Demo────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: App Shell Demo                │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/aspect-ratio-demo": [
+    "╭─ Aspect Ratio Demo─────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Aspect Ratio Demo             │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/badge-basic": [
+    "╭─ Badge Basic───────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Badge Basic                   │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/badge-bold": [
+    "╭─ Badge Bold────────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Badge Bold                    │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/badge-custom-border": [
+    "╭─ Badge Custom Border───────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Badge Custom Border           │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/badge-demo": [
+    "╭─ Badge Demo────────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Badge Demo                    │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/banner-demo": [
+    "╭─ Banner Demo───────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Banner Demo                   │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/banner-error": [
+    "╭─ Banner Error──────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Banner Error                  │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/banner-success": [
+    "╭─ Banner Success────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Banner Success                │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/bar-chart-demo": [
+    "╭─ Bar Chart Demo────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Bar Chart Demo                │",
+    "│ Docs variant: Ink                      │",
+    "│   ▂   ▄   ▃   ▆   ▅   ▇   ▄   █        │",
+    "│   12  18  15  28  24  36  21  42       │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/big-text-demo": [
+    "╭─ Big Text Demo─────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Big Text Demo                 │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/big-text-shade": [
+    "╭─ Big Text Shade────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Big Text Shade                │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/big-text-simple": [
+    "╭─ Big Text Simple───────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Big Text Simple               │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/big-text-slim": [
+    "╭─ Big Text Slim─────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Big Text Slim                 │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/box-demo": [
+    "╭─ Box Demo──────────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Box Demo                      │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/breadcrumb-demo": [
+    "╭─ Breadcrumb Demo───────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Breadcrumb Demo               │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/bullet-list-demo": [
+    "╭─ Bullet List Demo──────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Bullet List Demo              │",
+    "│ Docs variant: Ink                      │",
+    "│   NAME          STATUS       VALUE     │",
+    "│   alpha         ready          12      │",
+    "│   beta          running        24      │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/card-demo": [
+    "╭─ Card Demo─────────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Card Demo                     │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/center-demo": [
+    "╭─ Center Demo───────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Center Demo                   │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/chat-message-demo": [
+    "╭─ Chat Message Demo─────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Chat Message Demo             │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/chat-thread-demo": [
+    "╭─ Chat Thread Demo──────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Chat Thread Demo              │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/checkbox-demo": [
+    "╭─ Checkbox Demo─────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Checkbox Demo                 │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/checkbox-group-demo": [
+    "╭─ Checkbox Group Demo───────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Checkbox Group Demo           │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/clipboard-demo": [
+    "╭─ Clipboard Demo────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Clipboard Demo                │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/clock-demo": [
+    "╭─ Clock Demo────────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Clock Demo                    │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/code-demo": [
+    "╭─ Code Demo─────────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Code Demo                     │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/code-multiline": [
+    "╭─ Code Multiline────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Code Multiline                │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/color-picker-demo": [
+    "╭─ Color Picker Demo─────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Color Picker Demo             │",
+    "│ Docs variant: Ink                      │",
+    "│   > Enter a value: rust|               │",
+    "│     Press Enter to continue            │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/columns-demo": [
+    "╭─ Columns Demo──────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Columns Demo                  │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/command-palette-demo": [
+    "╭─ Command Palette Demo──────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Command Palette Demo          │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/confirm-demo": [
+    "╭─ Confirm Demo──────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Confirm Demo                  │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/conversation-history-demo": [
+    "╭─ Conversation History Demo─────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Conversation History Demo     │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/data-grid-demo": [
+    "╭─ Data Grid Demo────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Data Grid Demo                │",
+    "│ Docs variant: Ink                      │",
+    "│   NAME          STATUS       VALUE     │",
+    "│   alpha         ready          12      │",
+    "│   beta          running        24      │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/date-picker-demo": [
+    "╭─ Date Picker Demo──────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Date Picker Demo              │",
+    "│ Docs variant: Ink                      │",
+    "│   > Enter a value: rust|               │",
+    "│     Press Enter to continue            │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/definition-demo": [
+    "╭─ Definition Demo───────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Definition Demo               │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/dialog-demo": [
+    "╭─ Dialog Demo───────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Dialog Demo                   │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/diff-view-demo": [
+    "╭─ Diff View Demo────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Diff View Demo                │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/digits-demo": [
+    "╭─ Digits Demo───────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Digits Demo                   │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/directory-tree-demo": [
+    "╭─ Directory Tree Demo───────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Directory Tree Demo           │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/dither-area-chart-demo": [
+    "╭─ Dither Area Chart Demo────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Dither Area Chart Demo        │",
+    "│ Docs variant: Ink                      │",
+    "│   ▂   ▄   ▃   ▆   ▅   ▇   ▄   █        │",
+    "│   12  18  15  28  24  36  21  42       │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/dither-area-chart-stacking": [
+    "╭─ Dither Area Chart Stacking────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Dither Area Chart Stacking    │",
+    "│ Docs variant: Ink                      │",
+    "│   ▂   ▄   ▃   ▆   ▅   ▇   ▄   █        │",
+    "│   12  18  15  28  24  36  21  42       │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/dither-area-chart-variants": [
+    "╭─ Dither Area Chart Variants────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Dither Area Chart Variants    │",
+    "│ Docs variant: Ink                      │",
+    "│   ▂   ▄   ▃   ▆   ▅   ▇   ▄   █        │",
+    "│   12  18  15  28  24  36  21  42       │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/dither-bar-chart-demo": [
+    "╭─ Dither Bar Chart Demo─────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Dither Bar Chart Demo         │",
+    "│ Docs variant: Ink                      │",
+    "│   ▂   ▄   ▃   ▆   ▅   ▇   ▄   █        │",
+    "│   12  18  15  28  24  36  21  42       │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/dither-bar-chart-stacking": [
+    "╭─ Dither Bar Chart Stacking─────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Dither Bar Chart Stacking     │",
+    "│ Docs variant: Ink                      │",
+    "│   ▂   ▄   ▃   ▆   ▅   ▇   ▄   █        │",
+    "│   12  18  15  28  24  36  21  42       │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/dither-bar-chart-variants": [
+    "╭─ Dither Bar Chart Variants─────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Dither Bar Chart Variants     │",
+    "│ Docs variant: Ink                      │",
+    "│   ▂   ▄   ▃   ▆   ▅   ▇   ▄   █        │",
+    "│   12  18  15  28  24  36  21  42       │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/dither-line-chart-demo": [
+    "╭─ Dither Line Chart Demo────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Dither Line Chart Demo        │",
+    "│ Docs variant: Ink                      │",
+    "│   ▂   ▄   ▃   ▆   ▅   ▇   ▄   █        │",
+    "│   12  18  15  28  24  36  21  42       │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/dither-line-chart-variants": [
+    "╭─ Dither Line Chart Variants────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Dither Line Chart Variants    │",
+    "│ Docs variant: Ink                      │",
+    "│   ▂   ▄   ▃   ▆   ▅   ▇   ▄   █        │",
+    "│   12  18  15  28  24  36  21  42       │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/dither-pie-chart-demo": [
+    "╭─ Dither Pie Chart Demo─────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Dither Pie Chart Demo         │",
+    "│ Docs variant: Ink                      │",
+    "│   ▂   ▄   ▃   ▆   ▅   ▇   ▄   █        │",
+    "│   12  18  15  28  24  36  21  42       │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/dither-pie-chart-variants": [
+    "╭─ Dither Pie Chart Variants─────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Dither Pie Chart Variants     │",
+    "│ Docs variant: Ink                      │",
+    "│   ▂   ▄   ▃   ▆   ▅   ▇   ▄   █        │",
+    "│   12  18  15  28  24  36  21  42       │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/dither-radar-chart-demo": [
+    "╭─ Dither Radar Chart Demo───────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Dither Radar Chart Demo       │",
+    "│ Docs variant: Ink                      │",
+    "│   ▂   ▄   ▃   ▆   ▅   ▇   ▄   █        │",
+    "│   12  18  15  28  24  36  21  42       │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/dither-radar-chart-variants": [
+    "╭─ Dither Radar Chart Variants───────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Dither Radar Chart Variants   │",
+    "│ Docs variant: Ink                      │",
+    "│   ▂   ▄   ▃   ▆   ▅   ▇   ▄   █        │",
+    "│   12  18  15  28  24  36  21  42       │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/dither-sparkline-demo": [
+    "╭─ Dither Sparkline Demo─────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Dither Sparkline Demo         │",
+    "│ Docs variant: Ink                      │",
+    "│   ▂   ▄   ▃   ▆   ▅   ▇   ▄   █        │",
+    "│   12  18  15  28  24  36  21  42       │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/dither-sparkline-variants": [
+    "╭─ Dither Sparkline Variants─────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Dither Sparkline Variants     │",
+    "│ Docs variant: Ink                      │",
+    "│   ▂   ▄   ▃   ▆   ▅   ▇   ▄   █        │",
+    "│   12  18  15  28  24  36  21  42       │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/divider-custom": [
+    "╭─ Divider Custom────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Divider Custom                │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/divider-demo": [
+    "╭─ Divider Demo──────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Divider Demo                  │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/drawer-demo": [
+    "╭─ Drawer Demo───────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Drawer Demo                   │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/email-input-demo": [
+    "╭─ Email Input Demo──────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Email Input Demo              │",
+    "│ Docs variant: Ink                      │",
+    "│   > Enter a value: rust|               │",
+    "│     Press Enter to continue            │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/embedded-terminal-demo": [
+    "╭─ Embedded Terminal Demo────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Embedded Terminal Demo        │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/error-boundary-demo": [
+    "╭─ Error Boundary Demo───────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Error Boundary Demo           │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/error-retry-demo": [
+    "╭─ Error Retry Demo──────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Error Retry Demo              │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/file-change-demo": [
+    "╭─ File Change Demo──────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: File Change Demo              │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/file-picker-demo": [
+    "╭─ File Picker Demo──────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: File Picker Demo              │",
+    "│ Docs variant: Ink                      │",
+    "│   > Enter a value: rust|               │",
+    "│     Press Enter to continue            │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/form-demo": [
+    "╭─ Form Demo─────────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Form Demo                     │",
+    "│ Docs variant: Ink                      │",
+    "│   > Enter a value: rust|               │",
+    "│     Press Enter to continue            │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/form-field-demo": [
+    "╭─ Form Field Demo───────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Form Field Demo               │",
+    "│ Docs variant: Ink                      │",
+    "│   > Enter a value: rust|               │",
+    "│     Press Enter to continue            │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/gauge-demo": [
+    "╭─ Gauge Demo────────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Gauge Demo                    │",
+    "│ Docs variant: Ink                      │",
+    "│   ▂   ▄   ▃   ▆   ▅   ▇   ▄   █        │",
+    "│   12  18  15  28  24  36  21  42       │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/git-status-demo": [
+    "╭─ Git Status Demo───────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Git Status Demo               │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/gradient-atlas": [
+    "╭─ Gradient Atlas────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Gradient Atlas                │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/gradient-cristal": [
+    "╭─ Gradient Cristal──────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Gradient Cristal              │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/gradient-demo": [
+    "╭─ Gradient Demo─────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Gradient Demo                 │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/gradient-fruit": [
+    "╭─ Gradient Fruit────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Gradient Fruit                │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/gradient-instagram": [
+    "╭─ Gradient Instagram────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Gradient Instagram            │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/gradient-mind": [
+    "╭─ Gradient Mind─────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Gradient Mind                 │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/gradient-morning": [
+    "╭─ Gradient Morning──────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Gradient Morning              │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/gradient-passion": [
+    "╭─ Gradient Passion──────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Gradient Passion              │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/gradient-pastel": [
+    "╭─ Gradient Pastel───────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Gradient Pastel               │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/gradient-rainbow": [
+    "╭─ Gradient Rainbow──────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Gradient Rainbow              │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/gradient-retro": [
+    "╭─ Gradient Retro────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Gradient Retro                │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/gradient-summer": [
+    "╭─ Gradient Summer───────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Gradient Summer               │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/gradient-teen": [
+    "╭─ Gradient Teen─────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Gradient Teen                 │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/gradient-vice": [
+    "╭─ Gradient Vice─────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Gradient Vice                 │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/grid-demo": [
+    "╭─ Grid Demo─────────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Grid Demo                     │",
+    "│ Docs variant: Ink                      │",
+    "│   NAME          STATUS       VALUE     │",
+    "│   alpha         ready          12      │",
+    "│   beta          running        24      │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/heading-demo": [
+    "╭─ Heading Demo──────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Heading Demo                  │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/heat-map-demo": [
+    "╭─ Heat Map Demo─────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Heat Map Demo                 │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/help-demo": [
+    "╭─ Help Demo─────────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Help Demo                     │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/help-screen-demo": [
+    "╭─ Help Screen Demo──────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Help Screen Demo              │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/image-demo": [
+    "╭─ Image Demo────────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Image Demo                    │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/info-box-demo": [
+    "╭─ Info Box Demo─────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Info Box Demo                 │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/json-demo": [
+    "╭─ Json Demo─────────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Json Demo                     │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/key-value-demo": [
+    "╭─ Key Value Demo────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Key Value Demo                │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/keyboard-shortcuts-demo": [
+    "╭─ Keyboard Shortcuts Demo───────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Keyboard Shortcuts Demo       │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/line-chart-demo": [
+    "╭─ Line Chart Demo───────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Line Chart Demo               │",
+    "│ Docs variant: Ink                      │",
+    "│   ▂   ▄   ▃   ▆   ▅   ▇   ▄   █        │",
+    "│   12  18  15  28  24  36  21  42       │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/link-demo": [
+    "╭─ Link Demo─────────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Link Demo                     │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/link-show-href": [
+    "╭─ Link Show Href────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Link Show Href                │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/list-demo": [
+    "╭─ List Demo─────────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: List Demo                     │",
+    "│ Docs variant: Ink                      │",
+    "│   NAME          STATUS       VALUE     │",
+    "│   alpha         ready          12      │",
+    "│   beta          running        24      │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/log-demo": [
+    "╭─ Log Demo──────────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Log Demo                      │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/login-flow-demo": [
+    "╭─ Login Flow Demo───────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Login Flow Demo               │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/markdown-demo": [
+    "╭─ Markdown Demo─────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Markdown Demo                 │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/markdown-streaming-demo": [
+    "╭─ Markdown Streaming Demo───────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Markdown Streaming Demo       │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/masked-input-demo": [
+    "╭─ Masked Input Demo─────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Masked Input Demo             │",
+    "│ Docs variant: Ink                      │",
+    "│   > Enter a value: rust|               │",
+    "│     Press Enter to continue            │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/menu-demo": [
+    "╭─ Menu Demo─────────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Menu Demo                     │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/modal-demo": [
+    "╭─ Modal Demo────────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Modal Demo                    │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/model-selector-demo": [
+    "╭─ Model Selector Demo───────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Model Selector Demo           │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/multi-progress-compact": [
+    "╭─ Multi Progress Compact────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Multi Progress Compact        │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/multi-progress-demo": [
+    "╭─ Multi Progress Demo───────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Multi Progress Demo           │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/multi-select-demo": [
+    "╭─ Multi Select Demo─────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Multi Select Demo             │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/notification-center-demo": [
+    "╭─ Notification Center Demo──────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Notification Center Demo      │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/number-input-demo": [
+    "╭─ Number Input Demo─────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Number Input Demo             │",
+    "│ Docs variant: Ink                      │",
+    "│   > Enter a value: rust|               │",
+    "│     Press Enter to continue            │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/pagination-demo": [
+    "╭─ Pagination Demo───────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Pagination Demo               │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/panel-demo": [
+    "╭─ Panel Demo────────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Panel Demo                    │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/password-input-demo": [
+    "╭─ Password Input Demo───────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Password Input Demo           │",
+    "│ Docs variant: Ink                      │",
+    "│   > Enter a value: rust|               │",
+    "│     Press Enter to continue            │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/path-input-demo": [
+    "╭─ Path Input Demo───────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Path Input Demo               │",
+    "│ Docs variant: Ink                      │",
+    "│   > Enter a value: rust|               │",
+    "│     Press Enter to continue            │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/pie-chart-demo": [
+    "╭─ Pie Chart Demo────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Pie Chart Demo                │",
+    "│ Docs variant: Ink                      │",
+    "│   ▂   ▄   ▃   ▆   ▅   ▇   ▄   █        │",
+    "│   12  18  15  28  24  36  21  42       │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/popover-demo": [
+    "╭─ Popover Demo──────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Popover Demo                  │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/progress-bar-custom": [
+    "╭─ Progress Bar Custom───────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Progress Bar Custom           │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/progress-bar-demo": [
+    "╭─ Progress Bar Demo─────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Progress Bar Demo             │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/progress-circle-demo": [
+    "╭─ Progress Circle Demo──────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Progress Circle Demo          │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/progress-circle-sizes": [
+    "╭─ Progress Circle Sizes─────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Progress Circle Sizes         │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/qr-code-demo": [
+    "╭─ Qr Code Demo──────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Qr Code Demo                  │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/radio-group-demo": [
+    "╭─ Radio Group Demo──────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Radio Group Demo              │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/scroll-view-demo": [
+    "╭─ Scroll View Demo──────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Scroll View Demo              │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/scroll-view-scrollbar": [
+    "╭─ Scroll View Scrollbar─────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Scroll View Scrollbar         │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/search-input-demo": [
+    "╭─ Search Input Demo─────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Search Input Demo             │",
+    "│ Docs variant: Ink                      │",
+    "│   > Enter a value: rust|               │",
+    "│     Press Enter to continue            │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/select-demo": [
+    "╭─ Select Demo───────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Select Demo                   │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/setup-flow-demo": [
+    "╭─ Setup Flow Demo───────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Setup Flow Demo               │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/sidebar-demo": [
+    "╭─ Sidebar Demo──────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Sidebar Demo                  │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/skeleton-demo": [
+    "╭─ Skeleton Demo─────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Skeleton Demo                 │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/skeleton-static": [
+    "╭─ Skeleton Static───────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Skeleton Static               │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/spacer-demo": [
+    "╭─ Spacer Demo───────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Spacer Demo                   │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/sparkline-demo": [
+    "╭─ Sparkline Demo────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Sparkline Demo                │",
+    "│ Docs variant: Ink                      │",
+    "│   ▂   ▄   ▃   ▆   ▅   ▇   ▄   █        │",
+    "│   12  18  15  28  24  36  21  42       │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/spinner-demo": [
+    "╭─ Spinner Demo──────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Spinner Demo                  │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/spinner-styles": [
+    "╭─ Spinner Styles────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Spinner Styles                │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/splash-screen-demo": [
+    "╭─ Splash Screen Demo────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Splash Screen Demo            │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/stack-demo": [
+    "╭─ Stack Demo────────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Stack Demo                    │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/status-message-demo": [
+    "╭─ Status Message Demo───────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Status Message Demo           │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/status-message-variants": [
+    "╭─ Status Message Variants───────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Status Message Variants       │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/stopwatch-demo": [
+    "╭─ Stopwatch Demo────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Stopwatch Demo                │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/streaming-text-demo": [
+    "╭─ Streaming Text Demo───────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Streaming Text Demo           │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/tabbed-content-demo": [
+    "╭─ Tabbed Content Demo───────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Tabbed Content Demo           │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/table-demo": [
+    "╭─ Table Demo────────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Table Demo                    │",
+    "│ Docs variant: Ink                      │",
+    "│   NAME          STATUS       VALUE     │",
+    "│   alpha         ready          12      │",
+    "│   beta          running        24      │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/table-selectable": [
+    "╭─ Table Selectable──────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Table Selectable              │",
+    "│ Docs variant: Ink                      │",
+    "│   NAME          STATUS       VALUE     │",
+    "│   alpha         ready          12      │",
+    "│   beta          running        24      │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/table-sortable": [
+    "╭─ Table Sortable────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Table Sortable                │",
+    "│ Docs variant: Ink                      │",
+    "│   NAME          STATUS       VALUE     │",
+    "│   alpha         ready          12      │",
+    "│   beta          running        24      │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/tabs-demo": [
+    "╭─ Tabs Demo─────────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Tabs Demo                     │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/tag-demo": [
+    "╭─ Tag Demo──────────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Tag Demo                      │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/tag-input-demo": [
+    "╭─ Tag Input Demo────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Tag Input Demo                │",
+    "│ Docs variant: Ink                      │",
+    "│   > Enter a value: rust|               │",
+    "│     Press Enter to continue            │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/tag-outline-demo": [
+    "╭─ Tag Outline Demo──────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Tag Outline Demo              │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/text-area-demo": [
+    "╭─ Text Area Demo────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Text Area Demo                │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/text-input-cursor": [
+    "╭─ Text Input Cursor─────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Text Input Cursor             │",
+    "│ Docs variant: Ink                      │",
+    "│   > Enter a value: rust|               │",
+    "│     Press Enter to continue            │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/text-input-demo": [
+    "╭─ Text Input Demo───────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Text Input Demo               │",
+    "│ Docs variant: Ink                      │",
+    "│   > Enter a value: rust|               │",
+    "│     Press Enter to continue            │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/text-input-label": [
+    "╭─ Text Input Label──────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Text Input Label              │",
+    "│ Docs variant: Ink                      │",
+    "│   > Enter a value: rust|               │",
+    "│     Press Enter to continue            │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/text-input-placeholder": [
+    "╭─ Text Input Placeholder────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Text Input Placeholder        │",
+    "│ Docs variant: Ink                      │",
+    "│   > Enter a value: rust|               │",
+    "│     Press Enter to continue            │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/theme-showcase": [
+    "╭─ Theme Showcase────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Theme Showcase                │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/thinking-block-demo": [
+    "╭─ Thinking Block Demo───────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Thinking Block Demo           │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/time-picker-demo": [
+    "╭─ Time Picker Demo──────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Time Picker Demo              │",
+    "│ Docs variant: Ink                      │",
+    "│   > Enter a value: rust|               │",
+    "│     Press Enter to continue            │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/timer-demo": [
+    "╭─ Timer Demo────────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Timer Demo                    │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/toast-demo": [
+    "╭─ Toast Demo────────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Toast Demo                    │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/toast-error": [
+    "╭─ Toast Error───────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Toast Error                   │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/toggle-demo": [
+    "╭─ Toggle Demo───────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Toggle Demo                   │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/token-usage-demo": [
+    "╭─ Token Usage Demo──────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Token Usage Demo              │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/tool-approval-demo": [
+    "╭─ Tool Approval Demo────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Tool Approval Demo            │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/tool-call-demo": [
+    "╭─ Tool Call Demo────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Tool Call Demo                │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/tooltip-demo": [
+    "╭─ Tooltip Demo──────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Tooltip Demo                  │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/tree-demo": [
+    "╭─ Tree Demo─────────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Tree Demo                     │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/tree-select-demo": [
+    "╭─ Tree Select Demo──────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Tree Select Demo              │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/usage-monitor-demo": [
+    "╭─ Usage Monitor Demo────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Usage Monitor Demo            │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/virtual-list-demo": [
+    "╭─ Virtual List Demo─────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Virtual List Demo             │",
+    "│ Docs variant: Ink                      │",
+    "│   NAME          STATUS       VALUE     │",
+    "│   alpha         ready          12      │",
+    "│   beta          running        24      │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/welcome-screen-demo": [
+    "╭─ Welcome Screen Demo───────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Welcome Screen Demo           │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "ink/wizard-demo": [
+    "╭─ Wizard Demo───────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Wizard Demo                   │",
+    "│ Docs variant: Ink                      │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/alert-custom": [
+    "╭─ Alert Custom──────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Alert Custom                  │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/alert-demo": [
+    "╭─ Alert Demo────────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Alert Demo                    │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/alert-error": [
+    "╭─ Alert Error───────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Alert Error                   │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/alert-no-border": [
+    "╭─ Alert No Border───────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Alert No Border               │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/alert-warning": [
+    "╭─ Alert Warning─────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Alert Warning                 │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/app-shell-demo": [
+    "╭─ App Shell Demo────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: App Shell Demo                │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/aspect-ratio-demo": [
+    "╭─ Aspect Ratio Demo─────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Aspect Ratio Demo             │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/badge-basic": [
+    "╭─ Badge Basic───────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Badge Basic                   │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/badge-bold": [
+    "╭─ Badge Bold────────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Badge Bold                    │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/badge-custom-border": [
+    "╭─ Badge Custom Border───────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Badge Custom Border           │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/badge-demo": [
+    "╭─ Badge Demo────────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Badge Demo                    │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/banner-demo": [
+    "╭─ Banner Demo───────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Banner Demo                   │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/banner-error": [
+    "╭─ Banner Error──────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Banner Error                  │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/banner-success": [
+    "╭─ Banner Success────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Banner Success                │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/bar-chart-demo": [
+    "╭─ Bar Chart Demo────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Bar Chart Demo                │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   ▂   ▄   ▃   ▆   ▅   ▇   ▄   █        │",
+    "│   12  18  15  28  24  36  21  42       │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/big-text-demo": [
+    "╭─ Big Text Demo─────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Big Text Demo                 │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/big-text-shade": [
+    "╭─ Big Text Shade────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Big Text Shade                │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/big-text-simple": [
+    "╭─ Big Text Simple───────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Big Text Simple               │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/big-text-slim": [
+    "╭─ Big Text Slim─────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Big Text Slim                 │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/box-demo": [
+    "╭─ Box Demo──────────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Box Demo                      │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/breadcrumb-demo": [
+    "╭─ Breadcrumb Demo───────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Breadcrumb Demo               │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/bullet-list-demo": [
+    "╭─ Bullet List Demo──────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Bullet List Demo              │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   NAME          STATUS       VALUE     │",
+    "│   alpha         ready          12      │",
+    "│   beta          running        24      │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/card-demo": [
+    "╭─ Card Demo─────────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Card Demo                     │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/center-demo": [
+    "╭─ Center Demo───────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Center Demo                   │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/chat-message-demo": [
+    "╭─ Chat Message Demo─────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Chat Message Demo             │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/chat-thread-demo": [
+    "╭─ Chat Thread Demo──────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Chat Thread Demo              │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/checkbox-demo": [
+    "╭─ Checkbox Demo─────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Checkbox Demo                 │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/checkbox-group-demo": [
+    "╭─ Checkbox Group Demo───────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Checkbox Group Demo           │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/clipboard-demo": [
+    "╭─ Clipboard Demo────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Clipboard Demo                │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/clock-demo": [
+    "╭─ Clock Demo────────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Clock Demo                    │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/code-demo": [
+    "╭─ Code Demo─────────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Code Demo                     │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/code-multiline": [
+    "╭─ Code Multiline────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Code Multiline                │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/color-picker-demo": [
+    "╭─ Color Picker Demo─────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Color Picker Demo             │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   > Enter a value: rust|               │",
+    "│     Press Enter to continue            │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/columns-demo": [
+    "╭─ Columns Demo──────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Columns Demo                  │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/command-palette-demo": [
+    "╭─ Command Palette Demo──────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Command Palette Demo          │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/confirm-demo": [
+    "╭─ Confirm Demo──────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Confirm Demo                  │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/data-grid-demo": [
+    "╭─ Data Grid Demo────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Data Grid Demo                │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   NAME          STATUS       VALUE     │",
+    "│   alpha         ready          12      │",
+    "│   beta          running        24      │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/date-picker-demo": [
+    "╭─ Date Picker Demo──────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Date Picker Demo              │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   > Enter a value: rust|               │",
+    "│     Press Enter to continue            │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/definition-demo": [
+    "╭─ Definition Demo───────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Definition Demo               │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/dialog-demo": [
+    "╭─ Dialog Demo───────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Dialog Demo                   │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/diff-view-demo": [
+    "╭─ Diff View Demo────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Diff View Demo                │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/digits-demo": [
+    "╭─ Digits Demo───────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Digits Demo                   │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/directory-tree-demo": [
+    "╭─ Directory Tree Demo───────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Directory Tree Demo           │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/dither-area-chart-demo": [
+    "╭─ Dither Area Chart Demo────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Dither Area Chart Demo        │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   ▂   ▄   ▃   ▆   ▅   ▇   ▄   █        │",
+    "│   12  18  15  28  24  36  21  42       │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/dither-area-chart-stacking": [
+    "╭─ Dither Area Chart Stacking────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Dither Area Chart Stacking    │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   ▂   ▄   ▃   ▆   ▅   ▇   ▄   █        │",
+    "│   12  18  15  28  24  36  21  42       │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/dither-area-chart-variants": [
+    "╭─ Dither Area Chart Variants────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Dither Area Chart Variants    │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   ▂   ▄   ▃   ▆   ▅   ▇   ▄   █        │",
+    "│   12  18  15  28  24  36  21  42       │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/dither-bar-chart-demo": [
+    "╭─ Dither Bar Chart Demo─────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Dither Bar Chart Demo         │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   ▂   ▄   ▃   ▆   ▅   ▇   ▄   █        │",
+    "│   12  18  15  28  24  36  21  42       │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/dither-bar-chart-stacking": [
+    "╭─ Dither Bar Chart Stacking─────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Dither Bar Chart Stacking     │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   ▂   ▄   ▃   ▆   ▅   ▇   ▄   █        │",
+    "│   12  18  15  28  24  36  21  42       │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/dither-bar-chart-variants": [
+    "╭─ Dither Bar Chart Variants─────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Dither Bar Chart Variants     │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   ▂   ▄   ▃   ▆   ▅   ▇   ▄   █        │",
+    "│   12  18  15  28  24  36  21  42       │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/dither-line-chart-demo": [
+    "╭─ Dither Line Chart Demo────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Dither Line Chart Demo        │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   ▂   ▄   ▃   ▆   ▅   ▇   ▄   █        │",
+    "│   12  18  15  28  24  36  21  42       │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/dither-line-chart-variants": [
+    "╭─ Dither Line Chart Variants────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Dither Line Chart Variants    │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   ▂   ▄   ▃   ▆   ▅   ▇   ▄   █        │",
+    "│   12  18  15  28  24  36  21  42       │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/dither-pie-chart-demo": [
+    "╭─ Dither Pie Chart Demo─────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Dither Pie Chart Demo         │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   ▂   ▄   ▃   ▆   ▅   ▇   ▄   █        │",
+    "│   12  18  15  28  24  36  21  42       │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/dither-pie-chart-variants": [
+    "╭─ Dither Pie Chart Variants─────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Dither Pie Chart Variants     │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   ▂   ▄   ▃   ▆   ▅   ▇   ▄   █        │",
+    "│   12  18  15  28  24  36  21  42       │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/dither-radar-chart-demo": [
+    "╭─ Dither Radar Chart Demo───────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Dither Radar Chart Demo       │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   ▂   ▄   ▃   ▆   ▅   ▇   ▄   █        │",
+    "│   12  18  15  28  24  36  21  42       │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/dither-radar-chart-variants": [
+    "╭─ Dither Radar Chart Variants───────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Dither Radar Chart Variants   │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   ▂   ▄   ▃   ▆   ▅   ▇   ▄   █        │",
+    "│   12  18  15  28  24  36  21  42       │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/dither-sparkline-demo": [
+    "╭─ Dither Sparkline Demo─────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Dither Sparkline Demo         │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   ▂   ▄   ▃   ▆   ▅   ▇   ▄   █        │",
+    "│   12  18  15  28  24  36  21  42       │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/dither-sparkline-variants": [
+    "╭─ Dither Sparkline Variants─────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Dither Sparkline Variants     │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   ▂   ▄   ▃   ▆   ▅   ▇   ▄   █        │",
+    "│   12  18  15  28  24  36  21  42       │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/divider-custom": [
+    "╭─ Divider Custom────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Divider Custom                │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/divider-demo": [
+    "╭─ Divider Demo──────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Divider Demo                  │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/drawer-demo": [
+    "╭─ Drawer Demo───────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Drawer Demo                   │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/email-input-demo": [
+    "╭─ Email Input Demo──────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Email Input Demo              │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   > Enter a value: rust|               │",
+    "│     Press Enter to continue            │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/embedded-terminal-demo": [
+    "╭─ Embedded Terminal Demo────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Embedded Terminal Demo        │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/error-boundary-demo": [
+    "╭─ Error Boundary Demo───────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Error Boundary Demo           │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/file-change-demo": [
+    "╭─ File Change Demo──────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: File Change Demo              │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/file-picker-demo": [
+    "╭─ File Picker Demo──────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: File Picker Demo              │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   > Enter a value: rust|               │",
+    "│     Press Enter to continue            │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/form-demo": [
+    "╭─ Form Demo─────────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Form Demo                     │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   > Enter a value: rust|               │",
+    "│     Press Enter to continue            │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/form-field-demo": [
+    "╭─ Form Field Demo───────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Form Field Demo               │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   > Enter a value: rust|               │",
+    "│     Press Enter to continue            │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/gauge-demo": [
+    "╭─ Gauge Demo────────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Gauge Demo                    │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   ▂   ▄   ▃   ▆   ▅   ▇   ▄   █        │",
+    "│   12  18  15  28  24  36  21  42       │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/git-status-demo": [
+    "╭─ Git Status Demo───────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Git Status Demo               │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/gradient-atlas": [
+    "╭─ Gradient Atlas────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Gradient Atlas                │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/gradient-cristal": [
+    "╭─ Gradient Cristal──────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Gradient Cristal              │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/gradient-demo": [
+    "╭─ Gradient Demo─────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Gradient Demo                 │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/gradient-fruit": [
+    "╭─ Gradient Fruit────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Gradient Fruit                │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/gradient-instagram": [
+    "╭─ Gradient Instagram────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Gradient Instagram            │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/gradient-mind": [
+    "╭─ Gradient Mind─────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Gradient Mind                 │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/gradient-morning": [
+    "╭─ Gradient Morning──────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Gradient Morning              │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/gradient-passion": [
+    "╭─ Gradient Passion──────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Gradient Passion              │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/gradient-pastel": [
+    "╭─ Gradient Pastel───────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Gradient Pastel               │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/gradient-rainbow": [
+    "╭─ Gradient Rainbow──────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Gradient Rainbow              │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/gradient-retro": [
+    "╭─ Gradient Retro────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Gradient Retro                │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/gradient-summer": [
+    "╭─ Gradient Summer───────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Gradient Summer               │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/gradient-teen": [
+    "╭─ Gradient Teen─────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Gradient Teen                 │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/gradient-vice": [
+    "╭─ Gradient Vice─────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Gradient Vice                 │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/grid-demo": [
+    "╭─ Grid Demo─────────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Grid Demo                     │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   NAME          STATUS       VALUE     │",
+    "│   alpha         ready          12      │",
+    "│   beta          running        24      │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/heading-demo": [
+    "╭─ Heading Demo──────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Heading Demo                  │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/heat-map-demo": [
+    "╭─ Heat Map Demo─────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Heat Map Demo                 │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/help-demo": [
+    "╭─ Help Demo─────────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Help Demo                     │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/help-screen-demo": [
+    "╭─ Help Screen Demo──────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Help Screen Demo              │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/image-demo": [
+    "╭─ Image Demo────────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Image Demo                    │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/info-box-demo": [
+    "╭─ Info Box Demo─────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Info Box Demo                 │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/json-demo": [
+    "╭─ Json Demo─────────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Json Demo                     │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/key-value-demo": [
+    "╭─ Key Value Demo────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Key Value Demo                │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/keyboard-shortcuts-demo": [
+    "╭─ Keyboard Shortcuts Demo───────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Keyboard Shortcuts Demo       │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/line-chart-demo": [
+    "╭─ Line Chart Demo───────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Line Chart Demo               │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   ▂   ▄   ▃   ▆   ▅   ▇   ▄   █        │",
+    "│   12  18  15  28  24  36  21  42       │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/link-demo": [
+    "╭─ Link Demo─────────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Link Demo                     │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/link-show-href": [
+    "╭─ Link Show Href────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Link Show Href                │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/list-demo": [
+    "╭─ List Demo─────────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: List Demo                     │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   NAME          STATUS       VALUE     │",
+    "│   alpha         ready          12      │",
+    "│   beta          running        24      │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/log-demo": [
+    "╭─ Log Demo──────────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Log Demo                      │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/login-flow-demo": [
+    "╭─ Login Flow Demo───────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Login Flow Demo               │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/markdown-demo": [
+    "╭─ Markdown Demo─────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Markdown Demo                 │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/markdown-streaming-demo": [
+    "╭─ Markdown Streaming Demo───────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Markdown Streaming Demo       │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/masked-input-demo": [
+    "╭─ Masked Input Demo─────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Masked Input Demo             │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   > Enter a value: rust|               │",
+    "│     Press Enter to continue            │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/menu-demo": [
+    "╭─ Menu Demo─────────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Menu Demo                     │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/modal-demo": [
+    "╭─ Modal Demo────────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Modal Demo                    │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/model-selector-demo": [
+    "╭─ Model Selector Demo───────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Model Selector Demo           │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/multi-progress-compact": [
+    "╭─ Multi Progress Compact────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Multi Progress Compact        │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/multi-progress-demo": [
+    "╭─ Multi Progress Demo───────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Multi Progress Demo           │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/multi-select-demo": [
+    "╭─ Multi Select Demo─────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Multi Select Demo             │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/notification-center-demo": [
+    "╭─ Notification Center Demo──────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Notification Center Demo      │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/number-input-demo": [
+    "╭─ Number Input Demo─────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Number Input Demo             │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   > Enter a value: rust|               │",
+    "│     Press Enter to continue            │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/pagination-demo": [
+    "╭─ Pagination Demo───────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Pagination Demo               │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/panel-demo": [
+    "╭─ Panel Demo────────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Panel Demo                    │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/password-input-demo": [
+    "╭─ Password Input Demo───────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Password Input Demo           │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   > Enter a value: rust|               │",
+    "│     Press Enter to continue            │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/path-input-demo": [
+    "╭─ Path Input Demo───────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Path Input Demo               │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   > Enter a value: rust|               │",
+    "│     Press Enter to continue            │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/pie-chart-demo": [
+    "╭─ Pie Chart Demo────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Pie Chart Demo                │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   ▂   ▄   ▃   ▆   ▅   ▇   ▄   █        │",
+    "│   12  18  15  28  24  36  21  42       │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/popover-demo": [
+    "╭─ Popover Demo──────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Popover Demo                  │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/progress-bar-custom": [
+    "╭─ Progress Bar Custom───────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Progress Bar Custom           │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/progress-bar-demo": [
+    "╭─ Progress Bar Demo─────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Progress Bar Demo             │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/progress-circle-demo": [
+    "╭─ Progress Circle Demo──────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Progress Circle Demo          │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/progress-circle-sizes": [
+    "╭─ Progress Circle Sizes─────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Progress Circle Sizes         │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/qr-code-demo": [
+    "╭─ Qr Code Demo──────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Qr Code Demo                  │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/radio-group-demo": [
+    "╭─ Radio Group Demo──────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Radio Group Demo              │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/scroll-view-demo": [
+    "╭─ Scroll View Demo──────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Scroll View Demo              │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/scroll-view-scrollbar": [
+    "╭─ Scroll View Scrollbar─────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Scroll View Scrollbar         │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/search-input-demo": [
+    "╭─ Search Input Demo─────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Search Input Demo             │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   > Enter a value: rust|               │",
+    "│     Press Enter to continue            │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/select-demo": [
+    "╭─ Select Demo───────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Select Demo                   │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/setup-flow-demo": [
+    "╭─ Setup Flow Demo───────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Setup Flow Demo               │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/sidebar-demo": [
+    "╭─ Sidebar Demo──────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Sidebar Demo                  │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/skeleton-demo": [
+    "╭─ Skeleton Demo─────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Skeleton Demo                 │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/skeleton-static": [
+    "╭─ Skeleton Static───────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Skeleton Static               │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/spacer-demo": [
+    "╭─ Spacer Demo───────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Spacer Demo                   │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/sparkline-demo": [
+    "╭─ Sparkline Demo────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Sparkline Demo                │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   ▂   ▄   ▃   ▆   ▅   ▇   ▄   █        │",
+    "│   12  18  15  28  24  36  21  42       │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/spinner-demo": [
+    "╭─ Spinner Demo──────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Spinner Demo                  │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/spinner-styles": [
+    "╭─ Spinner Styles────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Spinner Styles                │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/splash-screen-demo": [
+    "╭─ Splash Screen Demo────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Splash Screen Demo            │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/stack-demo": [
+    "╭─ Stack Demo────────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Stack Demo                    │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/status-message-demo": [
+    "╭─ Status Message Demo───────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Status Message Demo           │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/status-message-variants": [
+    "╭─ Status Message Variants───────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Status Message Variants       │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/stopwatch-demo": [
+    "╭─ Stopwatch Demo────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Stopwatch Demo                │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/streaming-text-demo": [
+    "╭─ Streaming Text Demo───────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Streaming Text Demo           │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/tabbed-content-demo": [
+    "╭─ Tabbed Content Demo───────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Tabbed Content Demo           │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/table-demo": [
+    "╭─ Table Demo────────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Table Demo                    │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   NAME          STATUS       VALUE     │",
+    "│   alpha         ready          12      │",
+    "│   beta          running        24      │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/table-selectable": [
+    "╭─ Table Selectable──────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Table Selectable              │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   NAME          STATUS       VALUE     │",
+    "│   alpha         ready          12      │",
+    "│   beta          running        24      │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/table-sortable": [
+    "╭─ Table Sortable────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Table Sortable                │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   NAME          STATUS       VALUE     │",
+    "│   alpha         ready          12      │",
+    "│   beta          running        24      │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/tabs-demo": [
+    "╭─ Tabs Demo─────────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Tabs Demo                     │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/tag-demo": [
+    "╭─ Tag Demo──────────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Tag Demo                      │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/tag-input-demo": [
+    "╭─ Tag Input Demo────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Tag Input Demo                │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   > Enter a value: rust|               │",
+    "│     Press Enter to continue            │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/tag-outline-demo": [
+    "╭─ Tag Outline Demo──────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Tag Outline Demo              │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/text-area-demo": [
+    "╭─ Text Area Demo────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Text Area Demo                │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/text-input-cursor": [
+    "╭─ Text Input Cursor─────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Text Input Cursor             │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   > Enter a value: rust|               │",
+    "│     Press Enter to continue            │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/text-input-demo": [
+    "╭─ Text Input Demo───────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Text Input Demo               │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   > Enter a value: rust|               │",
+    "│     Press Enter to continue            │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/text-input-label": [
+    "╭─ Text Input Label──────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Text Input Label              │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   > Enter a value: rust|               │",
+    "│     Press Enter to continue            │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/text-input-placeholder": [
+    "╭─ Text Input Placeholder────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Text Input Placeholder        │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   > Enter a value: rust|               │",
+    "│     Press Enter to continue            │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/theme-showcase": [
+    "╭─ Theme Showcase────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Theme Showcase                │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/thinking-block-demo": [
+    "╭─ Thinking Block Demo───────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Thinking Block Demo           │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/time-picker-demo": [
+    "╭─ Time Picker Demo──────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Time Picker Demo              │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   > Enter a value: rust|               │",
+    "│     Press Enter to continue            │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/timer-demo": [
+    "╭─ Timer Demo────────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Timer Demo                    │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/toast-demo": [
+    "╭─ Toast Demo────────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Toast Demo                    │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/toast-error": [
+    "╭─ Toast Error───────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Toast Error                   │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/toggle-demo": [
+    "╭─ Toggle Demo───────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Toggle Demo                   │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/token-usage-demo": [
+    "╭─ Token Usage Demo──────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Token Usage Demo              │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/tool-approval-demo": [
+    "╭─ Tool Approval Demo────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Tool Approval Demo            │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/tool-call-demo": [
+    "╭─ Tool Call Demo────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Tool Call Demo                │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/tooltip-demo": [
+    "╭─ Tooltip Demo──────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Tooltip Demo                  │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/tree-demo": [
+    "╭─ Tree Demo─────────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Tree Demo                     │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/tree-select-demo": [
+    "╭─ Tree Select Demo──────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Tree Select Demo              │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/usage-monitor-demo": [
+    "╭─ Usage Monitor Demo────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Usage Monitor Demo            │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/virtual-list-demo": [
+    "╭─ Virtual List Demo─────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Virtual List Demo             │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   NAME          STATUS       VALUE     │",
+    "│   alpha         ready          12      │",
+    "│   beta          running        24      │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/welcome-screen-demo": [
+    "╭─ Welcome Screen Demo───────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Welcome Screen Demo           │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "opentui/wizard-demo": [
+    "╭─ Wizard Demo───────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Wizard Demo                   │",
+    "│ Docs variant: OpenTUI                  │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "rust/key-bar": [
+    "╭─ Key Bar───────────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Key Bar                       │",
+    "│ Docs variant: Rust                     │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "rust/panel": [
+    "╭─ Panel─────────────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Panel                         │",
+    "│ Docs variant: Rust                     │",
+    "│   Ready                           ✓    │",
+    "│   Interactive Rust example             │",
+    "╰────────────────────────────────────────╯"
+  ],
+  "rust/select-list": [
+    "╭─ Select List───────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Select List                   │",
+    "│ Docs variant: Rust                     │",
+    "│   NAME          STATUS       VALUE     │",
+    "│   alpha         ready          12      │",
+    "│   beta          running        24      │",
+    "╰────────────────────────────────────────╯"
+  ]
+}

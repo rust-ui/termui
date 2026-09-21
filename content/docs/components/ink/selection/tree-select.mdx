@@ -1,0 +1,125 @@
+---
+title: "Tree Select"
+description: "Hierarchical tree selection"
+---
+
+<ComponentPreview base="ink" name="tree-select-demo" hideCode />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @termcn/ink/tree-select
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install ink
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/ink/ui/types.ts"
+  title="components/ui/types.ts"
+/>
+
+<ComponentSource
+  src="registry/bases/ink/themes/default.ts"
+  title="lib/terminal-themes/default.ts"
+/>
+
+<ComponentSource
+  src="registry/bases/ink/hooks/use-theme.ts"
+  title="hooks/use-theme.ts"
+/>
+
+<ComponentSource
+  src="registry/bases/ink/hooks/use-unicode.ts"
+  title="hooks/use-unicode.ts"
+/>
+
+<ComponentSource
+  src="registry/bases/ink/hooks/use-interaction.tsx"
+  title="hooks/use-interaction.tsx"
+/>
+
+<ComponentSource
+  src="registry/bases/ink/lib/terminal-symbols.ts"
+  title="lib/terminal-symbols.ts"
+/>
+
+<ComponentSource
+  base="ink"
+  name="tree-select"
+  title="components/ui/tree-select.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { TreeSelect } from "@/components/ui/tree-select";
+```
+
+```tsx
+<TreeSelect
+  label="Select a file"
+  nodes={[
+    {
+      value: "src",
+      label: "src",
+      children: [
+        { value: "index.ts", label: "index.ts" },
+        { value: "utils.ts", label: "utils.ts" },
+      ],
+    },
+    { value: "README.md", label: "README.md" },
+  ]}
+  onChange={(value) => {}}
+/>
+```
+
+## API Reference
+
+### TreeSelect
+
+| Prop                | Type                  | Default    |
+| ------------------- | --------------------- | ---------- |
+| `nodes`             | `TreeSelectNode<T>[]` | `required` |
+| `value`             | `T`                   | -          |
+| `onChange`          | `(value: T) => void`  | -          |
+| `onSubmit`          | `(value: T) => void`  | -          |
+| `label`             | `string`              | -          |
+| `expandedByDefault` | `boolean`             | `false`    |
+
+## Notes
+
+### Accessibility
+
+termcn exposes the following behavior through Ink's terminal accessibility APIs. This is not a browser ARIA or general WCAG-conformance claim.
+
+- **Keyboard:** Arrow keys move inside the composite; `Home` / `End` select the first or last enabled item; `Enter` / `Space` activate, select, or toggle; `Escape` cancels or closes an owned surface; `Tab` / `Shift+Tab` move between termcn/Ink focus targets.
+- **Focus and composition:** Input is active only while the component's focus target is focused, enabled, active, and inside the topmost focus scope.
+- **Screen reader:** Ink labels and semantic state expose the component without relying on visual styling alone.

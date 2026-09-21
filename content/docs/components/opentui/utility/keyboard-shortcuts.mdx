@@ -1,0 +1,98 @@
+---
+title: "Keyboard Shortcuts"
+description: "Formatted keyboard shortcut reference table"
+---
+
+<ComponentPreview base="opentui" name="keyboard-shortcuts-demo" hideCode />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @termcn/opentui/keyboard-shortcuts
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @opentui/react
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/opentui/ui/types.ts"
+  title="components/ui/types.ts"
+/>
+
+<ComponentSource
+  src="registry/bases/opentui/themes/default.ts"
+  title="lib/terminal-themes/default.ts"
+/>
+
+<ComponentSource
+  src="registry/bases/opentui/hooks/use-theme.ts"
+  title="hooks/use-theme.ts"
+/>
+
+<ComponentSource
+  base="opentui"
+  name="keyboard-shortcuts"
+  title="components/ui/keyboard-shortcuts.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { KeyboardShortcuts } from "@/components/ui/keyboard-shortcuts";
+```
+
+```tsx
+<KeyboardShortcuts
+  title="Editor Shortcuts"
+  shortcuts={[
+    { key: "Ctrl+S", description: "Save file" },
+    { key: "Ctrl+Z", description: "Undo" },
+    { key: "Ctrl+F", description: "Find" },
+  ]}
+/>
+```
+
+## API Reference
+
+### KeyboardShortcuts
+
+| Prop        | Type         | Default    |
+| ----------- | ------------ | ---------- |
+| `shortcuts` | `Shortcut[]` | `required` |
+| `columns`   | `number`     | `1`        |
+| `title`     | `string`     | -          |
+
+### Shortcut
+
+| Prop          | Type     | Default    |
+| ------------- | -------- | ---------- |
+| `key`         | `string` | `required` |
+| `description` | `string` | `required` |
+| `category`    | `string` | -          |

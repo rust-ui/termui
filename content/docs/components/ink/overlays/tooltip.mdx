@@ -1,0 +1,107 @@
+---
+title: "Tooltip"
+description: "Contextual tooltip on focus or hover"
+---
+
+<ComponentPreview base="ink" name="tooltip-demo" hideCode />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @termcn/ink/tooltip
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install ink
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/ink/ui/types.ts"
+  title="components/ui/types.ts"
+/>
+
+<ComponentSource
+  src="registry/bases/ink/themes/default.ts"
+  title="lib/terminal-themes/default.ts"
+/>
+
+<ComponentSource
+  src="registry/bases/ink/hooks/use-theme.ts"
+  title="hooks/use-theme.ts"
+/>
+
+<ComponentSource
+  src="registry/bases/ink/hooks/use-unicode.ts"
+  title="hooks/use-unicode.ts"
+/>
+
+<ComponentSource
+  src="registry/bases/ink/lib/terminal-style.ts"
+  title="lib/terminal-style.ts"
+/>
+
+<ComponentSource base="ink" name="tooltip" title="components/ui/tooltip.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { Tooltip } from "@/components/ui/tooltip";
+```
+
+```tsx
+<Tooltip content="Save your current progress" position="top" isVisible={true}>
+  <Text bold>[S] Save</Text>
+</Tooltip>
+```
+
+## API Reference
+
+### Tooltip
+
+| Prop          | Type                                                                                         | Default    |
+| ------------- | -------------------------------------------------------------------------------------------- | ---------- |
+| `children`    | `ReactNode`                                                                                  | `required` |
+| `content`     | `string`                                                                                     | `required` |
+| `position`    | `"top" \| "bottom" \| "left" \| "right"`                                                     | `"top"`    |
+| `isVisible`   | `boolean`                                                                                    | `false`    |
+| `borderStyle` | `"single" \| "double" \| "round" \| "bold" \| "singleDouble" \| "doubleSingle" \| "classic"` | `"single"` |
+| `borderColor` | `string`                                                                                     | -          |
+| `paddingX`    | `number`                                                                                     | `1`        |
+| `paddingY`    | `number`                                                                                     | `0`        |
+| `gap`         | `number`                                                                                     | `1`        |
+| `arrowDown`   | `string`                                                                                     | `"↓"`      |
+| `arrowUp`     | `string`                                                                                     | `"↑"`      |
+
+## Notes
+
+### Accessibility
+
+termcn exposes the following behavior through Ink's terminal accessibility APIs. This is not a browser ARIA or general WCAG-conformance claim.
+
+- **Screen reader:** Screen-reader mode removes decorative output while preserving meaningful labels and state.

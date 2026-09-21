@@ -1,0 +1,139 @@
+---
+title: "Bullet List"
+description: "Nested structured content with ●/└/□ bullet prefixes"
+---
+
+<ComponentPreview base="ink" name="bullet-list-demo" hideCode />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @termcn/ink/bullet-list
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install ink
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  src="registry/bases/ink/ui/types.ts"
+  title="components/ui/types.ts"
+/>
+
+<ComponentSource
+  src="registry/bases/ink/themes/default.ts"
+  title="lib/terminal-themes/default.ts"
+/>
+
+<ComponentSource
+  src="registry/bases/ink/hooks/use-theme.ts"
+  title="hooks/use-theme.ts"
+/>
+
+<ComponentSource
+  src="registry/bases/ink/hooks/use-unicode.ts"
+  title="hooks/use-unicode.ts"
+/>
+
+<ComponentSource
+  src="registry/bases/ink/lib/terminal-symbols.ts"
+  title="lib/terminal-symbols.ts"
+/>
+
+<ComponentSource
+  base="ink"
+  name="bullet-list"
+  title="components/ui/bullet-list.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { BulletList } from "@/components/ui/bullet-list";
+```
+
+```tsx
+<BulletList>
+  <BulletList.Item label="Install dependencies" bold>
+    <BulletList.Sub>
+      <BulletList.TreeItem label="ink@5.1.0" />
+      <BulletList.TreeItem label="react@18.3.0" />
+    </BulletList.Sub>
+  </BulletList.Item>
+  <BulletList.Item label="Configure project" />
+  <BulletList.CheckItem label="Write tests" done />
+  <BulletList.CheckItem label="Deploy to production" />
+</BulletList>
+```
+
+## API Reference
+
+### BulletList
+
+| Prop       | Type        | Default    |
+| ---------- | ----------- | ---------- |
+| `children` | `ReactNode` | `required` |
+
+### BulletList.Item
+
+| Prop       | Type        | Default    |
+| ---------- | ----------- | ---------- |
+| `label`    | `string`    | `required` |
+| `bold`     | `boolean`   | `false`    |
+| `color`    | `string`    | -          |
+| `children` | `ReactNode` | -          |
+
+### BulletList.Sub
+
+| Prop       | Type        | Default    |
+| ---------- | ----------- | ---------- |
+| `children` | `ReactNode` | `required` |
+
+### BulletList.TreeItem
+
+| Prop    | Type     | Default    |
+| ------- | -------- | ---------- |
+| `label` | `string` | `required` |
+| `color` | `string` | -          |
+
+### BulletList.CheckItem
+
+| Prop    | Type      | Default    |
+| ------- | --------- | ---------- |
+| `label` | `string`  | `required` |
+| `done`  | `boolean` | `false`    |
+| `color` | `string`  | -          |
+
+## Notes
+
+### Accessibility
+
+termcn exposes the following behavior through Ink's terminal accessibility APIs. This is not a browser ARIA or general WCAG-conformance claim.
+
+- **Screen reader:** Ink labels and semantic state expose the component without relying on visual styling alone.
