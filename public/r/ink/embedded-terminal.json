@@ -8,8 +8,8 @@
     "strip-ansi"
   ],
   "registryDependencies": [
-    "https://rust-ui.com/r/ink/terminal-style.json",
-    "https://rust-ui.com/r/ink/use-unicode.json"
+    "https://termui.rustify.app/r/ink/terminal-style.json",
+    "https://termui.rustify.app/r/ink/use-unicode.json"
   ],
   "files": [
     {

@@ -7,9 +7,9 @@ export interface LabsNavLink {
 }
 
 export const LABS_LATEST = {
-  description: "Term/UI is part of the Rust/UI ecosystem",
-  href: "https://rust-ui.com",
-  name: "Rust/UI",
+  description: "Explore the Term/UI source code and releases",
+  href: "https://github.com/rust-ui/termui",
+  name: "Term/UI on GitHub",
 } as const satisfies LabsNavLink;
 
 export const LABS_NAV_SECTIONS: {

@@ -7,8 +7,8 @@
     "@opentui/react"
   ],
   "registryDependencies": [
-    "https://rust-ui.com/r/opentui/types.json",
-    "https://rust-ui.com/r/opentui/use-motion.json"
+    "https://termui.rustify.app/r/opentui/types.json",
+    "https://termui.rustify.app/r/opentui/use-motion.json"
   ],
   "files": [
     {

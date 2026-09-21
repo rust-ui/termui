@@ -4,7 +4,7 @@
   "title": "High Contrast Light",
   "description": "WCAG-friendly light high-contrast theme.",
   "registryDependencies": [
-    "https://rust-ui.com/r/ink/types.json"
+    "https://termui.rustify.app/r/ink/types.json"
   ],
   "files": [
     {

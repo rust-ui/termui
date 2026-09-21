@@ -4,7 +4,7 @@
   "title": "Zenburn",
   "description": "Zenburn - low contrast for long sessions.",
   "registryDependencies": [
-    "https://rust-ui.com/r/opentui/types.json"
+    "https://termui.rustify.app/r/opentui/types.json"
   ],
   "files": [
     {

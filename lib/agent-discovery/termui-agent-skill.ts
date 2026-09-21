@@ -8,7 +8,7 @@ export const TERMUI_AGENT_SKILL_MD = `# ${SITE.NAME} — terminal UI component r
 
 ## Summary
 
-Help users add **${SITE.NAME}** components via the shadcn CLI against the public registry. Term/UI is part of the Rust/UI ecosystem.
+Help users add **${SITE.NAME}** components via the shadcn CLI against the public registry. Term/UI is an independent product.
 
 ## Registry
 

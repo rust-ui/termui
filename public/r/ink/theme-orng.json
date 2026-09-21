@@ -4,7 +4,7 @@
   "title": "Orng",
   "description": "Orng - vibrant orange theme.",
   "registryDependencies": [
-    "https://rust-ui.com/r/ink/types.json"
+    "https://termui.rustify.app/r/ink/types.json"
   ],
   "files": [
     {

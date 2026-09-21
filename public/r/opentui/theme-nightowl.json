@@ -4,7 +4,7 @@
   "title": "Night Owl",
   "description": "Night Owl - late night coding.",
   "registryDependencies": [
-    "https://rust-ui.com/r/opentui/types.json"
+    "https://termui.rustify.app/r/opentui/types.json"
   ],
   "files": [
     {

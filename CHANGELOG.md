@@ -32,7 +32,7 @@ Notable Term/UI changes are recorded here. Format follows [Keep a Changelog](htt
 - Replaced Carbon Ads in the documentation with a Rustify CTA linking to `rustify.rs`.
 - Added Ratatui widget pages under flat `/docs/widgets/*` routes with the termcn sidebar navigation and searchable widget source.
 - Reduced public documentation to four core pages, redirected retired catalog routes to the registry, and retained the source-site changelog history.
-- Rebranded Term/UI as part of the Rust/UI ecosystem and moved site, registry, SEO, and deployment URLs to `rust-ui.com`.
+- Set Term/UI as an independent product with `termui.rustify.app` as its canonical site, registry, SEO, and deployment origin.
 - Replaced cloud-platform deployment with the shared-apps Docker, Docker Hub, SSH, Nginx, and Certbot deployment path.
 - Upgraded the pinned pnpm toolchain to 12.5.1 and locked its Corepack binary metadata.
 - Copied the termcn site UI and content while omitting its Sponsor page and navigation link.

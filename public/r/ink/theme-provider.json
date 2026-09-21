@@ -4,9 +4,9 @@
   "title": "Theme Provider",
   "description": "Terminal theme provider, design tokens, and theme helpers.",
   "registryDependencies": [
-    "https://rust-ui.com/r/ink/theme-default.json",
-    "https://rust-ui.com/r/ink/types.json",
-    "https://rust-ui.com/r/ink/use-theme.json"
+    "https://termui.rustify.app/r/ink/theme-default.json",
+    "https://termui.rustify.app/r/ink/types.json",
+    "https://termui.rustify.app/r/ink/use-theme.json"
   ],
   "files": [
     {

@@ -7,11 +7,11 @@
     "ink"
   ],
   "registryDependencies": [
-    "https://rust-ui.com/r/ink/big-text.json",
-    "https://rust-ui.com/r/ink/interaction.json",
-    "https://rust-ui.com/r/ink/use-animation.json",
-    "https://rust-ui.com/r/ink/use-theme.json",
-    "https://rust-ui.com/r/ink/use-unicode.json"
+    "https://termui.rustify.app/r/ink/big-text.json",
+    "https://termui.rustify.app/r/ink/interaction.json",
+    "https://termui.rustify.app/r/ink/use-animation.json",
+    "https://termui.rustify.app/r/ink/use-theme.json",
+    "https://termui.rustify.app/r/ink/use-unicode.json"
   ],
   "files": [
     {

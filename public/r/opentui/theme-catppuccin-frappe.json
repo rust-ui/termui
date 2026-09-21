@@ -4,7 +4,7 @@
   "title": "Catppuccin Frappe",
   "description": "Catppuccin Frappe - soothing pastel.",
   "registryDependencies": [
-    "https://rust-ui.com/r/opentui/types.json"
+    "https://termui.rustify.app/r/opentui/types.json"
   ],
   "files": [
     {

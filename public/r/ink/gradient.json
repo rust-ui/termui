@@ -7,7 +7,7 @@
     "ink"
   ],
   "registryDependencies": [
-    "https://rust-ui.com/r/ink/terminal-text.json"
+    "https://termui.rustify.app/r/ink/terminal-text.json"
   ],
   "files": [
     {
