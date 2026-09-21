@@ -4,5 +4,6 @@
 //! dependency.
 
 pub mod key_bar;
+pub mod button;
 pub mod panel;
 pub mod select_list;

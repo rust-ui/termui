@@ -3093,6 +3093,16 @@
     "│   Interactive Rust example             │",
     "╰────────────────────────────────────────╯"
   ],
+  "rust/button": [
+    "╭─ Button────────────────────────────────╮",
+    "│ Rust-rendered terminal component       │",
+    "│ Example: Button                        │",
+    "│ Docs variant: Rust                     │",
+    "│   \u001b[1;38;2;250;250;250;48;2;37;99;235m Save \u001b[0m  \u001b[0;38;2;228;228;231;48;2;63;63;70m Cancel \u001b[0m                     │",
+    "│   \u001b[1;38;2;250;250;250;48;2;220;38;38m Delete \u001b[0m  \u001b[4;38;2;228;228;231m[Outline]\u001b[0m  \u001b[0;38;2;228;228;231mGhost\u001b[0m           │",
+    "│   \u001b[4;38;2;96;165;250mLink\u001b[0m  \u001b[2;38;2;228;228;231;48;2;37;99;235m Disabled \u001b[0m                     │",
+    "╰────────────────────────────────────────╯"
+  ],
   "rust/key-bar": [
     "╭─ Key Bar───────────────────────────────╮",
     "│ Rust-rendered terminal component       │",

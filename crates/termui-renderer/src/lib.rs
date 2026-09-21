@@ -1,12 +1,31 @@
 const WIDTH: usize = 42;
 
 fn fit(text: &str, width: usize) -> String {
-    let text = text.chars().take(width).collect::<String>();
-    format!(" {text:<width$}")
+    let visible_width = text
+        .split("\x1b[")
+        .enumerate()
+        .map(|(index, part)| {
+            if index == 0 {
+                part.chars().count()
+            } else {
+                part.split_once('m').map_or(0, |(_, rest)| rest.chars().count())
+            }
+        })
+        .sum::<usize>();
+    format!(" {text}{}", " ".repeat(width.saturating_sub(visible_width)))
 }
 
 fn row(text: &str) -> String {
     format!("│{}│", fit(text, WIDTH - 3))
+}
+
+fn button(label: &str, foreground: &str, background: &str, modifiers: &str) -> String {
+    let background = if background.is_empty() {
+        String::new()
+    } else {
+        format!(";48;2;{background}")
+    };
+    format!("\x1b[{modifiers};38;2;{foreground}{background}m{label}\x1b[0m")
 }
 
 fn humanize(name: &str) -> String {
@@ -42,7 +61,26 @@ pub fn render_demo(name: &str) -> Vec<String> {
         row(&format!("Docs variant: {label}")),
     ];
 
-    if name.contains("chart") || name.contains("sparkline") || name.contains("gauge") {
+    if name.ends_with("/button") {
+        lines.extend([
+            row(&format!(
+                "  {}  {}",
+                button(" Save ", "250;250;250", "37;99;235", "1"),
+                button(" Cancel ", "228;228;231", "63;63;70", "0")
+            )),
+            row(&format!(
+                "  {}  {}  {}",
+                button(" Delete ", "250;250;250", "220;38;38", "1"),
+                button("[Outline]", "228;228;231", "", "4"),
+                button("Ghost", "228;228;231", "", "0")
+            )),
+            row(&format!(
+                "  {}  {}",
+                button("Link", "96;165;250", "", "4"),
+                button(" Disabled ", "228;228;231", "37;99;235", "2")
+            )),
+        ]);
+    } else if name.contains("chart") || name.contains("sparkline") || name.contains("gauge") {
         lines.extend([
             row("  ▂   ▄   ▃   ▆   ▅   ▇   ▄   █"),
             row("  12  18  15  28  24  36  21  42"),

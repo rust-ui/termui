@@ -3,6 +3,12 @@ export const RATATUI_WIDGETS_TITLE = "Widgets";
 
 export const RATATUI_COMPONENTS = [
   {
+    description: "Shadcn-inspired terminal button with six color and style variants.",
+    name: "button",
+    source: "crates/termui-widgets/src/button.rs",
+    title: "Button",
+  },
+  {
     description: "Rounded panel shell for Ratatui widgets, with optional top and bottom titles.",
     name: "panel",
     source: "crates/termui-widgets/src/panel.rs",
