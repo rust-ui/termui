@@ -1,0 +1,22 @@
+---
+title: Toggle Switch
+description: A compact on or off state label.
+---
+
+`ToggleSwitch` renders a label and state. Your application owns interaction and state changes.
+
+<RustDemo name="toggle-switch" title="Toggle Switch" rows={5} code={`use termui_widgets::toggle_switch::ToggleSwitch;
+
+let line = ToggleSwitch::new("Notifications").checked(true).line();`} />
+
+## Source
+
+<ComponentSource src="crates/termui-widgets/src/toggle_switch.rs" title="toggle_switch.rs" language="rs" collapsible={false} />
+
+## Usage
+
+```rust
+use termui_widgets::toggle_switch::ToggleSwitch;
+
+let line = ToggleSwitch::new("Notifications").checked(true).line();
+```

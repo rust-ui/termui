@@ -1,0 +1,22 @@
+---
+title: Date Picker
+description: A selected date displayed with its month calendar.
+---
+
+`DatePicker` shows the selected date and highlights it in the month grid.
+
+<RustDemo name="date-picker" title="Date Picker" rows={12} code={`use termui_widgets::date_picker::DatePicker;
+
+DatePicker::new(2026, 9, 21).render(frame, area);`} />
+
+## Source
+
+<ComponentSource src="crates/termui-widgets/src/date_picker.rs" title="date_picker.rs" language="rs" collapsible={false} />
+
+## Usage
+
+```rust
+use termui_widgets::date_picker::DatePicker;
+
+DatePicker::new(2026, 9, 21).render(frame, area);
+```

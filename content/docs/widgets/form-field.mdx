@@ -1,0 +1,26 @@
+---
+title: Form Field with Validation
+description: A label, bordered value, and caller-provided validation message.
+---
+
+`FormField` displays a value and optional validation feedback. Your application owns editing and validation.
+
+<RustDemo name="form-field" title="Form Field with Validation" rows={7} code={`use termui_widgets::form_field::FormField;
+
+FormField::new("Email", "ada@example.com")
+    .validation("Valid email address")
+    .render(frame, area);`} />
+
+## Source
+
+<ComponentSource src="crates/termui-widgets/src/form_field.rs" title="form_field.rs" language="rs" collapsible={false} />
+
+## Usage
+
+```rust
+use termui_widgets::form_field::FormField;
+
+FormField::new("Email", "ada@example.com")
+    .validation("Valid email address")
+    .render(frame, area);
+```

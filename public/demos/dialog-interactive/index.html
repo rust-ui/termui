@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <script type="module">
-import init, * as bindings from '/demos/dialog-interactive/dialog-interactive-5d422827fd6dbbb7.js';
-const wasm = await init({ module_or_path: '/demos/dialog-interactive/dialog-interactive-5d422827fd6dbbb7_bg.wasm' });
+import init, * as bindings from '/demos/dialog-interactive/dialog-interactive-731f8a27b90819b3.js';
+const wasm = await init({ module_or_path: '/demos/dialog-interactive/dialog-interactive-731f8a27b90819b3_bg.wasm' });
 
 
 window.wasmBindings = bindings;
@@ -60,11 +60,22 @@ dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
         outline: none;
         user-select: none;
         -webkit-user-select: none;
-        cursor: pointer;
+        cursor: default;
       }
     </style>
-  <link rel="modulepreload" href="/demos/dialog-interactive/dialog-interactive-5d422827fd6dbbb7.js" crossorigin="anonymous" integrity="sha384-nzeRK8piVCelOXkBc7aMg1YSWrwvkh78V/JfiqQ72iEpiShng3KBnQzoD/Ub6hI0"><link rel="preload" href="/demos/dialog-interactive/dialog-interactive-5d422827fd6dbbb7_bg.wasm" crossorigin="anonymous" integrity="sha384-PQUxilwWloHsvzoRg0mC/dG9pd2n6gaoIx1o0MsCf2M1nuufUGrCQGLnrXds1bs2" as="fetch" type="application/wasm"></head>
+  <link rel="modulepreload" href="/demos/dialog-interactive/dialog-interactive-731f8a27b90819b3.js" crossorigin="anonymous" integrity="sha384-nzeRK8piVCelOXkBc7aMg1YSWrwvkh78V/JfiqQ72iEpiShng3KBnQzoD/Ub6hI0"><link rel="preload" href="/demos/dialog-interactive/dialog-interactive-731f8a27b90819b3_bg.wasm" crossorigin="anonymous" integrity="sha384-iEBNk5+6GaYAcX8U2+Hcba2qxpaCn/QHtLajy451Mz/CviGPIDez34ONKXMjEMFY" as="fetch" type="application/wasm"></head>
   <body>
     <div id="terminal"></div>
+    <script>
+      document.addEventListener(
+        "keydown",
+        (event) => {
+          if (event.key === "Tab" || event.key === "Backspace") {
+            event.preventDefault();
+          }
+        },
+        true,
+      );
+    </script>
   </body>
 </html>

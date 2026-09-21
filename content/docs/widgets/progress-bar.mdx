@@ -1,0 +1,26 @@
+---
+title: Progress Bar
+description: A percentage gauge for tracking task progress in the terminal.
+---
+
+`ProgressBar` renders a percentage and optional label. Your application owns and updates progress.
+
+<RustDemo name="progress-bar" title="Progress Bar" rows={5} code={`use termui_widgets::progress_bar::ProgressBar;
+
+ProgressBar::new(60)
+    .label("Downloading")
+    .render(frame, area);`} />
+
+## Source
+
+<ComponentSource src="crates/termui-widgets/src/progress_bar.rs" title="progress_bar.rs" language="rs" collapsible={false} />
+
+## Usage
+
+```rust
+use termui_widgets::progress_bar::ProgressBar;
+
+ProgressBar::new(60)
+    .label("Downloading")
+    .render(frame, area);
+```

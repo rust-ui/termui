@@ -1,0 +1,22 @@
+---
+title: Checkbox
+description: A compact checked or unchecked label for terminal interfaces.
+---
+
+`Checkbox` renders a state and label. Your application owns input and checked state.
+
+<RustDemo name="checkbox" title="Checkbox" rows={6} code={`use termui_widgets::checkbox::Checkbox;
+
+let line = Checkbox::new("Remember me").checked(true).line();`} />
+
+## Source
+
+<ComponentSource src="crates/termui-widgets/src/checkbox.rs" title="checkbox.rs" language="rs" collapsible={false} />
+
+## Usage
+
+```rust
+use termui_widgets::checkbox::Checkbox;
+
+let line = Checkbox::new("Remember me").checked(true).line();
+```

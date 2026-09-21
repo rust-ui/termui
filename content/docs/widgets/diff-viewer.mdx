@@ -1,0 +1,24 @@
+---
+title: Diff Viewer
+description: Show added, removed, and unchanged lines with terminal colors.
+---
+
+Prefix lines with `+`, `-`, or a space. `DiffViewer` colors each line by its prefix.
+
+<RustDemo name="diff-viewer" title="Diff Viewer" rows={6} code={`use termui_widgets::diff_viewer::DiffViewer;
+
+let changes = ["- old value", "+ new value", "  unchanged"];
+DiffViewer::new(&changes).render(frame, area);`} />
+
+## Source
+
+<ComponentSource src="crates/termui-widgets/src/diff_viewer.rs" title="diff_viewer.rs" language="rs" collapsible={false} />
+
+## Usage
+
+```rust
+use termui_widgets::diff_viewer::DiffViewer;
+
+let changes = ["- old value", "+ new value", "  unchanged"];
+DiffViewer::new(&changes).render(frame, area);
+```

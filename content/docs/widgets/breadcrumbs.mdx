@@ -1,0 +1,24 @@
+---
+title: Breadcrumbs
+description: A compact path that shows the current location in nested views.
+---
+
+`Breadcrumbs` joins path labels into a single line. Your application owns navigation.
+
+<RustDemo name="breadcrumbs" title="Breadcrumbs" rows={5} code={`use termui_widgets::breadcrumbs::Breadcrumbs;
+
+let path = ["Home", "Projects", "TermUI"];
+let line = Breadcrumbs::new(&path).line();`} />
+
+## Source
+
+<ComponentSource src="crates/termui-widgets/src/breadcrumbs.rs" title="breadcrumbs.rs" language="rs" collapsible={false} />
+
+## Usage
+
+```rust
+use termui_widgets::breadcrumbs::Breadcrumbs;
+
+let path = ["Home", "Projects", "TermUI"];
+let line = Breadcrumbs::new(&path).line();
+```

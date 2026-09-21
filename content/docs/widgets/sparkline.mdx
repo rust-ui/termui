@@ -1,0 +1,24 @@
+---
+title: Sparkline
+description: A one-line chart for a short sequence of values.
+---
+
+`Sparkline` maps values to compact terminal bar characters.
+
+<RustDemo name="sparkline" title="Sparkline" rows={5} code={`use termui_widgets::sparkline::Sparkline;
+
+let values = [1, 3, 2, 5, 4, 7];
+Sparkline::new("Activity", &values).render(frame, area);`} />
+
+## Source
+
+<ComponentSource src="crates/termui-widgets/src/sparkline.rs" title="sparkline.rs" language="rs" collapsible={false} />
+
+## Usage
+
+```rust
+use termui_widgets::sparkline::Sparkline;
+
+let values = [1, 3, 2, 5, 4, 7];
+Sparkline::new("Activity", &values).render(frame, area);
+```

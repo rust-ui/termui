@@ -1,0 +1,24 @@
+---
+title: Scrollbar
+description: A vertical indicator for caller-owned scroll state.
+---
+
+`Scrollbar` maps content size and scroll position to a thumb and track.
+
+<RustDemo name="scrollbar" title="Scrollbar" rows={7} code={`use termui_widgets::scrollbar::Scrollbar;
+
+Scrollbar::new(content_length, viewport_length, position)
+    .render(frame, area);`} />
+
+## Source
+
+<ComponentSource src="crates/termui-widgets/src/scrollbar.rs" title="scrollbar.rs" language="rs" collapsible={false} />
+
+## Usage
+
+```rust
+use termui_widgets::scrollbar::Scrollbar;
+
+Scrollbar::new(content_length, viewport_length, position)
+    .render(frame, area);
+```

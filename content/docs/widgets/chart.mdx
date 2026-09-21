@@ -1,0 +1,24 @@
+---
+title: Chart
+description: A compact horizontal bar chart for labeled values.
+---
+
+`Chart` scales each value against the largest value in the series.
+
+<RustDemo name="chart" title="Chart" rows={7} code={`use termui_widgets::chart::Chart;
+
+let values = [("Build", 4), ("Test", 7)];
+Chart::new(&values).render(frame, area);`} />
+
+## Source
+
+<ComponentSource src="crates/termui-widgets/src/chart.rs" title="chart.rs" language="rs" collapsible={false} />
+
+## Usage
+
+```rust
+use termui_widgets::chart::Chart;
+
+let values = [("Build", 4), ("Test", 7)];
+Chart::new(&values).render(frame, area);
+```

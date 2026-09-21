@@ -1,0 +1,26 @@
+---
+title: Table
+description: A compact table for rows of terminal text.
+---
+
+`Table` aligns text columns from the supplied header and row values.
+
+<RustDemo name="table" title="Table" rows={6} code={`use termui_widgets::table::Table;
+
+let headers = ["Name", "Status"];
+let rows: [&[&str]; 1] = [&["API", "Online"]];
+Table::new(&headers, &rows).render(frame, area);`} />
+
+## Source
+
+<ComponentSource src="crates/termui-widgets/src/table.rs" title="table.rs" language="rs" collapsible={false} />
+
+## Usage
+
+```rust
+use termui_widgets::table::Table;
+
+let headers = ["Name", "Status"];
+let rows: [&[&str]; 1] = [&["API", "Online"]];
+Table::new(&headers, &rows).render(frame, area);
+```

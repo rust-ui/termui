@@ -1,0 +1,22 @@
+---
+title: Calendar
+description: A month grid with an optional highlighted date.
+---
+
+`Calendar` renders a month and optionally highlights a day.
+
+<RustDemo name="calendar" title="Calendar" rows={10} code={`use termui_widgets::calendar::Calendar;
+
+Calendar::new(2026, 9).selected_day(21).render(frame, area);`} />
+
+## Source
+
+<ComponentSource src="crates/termui-widgets/src/calendar.rs" title="calendar.rs" language="rs" collapsible={false} />
+
+## Usage
+
+```rust
+use termui_widgets::calendar::Calendar;
+
+Calendar::new(2026, 9).selected_day(21).render(frame, area);
+```

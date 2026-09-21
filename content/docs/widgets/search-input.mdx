@@ -1,0 +1,26 @@
+---
+title: Search Input
+description: A search prompt with caller-owned query and key handling.
+---
+
+`SearchInput` styles a slash prompt, current query, or placeholder text.
+
+<RustDemo name="search-input" title="Search Input" rows={5} code={`use termui_widgets::search_input::SearchInput;
+
+SearchInput::new(query)
+    .placeholder("Find in files...")
+    .render(frame, area);`} />
+
+## Source
+
+<ComponentSource src="crates/termui-widgets/src/search_input.rs" title="search_input.rs" language="rs" collapsible={false} />
+
+## Usage
+
+```rust
+use termui_widgets::search_input::SearchInput;
+
+SearchInput::new(query)
+    .placeholder("Find in files...")
+    .render(frame, area);
+```

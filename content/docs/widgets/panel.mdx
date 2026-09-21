@@ -5,7 +5,22 @@ description: Rounded panel shell for Ratatui widgets, with optional top and bott
 
 `Panel` builds a rounded Ratatui `Block`. Add optional titles and border styling, then attach it to any widget with `.block()`.
 
-<TerminalFrame title="Panel" src="panel" height={220} />
+<RustDemo name="panel" title="Panel" rows={13} code={`use ratatui::{
+    style::{Color, Style},
+    widgets::Paragraph,
+};
+use termui_widgets::panel::Panel;
+
+frame.render_widget(
+    Paragraph::new("Ready").block(
+        Panel::new()
+            .title("Activity")
+            .bottom_title("Esc Back")
+            .border_style(Style::default().fg(Color::Cyan))
+            .block(),
+    ),
+    area,
+);`} />
 
 ## Source
 

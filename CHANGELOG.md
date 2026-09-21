@@ -6,6 +6,7 @@ Notable Term/UI changes are recorded here. Format follows [Keep a Changelog](htt
 
 ### Added
 
+- Added 35 planned widgets with copyable Rust source, documentation pages, and checked-in terminal previews.
 - Added an interactive Ratatui Text Input demo with click, typing, field switching, and Backspace behavior; checked in its WebAssembly assets.
 - Added a composable `Card` widget with a prominent title, an RSX-style `termui!` macro, docs, and a Rust-rendered demo; removed the unused `CardAction` slot.
 - Added ColorPicker, Dialog, RadioCard, and TextInput widgets with Rust-rendered demos and copyable source pages; ported Ferrit's licensed `tui_overlay` and animated error Toast, with native mouse dismissal.
@@ -24,6 +25,9 @@ Notable Term/UI changes are recorded here. Format follows [Keep a Changelog](htt
 
 ### Changed
 
+- Reject widget docs that use `TerminalFrame` without a Preview/Code switcher.
+- Generate Ratzilla demo entry HTML from one shared template and MDX references.
+- Show whether each widget demo is interactive or static beside its Preview/Code tabs.
 - Adopted termcn’s geometric logo mark with a custom R, updating the favicon family and downloadable Term/UI logo.
 - Rebuilt Dialog as composable trigger, content, header, title, description, footer, and close components; added a Ratzilla demo with a blue trigger that opens on click.
 - Removed the KeyBar widget, page, component catalog entry, and preview.
@@ -39,6 +43,10 @@ Notable Term/UI changes are recorded here. Format follows [Keep a Changelog](htt
 - Replaced Carbon Ads in the documentation with a Rustify CTA linking to `rustify.rs`.
 - Added Ratatui widget pages under flat `/docs/widgets/*` routes with the termcn sidebar navigation and searchable widget source.
 - Reduced public documentation to four core pages, redirected retired catalog routes to the registry, and retained the source-site changelog history.
+
+### Fixed
+
+- Keep Toast's native `crossterm` mouse events out of WebAssembly builds.
 - Set Term/UI as an independent product with `termui.rustify.app` as its canonical site, registry, SEO, and deployment origin.
 - Replaced cloud-platform deployment with the shared-apps Docker, Docker Hub, SSH, Nginx, and Certbot deployment path.
 - Upgraded the pinned pnpm toolchain to 12.5.1 and locked its Corepack binary metadata.

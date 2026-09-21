@@ -1,0 +1,26 @@
+---
+title: Spinner
+description: A compact loading indicator with caller-controlled animation frames.
+---
+
+`Spinner` renders one animation frame. Your application owns the timer and advances the frame.
+
+<RustDemo name="spinner" title="Spinner" rows={5} code={`use termui_widgets::spinner::Spinner;
+
+Spinner::new("Working...")
+    .frame(2)
+    .render(frame, area);`} />
+
+## Source
+
+<ComponentSource src="crates/termui-widgets/src/spinner.rs" title="spinner.rs" language="rs" collapsible={false} />
+
+## Usage
+
+```rust
+use termui_widgets::spinner::Spinner;
+
+Spinner::new("Working...")
+    .frame(2)
+    .render(frame, area);
+```

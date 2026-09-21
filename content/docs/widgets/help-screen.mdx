@@ -1,0 +1,24 @@
+---
+title: Help Screen
+description: A compact reference for keyboard shortcuts.
+---
+
+`HelpScreen` displays a title and key-description pairs.
+
+<RustDemo name="help-screen" title="Help Screen" rows={7} code={`use termui_widgets::help_screen::HelpScreen;
+
+let shortcuts = [("Enter", "Select"), ("Esc", "Back")];
+HelpScreen::new("Keyboard shortcuts", &shortcuts).render(frame, area);`} />
+
+## Source
+
+<ComponentSource src="crates/termui-widgets/src/help_screen.rs" title="help_screen.rs" language="rs" collapsible={false} />
+
+## Usage
+
+```rust
+use termui_widgets::help_screen::HelpScreen;
+
+let shortcuts = [("Enter", "Select"), ("Esc", "Back")];
+HelpScreen::new("Keyboard shortcuts", &shortcuts).render(frame, area);
+```

@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <script type="module">
-import init, * as bindings from '/demos/text-input-interactive/text-input-interactive-ccff22a7dbd7fae6.js';
-const wasm = await init({ module_or_path: '/demos/text-input-interactive/text-input-interactive-ccff22a7dbd7fae6_bg.wasm' });
+import init, * as bindings from '/demos/text-input-interactive/text-input-interactive-4807274de8778e57.js';
+const wasm = await init({ module_or_path: '/demos/text-input-interactive/text-input-interactive-4807274de8778e57_bg.wasm' });
 
 
 window.wasmBindings = bindings;
@@ -60,10 +60,10 @@ dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
         outline: none;
         user-select: none;
         -webkit-user-select: none;
-        cursor: text;
+        cursor: default;
       }
     </style>
-  <link rel="modulepreload" href="/demos/text-input-interactive/text-input-interactive-ccff22a7dbd7fae6.js" crossorigin="anonymous" integrity="sha384-7b0bZxCNAFXZS9FcpiB9AWBtQ1wGsrxIQsTSrzzGot4KUzCGEEn4uBhl/lwSrAa+"><link rel="preload" href="/demos/text-input-interactive/text-input-interactive-ccff22a7dbd7fae6_bg.wasm" crossorigin="anonymous" integrity="sha384-0oFyoUPTA3/Vnz1TWQKCOdulm4SPYbLE6maQ4ryWoqh6hT13PnngBfmNEW94pJOJ" as="fetch" type="application/wasm"></head>
+  <link rel="modulepreload" href="/demos/text-input-interactive/text-input-interactive-4807274de8778e57.js" crossorigin="anonymous" integrity="sha384-7b0bZxCNAFXZS9FcpiB9AWBtQ1wGsrxIQsTSrzzGot4KUzCGEEn4uBhl/lwSrAa+"><link rel="preload" href="/demos/text-input-interactive/text-input-interactive-4807274de8778e57_bg.wasm" crossorigin="anonymous" integrity="sha384-x8wh2Lxcp/6S+ZqSfpFzmtGJ1ClLfZmoHfpCBAHbr/18TnMlmIUKMQKDP9IKGZ/s" as="fetch" type="application/wasm"></head>
   <body>
     <div id="terminal"></div>
     <script>
