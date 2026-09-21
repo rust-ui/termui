@@ -30,7 +30,7 @@
 | Panel | ✅ Done |
 | Password input | ⚠️ Waiting |
 | Progress bar | ⚠️ Waiting |
-| Radio group | ✅ Done |
+| Radio card | ✅ Done |
 | Resizable layout | ⚠️ Waiting |
 | Scrollbar | ⚠️ Waiting |
 | Search input | ⚠️ Waiting |
@@ -268,7 +268,7 @@ Home / Projects / TermUI
   Downloading  [██████░░░░]  60%
 ```
 
-## Radio group
+## Radio card
 
 ```text
 ╭─ ◉ Standard ───╮ ╭─ ○ High contrast ─╮

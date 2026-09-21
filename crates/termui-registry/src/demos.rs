@@ -14,8 +14,8 @@ mod demo_dialog;
 mod demo_key_bar;
 #[path = "demos/demo_panel.rs"]
 mod demo_panel;
-#[path = "demos/demo_radio_group.rs"]
-mod demo_radio_group;
+#[path = "demos/demo_radio_card.rs"]
+mod demo_radio_card;
 #[path = "demos/demo_select_list.rs"]
 mod demo_select_list;
 #[path = "demos/demo_text_input.rs"]
@@ -33,7 +33,7 @@ const DEMOS: &[(&str, DemoRenderer)] = &[
     ("rust/dialog", demo_dialog::render),
     ("rust/key-bar", demo_key_bar::render),
     ("rust/panel", demo_panel::render),
-    ("rust/radio-group", demo_radio_group::render),
+    ("rust/radio-card", demo_radio_card::render),
     ("rust/select-list", demo_select_list::render),
     ("rust/text-input", demo_text_input::render),
     ("rust/toast", demo_toast::render),
