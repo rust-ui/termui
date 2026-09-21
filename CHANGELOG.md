@@ -34,6 +34,8 @@ Notable Term/UI changes are recorded here. Format follows [Keep a Changelog](htt
 
 ### Changed
 
+- Mentioned the Rust/UI ecosystem and linked to rust-ui.com in the README.
+- Simplified the README to a centered logo, short description, and docs link.
 - Reorganized app source into feature-owned `domains/` and cross-feature `shared/` modules; kept Next.js `app/` and shadcn UI at the repository root.
 - Grouped SEO helpers and sitemap, robots, and manifest routes under `app/(seo)/` while preserving their public URLs.
 - Refined the Drawer demo trigger, centered hint, and panel contrast.
