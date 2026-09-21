@@ -4,7 +4,7 @@ import { HomeCtas } from "@/domains/site/components/home-ctas";
 import { PageHero } from "@/domains/site/components/page-hero";
 import { RATATUI_COMPONENTS } from "@/domains/ratatui/config";
 import { ROUTES } from "@/shared/config/routes";
-import { createPageMetadata } from "@/domains/site/seo/metadata";
+import { createPageMetadata } from "@/app/(seo)/_lib/metadata";
 
 export const dynamic = "force-static";
 export const revalidate = false;

@@ -18,8 +18,8 @@ import { formatTitleFromSlug } from "@/domains/docs/docs";
 import { source } from "@/domains/docs/source";
 import { absoluteUrl } from "@/shared/lib/utils";
 import { mdxComponents } from "@/mdx-components";
-import { BreadcrumbJsonLd } from "@/domains/site/seo/json-ld";
-import { createPageMetadata } from "@/domains/site/seo/metadata";
+import { BreadcrumbJsonLd } from "@/app/(seo)/_lib/json-ld";
+import { createPageMetadata } from "@/app/(seo)/_lib/metadata";
 
 export const revalidate = false;
 export const dynamic = "force-static";

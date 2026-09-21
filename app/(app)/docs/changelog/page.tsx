@@ -8,7 +8,7 @@ import { ROUTES } from "@/shared/config/routes";
 import { getChangelogPages } from "@/domains/docs/changelog";
 import type { ChangelogPageData } from "@/domains/docs/changelog";
 import { mdxComponents } from "@/mdx-components";
-import { createPageMetadata } from "@/domains/site/seo/metadata";
+import { createPageMetadata } from "@/app/(seo)/_lib/metadata";
 
 export const revalidate = false;
 export const dynamic = "force-static";

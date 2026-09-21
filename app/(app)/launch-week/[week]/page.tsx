@@ -9,8 +9,8 @@ import {
   getLaunchWeekHref,
   getLaunchWeeks,
 } from "@/domains/launch-week/data";
-import { BreadcrumbJsonLd } from "@/domains/site/seo/json-ld";
-import { createPageMetadata } from "@/domains/site/seo/metadata";
+import { BreadcrumbJsonLd } from "@/app/(seo)/_lib/json-ld";
+import { createPageMetadata } from "@/app/(seo)/_lib/metadata";
 
 export const dynamic = "force-static";
 export const dynamicParams = false;

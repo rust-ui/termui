@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { ChartGallery } from "@/domains/charts/components/charts/chart-gallery";
 import { CHART_EXAMPLES, CHART_FAMILIES, getChartFamily } from "@/domains/charts/config";
 import { ROUTES } from "@/shared/config/routes";
-import { createPageMetadata } from "@/domains/site/seo/metadata";
+import { createPageMetadata } from "@/app/(seo)/_lib/metadata";
 
 export const dynamic = "force-static";
 export const dynamicParams = false;

@@ -5,10 +5,10 @@ import { Toaster } from "@/components/ui/sonner";
 import { META_THEME_COLORS } from "@/shared/config/site";
 import { fontVariables } from "@/shared/lib/fonts";
 import { cn } from "@/shared/lib/utils";
-import { JsonLdScripts } from "@/domains/site/seo/json-ld";
+import { JsonLdScripts } from "@/app/(seo)/_lib/json-ld";
 
 import "@/shared/styles/globals.css";
-import { baseMetadata } from "@/domains/site/seo/metadata";
+import { baseMetadata } from "@/app/(seo)/_lib/metadata";
 
 export const metadata: Metadata = baseMetadata;
 

@@ -5,7 +5,7 @@
 - Add a concise entry under `## [Unreleased]` in `CHANGELOG.md` for every visible or architectural change.
 - Add reusable project lessons to `__SKILLS_LEARNINGS/LEARNINGS.md`; keep one dated line per lesson.
 - Preserve the copied termcn UI and behavior. Sponsor page and Sponsor link stay omitted.
-- Keep Next.js `app/` and shadcn `components/ui/` at the repository root. Put feature-owned code in `domains/<domain>/`, cross-feature modules in `shared/`, and reusable non-shadcn components in `components/shared/`.
+- Keep Next.js `app/` and shadcn `components/ui/` at the repository root. Put SEO helpers and root crawler metadata routes under `app/(seo)/`; put feature-owned code in `domains/<domain>/`, cross-feature modules in `shared/`, and reusable non-shadcn components in `components/shared/`.
 - Default demos to Rust-generated static text frames. Use Ratzilla/WebAssembly when clicking or keyboard input meaningfully changes widget state; keep visual-only variant and size demos static.
 - Keep Rust demo frames and built interactive demo assets checked in. The production Next.js image uses `pnpm build:production` and does not require a Rust toolchain.
 - Keep pnpm supply-chain policies aligned with RUSTIFY. Fix vulnerable dependencies without weakening release-age or trust policies.
