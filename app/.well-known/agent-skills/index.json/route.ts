@@ -16,7 +16,7 @@ export const GET = (request: Request) => {
           digest: termuiAgentSkillDigest(),
           name: "termui-registry",
           type: "skill-md",
-          url: `${base}${ROUTES.AGENT_SKILLS_Term/UI_SKILL}`,
+          url: `${base}${ROUTES.AGENT_SKILLS_TERMUI_SKILL}`,
         },
       ],
     },
