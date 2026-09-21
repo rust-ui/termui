@@ -1,12 +1,12 @@
 # Plan: React-Like Composition Syntax for Term/UI
 
-**Status:** Card renderer implemented; JSX-like macro remains a proposal.
+**Status:** Card renderer and Card-focused `termui!` macro implemented; general macro support remains open.
 
-**Scope:** API and syntax proposal; no implementation decision yet.
+**Scope:** Lessons from the Card macro prototype and options for extending its syntax to other widgets.
 
 ## Summary
 
-Term/UI's `Dialog` and `Card` APIs expose composable parts, but callers still render each part and route layout areas themselves. Explore a JSX-like Rust macro so nested component structure is easier to read and closer to the React API that Term/UI users may already know. The Card renderer and Rust demo now provide a second composition case; the macro remains unimplemented.
+Term/UI's `Dialog` and `Card` APIs expose composable parts. The Card demo uses a `termui!` macro with RSX-style brace syntax. Explore whether that syntax should support more widgets while keeping Ratatui rendering and state explicit.
 
 Rust has no native JSX syntax. A function-like macro can define an embedded UI DSL and expand it into ordinary Rust. The macro would improve the call-site syntax; it would not add React's runtime, implicit state, or event system.
 
@@ -58,7 +58,7 @@ This is explicit and flexible, but visual hierarchy is spread across render call
 
 Keep the familiar React hierarchy, wrapped in a Rust macro invocation. The example below is a syntax sketch, not working API:
 
-### After (proposal)
+### After (proposal for Dialog)
 
 ```rust
 termui! {
@@ -118,57 +118,45 @@ let [header, content, footer] = Layout::vertical([
     Constraint::Length(3),
 ])
 .areas(inner);
-let [header_text, action] = Layout::horizontal([
-    Constraint::Min(0),
-    Constraint::Length(14),
-])
-.areas(header);
 let [title, description] = Layout::vertical([
     Constraint::Length(1),
     Constraint::Min(0),
 ])
-.areas(header_text);
+.areas(header);
 
 frame.render_widget(Paragraph::new("Card Title"), title);
 frame.render_widget(Paragraph::new("Card Description"), description);
-frame.render_widget(Paragraph::new("Card Action"), action);
 frame.render_widget(Paragraph::new("Card Content"), content);
 frame.render_widget(Paragraph::new("Card Footer"), footer);
 ```
 
-Before the `Card` component, this had the right ingredients but no semantic card parts. The caller owned the slot layout, including the header's two-column arrangement.
+Before the `Card` component, this had the right ingredients but no semantic card parts. The caller owned the slot layout and styling.
 
-### After (proposal)
+### After (Card macro prototype)
 
 ```rust
 termui! {
     frame: frame,
     area: area,
-
-    <Card>
-        <CardHeader>
-            <CardTitle>{"Card Title"}</CardTitle>
-            <CardDescription>{"Card Description"}</CardDescription>
-            <CardAction>{"Card Action"}</CardAction>
-        </CardHeader>
-        <CardContent>
-            {Paragraph::new("Card Content")}
-        </CardContent>
-        <CardFooter>
-            {Paragraph::new("Card Footer")}
-        </CardFooter>
-    </Card>
+    Card {
+        CardHeader {
+            CardTitle { "Card Title" }
+            CardDescription { "Card Description" }
+        }
+        CardContent { p { "Card Content" } }
+        CardFooter { p { "Card Footer" } }
+    }
 }
 ```
 
-This follows Shadcn's documented composition. `CardAction` should occupy the header's top-right slot; title and description use the remaining header area. The macro or Card renderer needs to derive that layout from the named parts. This is still a syntax sketch, not implemented API. [Shadcn Card documentation](https://ui.shadcn.com/docs/components/base/card)
+This follows Shadcn's documented composition in an RSX-style macro. The prototype supports only this fixed Card tree with literal text children. It does not implement Dioxus `Element`, arbitrary components, or CSS classes. [Shadcn Card documentation](https://ui.shadcn.com/docs/components/base/card)
 
 ### What Card Tests
 
-- **Nested and named slots:** `CardHeader` owns three semantic children; the other parts are siblings under `Card`.
-- **Nonuniform layout:** header action sits beside title/description, while content and footer stack vertically.
+- **Nested and named slots:** `CardHeader` owns title and description; the other parts are siblings under `Card`.
+- **Nonuniform layout:** title and description stack in the header, while content and footer follow below.
 - **Sizing rules:** Ratatui needs a concrete `Rect` and row constraints. Decide whether Card takes the caller's full area, supports explicit header/footer rows, or requires child-specific sizing hints.
-- **Optional action and content:** define defaults for a missing `CardAction`, empty description, or omitted footer.
+- **Optional content:** define defaults for an empty description or omitted footer.
 - **Styling boundaries:** choose where padding, borders, separators, and compact sizing live: in Card part components, Card configuration, or caller-provided styles.
 
 Card gives the DSL a useful test without Dialog's open state and event-routing questions. If both examples fit a common grammar while using different layout rules, that supports a reusable syntax layer over widget-specific renderers.
@@ -185,9 +173,9 @@ The aim is React-like composition and readability, not a React runtime clone.
 
 ## Proposed Direction
 
-Prototype a function-like macro named `termui!` (name open) that expands nested tags into the existing component constructors and render methods. Keep current Rust APIs available as the underlying primitives and as an escape hatch.
+The Card-specific `termui!` macro is implemented with `macro_rules!`. Keep current Rust APIs available as the underlying primitives and as an escape hatch. Decide whether to extend the macro grammar to Dialog or other widgets after the Card prototype proves useful.
 
-Treat Dialog and Card as validation cases, not as a commitment to implement both components in the first change. Dialog tests animated state and named areas; Card tests static nested slots and asymmetric header layout. If both fit a common syntax while keeping rendering rules local to each widget, that is evidence for a reusable DSL. If not, prefer the current component API or a Rust builder over a Dialog-only macro.
+Dialog and Card differ in state and layout. The Card macro handles static nested slots; Dialog would need additional rules for animated state, event activation, and arbitrary body widgets. Extend the grammar only where a second use case justifies the parser and API work.
 
 Likely implementation options:
 
