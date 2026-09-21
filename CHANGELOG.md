@@ -21,6 +21,7 @@ Notable Term/UI changes are recorded here. Format follows [Keep a Changelog](htt
 
 ### Changed
 
+- Use the repository's `packageManager` pin as the sole pnpm version source in CI.
 - Centered the interactive Button demo stack and grouped its controls more tightly.
 - Marked Calendar, Chart, and Checkbox as ⚠️ Waiting in the all-widgets plan.
 - Simplified the interactive Button preview to its Increment and Reset controls, a live counter, and click/keyboard instructions.
