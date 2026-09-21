@@ -1,8 +1,7 @@
 {
   "pages": [
     "(root)",
-    "widgets",
-    "registry"
+    "widgets"
   ],
   "root": true
 }

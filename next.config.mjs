@@ -51,7 +51,7 @@ const nextConfig = {
         ROUTES.DOCS_THEMES,
         ROUTES.DOCS_THEMING,
       ].map((source) => ({
-        destination: ROUTES.DOCS_REGISTRY,
+        destination: ROUTES.DOCS,
         permanent: true,
         source: `${source}/:path*`,
       })),
