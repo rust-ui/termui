@@ -1,5 +1,5 @@
 use ratatui::Frame;
-use ratatui::layout::Rect;
+use ratatui::layout::{Constraint, Rect};
 use ratatui::style::Style;
 use ratatui::symbols::Marker;
 use ratatui::widgets::{Axis, Block, Chart as RatatuiChart, Dataset, GraphType};
@@ -73,7 +73,8 @@ impl<'a> AreaChart<'a> {
             .collect();
         let mut chart = RatatuiChart::new(datasets)
             .x_axis(Axis::default().bounds([x_min, x_max]))
-            .y_axis(Axis::default().bounds([y_min, y_max]));
+            .y_axis(Axis::default().bounds([y_min, y_max]))
+            .hidden_legend_constraints((Constraint::Percentage(50), Constraint::Percentage(50)));
         if let Some(title) = self.title {
             chart = chart.block(Block::bordered().title(title));
         }

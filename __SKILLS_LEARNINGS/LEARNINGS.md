@@ -15,6 +15,7 @@ One line per reusable project lesson. Format: `YYYY-MM-DD [domain] avoid X, do Y
 - 2026-09-21 [termui/docs] check Fumadocs route groups when moving docs; `(root)` does not create a distinct URL segment, so same-slug pages collide.
 - 2026-09-21 [termui/types] derive route and widget types from centralized catalogs; avoid duplicated string literals that drift as the catalog grows.
 - 2026-09-21 [termui/demos] register Rust demos by exact ID and keep each demo renderer separate; substring-based renderer chains drift as examples grow.
+- 2026-09-21 [termui/rust] derive enum display labels with Strum so variant labels stay aligned without manual match arms.
 - 2026-09-21 [termui/docs] use `RustDemo` on widget pages because `TerminalFrame` has no Code tab; reject bare `TerminalFrame` during demo generation.
 - 2026-09-21 [termui/tests] keep executable tests under `tests/` and split component checks by widget; browser tests catch interactions that preview asset checks cannot.
 - 2026-09-21 [termui/charts] keep chart families in named modules and share only series data; this keeps each renderer composable and keeps APIs discoverable.
