@@ -159,7 +159,7 @@ impl<'a> CardTitle<'a> {
         frame.render_widget(
             Paragraph::new(self.title).style(
                 Style::default()
-                    .fg(Color::LightCyan)
+                    .fg(Color::White)
                     .add_modifier(Modifier::BOLD),
             ),
             area,
