@@ -4,19 +4,37 @@ export interface LabsNavLink {
   href: string;
   name: string;
   description?: string;
+  logo?: {
+    light: string;
+    dark: string;
+  };
 }
 
 export const LABS_LATEST = {
-  description: "Explore the Term/UI source code and releases",
-  href: "https://github.com/rust-ui/termui",
-  name: "Term/UI on GitHub",
+  description: "Reusable components for Dioxus and Rust fullstack apps",
+  href: "https://rust-ui.com",
+  logo: {
+    dark: "/rust-ui-logo-dark.webp",
+    light: "/rust-ui-logo-light.webp",
+  },
+  name: "Rust/UI",
 } as const satisfies LabsNavLink;
 
 export const LABS_NAV_SECTIONS: {
   id: string;
   items: readonly LabsNavLink[];
   title: string;
-}[] = [];
+}[] = [
+  {
+    id: "ecosystem",
+    items: [
+      { href: "https://rust-ui.com", name: "Rust/UI" },
+      { href: "https://leptos.rust-ui.com", name: "Leptos UI" },
+      { href: "https://rustify.rs", name: "Rustify" },
+    ],
+    title: "Ecosystem",
+  },
+];
 
 export const TOP_LEVEL_SECTIONS = [
   { href: ROUTES.DOCS, name: "Introduction" },

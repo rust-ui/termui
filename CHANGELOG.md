@@ -31,6 +31,8 @@ Notable Term/UI changes are recorded here. Format follows [Keep a Changelog](htt
 
 ### Changed
 
+- Feature the Rust/UI site and theme-aware logo in the Labs Latest card.
+- Add an Ecosystem column with Rust/UI, Leptos UI, and Rustify links.
 - Add a slash separator after the Labs menu trigger.
 - Route interactive demos through one shared HTML shell; preserve per-demo Rust binaries and WebAssembly assets.
 - Keep the visible changelog focused on Term/UI updates; remove inherited release history.

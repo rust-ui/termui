@@ -1,6 +1,7 @@
 "use client";
 
 import { ChevronDownIcon } from "lucide-react";
+import Image from "next/image";
 import { useState } from "react";
 
 import type { ArrowUpRightIconHandle } from "@/components/animated-icons/arrow-up-right";
@@ -115,10 +116,30 @@ const LatestCard = ({
     <>
       <span
         className={cn(
-          "flex items-center justify-center rounded-md bg-muted text-base font-medium",
+          "flex items-center justify-center gap-2 rounded-md bg-muted text-base font-medium",
           nameClassName ?? "min-h-24 w-full"
         )}
       >
+        {item.logo ? (
+          <>
+            <Image
+              src={item.logo.light}
+              alt=""
+              aria-hidden="true"
+              width={48}
+              height={48}
+              className="size-8 dark:hidden"
+            />
+            <Image
+              src={item.logo.dark}
+              alt=""
+              aria-hidden="true"
+              width={48}
+              height={48}
+              className="hidden size-8 dark:block"
+            />
+          </>
+        ) : null}
         {item.name}
       </span>
       {item.description ? (
