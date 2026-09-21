@@ -5,7 +5,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { DirectionalTransition } from "@/components/directional-transition";
-import { DocsAds } from "@/components/docs-ads";
+import { DocsRustifyCta } from "@/components/docs-rustify-cta";
 import {
   DocsBaseSwitcher,
   getDocsBaseSwitcherProps,
@@ -180,7 +180,7 @@ const Page = async (props: { params: Promise<{ slug?: string[] }> }) => {
                   </div>
                 ) : null}
               </div>
-              <DocsAds slot="content" />
+              <DocsRustifyCta slot="content" />
               <div className="w-full flex-1 *:data-[slot=alert]:first:mt-0">
                 {baseSwitcher && (
                   <DocsBaseSwitcher {...baseSwitcher} className="mb-4" />
@@ -218,7 +218,7 @@ const Page = async (props: { params: Promise<{ slug?: string[] }> }) => {
               </div>
             ) : null}
             <DocsTocFooter docId={page.path} className="mx-8" />
-            <DocsAds slot="sidebar" className="mx-8 shrink-0" />
+            <DocsRustifyCta slot="sidebar" className="mx-8 shrink-0" />
           </div>
         </div>
       </DirectionalTransition>
