@@ -27,19 +27,15 @@ mod wasm_app {
     }
 
     fn action_areas(area: Rect) -> ButtonAreas {
-        let columns = Layout::default()
-            .direction(Direction::Horizontal)
-            .constraints([
-                Constraint::Length(24),
-                Constraint::Length(3),
-                Constraint::Length(12),
-            ])
-            .split(area);
-
+        let increment_width = 16;
+        let gap = 3;
+        let reset_width = 9;
+        let group_width = increment_width + gap + reset_width;
+        let start_x = area.x + area.width.saturating_sub(group_width) / 2;
         let row = area.y + area.height / 2;
         ButtonAreas {
-            increment: Rect::new(columns[0].x, row, columns[0].width, 1),
-            reset: Rect::new(columns[2].x, row, columns[2].width, 1),
+            increment: Rect::new(start_x, row, increment_width, 1),
+            reset: Rect::new(start_x + increment_width + gap, row, reset_width, 1),
         }
     }
 
@@ -50,15 +46,13 @@ mod wasm_app {
         let content = outer.inner(frame.area());
         frame.render_widget(outer, frame.area());
 
+        let stack_height = content.height.min(5);
+        let stack_y = content.y + content.height.saturating_sub(stack_height) / 2;
+        let stack = Rect::new(content.x, stack_y, content.width, stack_height);
         let rows = Layout::default()
             .direction(Direction::Vertical)
-            .constraints([
-                Constraint::Length(1),
-                Constraint::Length(2),
-                Constraint::Length(1),
-                Constraint::Min(1),
-            ])
-            .split(content);
+            .constraints([Constraint::Length(1); 5])
+            .split(stack);
 
         frame.render_widget(
             Paragraph::new(format!("Count: {}", app.count))
@@ -67,7 +61,7 @@ mod wasm_app {
             rows[0],
         );
 
-        *hit_areas = action_areas(rows[1]);
+        *hit_areas = action_areas(rows[2]);
         Button::new("Increment +1")
             .variant(ButtonVariant::Default)
             .focused(
@@ -87,7 +81,7 @@ mod wasm_app {
             Paragraph::new("Click Increment or press Space · R resets")
                 .alignment(Alignment::Center)
                 .style(Style::default().fg(Color::Rgb(113, 113, 122))),
-            rows[2],
+            rows[4],
         );
     }
 
