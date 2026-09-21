@@ -1,4 +1,4 @@
 {
-  "pages": ["index", "panel", "key-bar", "select-list"],
+  "pages": ["index", "button", "panel", "key-bar", "select-list"],
   "title": "Widgets"
 }

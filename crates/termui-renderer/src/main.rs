@@ -10,6 +10,7 @@ fn json_string(value: &str) -> String {
             '\n' => output.push_str("\\n"),
             '\r' => output.push_str("\\r"),
             '\t' => output.push_str("\\t"),
+            '\u{1b}' => output.push_str("\\u001b"),
             character if character.is_control() => output.push(' '),
             character => output.push(character),
         }

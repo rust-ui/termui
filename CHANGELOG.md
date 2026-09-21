@@ -6,6 +6,7 @@ Notable Term/UI changes are recorded here. Format follows [Keep a Changelog](htt
 
 ### Added
 
+- Added a copyable Ratatui `Button` widget with shadcn-inspired color variants, focus and disabled states, docs, and a Rust-rendered ANSI preview.
 - Added `AGENTS.md` and `__SKILLS_LEARNINGS/LEARNINGS.md` to preserve project rules and reusable implementation lessons.
 - Added native Rust demo rendering that writes checked-in preview frames consumed by the site.
 - Added a single dark/light theme toggle to the far right of the navigation.
@@ -13,6 +14,7 @@ Notable Term/UI changes are recorded here. Format follows [Keep a Changelog](htt
 
 ### Changed
 
+- Replaced Carbon Ads in the documentation with a Rustify CTA linking to `rustify.rs`.
 - Added Ratatui widget pages under flat `/docs/widgets/*` routes with the termcn sidebar navigation and searchable widget source.
 - Reduced public documentation to four core pages, redirected retired catalog routes to the registry, and retained the source-site changelog history.
 - Rebranded Term/UI as part of the Rust/UI ecosystem and moved site, registry, SEO, and deployment URLs to `rust-ui.com`.
