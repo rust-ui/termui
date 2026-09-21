@@ -39,6 +39,7 @@ Notable Term/UI changes are recorded here. Format follows [Keep a Changelog](htt
 
 ### Fixed
 
+- Fixed the interactive Button demo’s WebAssembly crash by sizing its DOM terminal to the iframe viewport.
 - Added the missing centralized registry docs route constant required by the API catalog.
 - Removed stale OpenTUI JSX declarations that overrode React's HTML element props.
 - Removed duplicate `installation` documentation slug.
