@@ -5,4 +5,11 @@ edition.workspace = true
 license.workspace = true
 
 [dependencies]
+ratatui-core = "0.1.0"
+ratatui-widgets = "0.3.0"
+
+[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
+ratatui = { version = "0.30", default-features = false, features = ["crossterm"] }
+
+[target.'cfg(target_arch = "wasm32")'.dependencies]
 ratatui = { version = "0.30", default-features = false }

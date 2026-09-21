@@ -1,0 +1,34 @@
+---
+title: Toast
+description: Bottom-right error notification with an eased slide-in animation.
+---
+
+`Toast` slides in from the bottom-right over a dimmed backdrop. Call `tick` with elapsed frame time to advance its 160 ms ease-out animation, and forward mouse events to `on_mouse`; clicking **x** closes it.
+
+<RustDemo
+  name="toast"
+  title="Toast · Animated Error"
+  fontSize={16}
+  code={`use std::time::Duration;
+use termui_widgets::toast::Toast;
+
+let mut toast = Toast::error(error);
+toast.tick(elapsed);
+toast.render(frame, area);`}
+/>
+
+## Source
+
+<ComponentSource src="crates/termui-widgets/src/toast.rs" title="toast.rs" language="rs" collapsible={false} />
+
+## Usage
+
+```rust
+use std::time::Duration;
+use termui_widgets::toast::Toast;
+
+let mut toast = Toast::error(error);
+toast.tick(Duration::from_millis(16));
+toast.render(frame, area);
+toast.on_mouse(mouse_event);
+```

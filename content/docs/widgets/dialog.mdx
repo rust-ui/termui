@@ -1,0 +1,35 @@
+---
+title: Dialog
+description: Centered modal shell that returns body and footer areas for composition.
+---
+
+`Dialog` clears and draws a centered shell, then returns separate body and footer rectangles for your widgets.
+
+<RustDemo
+  name="dialog"
+  title="Dialog · Confirmation"
+  fontSize={16}
+  code={`use termui_widgets::dialog::Dialog;
+
+let areas = Dialog::new("Delete project?")
+    .size(34, 7)
+    .footer_rows(1)
+    .render(frame, area);
+render_body(frame, areas.body);
+render_actions(frame, areas.footer);`}
+/>
+
+## Source
+
+<ComponentSource src="crates/termui-widgets/src/dialog.rs" title="dialog.rs" language="rs" collapsible={false} />
+
+## Usage
+
+```rust
+use termui_widgets::dialog::Dialog;
+
+let areas = Dialog::new("Settings")
+    .size(40, 10)
+    .footer_rows(1)
+    .render(frame, area);
+```

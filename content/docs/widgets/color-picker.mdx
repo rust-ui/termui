@@ -1,0 +1,27 @@
+---
+title: Color Picker
+description: Compact named color palette with a selected color preview.
+---
+
+`ColorPicker` renders a palette and selected color. The parent owns selection and applies the chosen color.
+
+<RustDemo
+  name="color-picker"
+  title="Color Picker"
+  fontSize={16}
+  code={`use termui_widgets::color_picker::ColorPicker;
+
+ColorPicker::new(6).render(frame, area);`}
+/>
+
+## Source
+
+<ComponentSource src="crates/termui-widgets/src/color_picker.rs" title="color_picker.rs" language="rs" collapsible={false} />
+
+## Usage
+
+```rust
+use termui_widgets::color_picker::ColorPicker;
+
+ColorPicker::new(selected_index).render(frame, area);
+```

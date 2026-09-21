@@ -1,4 +1,15 @@
 {
-  "pages": ["index", "button", "panel", "key-bar", "select-list"],
+  "pages": [
+    "index",
+    "button",
+    "color-picker",
+    "dialog",
+    "key-bar",
+    "panel",
+    "radio-group",
+    "select-list",
+    "text-input",
+    "toast"
+  ],
   "title": "Widgets"
 }

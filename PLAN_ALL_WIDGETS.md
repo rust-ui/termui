@@ -8,11 +8,11 @@
 | Chart | ⚠️ Waiting |
 | Checkbox | ⚠️ Waiting |
 | Code viewer | ⚠️ Waiting |
-| Color picker | ⚠️ Waiting |
+| Color picker | ✅ Done |
 | Command palette | ⚠️ Waiting |
 | Confirmation prompt | ⚠️ Waiting |
 | Date picker | ⚠️ Waiting |
-| Dialog | ⚠️ Waiting |
+| Dialog | ✅ Done |
 | Diff viewer | ⚠️ Waiting |
 | Empty state | ⚠️ Waiting |
 | File picker | ⚠️ Waiting |
@@ -26,11 +26,11 @@
 | Markdown viewer | ⚠️ Waiting |
 | Menu | ⚠️ Waiting |
 | Multi-select list | ⚠️ Waiting |
-| Notification / toast | ⚠️ Waiting |
+| Notification / toast | ✅ Done |
 | Panel | ✅ Done |
 | Password input | ⚠️ Waiting |
 | Progress bar | ⚠️ Waiting |
-| Radio group | ⚠️ Waiting |
+| Radio group | ✅ Done |
 | Resizable layout | ⚠️ Waiting |
 | Scrollbar | ⚠️ Waiting |
 | Search input | ⚠️ Waiting |
@@ -43,7 +43,7 @@
 | Table | ⚠️ Waiting |
 | Tabs | ⚠️ Waiting |
 | Text area | ⚠️ Waiting |
-| Text input | ⚠️ Waiting |
+| Text input | ✅ Done |
 | Toggle switch | ⚠️ Waiting |
 | Tree view | ⚠️ Waiting |
 
@@ -111,8 +111,11 @@ Home / Projects / TermUI
 ## Color picker
 
 ```text
-  Color  #5E6AD2
-  [███]  R 94  G 106  B 210
+╭─ Accent color ───────────────────╮
+│ ● Slate  ● Gray  ● Red   ● Orange│
+│ ● Green  ● Teal  ▣ Blue  ● Violet│
+│ Selected  ██ Blue  #3B82F6       │
+╰──────────────────────────────────╯
 ```
 
 ## Command palette
@@ -140,11 +143,10 @@ Home / Projects / TermUI
 ## Dialog
 
 ```text
-  +----------------------+
-  | Settings             |
-  | Configure your app.  |
-  |              [ Close ]|
-  +----------------------+
+╭─ Delete project? ─────────────╮
+│ This action cannot be undone. │
+│                 [ Cancel ] [ Delete ]
+╰───────────────────────────────╯
 ```
 
 ## Diff viewer
@@ -246,7 +248,11 @@ Home / Projects / TermUI
 ## Notification / toast
 
 ```text
-  ✓ Changes saved
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+╭─ Error ───────────────────────────────╮
+│ Theme preferences could not be saved  │
+│                                  x   │
+╰───────────────────────────────────────╯
 ```
 
 ## Password input
@@ -265,9 +271,9 @@ Home / Projects / TermUI
 ## Radio group
 
 ```text
-  (•) Small
-  ( ) Medium
-  ( ) Large
+╭─ ◉ Standard ───╮ ╭─ ○ High contrast ─╮
+│ Balanced palette│ │ Stronger borders │
+╰────────────────╯ ╰───────────────────╯
 ```
 
 ## Resizable layout
@@ -350,8 +356,9 @@ Home / Projects / TermUI
 ## Text input
 
 ```text
-  Name
-  [ Ada Lovelace           ]
+╭─ Email ───────────────────────────╮
+│ ada@example.com                   │
+╰───────────────────────────────────╯
 ```
 
 ## Toggle switch
