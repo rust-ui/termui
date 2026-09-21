@@ -1,0 +1,23 @@
+[package]
+name = "termui-registry"
+version = "0.1.0"
+edition.workspace = true
+license.workspace = true
+publish = false
+
+[dependencies]
+ratatui = { version = "0.30", default-features = false }
+termui-renderer = { path = "../termui-renderer" }
+termui-widgets = { path = "../termui-widgets" }
+
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+critical-section = { version = "1.2", features = ["std"] }
+ratzilla = "0.3.1"
+
+[[bin]]
+name = "render-demos"
+path = "src/main.rs"
+
+[[bin]]
+name = "button-interactive"
+path = "src/demos/demo_button_interactive.rs"

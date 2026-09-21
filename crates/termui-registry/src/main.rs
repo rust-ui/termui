@@ -1,5 +1,8 @@
+use std::collections::BTreeSet;
 use std::env;
-use termui_renderer::render_demo;
+use std::error::Error;
+use termui_registry::{registered_demo_names, render_demo};
+use termui_renderer::render_example_preview;
 
 fn json_string(value: &str) -> String {
     let mut output = String::from("\"");
@@ -19,16 +22,26 @@ fn json_string(value: &str) -> String {
     output
 }
 
-fn main() {
+fn main() -> Result<(), Box<dyn Error>> {
+    let names = env::args()
+        .skip(1)
+        .chain(registered_demo_names().map(str::to_owned))
+        .collect::<BTreeSet<_>>();
     let mut first = true;
     print!("{{");
-    for name in env::args().skip(1) {
+    for name in names {
+        let frame = if name.starts_with("rust/") {
+            render_demo(&name)
+                .ok_or_else(|| format!("No Rust demo renderer registered for `{name}`"))?
+        } else {
+            render_example_preview(&name)
+        };
         if !first {
             print!(",");
         }
         first = false;
         print!("{}:[", json_string(&name));
-        for (index, line) in render_demo(&name).iter().enumerate() {
+        for (index, line) in frame.iter().enumerate() {
             if index > 0 {
                 print!(",");
             }
@@ -37,4 +50,5 @@ fn main() {
         print!("]");
     }
     println!("}}");
+    Ok(())
 }

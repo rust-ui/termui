@@ -7,8 +7,3 @@ publish = false
 
 [dependencies]
 ratatui = { version = "0.30", default-features = false }
-termui-widgets = { path = "../termui-widgets" }
-
-[[bin]]
-name = "render-demos"
-path = "src/main.rs"

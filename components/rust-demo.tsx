@@ -3,7 +3,7 @@
 import { Code, Eye } from "lucide-react";
 
 import { CopyButton } from "@/components/copy-button";
-import { RustPreview } from "@/components/rust-preview";
+import { RatatuiDemoPreview } from "@/components/ratatui-demo-preview";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 interface RustDemoProps {
@@ -49,7 +49,7 @@ export function RustDemo({
               style={{ height }}
             />
           ) : (
-            <RustPreview name={name} rows={rows} fontSize={fontSize} />
+            <RatatuiDemoPreview name={name} rows={rows} fontSize={fontSize} />
           )}
         </div>
       </TabsContent>

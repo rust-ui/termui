@@ -583,11 +583,13 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "55937e1799185b12863d447f42597ed69d9928686b8d88a1df17376a097d8369"
 
 [[package]]
-name = "termui-button-interactive"
+name = "termui-registry"
 version = "0.1.0"
 dependencies = [
  "critical-section",
+ "ratatui",
  "ratzilla",
+ "termui-renderer",
  "termui-widgets",
 ]
 
@@ -596,7 +598,6 @@ name = "termui-renderer"
 version = "0.1.0"
 dependencies = [
  "ratatui",
- "termui-widgets",
 ]
 
 [[package]]
