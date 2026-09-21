@@ -3,8 +3,15 @@ resolver = "2"
 members = [
     "crates/termui-widgets",
     "crates/termui-renderer",
+    "crates/termui-button-interactive",
 ]
 
 [workspace.package]
 edition = "2021"
 license = "MIT"
+
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level = "s"
+strip = true

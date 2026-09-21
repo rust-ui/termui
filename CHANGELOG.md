@@ -6,7 +6,7 @@ Notable Term/UI changes are recorded here. Format follows [Keep a Changelog](htt
 
 ### Added
 
-- Added an interactive Ratatui button demo running in Ratzilla/WebAssembly, with checked-in web assets for production.
+- Added an interactive Ratatui button demo inside the terminal preview, running in Ratzilla/WebAssembly with checked-in web assets for production.
 - Added a copyable Ratatui `Button` widget with shadcn-inspired color variants, focus and disabled states, docs, and a Rust-rendered ANSI preview.
 - Added `AGENTS.md` and `__SKILLS_LEARNINGS/LEARNINGS.md` to preserve project rules and reusable implementation lessons.
 - Added native Rust demo rendering that writes checked-in preview frames consumed by the site.
@@ -32,6 +32,7 @@ Notable Term/UI changes are recorded here. Format follows [Keep a Changelog](htt
 
 ### Fixed
 
+- Added the missing centralized registry docs route constant required by the API catalog.
 - Removed stale OpenTUI JSX declarations that overrode React's HTML element props.
 - Removed duplicate `installation` documentation slug.
 - Bound legacy component preview MDX to the Rust frame renderer.

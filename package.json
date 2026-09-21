@@ -15,6 +15,8 @@
     "start": "next start",
     "typecheck": "next typegen && tsc --noEmit",
     "demos:build": "node ./scripts/build-rust-demos.mts",
+    "demos:ratzilla:build": "cd crates/termui-button-interactive && env -u NO_COLOR trunk build --release --dist ../../public/demos/button-interactive",
+    "demos:ratzilla:serve": "cd crates/termui-button-interactive && env -u NO_COLOR trunk serve --public-url / --serve-base / --address 127.0.0.1 --port 8081",
     "examples:build": "node ./scripts/build-examples.mts",
     "registry:build": "pnpm examples:build && node ./scripts/build-registry.mts",
     "postinstall": "fumadocs-mdx",
