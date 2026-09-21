@@ -3,13 +3,70 @@ title: Button
 description: Shadcn-inspired terminal button with six color and style variants.
 ---
 
-`Button` supports shadcn-inspired `Default`, `Secondary`, `Destructive`, `Outline`, `Ghost`, and `Link` variants. Your app owns focus, keyboard input, and activation.
+`Button` draws a terminal button. The parent app owns focus, keyboard input, and activation.
 
-## Interactive demo
+## Examples
 
-This live Ratatui app runs in Rust through Ratzilla and WebAssembly. It renders all six button variants. Click **Increment +1** or press Space to update the counter; click **Reset** or press R to clear it.
+### Default
 
-<RatzillaFrame title="Button variants · Live Ratatui" src="button-interactive" height={320} />
+<RustDemo
+  name="button"
+  title="Button · Default"
+  code={`use termui_widgets::button::Button;
+
+Button::new("Save changes").render(frame, area);`}
+/>
+
+### Variants
+
+`Button` provides `Default`, `Secondary`, `Destructive`, `Outline`, `Ghost`, and `Link` styles.
+
+<RustDemo
+  name="button-variants"
+  title="Button · Variants"
+  code={`use termui_widgets::button::{Button, ButtonVariant};
+
+Button::new("Save").variant(ButtonVariant::Default).render(frame, area);
+Button::new("Cancel").variant(ButtonVariant::Secondary).render(frame, area);
+Button::new("Delete").variant(ButtonVariant::Destructive).render(frame, area);
+Button::new("Open").variant(ButtonVariant::Outline).render(frame, area);
+Button::new("More").variant(ButtonVariant::Ghost).render(frame, area);
+Button::new("Docs").variant(ButtonVariant::Link).render(frame, area);`}
+/>
+
+### Sizes
+
+Sizes adjust horizontal padding in terminal cells.
+
+<RustDemo
+  name="button-sizes"
+  title="Button · Sizes"
+  code={`use termui_widgets::button::{Button, ButtonSize};
+
+Button::new("Small").size(ButtonSize::Sm).render(frame, area);
+Button::new("Default").size(ButtonSize::Default).render(frame, area);
+Button::new("Large").size(ButtonSize::Lg).render(frame, area);`}
+/>
+
+### Interactive
+
+This live Ratatui app runs in Rust through Ratzilla and WebAssembly. Click **Increment +1** or press Space to increase the counter. Click **Reset** or press R to clear it.
+
+<RustDemo
+  name="button-interactive"
+  title="Button · Interactive Ratatui"
+  src="/demos/button-interactive/index.html"
+  height={370}
+  code={`use ratzilla::{DomBackend, WebRenderer};
+use ratzilla::ratatui::Terminal;
+
+let mut count = 0_u64;
+// Space or click: count += 1
+// R or Reset: count = 0
+terminal.draw_web(|frame| {
+    render_button_demo(frame, count);
+});`}
+/>
 
 ## Source
 

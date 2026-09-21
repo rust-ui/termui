@@ -11,6 +11,7 @@ import { WidgetsList } from "@/components/widgets-list";
 import { CopyButton } from "@/components/copy-button";
 import { TerminalFrame } from "@/components/terminal-frame";
 import { RatzillaFrame } from "@/components/ratzilla-frame";
+import { RustDemo } from "@/components/rust-demo";
 import { getIconForLanguageExtension } from "@/components/icons";
 import {
   Accordion,
@@ -114,6 +115,7 @@ export const mdxComponents = {
   ),
   TerminalFrame,
   RatzillaFrame,
+  RustDemo,
   Steps: ({ ...props }) => (
     <div
       className="steps [counter-reset:step] md:ml-4 md:border-l md:pl-8 [&>h3]:step"

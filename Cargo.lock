@@ -594,6 +594,10 @@ dependencies = [
 [[package]]
 name = "termui-renderer"
 version = "0.1.0"
+dependencies = [
+ "ratatui",
+ "termui-widgets",
+]
 
 [[package]]
 name = "termui-widgets"
