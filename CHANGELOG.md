@@ -28,6 +28,7 @@ Notable Term/UI changes are recorded here. Format follows [Keep a Changelog](htt
 
 ### Changed
 
+- Moved the `termui-widgets` crate into `crates/termui-registry/src/widgets` and updated its workspace, dependency, and source references.
 - Extract Resizable Layout interaction state and input handling from its renderer; derive state labels with Strum.
 - Keep chart legends within plot bounds in area and line chart previews.
 - Replaced the old header and downloadable logo mark with the pixel-grid R.

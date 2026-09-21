@@ -6,7 +6,7 @@ Term/UI is an independent product for Rust terminal UI components, with Next.js 
 
 ## Structure
 
-- `crates/termui-widgets` — copyable Rust widgets.
+- `crates/termui-registry/src/widgets` — copyable Rust widgets.
 - `crates/termui-renderer` — Ratatui buffer-to-ANSI renderer.
 - `crates/termui-registry` — one source file per demo, exact demo ID registry, and frame generator.
 - `crates/termui-registry/src/demos/demo_button_interactive.rs` — interactive Ratatui button demo compiled to WebAssembly with Ratzilla.
