@@ -9,6 +9,7 @@ One line per reusable project lesson. Format: `YYYY-MM-DD [domain] avoid X, do Y
 
 ## Inbox
 
+- 2026-09-21 [termui/seo] use Search Console query/page data to choose Ratatui content work; improve component pages with distinct use cases and verified Rust examples instead of generic long-form word-count targets.
 - 2026-09-21 [termui/widgets] compose stateful overlays from parent-owned state, trigger, content, and close controls; let the app route input so each part stays reusable.
 - 2026-09-21 [termui/demos] route independent Ratzilla binaries through one shared static shell, but keep wasm-bindgen JS glue per binary because generated imports vary.
 - 2026-09-21 [termui/demos] keep the Ratzilla terminal element flush with its viewport; padding shrinks the DOM grid while backend mouse coordinates still scale against the full viewport.
