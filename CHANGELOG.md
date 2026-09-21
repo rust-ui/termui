@@ -32,6 +32,7 @@ Notable Term/UI changes are recorded here. Format follows [Keep a Changelog](htt
 ### Changed
 
 - Route interactive demos through one shared HTML shell; preserve per-demo Rust binaries and WebAssembly assets.
+- Keep the visible changelog focused on Term/UI updates; remove inherited release history.
 - Moved the `termui-widgets` crate into `crates/termui-registry/src/widgets` and updated its workspace, dependency, and source references.
 - Extract Resizable Layout interaction state and input handling from its renderer; derive state labels with Strum.
 - Keep chart legends within plot bounds in area and line chart previews.
