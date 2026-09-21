@@ -4,9 +4,9 @@
 |---|---|
 | Breadcrumbs | ⬜ To do |
 | Button | ✅ Done |
-| Calendar | ⬜ To do |
-| Chart | ⬜ To do |
-| Checkbox | ⬜ To do |
+| Calendar | ⚠️ Waiting |
+| Chart | ⚠️ Waiting |
+| Checkbox | ⚠️ Waiting |
 | Code viewer | ⬜ To do |
 | Color picker | ⬜ To do |
 | Command palette | ⬜ To do |
@@ -61,6 +61,29 @@
 ```
 
 The box represents the button's blue area.
+
+## Calendar
+
+```text
+       September 2026
+ Su Mo Tu We Th Fr Sa
+        1  2  3  4  5
+  6  7  8  9 10 11 12
+ 13 14 15 16 17 18 19
+ 20 21 22 23 24 25 26
+ 27 28 29 30
+```
+
+## Chart
+
+```text
+  8 |          █
+  6 |      █   █
+  4 |  █   █   █
+  2 |  █   █ █ █
+  0 +------------
+      A   B C D
+```
 
 ## Checkbox
 

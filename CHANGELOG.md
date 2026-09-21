@@ -6,6 +6,8 @@ Notable Term/UI changes are recorded here. Format follows [Keep a Changelog](htt
 
 ### Added
 
+- Added Calendar and Chart sections to the all-widgets plan with terminal previews.
+- Added a Checkbox section to the all-widgets plan with unchecked and checked states.
 - Added separate Button default, variant, size, and interactive examples with a shared Preview/Code switcher; static examples render the actual widget API.
 - Added `ButtonSize::{Sm, Default, Lg}` for terminal-cell padding, with a larger default button and Button previews.
 - Added an interactive Ratatui button demo inside the terminal preview, running in Ratzilla/WebAssembly with checked-in web assets for production.
@@ -17,6 +19,8 @@ Notable Term/UI changes are recorded here. Format follows [Keep a Changelog](htt
 
 ### Changed
 
+- Marked Calendar, Chart, and Checkbox as ⚠️ Waiting in the all-widgets plan.
+- Simplified the interactive Button preview to its Increment and Reset controls, a live counter, and click/keyboard instructions.
 - Removed the Registry overview page and centered the initial launch on a small set of simple Ratatui widgets.
 - Removed the duplicate Widgets link from the docs Sections navigation; widget links remain grouped below.
 - Added a Usage section after Source on each widget page.
