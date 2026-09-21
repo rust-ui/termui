@@ -18,7 +18,7 @@ const SHADCN_LABS_FALLBACK = [
 const sampleLogo = async () => {
   const image = new Image();
   image.src = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(
-    getLogoMarkSVG("#000000")
+    getLogoMarkSVG("#000000"),
   )}`;
   await image.decode();
 
@@ -38,7 +38,7 @@ const sampleLogo = async () => {
     Array.from({ length: LOGO_COLUMNS }, (_columnValue, column) => {
       const alpha = pixels[(row * LOGO_COLUMNS + column) * 4 + 3];
       return alpha > 48 ? "X" : ".";
-    }).join("")
+    }).join(""),
   );
 };
 

@@ -6,11 +6,7 @@ import { formatLabelFromSlug } from "./utils";
 
 export const DOCS_DIR = `content${ROUTES.DOCS}`;
 
-export const EXCLUDED_SECTIONS = new Set([
-  "installation",
-  "changelog",
-  "(root)",
-]);
+export const EXCLUDED_SECTIONS = new Set(["installation", "changelog", "(root)"]);
 
 export const isWidgetsFolder = (folder: PageTreeFolder) =>
   folder.$id === ROUTES.DOCS_WIDGETS.slice(ROUTES.DOCS.length + 1) ||
@@ -21,9 +17,7 @@ export type DocsSidebarPanel = "widgets";
 const isPathWithin = (pathname: string, route: string) =>
   pathname === route || pathname.startsWith(`${route}/`);
 
-export const getDocsSidebarPanel = (
-  pathname: string
-): DocsSidebarPanel | null => {
+export const getDocsSidebarPanel = (pathname: string): DocsSidebarPanel | null => {
   if (isPathWithin(pathname, ROUTES.DOCS_WIDGETS)) {
     return "widgets";
   }
@@ -41,6 +35,4 @@ export const formatTitleFromSlug = (slug: string): string =>
 export const homeContentRoute = `${ROUTES.LLMS_MD}/content.md`;
 export const docsContentRoute = `${ROUTES.LLMS_MD}${ROUTES.DOCS}`;
 
-export const PAGES_NEW: string[] = [
-  ROUTES.DOCS_CHANGELOG,
-];
+export const PAGES_NEW: string[] = [ROUTES.DOCS_CHANGELOG];

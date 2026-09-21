@@ -1,7 +1,7 @@
 use ratatui::layout::Rect;
 use termui_widgets::button::Button;
 
-use termui_renderer::{render_frame, PREVIEW_WIDTH};
+use termui_renderer::{PREVIEW_WIDTH, render_frame};
 
 pub(super) fn render() -> Vec<String> {
     render_frame(3, |frame| {

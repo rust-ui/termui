@@ -4,13 +4,8 @@ import { ArrowRightIcon } from "lucide-react";
 import { ChartsNav } from "@/components/charts/charts-nav";
 import { PageHero } from "@/components/page-hero";
 import { Button } from "@/components/ui/button";
-import { ROUTES } from "@/constants/routes";
 
-export default function ChartsLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function ChartsLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="container-wrapper">
       <div className="container pb-16">
@@ -26,9 +21,9 @@ export default function ChartsLayout({
             titleClassName="text-4xl sm:text-5xl md:text-6xl"
             description={
               <>
-                A collection of ready-to-use chart components built with
-                Ratatui. From basic charts to rich data displays, copy and paste
-                into your terminal apps.
+                A collection of ready-to-use chart components built with Ratatui. From
+                basic charts to rich data displays, copy and paste into your terminal
+                apps.
               </>
             }
             descriptionClassName="max-w-2xl text-base md:text-lg"

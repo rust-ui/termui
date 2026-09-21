@@ -14,6 +14,7 @@
 ## Before writing code
 
 Use the smallest existing mechanism that solves the task. Check existing components, scripts, and dependencies before adding abstractions or packages. Explain new dependencies or one-caller abstractions in the changelog.
+Install the repository hooks with `pnpm setup:hooks`; run `pnpm check:quality` before pushing.
 
 ## Learnings
 

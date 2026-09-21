@@ -56,7 +56,11 @@ function basicColor(code: number) {
   return ANSI_COLORS[index];
 }
 
-function snapshotStyle(state: AnsiState, foreground: string, background: string): AnsiStyle {
+function snapshotStyle(
+  state: AnsiState,
+  foreground: string,
+  background: string,
+): AnsiStyle {
   const { reverse, ...style } = state;
   if (!reverse) return style;
   return {
@@ -68,7 +72,7 @@ function snapshotStyle(state: AnsiState, foreground: string, background: string)
 
 function setDecoration(style: AnsiState, decoration: string, enabled: boolean) {
   const decorations = new Set(
-    style.textDecorationLine?.split(" ").filter((value) => value.length > 0) ?? []
+    style.textDecorationLine?.split(" ").filter((value) => value.length > 0) ?? [],
   );
   if (enabled) decorations.add(decoration);
   else decorations.delete(decoration);
@@ -79,12 +83,16 @@ function setDecoration(style: AnsiState, decoration: string, enabled: boolean) {
 
 function parseAnsiLine(line: string, foreground: string, background: string) {
   const segments: { text: string; style: AnsiStyle }[] = [];
-  const ansi = /\u001b\[([\d;]*)m/g;
+  const ansiEscape = String.fromCharCode(27);
+  const ansi = new RegExp(`${ansiEscape}\\[([\\d;]*)m`, "g");
   let style: AnsiState = {};
   let cursor = 0;
   let match: RegExpExecArray | null;
 
-  while ((match = ansi.exec(line))) {
+  while (true) {
+    match = ansi.exec(line);
+    if (!match) break;
+
     if (match.index > cursor) {
       segments.push({
         text: line.slice(cursor, match.index),
@@ -96,7 +104,9 @@ function parseAnsiLine(line: string, foreground: string, background: string) {
     for (let index = 0; index < codes.length; index += 1) {
       const code = codes[index];
       if (code === 0) {
-        Object.keys(next).forEach((key) => delete next[key as keyof AnsiState]);
+        for (const key of Object.keys(next)) {
+          delete next[key as keyof AnsiState];
+        }
       } else if (code === 1) {
         next.fontWeight = 700;
       } else if (code === 2) {
@@ -172,9 +182,7 @@ export const RatatuiDemoPreview = ({
   const theme = terminalThemeMap[themeKey];
   const frame = (previews as Record<string, string[]>)[
     getPreviewKey(RATATUI_DEMO_BASE, name)
-  ] ?? [
-    `⚠ Preview not generated: ${name}`,
-  ];
+  ] ?? [`⚠ Preview not generated: ${name}`];
 
   return (
     <div
@@ -197,11 +205,13 @@ export const RatatuiDemoPreview = ({
       >
         {frame.map((line, row) => (
           <span key={row}>
-            {parseAnsiLine(line, theme.colors.foreground, theme.colors.background).map((segment, index) => (
-              <span key={index} style={segment.style}>
-                {segment.text}
-              </span>
-            ))}
+            {parseAnsiLine(line, theme.colors.foreground, theme.colors.background).map(
+              (segment, index) => (
+                <span key={index} style={segment.style}>
+                  {segment.text}
+                </span>
+              ),
+            )}
             {row < frame.length - 1 ? "\n" : null}
           </span>
         ))}

@@ -2,10 +2,7 @@
 
 import { useCallback } from "react";
 
-import {
-  NativeSelect,
-  NativeSelectOption,
-} from "@/components/ui/native-select";
+import { NativeSelect, NativeSelectOption } from "@/components/ui/native-select";
 import { useTerminalTheme } from "@/hooks/use-terminal-theme";
 import type { TerminalThemeKey } from "@/hooks/use-terminal-theme";
 import { terminalThemeOptions } from "@/lib/terminal-themes";
@@ -18,7 +15,7 @@ export const TerminalTheme = () => {
       const value = event.target.value as TerminalThemeKey;
       setTerminalThemeKey(value);
     },
-    [setTerminalThemeKey]
+    [setTerminalThemeKey],
   );
 
   return (

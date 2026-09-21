@@ -1,4 +1,4 @@
-use ratatui::{layout::Rect, Frame};
+use ratatui::{Frame, layout::Rect};
 use termui_widgets::button::{Button, ButtonSize, ButtonVariant};
 
 use termui_renderer::PREVIEW_WIDTH;

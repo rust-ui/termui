@@ -7,8 +7,7 @@ import { source } from "@/lib/source";
 import { cn } from "@/lib/utils";
 
 const widgetsFolder = source.pageTree.children.find(
-  (node): node is PageTreeFolder =>
-    node.type === "folder" && isWidgetsFolder(node)
+  (node): node is PageTreeFolder => node.type === "folder" && isWidgetsFolder(node),
 );
 
 const ComponentGrid = ({
@@ -21,7 +20,7 @@ const ComponentGrid = ({
   <div
     className={cn(
       "grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-x-8 lg:gap-x-16 lg:gap-y-6 xl:gap-x-20",
-      className
+      className,
     )}
   >
     {pages.map((component) => (
@@ -45,7 +44,5 @@ export const WidgetsList = ({ className }: { className?: string }) => {
 
   const pages = getFolderSections(folder).flatMap((section) => section.pages);
 
-  return pages.length > 0 ? (
-    <ComponentGrid className={className} pages={pages} />
-  ) : null;
+  return pages.length > 0 ? <ComponentGrid className={className} pages={pages} /> : null;
 };

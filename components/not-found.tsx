@@ -6,10 +6,7 @@ import Link from "next/link";
 import { useState } from "react";
 
 import { Daikanoid } from "@/components/daikanoid";
-import {
-  DaikanoidArtwork,
-  DaikanoidPreview,
-} from "@/components/daikanoid/preview";
+import { DaikanoidArtwork, DaikanoidPreview } from "@/components/daikanoid/preview";
 import { Button } from "@/components/ui/button";
 import {
   Empty,
@@ -50,8 +47,8 @@ const NotFoundCopy = () => (
       <h1>Page not found</h1>
     </EmptyTitle>
     <EmptyDescription className="max-w-md md:text-base/relaxed">
-      The page you're looking for may have been moved, removed, renamed, or
-      might never have existed.
+      The page you're looking for may have been moved, removed, renamed, or might never
+      have existed.
     </EmptyDescription>
   </>
 );
@@ -113,11 +110,7 @@ export const NotFound = () => {
             className="absolute inset-0 z-20 hidden place-items-center bg-background p-6 md:grid"
           >
             <div className="flex w-[min(50rem,calc(100vw-3rem),calc(133.333svh-7.667rem))] flex-col items-start gap-2">
-              <Button
-                type="button"
-                variant="ghost"
-                onClick={() => setIsPlaying(false)}
-              >
+              <Button type="button" variant="ghost" onClick={() => setIsPlaying(false)}>
                 <ArrowLeftIcon />
                 Back
               </Button>

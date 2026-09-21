@@ -16,10 +16,8 @@ export const LOGO_COLUMNS = 11;
 export const LOGO_ROWS = 10;
 export const LOGO_TOP = 28;
 
-export const SOUND_BOUNCE_URL =
-  "https://assets.chanhdai.com/sounds/daikanoid/bounce.mp3";
-export const SOUND_BREAK_URL =
-  "https://assets.chanhdai.com/sounds/daikanoid/break.mp3";
+export const SOUND_BOUNCE_URL = "https://assets.chanhdai.com/sounds/daikanoid/bounce.mp3";
+export const SOUND_BREAK_URL = "https://assets.chanhdai.com/sounds/daikanoid/break.mp3";
 export const SOUND_GAME_OVER_URL =
   "https://assets.chanhdai.com/sounds/daikanoid/game-over.mp3";
 export const SOUND_VOLUME = 0.3;

@@ -2,11 +2,7 @@
 
 import { ViewTransition } from "react";
 
-export const DirectionalTransition = ({
-  children,
-}: {
-  children: React.ReactNode;
-}) => (
+export const DirectionalTransition = ({ children }: { children: React.ReactNode }) => (
   <ViewTransition
     enter={{
       default: "none",

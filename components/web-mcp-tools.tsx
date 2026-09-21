@@ -4,10 +4,7 @@ import { useEffect } from "react";
 
 import { ROUTES } from "@/constants/routes";
 
-type ToolExecute = (
-  input: unknown,
-  options: { signal: AbortSignal }
-) => Promise<unknown>;
+type ToolExecute = (input: unknown, options: { signal: AbortSignal }) => Promise<unknown>;
 
 interface ModelContextApi {
   registerTool?: (
@@ -17,7 +14,7 @@ interface ModelContextApi {
       inputSchema: Record<string, unknown>;
       name: string;
     },
-    options?: { signal: AbortSignal }
+    options?: { signal: AbortSignal },
   ) => (() => void) | undefined;
 }
 

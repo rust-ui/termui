@@ -1,7 +1,7 @@
+use ratatui::Frame;
 use ratatui::layout::Rect;
 use ratatui::style::{Color, Style};
 use ratatui::widgets::Gauge;
-use ratatui::Frame;
 
 /// A percentage progress bar. The parent app owns and updates progress.
 #[must_use]

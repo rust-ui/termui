@@ -145,12 +145,7 @@ const LaunchDay = ({
   return (
     <section className="border-t py-4">
       <div className="flex items-center justify-between gap-4">
-        <h2
-          className={cn(
-            "text-sm font-semibold",
-            !isToday && "text-muted-foreground"
-          )}
-        >
+        <h2 className={cn("text-sm font-semibold", !isToday && "text-muted-foreground")}>
           {String(index + 1).padStart(2, "0")} · {day.day}
         </h2>
         <span className="text-muted-foreground flex min-w-[3.75rem] shrink-0 items-center gap-1.5 text-xs">
@@ -218,10 +213,10 @@ export const LaunchWeek = ({ week }: { week: LaunchWeekData }) => {
     () =>
       now
         ? (week.days.find(
-            (day) => new Date(day.date) > now && day.status === "pending"
+            (day) => new Date(day.date) > now && day.status === "pending",
           ) ?? null)
         : week.days[0],
-    [now, week.days]
+    [now, week.days],
   );
 
   return (
@@ -236,8 +231,8 @@ export const LaunchWeek = ({ week }: { week: LaunchWeekData }) => {
           <MacWindow className="mt-6 rounded-xl shadow-none" title="Terminal">
             <div className="bg-zinc-950 px-4 py-5 font-mono text-sm text-zinc-100 sm:px-5">
               <p>
-                <span className="text-emerald-400">~</span> Term/UI releases
-                --week {week.slug}
+                <span className="text-emerald-400">~</span> Term/UI releases --week{" "}
+                {week.slug}
               </p>
               <p className="mt-2 text-zinc-400">
                 {releaseCount === 0
@@ -249,16 +244,11 @@ export const LaunchWeek = ({ week }: { week: LaunchWeekData }) => {
 
           {nextLaunch ? (
             <section className="mt-6 border-t pt-5">
-              <h2 className="text-sm font-semibold">
-                Next launch: {nextLaunch.day}
-              </h2>
+              <h2 className="text-sm font-semibold">Next launch: {nextLaunch.day}</h2>
               <p className="text-muted-foreground mt-1 text-xs">
                 Unlocks{" "}
-                {formatLaunchWeekDate(
-                  nextLaunch.date,
-                  week.status === "complete"
-                )}{" "}
-                at 00:00 UTC.
+                {formatLaunchWeekDate(nextLaunch.date, week.status === "complete")} at
+                00:00 UTC.
               </p>
               <Countdown target={new Date(nextLaunch.date)} now={now} />
             </section>
@@ -273,17 +263,15 @@ export const LaunchWeek = ({ week }: { week: LaunchWeekData }) => {
                 <li
                   className={cn(
                     "flex min-h-16 items-center justify-between gap-2 border-b p-3 last:border-b-0 sm:min-h-20 sm:flex-col sm:items-start sm:border-r sm:border-b-0 sm:last:border-r-0",
-                    isToday ? "bg-foreground text-background" : "bg-background"
+                    isToday ? "bg-foreground text-background" : "bg-background",
                   )}
                   key={day.date}
                 >
-                  <span className="text-xs font-semibold">
-                    {day.day.slice(0, 3)}
-                  </span>
+                  <span className="text-xs font-semibold">{day.day.slice(0, 3)}</span>
                   <span
                     className={cn(
                       "text-xs",
-                      isToday ? "text-background/70" : "text-muted-foreground"
+                      isToday ? "text-background/70" : "text-muted-foreground",
                     )}
                   >
                     {getDayLabel(day, now)}
@@ -301,10 +289,7 @@ export const LaunchWeek = ({ week }: { week: LaunchWeekData }) => {
           </ol>
 
           <section className="mt-7" aria-labelledby="shipping-log-title">
-            <h2
-              className="text-xl font-semibold tracking-tight"
-              id="shipping-log-title"
-            >
+            <h2 className="text-xl font-semibold tracking-tight" id="shipping-log-title">
               Shipping log
             </h2>
 

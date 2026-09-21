@@ -23,15 +23,14 @@ export function collectInteractiveDemos(sources: readonly MdxSource[]) {
 
       const match = INTERACTIVE_DEMO_SRC.exec(reference.src);
       if (!match) {
-        throw new Error(
-          `Unsupported interactive demo src "${reference.src}" in ${file}`
-        );
+        throw new Error(`Unsupported interactive demo src "${reference.src}" in ${file}`);
       }
 
       const name = match[1];
-      const label = (name.endsWith(INTERACTIVE_SUFFIX)
-        ? name.slice(0, -INTERACTIVE_SUFFIX.length)
-        : name
+      const label = (
+        name.endsWith(INTERACTIVE_SUFFIX)
+          ? name.slice(0, -INTERACTIVE_SUFFIX.length)
+          : name
       )
         .split("-")
         .map((part) => part[0].toUpperCase() + part.slice(1))
@@ -40,9 +39,7 @@ export function collectInteractiveDemos(sources: readonly MdxSource[]) {
     }
   }
 
-  return [...demos.values()].sort((left, right) =>
-    left.name.localeCompare(right.name)
-  );
+  return [...demos.values()].sort((left, right) => left.name.localeCompare(right.name));
 }
 
 const TEMPLATE_MARKERS = {
@@ -71,7 +68,7 @@ export function renderInteractiveDemo(template: string, demo: InteractiveDemo) {
   }
   const html = Object.entries(values).reduce(
     (result, [marker, value]) => result.replaceAll(marker, value),
-    template
+    template,
   );
 
   if (Object.keys(values).some((marker) => html.includes(marker))) {

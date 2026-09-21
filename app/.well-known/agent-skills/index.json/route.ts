@@ -20,6 +20,6 @@ export const GET = (request: Request) => {
         },
       ],
     },
-    { headers: { "Cache-Control": "public, max-age=3600" } }
+    { headers: { "Cache-Control": "public, max-age=3600" } },
   );
 };

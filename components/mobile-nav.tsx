@@ -7,11 +7,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { useCallback, useMemo, useState } from "react";
 
 import { Button } from "@/components/ui/button";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { TOP_LEVEL_SECTIONS } from "@/constants/nav";
 import { ROUTES } from "@/constants/routes";
 import { useFeedback } from "@/hooks/use-feedback";
@@ -85,16 +81,13 @@ interface MobilePanelProps {
 
 const findTopLevelFolder = (
   tree: PageTreeRoot,
-  predicate: (folder: PageTreeFolder) => boolean
+  predicate: (folder: PageTreeFolder) => boolean,
 ) =>
   tree.children.find(
-    (item): item is PageTreeFolder => item.type === "folder" && predicate(item)
+    (item): item is PageTreeFolder => item.type === "folder" && predicate(item),
   );
 
-const WidgetsMobilePanel = ({
-  setOpen,
-  tree,
-}: MobilePanelProps) => {
+const WidgetsMobilePanel = ({ setOpen, tree }: MobilePanelProps) => {
   const folder = findTopLevelFolder(tree, isWidgetsFolder);
   if (!folder) {
     return null;
@@ -122,10 +115,7 @@ export const MobileNav = ({
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
   const panel = getDocsSidebarPanel(pathname);
-  const treeGroups = useMemo(
-    () => getTreeGroups(tree),
-    [tree]
-  );
+  const treeGroups = useMemo(() => getTreeGroups(tree), [tree]);
 
   const renderCatalogPanel = () => {
     if (panel === "widgets") {
@@ -141,7 +131,7 @@ export const MobileNav = ({
           variant="ghost"
           className={cn(
             "extend-touch-target h-8 touch-manipulation !p-0 hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 active:bg-transparent dark:hover:bg-transparent",
-            className
+            className,
           )}
         >
           <div className="relative flex h-8 w-4 items-center justify-center">
@@ -149,13 +139,13 @@ export const MobileNav = ({
               <span
                 className={cn(
                   "bg-foreground absolute left-0 block h-0.5 w-4 transition-all duration-100",
-                  open ? "top-[0.4rem] -rotate-45" : "top-1"
+                  open ? "top-[0.4rem] -rotate-45" : "top-1",
                 )}
               />
               <span
                 className={cn(
                   "bg-foreground absolute left-0 block h-0.5 w-4 transition-all duration-100",
-                  open ? "top-[0.4rem] rotate-45" : "top-2.5"
+                  open ? "top-[0.4rem] rotate-45" : "top-2.5",
                 )}
               />
             </div>
@@ -172,28 +162,20 @@ export const MobileNav = ({
       >
         <div className="flex flex-col gap-12 overflow-auto px-6 py-6">
           <div className="flex flex-col gap-4">
-            <div className="text-sm font-medium text-muted-foreground">
-              Menu
-            </div>
+            <div className="text-sm font-medium text-muted-foreground">Menu</div>
             <div className="flex flex-col gap-3">
               <MobileLink href={ROUTES.HOME} onOpenChange={setOpen}>
                 Home
               </MobileLink>
               {items.map((item) => (
-                <MobileLink
-                  key={item.href}
-                  href={item.href}
-                  onOpenChange={setOpen}
-                >
+                <MobileLink key={item.href} href={item.href} onOpenChange={setOpen}>
                   {item.label}
                 </MobileLink>
               ))}
             </div>
           </div>
           <div className="flex flex-col gap-4">
-            <div className="text-sm font-medium text-muted-foreground">
-              Sections
-            </div>
+            <div className="text-sm font-medium text-muted-foreground">Sections</div>
             <div className="flex flex-col gap-3">
               {TOP_LEVEL_SECTIONS.map(({ name, href }) => (
                 <MobileLink key={name} href={href} onOpenChange={setOpen}>

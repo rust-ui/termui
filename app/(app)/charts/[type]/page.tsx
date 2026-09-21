@@ -22,11 +22,9 @@ export const generateMetadata = async ({
   if (!family) notFound();
 
   return createPageMetadata({
-    description:
-      family.description +
-      " Explore Ratatui chart source and terminal previews.",
+    description: `${family.description} Explore Ratatui chart source and terminal previews.`,
     path: `${ROUTES.CHARTS}/${family.type}`,
-    title: "Ratatui " + family.label,
+    title: `Ratatui ${family.label}`,
   });
 };
 

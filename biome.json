@@ -1,0 +1,83 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.3.4/schema.json",
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true
+  },
+  "files": {
+    "ignoreUnknown": true,
+    "includes": [
+      "**/*.{ts,tsx,mts,mjs}",
+      "!.next",
+      "!.source",
+      "!components/ui",
+      "!next-env.d.ts",
+      "!__TMP"
+    ]
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "correctness": {
+        "noUnusedVariables": "error",
+        "noUnusedImports": "error",
+        "useExhaustiveDependencies": "error",
+        "useJsxKeyInIterable": "error"
+      },
+      "suspicious": {
+        "noExplicitAny": "error",
+        "noArrayIndexKey": "off",
+        "noShadowRestrictedNames": "error",
+        "useIterableCallbackReturn": "error"
+      },
+      "style": {
+        "noUselessElse": "error",
+        "noNonNullAssertion": "error",
+        "useConst": "error",
+        "noParameterAssign": "error"
+      },
+      "complexity": {
+        "noCommaOperator": "error"
+      },
+      "performance": {
+        "noImgElement": "error"
+      },
+      "security": {
+        "noDangerouslySetInnerHtml": "off"
+      },
+      "a11y": {
+        "noSvgWithoutTitle": "off",
+        "useButtonType": "off",
+        "useAltText": "error",
+        "useKeyWithClickEvents": "error",
+        "noStaticElementInteractions": "error",
+        "noLabelWithoutControl": "error",
+        "useValidAnchor": "error",
+        "useSemanticElements": "error",
+        "useAriaPropsSupportedByRole": "error",
+        "useIframeTitle": "error"
+      }
+    }
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineWidth": 90
+  },
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "double",
+      "semicolons": "always"
+    }
+  },
+  "assist": {
+    "actions": {
+      "source": {
+        "organizeImports": "off"
+      }
+    }
+  }
+}

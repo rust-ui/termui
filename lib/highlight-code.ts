@@ -48,9 +48,7 @@ export const transformers = [
 ] as ShikiTransformer[];
 
 export const highlightCode = async (code: string, language = "tsx") => {
-  const cacheKey = createHash("sha256")
-    .update(`${language}:${code}`)
-    .digest("hex");
+  const cacheKey = createHash("sha256").update(`${language}:${code}`).digest("hex");
 
   const cached = highlightCache.get(cacheKey);
   if (cached) {

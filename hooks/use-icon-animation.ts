@@ -5,9 +5,7 @@ export interface AnimatedIconHandle {
   stopAnimation: () => void;
 }
 
-export const useIconAnimation = <
-  T extends AnimatedIconHandle = AnimatedIconHandle,
->() => {
+export const useIconAnimation = <T extends AnimatedIconHandle = AnimatedIconHandle>() => {
   const iconRef = useRef<T>(null);
 
   const onMouseEnter = useCallback(() => {

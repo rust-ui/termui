@@ -33,18 +33,14 @@ import { cn } from "@/lib/utils";
 
 import { Kbd } from "./ui/kbd";
 
-type DocUrlKind =
-  | { kind: "component"; slug: RatatuiComponentName }
-  | { kind: "page" };
+type DocUrlKind = { kind: "component"; slug: RatatuiComponentName } | { kind: "page" };
 
 const GROUP_HEADING_CLS =
   "!p-0 [&_[cmdk-group-heading]]:scroll-mt-16 [&_[cmdk-group-heading]]:!p-3 [&_[cmdk-group-heading]]:!pb-1";
 
 const parseDocPageUrl = (url: string): DocUrlKind => {
   const isComponentRoute = url.startsWith(`${ROUTES.DOCS_WIDGETS}/`);
-  const component = RATATUI_COMPONENTS.find(({ name }) =>
-    url.endsWith(`/${name}`)
-  );
+  const component = RATATUI_COMPONENTS.find(({ name }) => url.endsWith(`/${name}`));
   if (isComponentRoute && component) {
     return { kind: "component", slug: component.name };
   }
@@ -54,14 +50,14 @@ const parseDocPageUrl = (url: string): DocUrlKind => {
 const searchKeywordsFromUrl = (url: string) => {
   const segments = url.split("/").filter(Boolean);
   return segments.flatMap((segment) =>
-    segment.includes("-") ? [segment, ...segment.split("-")] : [segment]
+    segment.includes("-") ? [segment, ...segment.split("-")] : [segment],
   );
 };
 
 const buildDocPageKeywords = (
   parsed: DocUrlKind,
   url: string,
-  breadcrumb: string[]
+  breadcrumb: string[],
 ): string[] => [
   ...(parsed.kind === "page" ? [] : [parsed.kind]),
   ...breadcrumb.filter(Boolean).flatMap((s) => [s, s.toLowerCase()]),
@@ -104,7 +100,7 @@ const CommandMenuItem = ({
       ref={ref}
       className={cn(
         "data-[selected=true]:border-input data-[selected=true]:bg-input/50 h-9 rounded-md border border-transparent px-3! font-medium",
-        className
+        className,
       )}
       {...props}
     >
@@ -126,10 +122,7 @@ export const CommandMenu = ({
   const [open, setOpen] = useState(false);
   const [showGoToPage, setShowGoToPage] = useState(false);
 
-  const treeGroups = useMemo(
-    () => getTreeGroups(tree),
-    [tree]
-  );
+  const treeGroups = useMemo(() => getTreeGroups(tree), [tree]);
 
   const handleDocPageHighlight = useCallback(() => setShowGoToPage(true), []);
 
@@ -148,14 +141,10 @@ export const CommandMenu = ({
       }
       return 0;
     },
-    []
+    [],
   );
 
-  const renderDocPageItem = (
-    title: string,
-    url: string,
-    breadcrumb: string[]
-  ) => {
+  const renderDocPageItem = (title: string, url: string, breadcrumb: string[]) => {
     const parsed = parseDocPageUrl(url);
     return (
       <CommandMenuItem
@@ -198,7 +187,6 @@ export const CommandMenu = ({
           return !prev;
         });
       }
-
     };
 
     document.addEventListener("keydown", down);
@@ -211,7 +199,7 @@ export const CommandMenu = ({
         <Button
           variant="secondary"
           className={cn(
-            "bg-surface text-surface-foreground/60 dark:bg-card relative h-8 w-full justify-start pl-2.5 font-normal shadow-none sm:pr-12 md:w-40 lg:w-56 xl:w-64"
+            "bg-surface text-surface-foreground/60 dark:bg-card relative h-8 w-full justify-start pl-2.5 font-normal shadow-none sm:pr-12 md:w-40 lg:w-56 xl:w-64",
           )}
           onClick={handleOpenClick}
           {...props}
@@ -265,12 +253,10 @@ export const CommandMenu = ({
               >
                 {group.pages.map((page) =>
                   renderDocPageItem(
-                    typeof page.name === "string"
-                      ? page.name
-                      : String(page.name),
+                    typeof page.name === "string" ? page.name : String(page.name),
                     page.url,
-                    [group.label]
-                  )
+                    [group.label],
+                  ),
                 )}
               </CommandGroup>
             ))}
@@ -281,9 +267,7 @@ export const CommandMenu = ({
             <Kbd className="shrink-0">
               <CornerDownLeftIcon />
             </Kbd>{" "}
-            {showGoToPage ? (
-              <span className="min-w-0 truncate">Go to Page</span>
-            ) : null}
+            {showGoToPage ? <span className="min-w-0 truncate">Go to Page</span> : null}
           </div>
         </div>
       </DialogContent>

@@ -36,7 +36,7 @@ const RootLayout = ({
     <body
       className={cn(
         "text-foreground group/body overscroll-none font-sans antialiased [--footer-height:--spacing(14)] [--header-height:--spacing(14)] xl:[--footer-height:--spacing(24)]",
-        fontVariables
+        fontVariables,
       )}
     >
       <ThemeProvider>

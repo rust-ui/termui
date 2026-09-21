@@ -59,7 +59,7 @@ const ArrowRightIcon = forwardRef<ArrowRightIconHandle, ArrowRightIconProps>(
           controls.start("animate");
         }
       },
-      [controls, onMouseEnter]
+      [controls, onMouseEnter],
     );
 
     const handleMouseLeave = useCallback(
@@ -70,41 +70,40 @@ const ArrowRightIcon = forwardRef<ArrowRightIconHandle, ArrowRightIconProps>(
           controls.start("normal");
         }
       },
-      [controls, onMouseLeave]
+      [controls, onMouseLeave],
     );
 
     return (
-      <div
-        className={cn(className)}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        {...props}
-      >
-        <svg
-          fill="none"
-          height={size}
-          stroke="currentColor"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth="2"
-          viewBox="0 0 24 24"
-          width={size}
-          xmlns="http://www.w3.org/2000/svg"
+      <>
+        {/* biome-ignore lint/a11y/noStaticElementInteractions: Hover events only drive decorative icon animation. */}
+        <div
+          className={cn(className)}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          {...props}
         >
-          <motion.path
-            animate={controls}
-            d="M5 12h14"
-            variants={PATH_VARIANTS}
-          />
-          <motion.path
-            animate={controls}
-            d="m12 5 7 7-7 7"
-            variants={SECONDARY_PATH_VARIANTS}
-          />
-        </svg>
-      </div>
+          <svg
+            fill="none"
+            height={size}
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            viewBox="0 0 24 24"
+            width={size}
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <motion.path animate={controls} d="M5 12h14" variants={PATH_VARIANTS} />
+            <motion.path
+              animate={controls}
+              d="m12 5 7 7-7 7"
+              variants={SECONDARY_PATH_VARIANTS}
+            />
+          </svg>
+        </div>
+      </>
     );
-  }
+  },
 );
 
 ArrowRightIcon.displayName = "ArrowRightIcon";

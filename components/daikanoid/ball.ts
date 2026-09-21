@@ -92,7 +92,7 @@ export class Ball {
     const hit = uncheckedClamp(
       -1,
       1,
-      (this.x - (paddle.x + paddle.width / 2)) / (paddle.width / 2)
+      (this.x - (paddle.x + paddle.width / 2)) / (paddle.width / 2),
     );
     this.y = paddle.y - this.radius;
     this.xSpeed = hit * BALL_SPEED * 0.85;
@@ -147,11 +147,11 @@ export class Ball {
   private bounceFrom(brick: Brick) {
     const horizontalOverlap = Math.min(
       this.x + this.radius - brick.x,
-      brick.x + brick.w - (this.x - this.radius)
+      brick.x + brick.w - (this.x - this.radius),
     );
     const verticalOverlap = Math.min(
       this.y + this.radius - brick.y,
-      brick.y + brick.h - (this.y - this.radius)
+      brick.y + brick.h - (this.y - this.radius),
     );
 
     if (horizontalOverlap < verticalOverlap) {

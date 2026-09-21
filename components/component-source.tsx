@@ -1,8 +1,5 @@
 import { CodeCollapsibleWrapper } from "@/components/code-collapsible-wrapper";
-import type {
-  RatatuiComponentName,
-  RatatuiComponentSource,
-} from "@/constants/ratatui";
+import type { RatatuiComponentName, RatatuiComponentSource } from "@/constants/ratatui";
 import { highlightCode } from "@/lib/highlight-code";
 import { readFileFromRoot } from "@/lib/read-file";
 import { getDemoSource } from "@/lib/registry";

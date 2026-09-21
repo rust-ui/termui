@@ -23,7 +23,7 @@ export const DocsRustifyCta = ({ slot, className }: DocsRustifyCtaProps) => {
     <div
       className={cn(
         "group relative flex flex-col gap-2 rounded-2xl border bg-muted p-6 text-sm text-card-foreground shadow-sm",
-        className
+        className,
       )}
       data-slot="docs-rustify-cta"
     >

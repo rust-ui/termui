@@ -3,14 +3,14 @@ mod wasm_app {
     use std::{cell::RefCell, io, rc::Rc};
 
     use ratzilla::{
+        DomBackend, WebRenderer,
         event::{KeyCode, MouseButton, MouseEvent, MouseEventKind},
         ratatui::{
+            Frame, Terminal,
             layout::{Alignment, Constraint, Direction, Layout, Position, Rect},
             style::{Color, Style},
             widgets::{Block, BorderType, Paragraph},
-            Frame, Terminal,
         },
-        DomBackend, WebRenderer,
     };
     use termui_widgets::button::{Button, ButtonVariant};
 

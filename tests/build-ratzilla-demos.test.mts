@@ -18,7 +18,7 @@ async function collectMdxFiles(directory: string): Promise<string[]> {
       const entryPath = path.join(directory, entry.name);
       if (entry.isDirectory()) return collectMdxFiles(entryPath);
       return entry.isFile() && entry.name.endsWith(".mdx") ? [entryPath] : [];
-    })
+    }),
   );
   return nested.flat();
 }
@@ -72,14 +72,14 @@ test("interactive demo discovery deduplicates MDX references and validates paths
           source: '<RustDemo src="/demos/dialog.html" />',
         },
       ]),
-    /Unsupported interactive demo src.*widgets\/broken\.mdx/
+    /Unsupported interactive demo src.*widgets\/broken\.mdx/,
   );
 });
 
 test("HTML template fills bins and escapes page titles", async () => {
   const template = await fs.readFile(
     path.join(root, "crates/termui-registry/interactive-demo.template.html"),
-    "utf8"
+    "utf8",
   );
   const html = renderInteractiveDemo(template, {
     name: "dialog-interactive",
@@ -97,18 +97,18 @@ test("HTML template fills bins and escapes page titles", async () => {
         name: "dialog-interactive",
         title: "Dialog",
       }),
-    /Missing template marker \{\{BIN_NAME\}\}/
+    /Missing template marker \{\{BIN_NAME\}\}/,
   );
 });
 
 test("interactive shell keeps viewport bounds and keyboard handling shared", async () => {
   const styles = await fs.readFile(
     path.join(root, "scripts/ratzilla-demo-shell/interactive-demo.css"),
-    "utf8"
+    "utf8",
   );
   const loader = await fs.readFile(
     path.join(root, "scripts/ratzilla-demo-shell/interactive-demo.js"),
-    "utf8"
+    "utf8",
   );
   const terminalStyles = styles.match(/#terminal\s*\{([^}]+)\}/)?.[1];
 
@@ -127,17 +127,12 @@ test("MDX demos match checked-in Rust previews and interactive assets", async ()
     mdxFiles.map(async (file) => ({
       file,
       source: await fs.readFile(file, "utf8"),
-    }))
+    })),
   );
-  const references = sources.flatMap(({ source }) =>
-    collectMdxDemoReferences(source)
-  );
+  const references = sources.flatMap(({ source }) => collectMdxDemoReferences(source));
   const demos = collectInteractiveDemos(sources);
   const interactiveAssets = JSON.parse(
-    await fs.readFile(
-      path.join(root, "public/demos/interactive-demo.json"),
-      "utf8"
-    )
+    await fs.readFile(path.join(root, "public/demos/interactive-demo.json"), "utf8"),
   ) as Record<
     string,
     {
@@ -149,12 +144,12 @@ test("MDX demos match checked-in Rust previews and interactive assets", async ()
   >;
   const cargoToml = await fs.readFile(
     path.join(root, "crates/termui-registry/Cargo.toml"),
-    "utf8"
+    "utf8",
   );
   const cargoBins = new Set(
     [...cargoToml.matchAll(/\[\[bin\]\][\s\S]*?\bname\s*=\s*"([^"]+)"/g)].map(
-      ([, name]) => name
-    )
+      ([, name]) => name,
+    ),
   );
 
   assert.ok(demos.length > 0, "MDX must reference at least one interactive demo");
@@ -163,7 +158,7 @@ test("MDX demos match checked-in Rust previews and interactive assets", async ()
 
     const html = await fs.readFile(
       path.join(root, "public/demos/interactive.html"),
-      "utf8"
+      "utf8",
     );
     const assets = interactiveAssets[demo.name];
 
@@ -171,10 +166,9 @@ test("MDX demos match checked-in Rust previews and interactive assets", async ()
     assert.equal(assets.title, demo.title);
     assert.ok(
       references.some(
-        (reference) =>
-          reference.src === `/demos/interactive.html?demo=${demo.name}`
+        (reference) => reference.src === `/demos/interactive.html?demo=${demo.name}`,
       ),
-      `${demo.name} MDX must use the shared demo page`
+      `${demo.name} MDX must use the shared demo page`,
     );
     assert.match(html, /\/demos\/interactive-demo\.css/);
     assert.match(html, /\/demos\/interactive-demo\.js\?v=/);
@@ -183,19 +177,14 @@ test("MDX demos match checked-in Rust previews and interactive assets", async ()
     assert.match(assets.jsIntegrity, /^sha384-/);
     assert.match(assets.wasmIntegrity, /^sha384-/);
     await fs.access(
-      path.join(root, "public/demos", demo.name, `${demo.name}-${assets.hash}.js`)
+      path.join(root, "public/demos", demo.name, `${demo.name}-${assets.hash}.js`),
     );
     await fs.access(
-      path.join(
-        root,
-        "public/demos",
-        demo.name,
-        `${demo.name}-${assets.hash}_bg.wasm`
-      )
+      path.join(root, "public/demos", demo.name, `${demo.name}-${assets.hash}_bg.wasm`),
     );
     await assert.rejects(
       fs.access(path.join(root, "public/demos", demo.name, "index.html")),
-      { code: "ENOENT" }
+      { code: "ENOENT" },
     );
   }
 
@@ -207,18 +196,15 @@ test("MDX demos match checked-in Rust previews and interactive assets", async ()
     await fs.access(path.join(root, "public/demos", file));
   }
 
-  const constants = await fs.readFile(
-    path.join(root, "constants/ratatui.ts"),
-    "utf8"
-  );
+  const constants = await fs.readFile(path.join(root, "constants/ratatui.ts"), "utf8");
   const demoBase = constants.match(/RATATUI_DEMO_BASE\s*=\s*["']([^"']+)["']/)?.[1];
   assert.ok(demoBase, "RATATUI_DEMO_BASE must be defined");
 
   const previews = JSON.parse(
     await fs.readFile(
       path.join(root, "lib/termui-registry/previews.generated.json"),
-      "utf8"
-    )
+      "utf8",
+    ),
   ) as Record<string, unknown>;
   const staticRefs = references.flatMap((reference) => {
     if (reference.tag === "RustDemo" && !reference.src) {
@@ -233,7 +219,13 @@ test("MDX demos match checked-in Rust previews and interactive assets", async ()
   assert.ok(staticRefs.length > 0, "MDX must reference static demos");
   for (const name of new Set(staticRefs)) {
     const frames = previews[`${demoBase}/${name}`];
-    assert.ok(Array.isArray(frames) && frames.length > 0, `${name} needs generated frames`);
-    assert.ok(frames.every((frame) => typeof frame === "string"), `${name} frames must be text`);
+    assert.ok(
+      Array.isArray(frames) && frames.length > 0,
+      `${name} needs generated frames`,
+    );
+    assert.ok(
+      frames.every((frame) => typeof frame === "string"),
+      `${name} frames must be text`,
+    );
   }
 });

@@ -87,16 +87,13 @@ interface SidebarPanelProps {
 
 const findTopLevelFolder = (
   tree: typeof source.pageTree,
-  predicate: (folder: PageTreeFolder) => boolean
+  predicate: (folder: PageTreeFolder) => boolean,
 ) =>
   tree.children.find(
-    (item): item is PageTreeFolder => item.type === "folder" && predicate(item)
+    (item): item is PageTreeFolder => item.type === "folder" && predicate(item),
   );
 
-const WidgetsSidebarPanel = ({
-  pathname,
-  tree,
-}: SidebarPanelProps) => {
+const WidgetsSidebarPanel = ({ pathname, tree }: SidebarPanelProps) => {
   const folder = findTopLevelFolder(tree, isWidgetsFolder);
   if (!folder) {
     return null;
@@ -150,9 +147,7 @@ export const DocsSidebar = ({
                   key={name}
                   href={href}
                   isActive={
-                    href === ROUTES.DOCS
-                      ? pathname === href
-                      : pathname.startsWith(href)
+                    href === ROUTES.DOCS ? pathname === href : pathname.startsWith(href)
                   }
                 >
                   {name}

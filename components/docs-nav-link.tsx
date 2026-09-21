@@ -4,11 +4,7 @@ import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
 import { Kbd } from "@/components/ui/kbd";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { useIconAnimation } from "@/hooks/use-icon-animation";
 import { cn } from "@/lib/utils";
 
@@ -48,13 +44,9 @@ export const DocsNavLink = ({
       {...props}
     >
       <Link href={href} transitionTypes={transitionTypes}>
-        {transitionTypes?.includes("nav-back") && (
-          <ArrowLeftIcon ref={iconRef} />
-        )}
+        {transitionTypes?.includes("nav-back") && <ArrowLeftIcon ref={iconRef} />}
         {children}
-        {transitionTypes?.includes("nav-forward") && (
-          <ArrowRightIcon ref={iconRef} />
-        )}
+        {transitionTypes?.includes("nav-forward") && <ArrowRightIcon ref={iconRef} />}
       </Link>
     </Button>
   );

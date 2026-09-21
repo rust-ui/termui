@@ -21,7 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   const chartPages: MetadataRoute.Sitemap = CHART_FAMILIES.map(
-    (family) => `${ROUTES.CHARTS}/${family.type}`
+    (family) => `${ROUTES.CHARTS}/${family.type}`,
   ).map((path) => ({
     changeFrequency: "monthly",
     priority: 0.8,

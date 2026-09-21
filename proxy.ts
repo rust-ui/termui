@@ -7,11 +7,11 @@ import { docsContentRoute, homeContentRoute } from "@/lib/docs";
 
 const { rewrite: rewriteDocs } = rewritePath(
   `${ROUTES.DOCS}{/*path}`,
-  `${docsContentRoute}{/*path}/content.md`
+  `${docsContentRoute}{/*path}/content.md`,
 );
 const { rewrite: rewriteSuffix } = rewritePath(
   `${ROUTES.DOCS}{/*path}.md`,
-  `${docsContentRoute}{/*path}/content.md`
+  `${docsContentRoute}{/*path}/content.md`,
 );
 
 export default function proxy(request: NextRequest) {

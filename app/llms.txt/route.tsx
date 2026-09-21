@@ -8,13 +8,11 @@ import { source } from "@/lib/source";
 export const revalidate = false;
 
 const documentationIndex = async () =>
-  (await llms(source)
-    .index()
-  )
+  (await llms(source).index())
     .replace(/^#\s+(.+)$/m, "## $1")
     .replaceAll(
       /\]\((\/docs(?:\/[^)#\s]+)?)(#[^)]+)?\)/g,
-      (_, pathname, hash = "") => `](${pathname}.md${hash})`
+      (_, pathname, hash = "") => `](${pathname}.md${hash})`,
     )
     .trim();
 

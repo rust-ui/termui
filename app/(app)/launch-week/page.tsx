@@ -51,9 +51,7 @@ const LaunchWeekCard = ({
               </Badge>
               {featured && <span className="sr-only">Latest</span>}
             </div>
-            <h2 className="mt-3 text-lg font-semibold tracking-tight">
-              {week.title}
-            </h2>
+            <h2 className="mt-3 text-lg font-semibold tracking-tight">{week.title}</h2>
             <p className="text-muted-foreground mt-1 text-sm">
               {formatLaunchWeekRange(week, week.status === "complete")}
             </p>
@@ -82,10 +80,7 @@ export default function LaunchWeeksPage() {
             <article className="mx-auto w-full max-w-2xl">
               <PageHero
                 description={
-                  <>
-                    Every launch week and everything that shipped, kept in one
-                    place.
-                  </>
+                  <>Every launch week and everything that shipped, kept in one place.</>
                 }
                 title="Launch weeks"
               />

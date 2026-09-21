@@ -13,10 +13,7 @@ export const MacWindow = ({
 }) => (
   <div
     data-slot="mac-window"
-    className={cn(
-      "overflow-hidden rounded-2xl border bg-card shadow-lg",
-      className
-    )}
+    className={cn("overflow-hidden rounded-2xl border bg-card shadow-lg", className)}
   >
     <div className="grid grid-cols-3 items-center border-b bg-muted/50 px-3 py-2.5">
       <div className="flex gap-2">

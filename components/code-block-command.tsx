@@ -34,24 +34,24 @@ export const CodeBlockCommand = ({
       pnpm: __pnpm__,
       yarn: __yarn__,
     }),
-    [__npm__, __pnpm__, __yarn__, __bun__]
+    [__npm__, __pnpm__, __yarn__, __bun__],
   );
 
   const handlePackageManagerChange = useCallback(
     (value: string) => setPackageManager(value as PackageManager),
-    [setPackageManager]
+    [setPackageManager],
   );
 
   const copyValue = useMemo(
     () => commandTabs[packageManager] || "",
-    [commandTabs, packageManager]
+    [commandTabs, packageManager],
   );
 
   return (
     <div
       className={cn(
         "bg-code text-code-foreground relative overflow-hidden rounded-lg text-sm",
-        className
+        className,
       )}
     >
       <Tabs

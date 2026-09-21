@@ -52,7 +52,7 @@ export const OrganizationJsonLd = () => {
   const data = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    logo: SITE.URL + "/logo.svg",
+    logo: `${SITE.URL}/logo.svg`,
     name: SITE.NAME,
     sameAs: [LINK.GITHUB],
     url: SITE.URL,

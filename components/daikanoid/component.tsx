@@ -29,14 +29,12 @@ const createSound = (source: string) => {
 export const Daikanoid = ({
   className,
   ...props
-}: Omit<
-  React.ComponentPropsWithRef<"canvas">,
-  "children" | "height" | "width"
->) => {
+}: Omit<React.ComponentPropsWithRef<"canvas">, "children" | "height" | "width">) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const shouldReduceMotion = useReducedMotion();
   const { resolvedTheme } = useTheme();
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: Theme changes must refresh canvas colors.
   useEffect(() => {
     const canvas = canvasRef.current;
     const context = canvas?.getContext("2d");
@@ -181,7 +179,7 @@ export const Daikanoid = ({
       aria-label="Page not found. Interactive Breakout game built from the Shadcn Labs logo. Click or press Space to launch, then use the pointer or arrow keys to move."
       className={cn(
         "aspect-4/3 h-auto w-full max-w-200 touch-none cursor-none ring-1 ring-border outline-none focus-visible:ring-2 focus-visible:ring-ring",
-        className
+        className,
       )}
       {...props}
     />

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://unpkg.com/knip@6/schema.json",
+  "entry": [
+    "app/**/*.{ts,tsx}",
+    "scripts/**/*.{mts,mjs}",
+    "tests/**/*.{mts,mjs}",
+    "scripts/ratzilla-demo-shell/interactive-demo.{js,css}",
+    "components/ui/**/*.{ts,tsx}"
+  ],
+  "ignore": ["public/**"],
+  "ignoreBinaries": ["trunk"]
+}

@@ -41,11 +41,7 @@ export class Paddle {
 
   moveTo(clientX: number, bounds: DOMRect) {
     const pointerX = ((clientX - bounds.left) / bounds.width) * CANVAS_WIDTH;
-    this.x = uncheckedClamp(
-      0,
-      CANVAS_WIDTH - this.width,
-      pointerX - this.width / 2
-    );
+    this.x = uncheckedClamp(0, CANVAS_WIDTH - this.width, pointerX - this.width / 2);
   }
 
   setKey(code: string, pressed: boolean) {

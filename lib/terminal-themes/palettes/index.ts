@@ -300,7 +300,7 @@ export const THEME_NAMES = THEMES.map((theme) => theme.name) as [
 ];
 
 export const TERMINAL_THEME_MAP = Object.fromEntries(
-  THEMES.map((theme) => [theme.name, theme.theme])
+  THEMES.map((theme) => [theme.name, theme.theme]),
 ) as Record<TerminalThemeName, TerminalTheme>;
 
 export const TERMINAL_THEME_OPTIONS = THEMES.map((theme) => ({
@@ -309,5 +309,5 @@ export const TERMINAL_THEME_OPTIONS = THEMES.map((theme) => ({
 }));
 
 export const THEME_PRIMARY_BY_NAME: Record<string, string> = Object.fromEntries(
-  THEMES.map((theme) => [theme.name, theme.theme.colors.primary])
+  THEMES.map((theme) => [theme.name, theme.theme.colors.primary]),
 );

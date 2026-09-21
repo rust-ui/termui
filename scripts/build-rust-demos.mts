@@ -6,12 +6,7 @@ import { collectMdxDemoReferences } from "./lib/demo-mdx.mts";
 const root = process.cwd();
 const docsRoot = path.join(root, "content", "docs");
 const ratatuiConstants = path.join(root, "constants", "ratatui.ts");
-const outputFile = path.join(
-  root,
-  "lib",
-  "termui-registry",
-  "previews.generated.json"
-);
+const outputFile = path.join(root, "lib", "termui-registry", "previews.generated.json");
 
 const names: string[] = [];
 
@@ -28,7 +23,7 @@ async function collectMdxFiles(directory: string): Promise<string[]> {
       const entryPath = path.join(directory, entry.name);
       if (entry.isDirectory()) return collectMdxFiles(entryPath);
       return entry.isFile() && entry.name.endsWith(".mdx") ? [entryPath] : [];
-    })
+    }),
   );
   return nested.flat();
 }
@@ -41,7 +36,7 @@ for (const file of await collectMdxFiles(docsRoot)) {
   if (isWidgetPage) {
     if (/<TerminalFrame\b/.test(source)) {
       throw new Error(
-        `Widget pages must use RustDemo with a Code tab instead of TerminalFrame: ${file}`
+        `Widget pages must use RustDemo with a Code tab instead of TerminalFrame: ${file}`,
       );
     }
     const rustDemos = [...source.matchAll(/<RustDemo\b([\s\S]*?)\/>/g)];
@@ -77,7 +72,7 @@ const result = spawnSync(
     "--",
     ...uniqueNames,
   ],
-  { cwd: root, encoding: "utf8", maxBuffer: 8 * 1024 * 1024 }
+  { cwd: root, encoding: "utf8", maxBuffer: 8 * 1024 * 1024 },
 );
 
 if (result.status !== 0) {

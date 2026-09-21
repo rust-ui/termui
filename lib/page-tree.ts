@@ -1,7 +1,4 @@
-import type {
-  Node as PageTreeNode,
-  Root as PageTreeRoot,
-} from "fumadocs-core/page-tree";
+import type { Node as PageTreeNode, Root as PageTreeRoot } from "fumadocs-core/page-tree";
 
 import { ROUTES } from "@/constants/routes";
 import { RATATUI_WIDGETS_TITLE } from "@/constants/ratatui";
@@ -19,9 +16,7 @@ export interface FolderSection extends TreeGroup {
   id: string;
 }
 
-export const getAllPagesFromFolder = (
-  folder: PageTreeFolder
-): PageTreePage[] => {
+export const getAllPagesFromFolder = (folder: PageTreeFolder): PageTreePage[] => {
   const pages: PageTreePage[] = [];
 
   for (const child of folder.children) {
@@ -38,12 +33,10 @@ export const getAllPagesFromFolder = (
 export const getFolderPages = (folder: PageTreeFolder): PageTreePage[] =>
   getAllPagesFromFolder(folder);
 
-export const getFolderSections = (
-  folder: PageTreeFolder
-): FolderSection[] => {
+export const getFolderSections = (folder: PageTreeFolder): FolderSection[] => {
   if (isWidgetsFolder(folder)) {
     const pages = getFolderPages(folder).filter(
-      (page) => page.url !== ROUTES.DOCS_WIDGETS
+      (page) => page.url !== ROUTES.DOCS_WIDGETS,
     );
     return pages.length > 0
       ? [{ id: ROUTES.DOCS_WIDGETS, label: RATATUI_WIDGETS_TITLE, pages }]
@@ -52,9 +45,7 @@ export const getFolderSections = (
   return [];
 };
 
-export const getTreeGroups = (
-  tree: PageTreeRoot
-): TreeGroup[] => {
+export const getTreeGroups = (tree: PageTreeRoot): TreeGroup[] => {
   const groups: TreeGroup[] = [];
 
   for (const item of tree.children) {

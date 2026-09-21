@@ -1,7 +1,7 @@
+use ratatui::Frame;
 use ratatui::layout::Rect;
 use ratatui::style::{Color, Style};
 use ratatui::widgets::{Block, BorderType, Paragraph, Wrap};
-use ratatui::Frame;
 
 /// A bordered multi-line text presentation. The parent app owns editing state.
 #[must_use]

@@ -30,9 +30,9 @@ export const mdxComponents = {
   Accordion,
   AccordionContent,
   AccordionItem,
-  AccordionTrigger: (
-    props: React.ComponentProps<typeof AccordionTriggerBase>
-  ) => <AccordionTriggerBase sound="click" {...props} />,
+  AccordionTrigger: (props: React.ComponentProps<typeof AccordionTriggerBase>) => (
+    <AccordionTriggerBase sound="click" {...props} />
+  ),
   Alert,
   AlertDescription,
   AlertTitle,
@@ -53,12 +53,7 @@ export const mdxComponents = {
     title: string;
     description: string;
   }) => (
-    <Card
-      className={cn(
-        "flex flex-col gap-2 rounded-xl py-4 shadow-none",
-        className
-      )}
-    >
+    <Card className={cn("flex flex-col gap-2 rounded-xl py-4 shadow-none", className)}>
       <CardHeader className="flex items-center gap-2 px-4">
         <div className="bg-primary/10 flex size-8 shrink-0 items-center justify-center rounded-md text-primary">
           <Icon className="size-4" />
@@ -97,7 +92,7 @@ export const mdxComponents = {
     <Link
       className={cn(
         "bg-surface text-surface-foreground hover:bg-surface/80 flex w-full flex-col items-center rounded-xl p-6 transition-colors sm:p-10",
-        className
+        className,
       )}
       {...props}
     />
@@ -106,7 +101,7 @@ export const mdxComponents = {
     <h3
       className={cn(
         "mt-8 scroll-m-32 font-heading text-lg font-medium tracking-tight",
-        className
+        className,
       )}
       {...props}
     >
@@ -128,56 +123,38 @@ export const mdxComponents = {
   Tabs: ({ className, ...props }: React.ComponentProps<typeof Tabs>) => (
     <Tabs className={cn("relative mt-6 w-full", className)} {...props} />
   ),
-  TabsContent: ({
-    className,
-    ...props
-  }: React.ComponentProps<typeof TabsContent>) => (
+  TabsContent: ({ className, ...props }: React.ComponentProps<typeof TabsContent>) => (
     <TabsContent
       className={cn(
         "relative [&_h3.font-heading]:text-base [&_h3.font-heading]:font-medium *:[figure]:first:mt-0 [&>.steps]:mt-6",
-        className
+        className,
       )}
       {...props}
     />
   ),
-  TabsList: ({
-    className,
-    ...props
-  }: React.ComponentProps<typeof TabsList>) => (
+  TabsList: ({ className, ...props }: React.ComponentProps<typeof TabsList>) => (
     <TabsList
-      className={cn(
-        "justify-start gap-4 rounded-none bg-transparent px-0",
-        className
-      )}
+      className={cn("justify-start gap-4 rounded-none bg-transparent px-0", className)}
       {...props}
     />
   ),
-  TabsTrigger: ({
-    className,
-    ...props
-  }: React.ComponentProps<typeof TabsTrigger>) => (
+  TabsTrigger: ({ className, ...props }: React.ComponentProps<typeof TabsTrigger>) => (
     <TabsTrigger
       sound="tabSwitch"
       className={cn(
         "text-muted-foreground data-[state=active]:text-foreground data-[state=active]:border-primary dark:data-[state=active]:border-primary hover:text-primary rounded-none border-0 border-b-2 border-transparent bg-transparent px-0 pb-3 text-base data-[state=active]:bg-transparent data-[state=active]:shadow-none dark:data-[state=active]:bg-transparent",
-        className
+        className,
       )}
       {...props}
     />
   ),
   a: ({ className, children, ...props }: React.ComponentProps<"a">) => (
-    <a
-      className={cn("font-medium underline underline-offset-4", className)}
-      {...props}
-    >
+    <a className={cn("font-medium underline underline-offset-4", className)} {...props}>
       {children}
     </a>
   ),
   blockquote: ({ className, ...props }: React.ComponentProps<"blockquote">) => (
-    <blockquote
-      className={cn("mt-6 border-l-2 pl-6 italic", className)}
-      {...props}
-    />
+    <blockquote className={cn("mt-6 border-l-2 pl-6 italic", className)} {...props} />
   ),
   code: ({
     className,
@@ -202,7 +179,7 @@ export const mdxComponents = {
         <code
           className={cn(
             "bg-muted relative rounded-md px-[0.3rem] py-[0.2rem] font-mono text-[0.8rem] break-words outline-none",
-            className
+            className,
           )}
           {...props}
         />
@@ -225,18 +202,12 @@ export const mdxComponents = {
     // Default codeblock.
     return (
       <>
-        {__raw__ && (
-          <CopyButton value={__raw__} src={__src__} event="copy_usage_code" />
-        )}
+        {__raw__ && <CopyButton value={__raw__} src={__src__} event="copy_usage_code" />}
         <code {...props} />
       </>
     );
   },
-  figcaption: ({
-    className,
-    children,
-    ...props
-  }: React.ComponentProps<"figcaption">) => {
+  figcaption: ({ className, children, ...props }: React.ComponentProps<"figcaption">) => {
     const iconExtension =
       "data-language" in props && typeof props["data-language"] === "string"
         ? getIconForLanguageExtension(props["data-language"])
@@ -246,7 +217,7 @@ export const mdxComponents = {
       <figcaption
         className={cn(
           "text-code-foreground [&_svg]:text-code-foreground flex items-center gap-2 [&_svg]:size-4 [&_svg]:opacity-70",
-          className
+          className,
         )}
         {...props}
       >
@@ -262,7 +233,7 @@ export const mdxComponents = {
     <h1
       className={cn(
         "font-heading mt-2 scroll-m-28 text-3xl font-bold tracking-tight",
-        className
+        className,
       )}
       {...props}
     >
@@ -279,7 +250,7 @@ export const mdxComponents = {
         .toLowerCase()}
       className={cn(
         "[&+]*:[code]:text-xl mt-10 scroll-m-28 font-heading text-xl font-medium tracking-tight first:mt-0 lg:mt-12 [&+.steps]:mt-0! [&+.steps>h3]:mt-4! [&+h3]:mt-6! [&+p]:mt-4!",
-        className
+        className,
       )}
       {...props}
     >
@@ -290,7 +261,7 @@ export const mdxComponents = {
     <h3
       className={cn(
         "mt-12 scroll-m-28 font-heading text-lg font-medium tracking-tight [&+p]:mt-4! *:[code]:text-xl",
-        className
+        className,
       )}
       {...props}
     >
@@ -301,7 +272,7 @@ export const mdxComponents = {
     <h4
       className={cn(
         "font-heading mt-8 scroll-m-28 text-base font-medium tracking-tight",
-        className
+        className,
       )}
       {...props}
     >
@@ -310,10 +281,7 @@ export const mdxComponents = {
   ),
   h5: ({ className, children, ...props }: React.ComponentProps<"h5">) => (
     <h5
-      className={cn(
-        "mt-8 scroll-m-28 text-base font-medium tracking-tight",
-        className
-      )}
+      className={cn("mt-8 scroll-m-28 text-base font-medium tracking-tight", className)}
       {...props}
     >
       {children}
@@ -321,10 +289,7 @@ export const mdxComponents = {
   ),
   h6: ({ className, children, ...props }: React.ComponentProps<"h6">) => (
     <h6
-      className={cn(
-        "mt-8 scroll-m-28 text-base font-medium tracking-tight",
-        className
-      )}
+      className={cn("mt-8 scroll-m-28 text-base font-medium tracking-tight", className)}
       {...props}
     >
       {children}
@@ -335,6 +300,7 @@ export const mdxComponents = {
   ),
   img: ({ className, alt, ...props }: React.ComponentProps<"img">) => (
     // eslint-disable-next-line @next/next/no-img-element
+    // biome-ignore lint/performance/noImgElement: MDX supports remote images without Next image configuration.
     <img className={cn("rounded-md", className)} alt={alt} {...props} />
   ),
   li: ({ className, ...props }: React.ComponentProps<"li">) => (
@@ -353,7 +319,7 @@ export const mdxComponents = {
     <pre
       className={cn(
         "no-scrollbar min-w-0 overflow-x-auto px-4 py-3.5 outline-none has-data-highlighted-line:px-0 has-[[data-line-numbers]]:px-0 has-[[data-slot=tabs]]:p-0",
-        className
+        className,
       )}
       {...props}
     >
@@ -368,7 +334,7 @@ export const mdxComponents = {
       <table
         className={cn(
           "relative w-full overflow-hidden border-none text-sm [&_tbody_tr:last-child]:border-b-0",
-          className
+          className,
         )}
         {...props}
       />
@@ -378,7 +344,7 @@ export const mdxComponents = {
     <td
       className={cn(
         "px-4 py-2 text-left whitespace-nowrap [[align=center]]:text-center [[align=right]]:text-right",
-        className
+        className,
       )}
       {...props}
     />
@@ -387,7 +353,7 @@ export const mdxComponents = {
     <th
       className={cn(
         "px-4 py-2 text-left font-bold [[align=center]]:text-center [[align=right]]:text-right",
-        className
+        className,
       )}
       {...props}
     />

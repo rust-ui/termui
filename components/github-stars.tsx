@@ -2,22 +2,14 @@
 
 import { GithubIcon } from "@/components/icons";
 import { buttonVariants } from "@/components/ui/button";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { LINK } from "@/constants/links";
 import { UTM_PARAMS } from "@/constants/site";
 import { useFeedback } from "@/hooks/use-feedback";
 import { addQueryParams } from "@/lib/url";
 import { cn } from "@/lib/utils";
 
-export const GitHubStars = ({
-  stargazersCount,
-}: {
-  stargazersCount: number;
-}) => {
+export const GitHubStars = ({ stargazersCount }: { stargazersCount: number }) => {
   const play = useFeedback({ sound: "star" });
 
   return (

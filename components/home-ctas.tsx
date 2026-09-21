@@ -34,8 +34,7 @@ const GetStartedButton = () => {
 };
 
 const WidgetsButton = () => {
-  const { iconRef, onMouseEnter, onMouseLeave } =
-    useIconAnimation<ComponentIconHandle>();
+  const { iconRef, onMouseEnter, onMouseLeave } = useIconAnimation<ComponentIconHandle>();
 
   return (
     <Button
@@ -55,12 +54,7 @@ const WidgetsButton = () => {
 };
 
 export const HomeCtas = ({ className }: { className?: string }) => (
-  <div
-    className={cn(
-      "flex flex-wrap items-center justify-center gap-4",
-      className
-    )}
-  >
+  <div className={cn("flex flex-wrap items-center justify-center gap-4", className)}>
     <GetStartedButton />
     <WidgetsButton />
   </div>

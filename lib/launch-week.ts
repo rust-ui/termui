@@ -116,14 +116,11 @@ export const formatLaunchWeekDate = (date: string, includeYear = true) => {
   return `${day}${getOrdinalSuffix(day)} ${LONG_MONTH_FORMAT.format(value)}`;
 };
 
-export const formatLaunchWeekRange = (
-  week: LaunchWeekData,
-  includeYear = true
-) => {
+export const formatLaunchWeekRange = (week: LaunchWeekData, includeYear = true) => {
   const start = SHORT_DATE_FORMAT.format(new Date(week.startDate));
-  const end = (
-    includeYear ? LONG_DATE_FORMAT : LONG_DATE_WITHOUT_YEAR_FORMAT
-  ).format(new Date(week.endDate));
+  const end = (includeYear ? LONG_DATE_FORMAT : LONG_DATE_WITHOUT_YEAR_FORMAT).format(
+    new Date(week.endDate),
+  );
   return `${start} — ${end}`;
 };
 
@@ -133,7 +130,7 @@ export const countLaunchWeekReleases = (week: LaunchWeekData) =>
 export const getLaunchWeeks = (): readonly LaunchWeekData[] =>
   [...LAUNCH_WEEKS].toSorted(
     (first, second) =>
-      new Date(second.startDate).getTime() - new Date(first.startDate).getTime()
+      new Date(second.startDate).getTime() - new Date(first.startDate).getTime(),
   );
 
 export const getLaunchWeek = (slug: string) =>

@@ -38,7 +38,7 @@ export const generateMetadata = async (props: {
   }
 
   const doc = page.data;
-  const isWidgetPage = page.url.startsWith(ROUTES.DOCS_WIDGETS + "/");
+  const isWidgetPage = page.url.startsWith(`${ROUTES.DOCS_WIDGETS}/`);
   const title =
     page.url === ROUTES.DOCS
       ? "Ratatui Components"
@@ -49,7 +49,7 @@ export const generateMetadata = async (props: {
           : isWidgetPage && doc.title === "Charts"
             ? "Ratatui Chart Examples"
             : isWidgetPage
-              ? "Ratatui " + doc.title + " Widget"
+              ? `Ratatui ${doc.title} Widget`
               : doc.title;
   return createPageMetadata({
     description: doc.description,
@@ -59,14 +59,8 @@ export const generateMetadata = async (props: {
   });
 };
 
-const buildBreadcrumbs = (
-  slugs: string[],
-  pageTitle: string,
-  pageUrl: string
-) => {
-  const items: { name: string; path: string }[] = [
-    { name: "Home", path: ROUTES.HOME },
-  ];
+const buildBreadcrumbs = (slugs: string[], pageTitle: string, pageUrl: string) => {
+  const items: { name: string; path: string }[] = [{ name: "Home", path: ROUTES.HOME }];
 
   if (slugs.length === 0) {
     items.push({ name: pageTitle, path: pageUrl });
@@ -129,10 +123,7 @@ const Page = async (props: { params: Promise<{ slug?: string[] }> }) => {
                         <DocsCopyPage page={raw} url={absoluteUrl(page.url)} />
                       </div>
                       <div className="ml-auto flex gap-2">
-                        <DocsShareMenu
-                          title={doc.title}
-                          url={absoluteUrl(page.url)}
-                        />
+                        <DocsShareMenu title={doc.title} url={absoluteUrl(page.url)} />
                         {neighbours.previous && (
                           <DocsNavLink
                             href={neighbours.previous.url}

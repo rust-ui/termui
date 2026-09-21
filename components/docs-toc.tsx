@@ -28,7 +28,7 @@ const useActiveItem = (itemIds: string[]) => {
           }
         }
       },
-      { rootMargin: "0% 0% -80% 0%" }
+      { rootMargin: "0% 0% -80% 0%" },
     );
 
     for (const id of itemIds ?? []) {
@@ -72,10 +72,7 @@ export const DocsTableOfContents = ({
 }) => {
   const [open, setOpen] = useState(false);
   const handleClose = useCallback(() => setOpen(false), []);
-  const itemIds = useMemo(
-    () => toc.map((item) => item.url.replace("#", "")),
-    [toc]
-  );
+  const itemIds = useMemo(() => toc.map((item) => item.url.replace("#", "")), [toc]);
   const activeHeading = useActiveItem(itemIds);
   const playTick = useFeedback({ sound: "tick" });
 
@@ -87,18 +84,11 @@ export const DocsTableOfContents = ({
     return (
       <DropdownMenu open={open} onOpenChange={setOpen} sounds>
         <DropdownMenuTrigger asChild>
-          <Button
-            variant="outline"
-            size="sm"
-            className={cn("h-8 md:h-7", className)}
-          >
+          <Button variant="outline" size="sm" className={cn("h-8 md:h-7", className)}>
             <MenuIcon /> On This Page
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent
-          align="start"
-          className="no-scrollbar max-h-[70svh]"
-        >
+        <DropdownMenuContent align="start" className="no-scrollbar max-h-[70svh]">
           {toc.map((item) => (
             <DropdownMenuItem
               key={item.url}

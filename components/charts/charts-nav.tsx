@@ -25,7 +25,7 @@ export function ChartsNav() {
             aria-current={active ? "page" : undefined}
             className={cn(
               "border-b-2 border-transparent px-4 py-3 text-sm whitespace-nowrap text-muted-foreground transition-colors hover:text-foreground",
-              active && "border-foreground text-foreground"
+              active && "border-foreground text-foreground",
             )}
             href={href}
           >

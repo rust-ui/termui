@@ -22,7 +22,7 @@ export async function startInteractiveDemoSession(): Promise<InteractiveDemoSess
   const server: Server = createServer(async (request, response) => {
     try {
       const pathname = decodeURIComponent(
-        new URL(request.url ?? "/", "http://127.0.0.1").pathname
+        new URL(request.url ?? "/", "http://127.0.0.1").pathname,
       );
       const filePath = path.resolve(publicRoot, `.${pathname}`);
       if (!filePath.startsWith(`${publicRoot}${path.sep}`)) {
@@ -33,8 +33,7 @@ export async function startInteractiveDemoSession(): Promise<InteractiveDemoSess
       const contents = await fs.readFile(filePath);
       response
         .writeHead(200, {
-          "Content-Type":
-            mimeTypes[path.extname(filePath)] ?? "application/octet-stream",
+          "Content-Type": mimeTypes[path.extname(filePath)] ?? "application/octet-stream",
         })
         .end(contents);
     } catch {
@@ -74,7 +73,7 @@ export async function startInteractiveDemoSession(): Promise<InteractiveDemoSess
 
 export async function waitForTerminal(page: Page) {
   await page.waitForFunction(
-    () => document.querySelectorAll("#terminal_ratzilla_grid pre").length > 0
+    () => document.querySelectorAll("#terminal_ratzilla_grid pre").length > 0,
   );
 }
 
@@ -106,13 +105,13 @@ export async function waitForTerminalText(page: Page, text: string) {
       document
         .querySelector("#terminal_ratzilla_grid")
         ?.textContent?.includes(expected) ?? false,
-    text
+    text,
   );
 }
 
 function assertPosition(
   position: { row: number; column: number } | null,
-  targetText: string
+  targetText: string,
 ): asserts position is { row: number; column: number } {
   if (!position) {
     throw new Error(`Could not find terminal text: ${targetText}`);

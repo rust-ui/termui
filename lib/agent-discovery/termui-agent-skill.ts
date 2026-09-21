@@ -26,9 +26,7 @@ Copy source from the relevant widget page. Include any sibling modules it import
 `;
 
 export const termuiAgentSkillDigest = (): string => {
-  const hex = createHash("sha256")
-    .update(TERMUI_AGENT_SKILL_MD, "utf-8")
-    .digest("hex");
+  const hex = createHash("sha256").update(TERMUI_AGENT_SKILL_MD, "utf-8").digest("hex");
 
   return `sha256:${hex}`;
 };

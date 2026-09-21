@@ -15,11 +15,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { LABS_LATEST, LABS_NAV_SECTIONS } from "@/constants/nav";
 import type { LabsNavLink as LabsNavLinkItem } from "@/constants/nav";
 import { SITE, UTM_PARAMS } from "@/constants/site";
@@ -40,7 +36,7 @@ const SECTION_LIST: Partial<Record<SectionId, string>> = {
 const latestCardClassName = cn(
   "flex flex-col gap-4 rounded-lg border border-border bg-background p-4",
   "text-base font-normal no-underline transition-colors",
-  "hover:border-foreground/25 hover:bg-background focus:bg-background"
+  "hover:border-foreground/25 hover:bg-background focus:bg-background",
 );
 
 interface LinkAnimationProps {
@@ -80,17 +76,13 @@ const LabsNavLink = ({
 }: {
   item: LabsNavLinkItem;
   iconSize?: number;
-  children: (
-    props: LinkAnimationProps & { label: React.ReactNode }
-  ) => React.ReactNode;
+  children: (props: LinkAnimationProps & { label: React.ReactNode }) => React.ReactNode;
 }) => {
   const { iconRef, onMouseEnter, onMouseLeave } =
     useIconAnimation<ArrowUpRightIconHandle>();
 
   return children({
-    label: (
-      <ExternalLinkLabel name={item.name} iconRef={iconRef} size={iconSize} />
-    ),
+    label: <ExternalLinkLabel name={item.name} iconRef={iconRef} size={iconSize} />,
     onMouseEnter,
     onMouseLeave,
   });
@@ -105,9 +97,7 @@ const LatestCard = ({
   item: LabsNavLinkItem;
   nameClassName?: string;
   textClassName?: string;
-  children: (
-    props: LinkAnimationProps & { content: React.ReactNode }
-  ) => React.ReactNode;
+  children: (props: LinkAnimationProps & { content: React.ReactNode }) => React.ReactNode;
 }) => {
   const { iconRef, onMouseEnter, onMouseLeave } =
     useIconAnimation<ArrowUpRightIconHandle>();
@@ -117,7 +107,7 @@ const LatestCard = ({
       <span
         className={cn(
           "flex items-center justify-center gap-2 rounded-md bg-muted text-base font-medium",
-          nameClassName ?? "min-h-24 w-full"
+          nameClassName ?? "min-h-24 w-full",
         )}
       >
         {item.logo ? (
@@ -146,15 +136,11 @@ const LatestCard = ({
         <span
           className={cn(
             "inline-flex items-center gap-1 text-sm text-foreground",
-            textClassName
+            textClassName,
           )}
         >
           {item.description}
-          <ArrowUpRightIcon
-            ref={iconRef}
-            size={16}
-            className="inline-flex shrink-0"
-          />
+          <ArrowUpRightIcon ref={iconRef} size={16} className="inline-flex shrink-0" />
         </span>
       ) : (
         <ExternalLinkLabel name={item.name} iconRef={iconRef} />
@@ -192,7 +178,7 @@ const DesktopSection = ({
                   "bg-transparent p-0 text-base font-normal leading-normal",
                   "underline-offset-4 decoration-muted-foreground/50 decoration-1",
                   "hover:bg-transparent hover:underline focus:bg-transparent focus:underline",
-                  "data-[active=true]:bg-transparent"
+                  "data-[active=true]:bg-transparent",
                 )}
                 onMouseEnter={onMouseEnter}
                 onMouseLeave={onMouseLeave}
@@ -223,7 +209,7 @@ const LabsNavMobile = () => {
           <ChevronDownIcon
             className={cn(
               "size-3 transition-transform duration-200",
-              open && "rotate-180"
+              open && "rotate-180",
             )}
             strokeWidth={2.5}
           />
@@ -316,7 +302,7 @@ const LabsNavDesktop = () => {
                 "h-auto gap-1 bg-transparent px-3 py-1.5 text-base font-medium",
                 "hover:bg-transparent hover:text-foreground focus:bg-transparent focus:text-foreground",
                 "data-[state=open]:bg-transparent data-[state=open]:text-foreground",
-                "data-[state=open]:hover:bg-transparent data-[state=open]:focus:bg-transparent"
+                "data-[state=open]:hover:bg-transparent data-[state=open]:focus:bg-transparent",
               )}
             >
               {SITE.NAME}
@@ -327,7 +313,7 @@ const LabsNavDesktop = () => {
                 "shadow-[0_1px_0_0_var(--border)]",
                 "before:absolute before:inset-x-0 before:-top-3 before:h-3 before:content-['']",
                 "data-[motion^=from-]:animate-none data-[motion^=to-]:animate-none",
-                "md:fixed md:w-screen dark:bg-black"
+                "md:fixed md:w-screen dark:bg-black",
               )}
             >
               <div className="container-wrapper px-6">

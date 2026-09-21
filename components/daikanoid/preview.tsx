@@ -4,32 +4,16 @@ import { motion, useReducedMotion } from "motion/react";
 
 import { cn } from "@/lib/utils";
 
-const DIGIT_FOUR = [
-  "...X.",
-  "..X..",
-  ".X...",
-  "X..X.",
-  "XXXXX",
-  "...X.",
-  "...X.",
-];
+const DIGIT_FOUR = ["...X.", "..X..", ".X...", "X..X.", "XXXXX", "...X.", "...X."];
 
-const DIGIT_ZERO = [
-  ".XXX.",
-  "X...X",
-  "X...X",
-  "X...X",
-  "X...X",
-  "X...X",
-  ".XXX.",
-];
+const DIGIT_ZERO = [".XXX.", "X...X", "X...X", "X...X", "X...X", "X...X", ".XXX."];
 
 const NOT_FOUND_PATTERN = DIGIT_FOUR.map(
-  (row, index) => `${row}.${DIGIT_ZERO[index]}.${row}`
+  (row, index) => `${row}.${DIGIT_ZERO[index]}.${row}`,
 );
 
 const ARTWORK_CLASS_NAME = cn(
-  "relative aspect-2/1 w-full overflow-hidden bg-muted/35 ring-1 ring-border"
+  "relative aspect-2/1 w-full overflow-hidden bg-muted/35 ring-1 ring-border",
 );
 
 const Brick = ({ active }: { active: boolean }) => (
@@ -52,7 +36,7 @@ const ArtworkBricks = () => (
     {NOT_FOUND_PATTERN.flatMap((row, rowIndex) =>
       [...row].map((brick, columnIndex) => (
         <Brick active={brick === "X"} key={`${rowIndex}-${columnIndex}`} />
-      ))
+      )),
     )}
   </span>
 );
@@ -73,10 +57,8 @@ export const DaikanoidArtwork = ({
   </div>
 );
 
-export interface DaikanoidPreviewProps extends Omit<
-  React.ComponentProps<typeof motion.button>,
-  "children"
-> {
+export interface DaikanoidPreviewProps
+  extends Omit<React.ComponentProps<typeof motion.button>, "children"> {
   className?: string;
 }
 
@@ -97,7 +79,7 @@ export const DaikanoidPreview = ({
       className={cn(
         ARTWORK_CLASS_NAME,
         "group cursor-pointer outline-none transition-colors duration-150 hover:bg-muted/55 focus-visible:ring-2 focus-visible:ring-ring",
-        className
+        className,
       )}
       style={style}
       {...props}

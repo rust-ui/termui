@@ -12,13 +12,10 @@ const PIXEL_R_RECTS = [
 
 const PIXEL_R_SVG = PIXEL_R_RECTS.map(
   ([x, y, width, height]) =>
-    `<rect x="${x}" y="${y}" width="${width}" height="${height}"/>`
+    `<rect x="${x}" y="${y}" width="${width}" height="${height}"/>`,
 ).join("\n  ");
 
-export const LogoMark = ({
-  className,
-  ...props
-}: React.ComponentProps<"svg">) => (
+export const LogoMark = ({ className, ...props }: React.ComponentProps<"svg">) => (
   <svg
     aria-hidden="true"
     viewBox="0 0 512 512"
@@ -36,10 +33,7 @@ export const LogoMark = ({
   </svg>
 );
 
-export const LogoType = ({
-  className,
-  ...props
-}: React.ComponentProps<"svg">) => (
+export const LogoType = ({ className, ...props }: React.ComponentProps<"svg">) => (
   <svg
     aria-label="Term/UI"
     role="img"

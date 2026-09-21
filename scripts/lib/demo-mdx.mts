@@ -10,8 +10,8 @@ export function collectMdxDemoReferences(source: string): MdxDemoReference[] {
     ([, tag, attributes]) => {
       const props = new Map(
         [...attributes.matchAll(/\b(name|src)\s*=\s*["']([^"']+)["']/g)].map(
-          ([, key, value]) => [key, value]
-        )
+          ([, key, value]) => [key, value],
+        ),
       );
 
       return {
@@ -19,6 +19,6 @@ export function collectMdxDemoReferences(source: string): MdxDemoReference[] {
         name: props.get("name"),
         src: props.get("src"),
       };
-    }
+    },
   );
 }

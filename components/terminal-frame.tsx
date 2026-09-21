@@ -20,10 +20,7 @@ export function TerminalFrame({
 }: TerminalFrameProps) {
   return (
     <div
-      className={cn(
-        "overflow-hidden rounded-xl border border-border bg-card",
-        className
-      )}
+      className={cn("overflow-hidden rounded-xl border border-border bg-card", className)}
     >
       <div className="flex items-center gap-2 border-b border-border bg-muted px-4 py-2.5">
         <span className="h-3 w-3 rounded-full bg-red-500/80" />

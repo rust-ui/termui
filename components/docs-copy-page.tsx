@@ -34,7 +34,7 @@ const getPromptUrl = (baseURL: string, url: string, param = "q") =>
   `${baseURL}?${param}=${encodeURIComponent(
     `I'm looking at this Term/UI documentation: ${url}.
 Help me understand how to use it. Be ready to explain concepts, give examples, or help debug based on it.
-`
+`,
   )}`;
 
 const MENU_ITEMS: [string, (url: string) => React.ReactNode][] = [

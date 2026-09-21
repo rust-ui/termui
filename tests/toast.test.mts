@@ -26,40 +26,37 @@ test("default ToastTrigger opens a bottom-right toast; close button and Escape d
   page.on("pageerror", (error) => pageErrors.push(error.message));
 
   try {
-    await page.goto(
-      `${session.baseUrl}/demos/interactive.html?demo=toast-interactive`
-    );
+    await page.goto(`${session.baseUrl}/demos/interactive.html?demo=toast-interactive`);
     await waitForTerminal(page);
     assert.equal(await page.title(), "Interactive Ratatui Toast");
 
     const triggerLayout = await page
       .locator("#terminal_ratzilla_grid pre")
       .evaluateAll((rows) => {
-        const row = rows.findIndex((line) =>
-          line.textContent?.includes("Show toast")
-        );
+        const row = rows.findIndex((line) => line.textContent?.includes("Show toast"));
         const text = rows[row]?.textContent ?? "";
         return {
           row,
           rowCount: rows.length,
           column: text.indexOf("Show toast"),
-          hintColumn: rows.find((line) =>
-            line.textContent?.includes("Click Show toast")
-          )?.textContent?.indexOf("Click Show toast"),
+          hintColumn: rows
+            .find((line) => line.textContent?.includes("Click Show toast"))
+            ?.textContent?.indexOf("Click Show toast"),
           hintWidth: "Click Show toast or press Enter. Click x to dismiss.".length,
         };
       });
     assert.ok(
       triggerLayout.hintColumn !== undefined &&
         Math.abs(
-          triggerLayout.column + 5 -
-            (triggerLayout.hintColumn + triggerLayout.hintWidth / 2)
+          triggerLayout.column +
+            5 -
+            (triggerLayout.hintColumn + triggerLayout.hintWidth / 2),
         ) <= 1,
-      `ToastTrigger should align with the centered hint: ${JSON.stringify(triggerLayout)}`
+      `ToastTrigger should align with the centered hint: ${JSON.stringify(triggerLayout)}`,
     );
     assert.ok(
       Math.abs(triggerLayout.row + 1.5 - triggerLayout.rowCount / 2) <= 2,
-      "ToastTrigger should be centered vertically"
+      "ToastTrigger should be centered vertically",
     );
 
     await clickTerminalText(page, "Show toast");
@@ -69,15 +66,18 @@ test("default ToastTrigger opens a bottom-right toast; close button and Escape d
     const toastLayout = await page
       .locator("#terminal_ratzilla_grid pre")
       .evaluateAll((rows) => {
-        const row = rows.findIndex((line) =>
-          line.textContent?.includes("Changes saved")
-        );
+        const row = rows.findIndex((line) => line.textContent?.includes("Changes saved"));
         const text = rows[row]?.textContent ?? "";
-        return { row, rowCount: rows.length, column: text.indexOf("Changes saved"), width: text.length };
+        return {
+          row,
+          rowCount: rows.length,
+          column: text.indexOf("Changes saved"),
+          width: text.length,
+        };
       });
     assert.ok(
       toastLayout.row > triggerLayout.row,
-      `Toast should appear below the centered trigger: ${JSON.stringify({ toastLayout, triggerLayout })}`
+      `Toast should appear below the centered trigger: ${JSON.stringify({ toastLayout, triggerLayout })}`,
     );
     assert.ok(toastLayout.column > toastLayout.width / 2);
 
@@ -89,7 +89,7 @@ test("default ToastTrigger opens a bottom-right toast; close button and Escape d
           document
             .querySelector("#terminal_ratzilla_grid")
             ?.textContent?.includes("Changes saved") ?? false
-        )
+        ),
     );
 
     await page.keyboard.press("Enter");
@@ -101,7 +101,7 @@ test("default ToastTrigger opens a bottom-right toast; close button and Escape d
           document
             .querySelector("#terminal_ratzilla_grid")
             ?.textContent?.includes("Changes saved") ?? false
-        )
+        ),
     );
 
     await clickTerminalText(page, "Show toast");
@@ -113,7 +113,7 @@ test("default ToastTrigger opens a bottom-right toast; close button and Escape d
           document
             .querySelector("#terminal_ratzilla_grid")
             ?.textContent?.includes("Changes saved") ?? false
-        )
+        ),
     );
     assert.deepEqual(pageErrors, []);
   } finally {
@@ -125,7 +125,7 @@ test("non-dismissible ToastTrigger opens toast that Escape cannot close", async 
   const page = await session.browser.newPage();
   try {
     await page.goto(
-      `${session.baseUrl}/demos/interactive.html?demo=toast-nondismissable-interactive`
+      `${session.baseUrl}/demos/interactive.html?demo=toast-nondismissable-interactive`,
     );
     await waitForTerminal(page);
     await clickTerminalText(page, "Show toast");
@@ -136,8 +136,10 @@ test("non-dismissible ToastTrigger opens toast that Escape cannot close", async 
     await clickTerminalText(page, "Click Show toast");
     await page.waitForTimeout(100);
     assert.ok(
-      (await page.locator("#terminal_ratzilla_grid").textContent())?.includes("Upload in progress"),
-      "outside click must not close a non-dismissible toast"
+      (await page.locator("#terminal_ratzilla_grid").textContent())?.includes(
+        "Upload in progress",
+      ),
+      "outside click must not close a non-dismissible toast",
     );
   } finally {
     await page.close();
@@ -148,7 +150,7 @@ test("colored variant triggers open matching semantic toasts", async () => {
   const page = await session.browser.newPage();
   try {
     await page.goto(
-      `${session.baseUrl}/demos/interactive.html?demo=toast-variants-interactive`
+      `${session.baseUrl}/demos/interactive.html?demo=toast-variants-interactive`,
     );
     await waitForTerminal(page);
     for (const [trigger, title] of [
@@ -170,19 +172,21 @@ test("tracker ToastTrigger opens its own countdown demo", async () => {
   const page = await session.browser.newPage();
   try {
     await page.goto(
-      `${session.baseUrl}/demos/interactive.html?demo=toast-tracker-interactive`
+      `${session.baseUrl}/demos/interactive.html?demo=toast-tracker-interactive`,
     );
     await waitForTerminal(page);
     await clickTerminalText(page, "Show toast");
     await waitForTerminalText(page, "Build completed");
     const countTrackerCells = () =>
-      page.locator("#terminal_ratzilla_grid pre").evaluateAll((rows) =>
-        Math.max(
-          ...rows.map(
-            (row) => [...(row.textContent ?? "")].filter((cell) => cell === "█").length
-          )
-        )
-      );
+      page
+        .locator("#terminal_ratzilla_grid pre")
+        .evaluateAll((rows) =>
+          Math.max(
+            ...rows.map(
+              (row) => [...(row.textContent ?? "")].filter((cell) => cell === "█").length,
+            ),
+          ),
+        );
     await page.waitForTimeout(600);
     const fullerTracker = await countTrackerCells();
     await page.waitForTimeout(800);
@@ -196,7 +200,7 @@ test("tracker ToastTrigger opens its own countdown demo", async () => {
             ?.textContent?.includes("Build completed") ?? false
         ),
       undefined,
-      { timeout: 6_000 }
+      { timeout: 6_000 },
     );
   } finally {
     await page.close();

@@ -16,9 +16,7 @@ interface CreatePageMetadataOptions {
   title: string;
 }
 
-export const createPageMetadata = (
-  options: CreatePageMetadataOptions
-): Metadata => {
+export const createPageMetadata = (options: CreatePageMetadataOptions): Metadata => {
   const {
     description,
     noIndex = false,
@@ -31,9 +29,7 @@ export const createPageMetadata = (
     title,
   } = options;
 
-  const canonical = path.startsWith(ROUTES.HOME)
-    ? path
-    : `${ROUTES.HOME}${path}`;
+  const canonical = path.startsWith(ROUTES.HOME) ? path : `${ROUTES.HOME}${path}`;
   const markdownAlternate =
     canonical === ROUTES.DOCS || canonical.startsWith(`${ROUTES.DOCS}/`)
       ? `${canonical}.md`

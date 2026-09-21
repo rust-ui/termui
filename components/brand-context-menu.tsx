@@ -15,11 +15,7 @@ import {
 } from "@/components/ui/context-menu";
 import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard";
 
-export const BrandContextMenu = ({
-  children,
-}: {
-  children: React.ReactNode;
-}) => {
+export const BrandContextMenu = ({ children }: { children: React.ReactNode }) => {
   const { resolvedTheme } = useTheme();
   const { copyToClipboard } = useCopyToClipboard();
 

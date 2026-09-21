@@ -43,11 +43,7 @@ export default function ChangelogPage() {
                     Changelog
                   </h1>
                   <Button variant="secondary" size="sm" asChild>
-                    <a
-                      href={ROUTES.RSS}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
+                    <a href={ROUTES.RSS} target="_blank" rel="noopener noreferrer">
                       <RssIcon />
                       RSS
                     </a>
@@ -90,9 +86,7 @@ export default function ChangelogPage() {
                           href={page.url}
                           className="flex w-full flex-col rounded-xl bg-surface px-4 py-3 text-surface-foreground transition-colors hover:bg-surface/80"
                         >
-                          <span className="text-xs text-muted-foreground">
-                            {date}
-                          </span>
+                          <span className="text-xs text-muted-foreground">{date}</span>
                           <span className="text-sm font-medium">{title}</span>
                         </Link>
                       );

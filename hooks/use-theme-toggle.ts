@@ -37,7 +37,7 @@ export const useThemeToggle = () => {
       enableOnFormTags: true,
       preventDefault: true,
     },
-    [toggleTheme]
+    [toggleTheme],
   );
 
   return { toggleTheme };

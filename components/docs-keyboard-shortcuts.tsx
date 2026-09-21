@@ -20,7 +20,7 @@ export const DocsKeyboardShortcuts = ({
   const navigate = (
     href: string | null,
     direction: "previous" | "next",
-    keys: string
+    keys: string,
   ) => {
     if (href) {
       playClick();
@@ -40,7 +40,7 @@ export const DocsKeyboardShortcuts = ({
     () => {
       navigate(next, "next", "ArrowRight");
     },
-    { preventDefault: true }
+    { preventDefault: true },
   );
 
   useHotkeys(
@@ -48,7 +48,7 @@ export const DocsKeyboardShortcuts = ({
     () => {
       navigate(previous, "previous", "ArrowLeft");
     },
-    { preventDefault: true }
+    { preventDefault: true },
   );
 
   return null;

@@ -51,7 +51,10 @@ export function ChartGallery({
                 </p>
               </div>
               <span className="text-muted-foreground inline-flex shrink-0 items-center gap-1.5 text-xs">
-                <span aria-hidden="true" className="size-1.5 rounded-full bg-muted-foreground" />
+                <span
+                  aria-hidden="true"
+                  className="size-1.5 rounded-full bg-muted-foreground"
+                />
                 Static
               </span>
               <Button
@@ -66,11 +69,7 @@ export function ChartGallery({
             </div>
             <div className="mt-2 flex h-[290px] items-center justify-center overflow-hidden rounded-xl border bg-black p-4">
               <div className="w-full overflow-hidden rounded-md">
-                <RatatuiDemoPreview
-                  fontSize={10}
-                  name={example.preview}
-                  rows={14}
-                />
+                <RatatuiDemoPreview fontSize={10} name={example.preview} rows={14} />
               </div>
             </div>
           </article>
@@ -92,11 +91,7 @@ export function ChartGallery({
               </SheetDescription>
             </SheetHeader>
             <div className="hidden shrink-0 border-b bg-black p-6 sm:block">
-              <RatatuiDemoPreview
-                fontSize={10}
-                name={selected.preview}
-                rows={12}
-              />
+              <RatatuiDemoPreview fontSize={10} name={selected.preview} rows={12} />
             </div>
             <div className="flex min-h-0 flex-1 flex-col p-4 sm:p-6">
               <div className="flex h-12 shrink-0 items-center gap-2 border-b px-1 text-sm font-medium">

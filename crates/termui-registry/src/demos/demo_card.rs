@@ -1,5 +1,5 @@
-use ratatui::layout::Rect;
 use ratatui::Frame;
+use ratatui::layout::Rect;
 use termui_renderer::render_frame;
 use termui_widgets::termui;
 

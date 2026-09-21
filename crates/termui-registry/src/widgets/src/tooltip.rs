@@ -1,7 +1,7 @@
+use ratatui::Frame;
 use ratatui::layout::Rect;
 use ratatui::style::{Color, Style};
 use ratatui::widgets::{Block, BorderType, Padding, Paragraph};
-use ratatui::Frame;
 
 /// A bordered hint rendered into an area chosen by the parent app.
 #[must_use]

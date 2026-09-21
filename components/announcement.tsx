@@ -13,10 +13,7 @@ export const Announcement = () => {
 
   return (
     <Badge asChild variant="secondary">
-      <Link
-        href={getLaunchWeekHref(latestWeek)}
-        transitionTypes={["nav-forward"]}
-      >
+      <Link href={getLaunchWeekHref(latestWeek)} transitionTypes={["nav-forward"]}>
         <span aria-hidden="true">🎯</span>
         Launch week is here <ArrowRightIcon />
       </Link>

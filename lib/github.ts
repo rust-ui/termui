@@ -21,7 +21,7 @@ export const getStargazers = unstable_cache(
               Accept: "application/vnd.github+json",
               "X-GitHub-Api-Version": "2022-11-28",
             },
-          }
+          },
         );
 
         if (!response.ok) {
@@ -46,7 +46,7 @@ export const getStargazers = unstable_cache(
     }
   },
   ["github-stargazers"],
-  { revalidate: 86_400 }
+  { revalidate: 86_400 },
 );
 
 export const getStargazerCount = unstable_cache(
@@ -59,7 +59,7 @@ export const getStargazerCount = unstable_cache(
             Accept: "application/vnd.github+json",
             "X-GitHub-Api-Version": "2022-11-28",
           },
-        }
+        },
       );
 
       if (!response.ok) {
@@ -73,5 +73,5 @@ export const getStargazerCount = unstable_cache(
     }
   },
   ["github-stargazer-count"],
-  { revalidate: 86_400 }
+  { revalidate: 86_400 },
 );

@@ -2,9 +2,7 @@ import { ROUTES } from "@/constants/routes";
 import { SITE } from "@/constants/site";
 import { homeContentRoute } from "@/lib/docs";
 
-export const buildOpenApiDocument = (
-  origin: string
-): Record<string, unknown> => {
+export const buildOpenApiDocument = (origin: string): Record<string, unknown> => {
   const base = origin.replace(/\/$/, "");
 
   return {

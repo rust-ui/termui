@@ -51,7 +51,7 @@ const ShareIcon = forwardRef<ShareIconHandle, ShareIconProps>(
           controls.start("animate");
         }
       },
-      [controls, onMouseEnter]
+      [controls, onMouseEnter],
     );
 
     const handleMouseLeave = useCallback(
@@ -62,37 +62,40 @@ const ShareIcon = forwardRef<ShareIconHandle, ShareIconProps>(
           controls.start("normal");
         }
       },
-      [controls, onMouseLeave]
+      [controls, onMouseLeave],
     );
 
     return (
-      <div
-        className={cn(className)}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        {...props}
-      >
-        <svg
-          fill="none"
-          height={size}
-          stroke="currentColor"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth="2"
-          viewBox="0 0 24 24"
-          width={size}
-          className="overflow-visible"
-          xmlns="http://www.w3.org/2000/svg"
+      <>
+        {/* biome-ignore lint/a11y/noStaticElementInteractions: Hover events only drive decorative icon animation. */}
+        <div
+          className={cn(className)}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          {...props}
         >
-          <motion.g animate={controls} variants={ARROW_VARIANTS}>
-            <path d="M12 2v13" />
-            <path d="m16 6-4-4-4 4" />
-          </motion.g>
-          <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" />
-        </svg>
-      </div>
+          <svg
+            fill="none"
+            height={size}
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            viewBox="0 0 24 24"
+            width={size}
+            className="overflow-visible"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <motion.g animate={controls} variants={ARROW_VARIANTS}>
+              <path d="M12 2v13" />
+              <path d="m16 6-4-4-4 4" />
+            </motion.g>
+            <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" />
+          </svg>
+        </div>
+      </>
     );
-  }
+  },
 );
 
 ShareIcon.displayName = "ShareIcon";

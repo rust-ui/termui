@@ -1,8 +1,8 @@
 use ratatui::{
+    Frame, Terminal,
     backend::TestBackend,
     buffer::{Buffer, Cell},
     style::{Color, Modifier},
-    Frame, Terminal,
 };
 
 pub const PREVIEW_WIDTH: u16 = 42;

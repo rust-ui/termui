@@ -33,7 +33,7 @@ export const CodeCollapsibleWrapper = ({
         <div
           className={cn(
             "absolute top-1.5 right-9 z-10 flex items-center",
-            navTriggerClassName
+            navTriggerClassName,
           )}
         >
           <Button

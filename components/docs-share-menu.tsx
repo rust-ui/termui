@@ -17,15 +17,8 @@ import {
 import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard";
 import { useIconAnimation } from "@/hooks/use-icon-animation";
 
-export const DocsShareMenu = ({
-  title,
-  url,
-}: {
-  title: string;
-  url: string;
-}) => {
-  const { iconRef, onMouseEnter, onMouseLeave } =
-    useIconAnimation<ShareIconHandle>();
+export const DocsShareMenu = ({ title, url }: { title: string; url: string }) => {
+  const { iconRef, onMouseEnter, onMouseLeave } = useIconAnimation<ShareIconHandle>();
   const { copyToClipboard } = useCopyToClipboard();
 
   const absoluteUrl = useMemo(() => {

@@ -52,7 +52,7 @@ const ComponentIcon = forwardRef<ComponentIconHandle, ComponentIconProps>(
           controls.start("animate");
         }
       },
-      [controls, onMouseEnter]
+      [controls, onMouseEnter],
     );
 
     const handleMouseLeave = useCallback(
@@ -63,55 +63,58 @@ const ComponentIcon = forwardRef<ComponentIconHandle, ComponentIconProps>(
           controls.start("normal");
         }
       },
-      [controls, onMouseLeave]
+      [controls, onMouseLeave],
     );
 
     return (
-      <div
-        className={cn(className)}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        {...props}
-      >
-        <svg
-          fill="none"
-          height={size}
-          stroke="currentColor"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth="2"
-          viewBox="0 0 24 24"
-          width={size}
-          xmlns="http://www.w3.org/2000/svg"
+      <>
+        {/* biome-ignore lint/a11y/noStaticElementInteractions: Hover events only drive decorative icon animation. */}
+        <div
+          className={cn(className)}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          {...props}
         >
-          <motion.path
-            animate={controls}
-            d="M8.916 4.674a1 1 0 0 0 0 1.414l2.377 2.376a1 1 0 0 0 1.414 0l2.377-2.376a1 1 0 0 0 0-1.414l-2.377-2.377a1 1 0 0 0-1.414 0z"
-            initial="normal"
-            variants={TOP_VARIANTS}
-          />
-          <motion.path
-            animate={controls}
-            d="M15.536 11.293a1 1 0 0 0 0 1.414l2.376 2.377a1 1 0 0 0 1.414 0l2.377-2.377a1 1 0 0 0 0-1.414l-2.377-2.377a1 1 0 0 0-1.414 0z"
-            initial="normal"
-            variants={RIGHT_VARIANTS}
-          />
-          <motion.path
-            animate={controls}
-            d="M8.916 17.912a1 1 0 0 0 0 1.415l2.377 2.376a1 1 0 0 0 1.414 0l2.377-2.376a1 1 0 0 0 0-1.415l-2.377-2.376a1 1 0 0 0-1.414 0z"
-            initial="normal"
-            variants={BOTTOM_VARIANTS}
-          />
-          <motion.path
-            animate={controls}
-            d="M2.297 11.293a1 1 0 0 0 0 1.414l2.377 2.377a1 1 0 0 0 1.414 0l2.377-2.377a1 1 0 0 0 0-1.414L6.088 8.916a1 1 0 0 0-1.414 0z"
-            initial="normal"
-            variants={LEFT_VARIANTS}
-          />
-        </svg>
-      </div>
+          <svg
+            fill="none"
+            height={size}
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            viewBox="0 0 24 24"
+            width={size}
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <motion.path
+              animate={controls}
+              d="M8.916 4.674a1 1 0 0 0 0 1.414l2.377 2.376a1 1 0 0 0 1.414 0l2.377-2.376a1 1 0 0 0 0-1.414l-2.377-2.377a1 1 0 0 0-1.414 0z"
+              initial="normal"
+              variants={TOP_VARIANTS}
+            />
+            <motion.path
+              animate={controls}
+              d="M15.536 11.293a1 1 0 0 0 0 1.414l2.376 2.377a1 1 0 0 0 1.414 0l2.377-2.377a1 1 0 0 0 0-1.414l-2.377-2.377a1 1 0 0 0-1.414 0z"
+              initial="normal"
+              variants={RIGHT_VARIANTS}
+            />
+            <motion.path
+              animate={controls}
+              d="M8.916 17.912a1 1 0 0 0 0 1.415l2.377 2.376a1 1 0 0 0 1.414 0l2.377-2.376a1 1 0 0 0 0-1.415l-2.377-2.376a1 1 0 0 0-1.414 0z"
+              initial="normal"
+              variants={BOTTOM_VARIANTS}
+            />
+            <motion.path
+              animate={controls}
+              d="M2.297 11.293a1 1 0 0 0 0 1.414l2.377 2.377a1 1 0 0 0 1.414 0l2.377-2.377a1 1 0 0 0 0-1.414L6.088 8.916a1 1 0 0 0-1.414 0z"
+              initial="normal"
+              variants={LEFT_VARIANTS}
+            />
+          </svg>
+        </div>
+      </>
     );
-  }
+  },
 );
 
 ComponentIcon.displayName = "ComponentIcon";

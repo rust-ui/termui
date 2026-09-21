@@ -33,11 +33,16 @@ jobs:
           node-version: 24
           cache: pnpm
 
+      - name: Setup Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          components: clippy, rustfmt
+
+      - name: Cache Rust build artifacts
+        uses: Swatinem/rust-cache@v2
+
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-
-      - name: Test Rust demo pipeline
-        run: pnpm demos:pipeline:test
 
       - name: Check checked-in interactive demo assets
         run: |
@@ -48,8 +53,8 @@ jobs:
           compgen -G 'public/demos/text-input-interactive/*.js' >/dev/null
           compgen -G 'public/demos/text-input-interactive/*_bg.wasm' >/dev/null
 
-      - name: Typecheck
-        run: pnpm typecheck
+      - name: Check quality
+        run: pnpm check:quality
 
   build:
     runs-on: ubuntu-latest

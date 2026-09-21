@@ -9,10 +9,4 @@ export interface UseFeedbackOptions {
   haptic?: boolean;
 }
 
-export const useFeedback = ({
-  sound,
-  soundDef,
-  haptic = true,
-}: UseFeedbackOptions) => {
-  return useCallback(() => {}, [sound, soundDef, haptic]);
-};
+export const useFeedback = (_options: UseFeedbackOptions) => useCallback(() => {}, []);

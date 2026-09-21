@@ -1,7 +1,7 @@
+use ratatui::Frame;
 use ratatui::layout::Rect;
 use ratatui::style::{Color, Style};
 use ratatui::widgets::{Block, BorderType, Paragraph};
-use ratatui::Frame;
 
 /// A masked password value. The parent app owns editing and secret storage.
 #[must_use]

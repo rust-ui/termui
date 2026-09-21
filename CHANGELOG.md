@@ -36,6 +36,7 @@ Notable Term/UI changes are recorded here. Format follows [Keep a Changelog](htt
 
 - Refined the Drawer demo trigger, centered hint, and panel contrast.
 - Refined Ratatui SEO metadata, page copy, and GitHub discovery links; removed mismatched FAQ markup and fabricated sitemap modification dates.
+- Added strict Biome and Knip checks, Rust formatting/lint/test gates, and repository Git hooks; retained the shadcn CLI and component configuration.
 - Removed the unused Ink/OpenTUI registries, MCP install flow, and TSX demo pipeline; preserved the Ratatui theme selector, Rust previews, and interactive assets.
 - Feature the Rust/UI site and theme-aware logo in the Labs Latest card.
 - Add an Ecosystem column with Rust/UI, Leptos UI, and Rustify links.

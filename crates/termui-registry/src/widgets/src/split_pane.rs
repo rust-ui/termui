@@ -1,7 +1,7 @@
+use ratatui::Frame;
 use ratatui::layout::{Constraint, Layout, Rect};
 use ratatui::style::{Color, Style};
 use ratatui::widgets::{Block, BorderType, Paragraph};
-use ratatui::Frame;
 
 /// A labeled two-column view with a caller-controlled divider position.
 #[must_use]

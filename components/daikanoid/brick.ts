@@ -43,10 +43,10 @@ export const resetGame = async (state: GameState) => {
               left + columnIndex * BRICK_SIZE,
               LOGO_TOP + rowIndex * BRICK_SIZE,
               BRICK_SIZE,
-              BRICK_SIZE
+              BRICK_SIZE,
             ),
           ]
-        : []
-    )
+        : [],
+    ),
   );
 };
