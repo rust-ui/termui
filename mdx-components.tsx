@@ -7,7 +7,7 @@ import { CodeBlockCommand } from "@/components/code-block-command";
 import { CodeTabs } from "@/components/code-tabs";
 import { ComponentPreview } from "@/components/component-preview";
 import { ComponentSource } from "@/components/component-source";
-import { ComponentsList } from "@/components/components-list";
+import { WidgetsList } from "@/components/widgets-list";
 import { CopyButton } from "@/components/copy-button";
 import { TerminalFrame } from "@/components/terminal-frame";
 import { getIconForLanguageExtension } from "@/components/icons";
@@ -40,7 +40,7 @@ export const mdxComponents = {
   CodeTabs,
   ComponentPreview,
   ComponentSource,
-  ComponentsList,
+  WidgetsList,
   FeatureCard: ({
     icon: Icon,
     title,

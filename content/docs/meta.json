@@ -1,11 +1,8 @@
 {
   "pages": [
     "(root)",
-    "registry",
-    "themes",
-    "components",
-    "charts",
-    "templates"
+    "widgets",
+    "registry"
   ],
   "root": true
 }

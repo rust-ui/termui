@@ -15,21 +15,8 @@ import {
 } from "@/components/ui/sidebar";
 import { TOP_LEVEL_SECTIONS } from "@/constants/nav";
 import { ROUTES } from "@/constants/routes";
-import {
-  getDocsSidebarPanel,
-  isChartsFolder,
-  isComponentsFolder,
-  isDitherChartUrl,
-  isTemplatesFolder,
-  isThemesFolder,
-  PAGES_NEW,
-} from "@/lib/docs";
-import {
-  getCategoryFolders,
-  getCurrentBase,
-  getFolderPages,
-  getTreeGroups,
-} from "@/lib/page-tree";
+import { getDocsSidebarPanel, isWidgetsFolder, PAGES_NEW } from "@/lib/docs";
+import { getFolderSections, getTreeGroups } from "@/lib/page-tree";
 import type { PageTreeFolder } from "@/lib/page-tree";
 import type { source } from "@/lib/source";
 
@@ -94,7 +81,6 @@ const SidebarPageGroup = ({
 };
 
 interface SidebarPanelProps {
-  currentBase: string;
   pathname: string;
   tree: typeof source.pageTree;
 }
@@ -107,86 +93,23 @@ const findTopLevelFolder = (
     (item): item is PageTreeFolder => item.type === "folder" && predicate(item)
   );
 
-const ComponentsSidebarPanel = ({
-  currentBase,
+const WidgetsSidebarPanel = ({
   pathname,
   tree,
 }: SidebarPanelProps) => {
-  const folder = findTopLevelFolder(tree, isComponentsFolder);
+  const folder = findTopLevelFolder(tree, isWidgetsFolder);
   if (!folder) {
     return null;
   }
 
-  return getCategoryFolders(folder, currentBase).map((category) => (
+  return getFolderSections(folder).map((category) => (
     <SidebarPageGroup
-      key={category.$id}
-      label={category.name}
-      pages={getFolderPages(category)}
+      key={category.id}
+      label={category.label}
+      pages={category.pages}
       pathname={pathname}
     />
   ));
-};
-
-const TemplatesSidebarPanel = ({
-  currentBase,
-  pathname,
-  tree,
-}: SidebarPanelProps) => {
-  const folder = findTopLevelFolder(tree, isTemplatesFolder);
-  if (!folder) {
-    return null;
-  }
-
-  return (
-    <SidebarPageGroup
-      label="Templates"
-      pages={getFolderPages(folder, currentBase)}
-      pathname={pathname}
-    />
-  );
-};
-
-const ChartsSidebarPanel = ({
-  currentBase,
-  pathname,
-  tree,
-}: SidebarPanelProps) => {
-  const folder = findTopLevelFolder(tree, isChartsFolder);
-  if (!folder) {
-    return null;
-  }
-
-  const pages = getFolderPages(folder, currentBase).filter(
-    (page) => page.url !== `${ROUTES.DOCS_CHARTS}/${currentBase}`
-  );
-  const charts = pages.filter((page) => !isDitherChartUrl(page.url));
-  const dither = pages.filter((page) => isDitherChartUrl(page.url));
-
-  return (
-    <>
-      <SidebarPageGroup label="Basic" pages={charts} pathname={pathname} />
-      <SidebarPageGroup label="Dither" pages={dither} pathname={pathname} />
-    </>
-  );
-};
-
-const ThemesSidebarPanel = ({
-  currentBase,
-  pathname,
-  tree,
-}: SidebarPanelProps) => {
-  const folder = findTopLevelFolder(tree, isThemesFolder);
-  if (!folder) {
-    return null;
-  }
-
-  return (
-    <SidebarPageGroup
-      label="Themes"
-      pages={getFolderPages(folder, currentBase)}
-      pathname={pathname}
-    />
-  );
 };
 
 export const DocsSidebar = ({
@@ -196,23 +119,12 @@ export const DocsSidebar = ({
   tree: typeof source.pageTree;
 }) => {
   const pathname = usePathname();
-  const currentBase = getCurrentBase(pathname);
   const panel = getDocsSidebarPanel(pathname);
-  const treeGroups = getTreeGroups(tree, currentBase);
+  const treeGroups = getTreeGroups(tree);
 
   const renderCatalogPanel = () => {
-    const panelProps = { currentBase, pathname, tree };
-    if (panel === "components") {
-      return <ComponentsSidebarPanel {...panelProps} />;
-    }
-    if (panel === "templates") {
-      return <TemplatesSidebarPanel {...panelProps} />;
-    }
-    if (panel === "charts") {
-      return <ChartsSidebarPanel {...panelProps} />;
-    }
-    if (panel === "themes") {
-      return <ThemesSidebarPanel {...panelProps} />;
+    if (panel === "widgets") {
+      return <WidgetsSidebarPanel pathname={pathname} tree={tree} />;
     }
     return null;
   };

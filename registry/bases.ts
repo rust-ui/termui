@@ -35,5 +35,8 @@ export const BASE_NAMES = BASES.map((base) => base.name) as [
 
 export const DEFAULT_BASE_NAME = BASES[0].name;
 
+export const isBaseName = (candidate: string): candidate is BaseName =>
+  BASE_NAMES.some((base) => base === candidate);
+
 export const getBase = (name: BaseName) =>
   BASES.find((base) => base.name === name);

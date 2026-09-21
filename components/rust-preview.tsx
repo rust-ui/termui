@@ -1,22 +1,24 @@
 "use client";
 
 import previews from "@/lib/rust-renderer/previews.generated.json";
+import { RATATUI_DEMO_BASE } from "@/constants/ratatui";
+import type { RatatuiComponentName } from "@/constants/ratatui";
 import { useTerminalTheme } from "@/hooks/use-terminal-theme";
 import { terminalThemeMap } from "@/lib/terminal-themes";
 import { getPreviewKey } from "@/lib/rust-renderer/protocol";
 
 export const RustPreview = ({
-  base,
   name,
   rows = 18,
 }: {
-  base: string;
-  name: string;
+  name: RatatuiComponentName;
   rows?: number;
 }) => {
   const [themeKey] = useTerminalTheme();
   const theme = terminalThemeMap[themeKey];
-  const frame = (previews as Record<string, string[]>)[getPreviewKey(base, name)] ?? [
+  const frame = (previews as Record<string, string[]>)[
+    getPreviewKey(RATATUI_DEMO_BASE, name)
+  ] ?? [
     "╭─ Rust terminal preview ─────────────────╮",
     `│ ${name.slice(0, 38).padEnd(38)} │`,
     "│ Rust example output                     │",

@@ -6,8 +6,6 @@ import {
   CornerDownLeftIcon,
   CircleDashedIcon,
   SquareDashedIcon,
-  Grid3x3Icon,
-  BinaryIcon,
 } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
@@ -30,67 +28,35 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Separator } from "@/components/ui/separator";
+import { RATATUI_COMPONENTS } from "@/constants/ratatui";
+import type { RatatuiComponentName } from "@/constants/ratatui";
+import { ROUTES } from "@/constants/routes";
 import { SITE } from "@/constants/site";
 import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard";
 import { useFeedback } from "@/hooks/use-feedback";
 import { useIsMac } from "@/hooks/use-is-mac";
 import { useMutationObserver } from "@/hooks/use-mutation-observer";
 import { usePackageManager } from "@/hooks/use-package-manager";
-import { getChartRegistryItemName, isDitherChartUrl } from "@/lib/docs";
 import { trackEvent } from "@/lib/events";
-import { getCurrentBase, getTreeGroups } from "@/lib/page-tree";
-import { themePrimaryBySlug } from "@/lib/terminal-themes";
+import { getTreeGroups } from "@/lib/page-tree";
 import { cn } from "@/lib/utils";
 
 import { Kbd } from "./ui/kbd";
 
 type DocUrlKind =
-  | { base?: string; kind: "theme"; slug: string }
-  | { base?: string; kind: "component"; slug: string }
-  | { base?: string; kind: "chart"; slug: string }
-  | { base?: string; kind: "template"; slug: string }
+  | { kind: "component"; slug: RatatuiComponentName }
   | { kind: "page" };
 
 const GROUP_HEADING_CLS =
   "!p-0 [&_[cmdk-group-heading]]:scroll-mt-16 [&_[cmdk-group-heading]]:!p-3 [&_[cmdk-group-heading]]:!pb-1";
 
 const parseDocPageUrl = (url: string): DocUrlKind => {
-  const parts = url.split("/").filter(Boolean);
-  const themesIdx = parts.indexOf("themes");
-  if (themesIdx !== -1 && parts[themesIdx + 1]) {
-    const segment = parts[themesIdx + 1];
-    if (segment === "ink" || segment === "opentui") {
-      return {
-        base: segment,
-        kind: "theme",
-        slug: parts[themesIdx + 2] ?? "",
-      };
-    }
-    return { kind: "theme", slug: segment };
-  }
-  const componentsIdx = parts.indexOf("components");
-  if (componentsIdx !== -1 && parts[componentsIdx + 1]) {
-    return {
-      base: parts[componentsIdx + 1],
-      kind: "component",
-      slug: parts.at(-1) ?? "",
-    };
-  }
-  const chartsIdx = parts.indexOf("charts");
-  if (chartsIdx !== -1 && parts[chartsIdx + 1]) {
-    return {
-      base: parts[chartsIdx + 1],
-      kind: "chart",
-      slug: parts.at(-1) ?? "",
-    };
-  }
-  const templatesIdx = parts.indexOf("templates");
-  if (templatesIdx !== -1 && parts[templatesIdx + 1]) {
-    return {
-      base: parts[templatesIdx + 1],
-      kind: "template",
-      slug: parts.at(-1) ?? "",
-    };
+  const isComponentRoute = url.startsWith(`${ROUTES.DOCS_WIDGETS}/`);
+  const component = RATATUI_COMPONENTS.find(({ name }) =>
+    url.endsWith(`/${name}`)
+  );
+  if (isComponentRoute && component) {
+    return { kind: "component", slug: component.name };
   }
   return { kind: "page" };
 };
@@ -112,34 +78,9 @@ const buildDocPageKeywords = (
   ...searchKeywordsFromUrl(url),
 ];
 
-const DocPageLeadingIcon = ({
-  parsed,
-  url,
-}: {
-  parsed: DocUrlKind;
-  url: string;
-}) => {
-  if (parsed.kind === "theme") {
-    const color = themePrimaryBySlug[parsed.slug];
-    return (
-      <span
-        className="border-border/60 size-4 shrink-0 rounded-sm border"
-        style={color ? { backgroundColor: color } : undefined}
-        aria-hidden
-      />
-    );
-  }
+const DocPageLeadingIcon = ({ parsed }: { parsed: DocUrlKind }) => {
   if (parsed.kind === "component") {
     return <CircleDashedIcon />;
-  }
-  if (parsed.kind === "chart") {
-    if (isDitherChartUrl(url)) {
-      return <Grid3x3Icon />;
-    }
-    return <BinaryIcon />;
-  }
-  if (parsed.kind === "template") {
-    return <SquareDashedIcon />;
   }
   return <ArrowRightIcon />;
 };
@@ -199,7 +140,6 @@ export const CommandMenu = ({
   const [open, setOpen] = useState(false);
   const [showGoToPage, setShowGoToPage] = useState(false);
   const [copyPayload, setCopyPayload] = useState("");
-  const currentBase = getCurrentBase(pathname);
   const copyFeedback = useFeedback({ sound: "copy" });
 
   const { copyToClipboard } = useCopyToClipboard({
@@ -214,42 +154,14 @@ export const CommandMenu = ({
   });
 
   const treeGroups = useMemo(
-    () => getTreeGroups(tree, currentBase),
-    [tree, currentBase]
+    () => getTreeGroups(tree),
+    [tree]
   );
 
-  const handleDocPageHighlight = useCallback(
-    (item: { url: string; name?: string }) => {
-      setShowGoToPage(true);
-      const parsed = parseDocPageUrl(item.url);
-      if (parsed.kind === "theme") {
-        const base =
-          parsed.base === "opentui" || currentBase === "opentui"
-            ? "opentui"
-            : "ink";
-        setCopyPayload(
-          `${packageManager} dlx shadcn@latest add ${SITE.REGISTRY}/${base}/theme-${parsed.slug}`
-        );
-        return;
-      }
-      if (parsed.kind === "chart") {
-        const base = parsed.base === "opentui" ? "opentui" : "ink";
-        setCopyPayload(
-          `${packageManager} dlx shadcn@latest add ${SITE.REGISTRY}/${base}/${getChartRegistryItemName(parsed.slug)}`
-        );
-        return;
-      }
-      if (parsed.kind === "component" || parsed.kind === "template") {
-        const base = parsed.base === "opentui" ? "opentui" : "ink";
-        setCopyPayload(
-          `${packageManager} dlx shadcn@latest add ${SITE.REGISTRY}/${base}/${parsed.slug}`
-        );
-        return;
-      }
-      setCopyPayload("");
-    },
-    [currentBase, packageManager]
-  );
+  const handleDocPageHighlight = useCallback(() => {
+    setShowGoToPage(true);
+    setCopyPayload("");
+  }, []);
 
   const handleBlockHighlight = useCallback(
     (block: { name: string; description: string; categories: string[] }) => {
@@ -288,10 +200,10 @@ export const CommandMenu = ({
         key={url}
         keywords={buildDocPageKeywords(parsed, url, breadcrumb)}
         value={[...breadcrumb, title].filter(Boolean).join(" ")}
-        onHighlight={() => handleDocPageHighlight({ name: title, url })}
+        onHighlight={handleDocPageHighlight}
         onSelect={() => runCommand(() => router.push(url))}
       >
-        <DocPageLeadingIcon parsed={parsed} url={url} />
+        <DocPageLeadingIcon parsed={parsed} />
         {title}
       </CommandMenuItem>
     );

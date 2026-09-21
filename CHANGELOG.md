@@ -13,6 +13,7 @@ Notable Term/UI changes are recorded here. Format follows [Keep a Changelog](htt
 
 ### Changed
 
+- Added Ratatui widget pages under flat `/docs/widgets/*` routes with the termcn sidebar navigation and searchable widget source.
 - Reduced public documentation to four core pages, redirected retired catalog routes to the registry, and retained the source-site changelog history.
 - Rebranded Term/UI as part of the Rust/UI ecosystem and moved site, registry, SEO, and deployment URLs to `rust-ui.com`.
 - Replaced cloud-platform deployment with the shared-apps Docker, Docker Hub, SSH, Nginx, and Certbot deployment path.
@@ -24,6 +25,7 @@ Notable Term/UI changes are recorded here. Format follows [Keep a Changelog](htt
 
 ### Fixed
 
+- Removed stale OpenTUI JSX declarations that overrode React's HTML element props.
 - Removed duplicate `installation` documentation slug.
 - Bound legacy component preview MDX to the Rust frame renderer.
 - Removed registry file tracing from fully static pages to avoid duplicating registry files into each docs route.
