@@ -4,7 +4,7 @@
   "title": "AMOLED",
   "description": "AMOLED - high contrast dark theme with pure black.",
   "registryDependencies": [
-    "https://termcn.dev/r/opentui/types.json"
+    "https://rust-ui.com/r/opentui/types.json"
   ],
   "files": [
     {

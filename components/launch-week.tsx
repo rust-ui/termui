@@ -236,7 +236,7 @@ export const LaunchWeek = ({ week }: { week: LaunchWeekData }) => {
           <MacWindow className="mt-6 rounded-xl shadow-none" title="Terminal">
             <div className="bg-zinc-950 px-4 py-5 font-mono text-sm text-zinc-100 sm:px-5">
               <p>
-                <span className="text-emerald-400">~</span> termcn releases
+                <span className="text-emerald-400">~</span> Term/UI releases
                 --week {week.slug}
               </p>
               <p className="mt-2 text-zinc-400">

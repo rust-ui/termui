@@ -4,7 +4,7 @@
   "title": "Use Unicode",
   "description": "Provider-optional Unicode capability context and hook.",
   "registryDependencies": [
-    "https://termcn.dev/r/opentui/types.json"
+    "https://rust-ui.com/r/opentui/types.json"
   ],
   "files": [
     {

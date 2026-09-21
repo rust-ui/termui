@@ -65,7 +65,7 @@ export const LAUNCH_WEEKS = [
       },
     ],
     description:
-      "Five days of TERMUI releases, with a concise shipping log for each day.",
+      "Five days of Term/UI releases, with a concise shipping log for each day.",
     endDate: "2026-08-07T00:00:00.000Z",
     slug: "2026-08-03",
     startDate: "2026-08-03T00:00:00.000Z",

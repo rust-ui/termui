@@ -1,7 +1,7 @@
 import { Table } from "@/registry/bases/ink/ui/table";
 
 const data = [
-  { name: "termcn", status: "ready", version: "0.1.0" },
+  { name: "Term/UI", status: "ready", version: "0.1.0" },
   { name: "cli-utils", status: "upstream", version: "1.4.3" },
   { name: "ink-web", status: "ready", version: "0.2.0" },
 ];

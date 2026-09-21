@@ -9,5 +9,6 @@ One line per reusable project lesson. Format: `YYYY-MM-DD [domain] avoid X, do Y
 
 ## Inbox
 
+- 2026-09-21 [termui/brand] present Term/UI as part of the Rust/UI ecosystem; use `rust-ui.com` as canonical domain and `@termui` as registry namespace.
 - 2026-09-21 [termui/toolchain] keep `packageManager` aligned with the installed pnpm major; Corepack follows the repo pin even when a newer global pnpm exists.
 - 2026-09-21 [termui/docs] check Fumadocs route groups when moving docs; `(root)` does not create a distinct URL segment, so same-slug pages collide.

@@ -4,7 +4,7 @@
   "title": "Everforest",
   "description": "Everforest - warm forest theme.",
   "registryDependencies": [
-    "https://termcn.dev/r/ink/types.json"
+    "https://rust-ui.com/r/ink/types.json"
   ],
   "files": [
     {

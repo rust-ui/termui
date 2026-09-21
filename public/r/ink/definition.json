@@ -7,7 +7,7 @@
     "ink"
   ],
   "registryDependencies": [
-    "https://termcn.dev/r/ink/use-theme.json"
+    "https://rust-ui.com/r/ink/use-theme.json"
   ],
   "files": [
     {

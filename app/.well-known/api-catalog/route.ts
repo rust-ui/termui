@@ -24,7 +24,7 @@ const catalogLinkset = (origin: string) => {
             type: "application/json",
           },
           {
-            href: `${base}${ROUTES.AGENT_SKILLS_TERMCN_SKILL}`,
+            href: `${base}${ROUTES.AGENT_SKILLS_TERMUI_SKILL}`,
             type: "text/markdown",
           },
         ],

@@ -4,7 +4,7 @@
   "title": "Palenight",
   "description": "Palenight - React Native purple.",
   "registryDependencies": [
-    "https://termcn.dev/r/opentui/types.json"
+    "https://rust-ui.com/r/opentui/types.json"
   ],
   "files": [
     {

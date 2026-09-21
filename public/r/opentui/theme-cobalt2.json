@@ -4,7 +4,7 @@
   "title": "Cobalt2",
   "description": "Cobalt2 - vibrant blue and gold.",
   "registryDependencies": [
-    "https://termcn.dev/r/opentui/types.json"
+    "https://rust-ui.com/r/opentui/types.json"
   ],
   "files": [
     {

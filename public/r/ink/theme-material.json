@@ -4,7 +4,7 @@
   "title": "Material",
   "description": "Material Design colors.",
   "registryDependencies": [
-    "https://termcn.dev/r/ink/types.json"
+    "https://rust-ui.com/r/ink/types.json"
   ],
   "files": [
     {

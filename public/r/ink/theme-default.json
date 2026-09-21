@@ -2,9 +2,9 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "ink/theme-default",
   "title": "Default",
-  "description": "The default termcn terminal theme.",
+  "description": "The default Term/UI terminal theme.",
   "registryDependencies": [
-    "https://termcn.dev/r/ink/types.json"
+    "https://rust-ui.com/r/ink/types.json"
   ],
   "files": [
     {

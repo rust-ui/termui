@@ -7,9 +7,9 @@
     "ink"
   ],
   "registryDependencies": [
-    "https://termcn.dev/r/ink/terminal-style.json",
-    "https://termcn.dev/r/ink/use-theme.json",
-    "https://termcn.dev/r/ink/use-unicode.json"
+    "https://rust-ui.com/r/ink/terminal-style.json",
+    "https://rust-ui.com/r/ink/use-theme.json",
+    "https://rust-ui.com/r/ink/use-unicode.json"
   ],
   "files": [
     {

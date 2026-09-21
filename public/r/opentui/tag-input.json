@@ -7,7 +7,7 @@
     "@opentui/react"
   ],
   "registryDependencies": [
-    "https://termcn.dev/r/opentui/use-theme.json"
+    "https://rust-ui.com/r/opentui/use-theme.json"
   ],
   "files": [
     {

@@ -7,11 +7,11 @@
     "ink"
   ],
   "registryDependencies": [
-    "https://termcn.dev/r/ink/interaction.json",
-    "https://termcn.dev/r/ink/terminal-symbols.json",
-    "https://termcn.dev/r/ink/terminal-text.json",
-    "https://termcn.dev/r/ink/use-theme.json",
-    "https://termcn.dev/r/ink/use-unicode.json"
+    "https://rust-ui.com/r/ink/interaction.json",
+    "https://rust-ui.com/r/ink/terminal-symbols.json",
+    "https://rust-ui.com/r/ink/terminal-text.json",
+    "https://rust-ui.com/r/ink/use-theme.json",
+    "https://rust-ui.com/r/ink/use-unicode.json"
   ],
   "files": [
     {

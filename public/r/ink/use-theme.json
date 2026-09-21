@@ -4,8 +4,8 @@
   "title": "Use Theme",
   "description": "Provider-optional terminal theme context and hooks.",
   "registryDependencies": [
-    "https://termcn.dev/r/ink/theme-default.json",
-    "https://termcn.dev/r/ink/types.json"
+    "https://rust-ui.com/r/ink/theme-default.json",
+    "https://rust-ui.com/r/ink/types.json"
   ],
   "files": [
     {

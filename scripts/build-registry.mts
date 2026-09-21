@@ -152,7 +152,7 @@ const restorePublishedTargets = async () => {
   }
 };
 
-const tempRoot = await fs.mkdtemp(path.join(os.tmpdir(), "termcn-registry-"));
+const tempRoot = await fs.mkdtemp(path.join(os.tmpdir(), "termui-registry-"));
 
 try {
   const tempRegistryRoot = path.join(tempRoot, "registry");

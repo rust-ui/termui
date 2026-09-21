@@ -63,7 +63,7 @@ export const FocusScope = ({
   children,
 }: FocusScopeProps) => {
   const generatedId = React.useId();
-  const scopeId = `termcn-scope-${generatedId}`;
+  const scopeId = `termui-scope-${generatedId}`;
   const parentScope = React.useContext(FocusScopeContext);
   const parentIsActive = parentScope?.active ?? false;
   const setParentNestedActive = parentScope?.setNestedActive;
@@ -137,7 +137,7 @@ export const FocusScope = ({
       !activeScopes.has(scopeId)
     ) {
       console.warn(
-        "termcn Ink: multiple non-nested focus scopes are active; only nested overlays are supported."
+        "Term/UI Ink: multiple non-nested focus scopes are active; only nested overlays are supported."
       );
     }
     activeScopes.add(scopeId);
@@ -264,7 +264,7 @@ export function useInteraction(
     onInput,
   } = options;
   const reactId = React.useId();
-  const id = providedId ?? `termcn-control-${reactId}`;
+  const id = providedId ?? `termui-control-${reactId}`;
   const scope = React.useContext(FocusScopeContext);
   const scopeRegister = scope?.register;
   const { stdout } = useStdout();
