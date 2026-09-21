@@ -6,7 +6,7 @@
 
 ## Summary
 
-Term/UI's `Dialog` API now exposes composable parts, but callers still render each part and route the layout areas themselves. Explore a JSX-like Rust macro so nested component structure is easier to read and closer to the React API that Term/UI users may already know.
+Term/UI's `Dialog` API now exposes composable parts, but callers still render each part and route the layout areas themselves. Explore a JSX-like Rust macro so nested component structure is easier to read and closer to the React API that Term/UI users may already know. Validate the syntax against both `Dialog` and a proposed `Card` component.
 
 Rust has no native JSX syntax. A function-like macro can define an embedded UI DSL and expand it into ordinary Rust. The macro would improve the call-site syntax; it would not add React's runtime, implicit state, or event system.
 
@@ -97,6 +97,82 @@ The syntax borrows JSX's nested tags and component names. Rust values and text s
 
 `DialogBody` in this sketch is a proposed DSL slot, not a current Term/UI type.
 
+## Second Composition Case: Card
+
+Use `Card` as the second prototype after `Dialog`. It checks a different composition shape: a stateless root with header, content, and footer slots; nested title and description; and an optional action positioned beside the header text.
+
+Term/UI does not currently have a generic `Card`. `Panel` provides a rounded `Block` shell, while `RadioCard` is a selectable control. Neither exposes the Shadcn-style `CardHeader`, `CardContent`, and `CardFooter` composition.
+
+### Before (current building blocks)
+
+The equivalent layout today uses `Panel` for the border and Ratatui layout/render calls for each region:
+
+```rust
+let panel = Panel::new().block();
+let inner = panel.inner(area);
+frame.render_widget(panel, area);
+
+let [header, content, footer] = Layout::vertical([
+    Constraint::Length(3),
+    Constraint::Min(0),
+    Constraint::Length(3),
+])
+.areas(inner);
+let [header_text, action] = Layout::horizontal([
+    Constraint::Min(0),
+    Constraint::Length(14),
+])
+.areas(header);
+let [title, description] = Layout::vertical([
+    Constraint::Length(1),
+    Constraint::Min(0),
+])
+.areas(header_text);
+
+frame.render_widget(Paragraph::new("Card Title"), title);
+frame.render_widget(Paragraph::new("Card Description"), description);
+frame.render_widget(Paragraph::new("Card Action"), action);
+frame.render_widget(Paragraph::new("Card Content"), content);
+frame.render_widget(Paragraph::new("Card Footer"), footer);
+```
+
+This has the right ingredients but no semantic card parts. The caller owns the slot layout, including the header's two-column arrangement.
+
+### After (proposal)
+
+```rust
+termui! {
+    frame: frame,
+    area: area,
+
+    <Card>
+        <CardHeader>
+            <CardTitle>{"Card Title"}</CardTitle>
+            <CardDescription>{"Card Description"}</CardDescription>
+            <CardAction>{"Card Action"}</CardAction>
+        </CardHeader>
+        <CardContent>
+            {Paragraph::new("Card Content")}
+        </CardContent>
+        <CardFooter>
+            {Paragraph::new("Card Footer")}
+        </CardFooter>
+    </Card>
+}
+```
+
+This follows Shadcn's documented composition. `CardAction` should occupy the header's top-right slot; title and description use the remaining header area. The macro or Card renderer needs to derive that layout from the named parts. This is still a syntax sketch, not implemented API. [Shadcn Card documentation](https://ui.shadcn.com/docs/components/base/card)
+
+### What Card Tests
+
+- **Nested and named slots:** `CardHeader` owns three semantic children; the other parts are siblings under `Card`.
+- **Nonuniform layout:** header action sits beside title/description, while content and footer stack vertically.
+- **Sizing rules:** Ratatui needs a concrete `Rect` and row constraints. Decide whether Card takes the caller's full area, supports explicit header/footer rows, or requires child-specific sizing hints.
+- **Optional action and content:** define defaults for a missing `CardAction`, empty description, or omitted footer.
+- **Styling boundaries:** choose where padding, borders, separators, and compact sizing live: in Card part components, Card configuration, or caller-provided styles.
+
+Card gives the DSL a useful test without Dialog's open state and event-routing questions. If both examples fit a common grammar while using different layout rules, that supports a reusable syntax layer over widget-specific renderers.
+
 ## Why Explore This
 
 - **Make composition visible.** Parent-child structure becomes clear at a glance, especially for dialogs with headers, body content, and actions.
@@ -111,7 +187,7 @@ The aim is React-like composition and readability, not a React runtime clone.
 
 Prototype a function-like macro named `termui!` (name open) that expands nested tags into the existing component constructors and render methods. Keep current Rust APIs available as the underlying primitives and as an escape hatch.
 
-Treat the Dialog as the first validation case, not automatically as the only use case. Before settling on a reusable DSL, try the same syntax with at least one simpler widget such as `Button` or `Panel`. If the grammar and rendering rules do not generalize cleanly, prefer the current component API or a Rust builder over a Dialog-only macro.
+Treat Dialog and Card as validation cases, not as a commitment to implement both components in the first change. Dialog tests animated state and named areas; Card tests static nested slots and asymmetric header layout. If both fit a common syntax while keeping rendering rules local to each widget, that is evidence for a reusable DSL. If not, prefer the current component API or a Rust builder over a Dialog-only macro.
 
 Likely implementation options:
 
@@ -158,8 +234,8 @@ The macro may associate a trigger with its parent dialog during rendering, but m
 ## Suggested Work Stages
 
 1. Write a tiny syntax prototype for `Dialog`, using only existing state and render behavior.
-2. Make the prototype render a header, arbitrary body widget, and footer; compare generated behavior with the current demo.
-3. Try one second component to test whether the syntax and child-rendering model generalize.
+2. Express the Card tree with the same syntax; specify header action placement and row-sizing rules.
+3. Compare whether Dialog and Card share syntax while delegating layout/state behavior to their own renderers.
 4. Decide between a macro, a builder API, and explicit render calls using readability, diagnostics, compile cost, and API complexity.
 5. If proceeding, design event routing separately from rendering syntax. Keep state ownership and animation ticking explicit.
 6. Document the accepted syntax with side-by-side examples and limitations. Add a concise `CHANGELOG.md` entry for visible or architectural changes.
@@ -171,7 +247,7 @@ The macro may associate a trigger with its parent dialog during rendering, but m
 - Existing explicit component APIs remain usable.
 - State updates, animation ticking, and event routing stay clear in the example.
 - Invalid nesting and unknown attributes produce useful compile errors.
-- A second widget can use the proposed composition model without special-case parser growth.
+- Both Dialog and Card can use the proposed composition model without special-case parser growth; each keeps its own layout and state rules.
 - No runtime component tree or unnecessary cloning is introduced just to imitate JSX.
 
 ## Sources
@@ -180,5 +256,6 @@ The macro may associate a trigger with its parent dialog during rendering, but m
 - Rust Reference, [Procedural Macros](https://doc.rust-lang.org/reference/procedural-macros.html): function-like procedural macros process token streams and must be defined in a `proc-macro` crate.
 - Rust By Example, [Domain Specific Languages](https://doc.rust-lang.org/stable/rust-by-example/macros/dsl.html): macros can provide a small embedded language that expands to regular Rust.
 - React documentation, [Passing JSX as children](https://react.dev/learn/passing-props-to-a-component): nested JSX is passed to a component through its `children` prop.
+- Shadcn/ui, [Card](https://ui.shadcn.com/docs/components/base/card): documented Card composition and the header action's top-right placement.
 - Ratatui documentation, [Rendering](https://ratatui.rs/concepts/rendering/): Ratatui uses immediate-mode rendering and redraws the UI each frame.
 - Ratatui documentation, [Widgets](https://ratatui.rs/concepts/widgets/): widgets can be composed by rendering child widgets into selected areas.

@@ -19,7 +19,6 @@
 | Form field with validation | ⚠️ Waiting |
 | Gauge | ⚠️ Waiting |
 | Help screen | ⚠️ Waiting |
-| Key binding bar | ✅ Done |
 | List | ⚠️ Waiting |
 | Loading state | ⚠️ Waiting |
 | Log viewer | ⚠️ Waiting |
