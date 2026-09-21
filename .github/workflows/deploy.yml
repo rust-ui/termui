@@ -37,6 +37,12 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Check checked-in interactive demo assets
+        run: |
+          test -s public/demos/button-interactive/index.html
+          compgen -G 'public/demos/button-interactive/*.js' >/dev/null
+          compgen -G 'public/demos/button-interactive/*_bg.wasm' >/dev/null
+
       - name: Typecheck
         run: pnpm typecheck
 
