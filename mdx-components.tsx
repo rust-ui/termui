@@ -10,6 +10,7 @@ import { ComponentSource } from "@/components/component-source";
 import { WidgetsList } from "@/components/widgets-list";
 import { CopyButton } from "@/components/copy-button";
 import { TerminalFrame } from "@/components/terminal-frame";
+import { RatzillaFrame } from "@/components/ratzilla-frame";
 import { getIconForLanguageExtension } from "@/components/icons";
 import {
   Accordion,
@@ -112,6 +113,7 @@ export const mdxComponents = {
     </h3>
   ),
   TerminalFrame,
+  RatzillaFrame,
   Steps: ({ ...props }) => (
     <div
       className="steps [counter-reset:step] md:ml-4 md:border-l md:pl-8 [&>h3]:step"

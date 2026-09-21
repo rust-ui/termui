@@ -1,13 +1,14 @@
 # Term/UI
 
-Term/UI is part of the Rust/UI ecosystem. It provides Rust terminal UI components and keeps the source site's Next.js documentation and component-site UI. Terminal preview frames come from a small native Rust renderer; the site displays those frames inside the existing preview chrome and theme controls.
+Term/UI is part of the Rust/UI ecosystem. It provides Rust terminal UI components and keeps the source site's Next.js documentation and component-site UI. Static preview frames come from a small native Rust renderer. The interactive button demo runs Ratatui in the browser through Ratzilla and WebAssembly.
 
-The Rust renderer runs at build time and generates `lib/rust-renderer/previews.generated.json`. It does not execute Rust in the browser. No Ratzilla runtime or browser terminal backend is used.
+The static Rust renderer generates `lib/rust-renderer/previews.generated.json`. The Ratzilla demo source lives in `crates/termui-button-interactive`; its prebuilt WebAssembly assets live in `public/demos/button-interactive` so production builds do not need a Rust toolchain.
 
 ## Structure
 
 - `crates/termui-widgets` — copyable Rust widgets.
 - `crates/termui-renderer` — Rust frame generator for site previews.
+- `crates/termui-button-interactive` — live Ratatui button demo compiled to WebAssembly with Ratzilla.
 - `app`, `components`, `content`, `lib`, `registry`, `public` — Term/UI web app, docs, and registry assets.
 - `__TMP/termcn` — local termcn source used for UI parity comparisons.
 
@@ -22,6 +23,18 @@ The dev hook regenerates Rust previews. To regenerate them manually:
 
 ```sh
 pnpm demos:build
+```
+
+Run the interactive Ratatui demo by itself:
+
+```sh
+pnpm demos:ratzilla:serve
+```
+
+Build its checked-in production assets after changing the Rust demo:
+
+```sh
+pnpm demos:ratzilla:build
 ```
 
 Production build and verification:
