@@ -1,0 +1,10 @@
+[files]
+extend-exclude = ["public/demos/button-interactive/*.js"]
+
+[default.extend-words]
+Ratatui = "Ratatui"
+RATATUI = "RATATUI"
+ratatui = "ratatui"
+Cristal = "Cristal"
+cristal = "cristal"
+nd = "nd"
