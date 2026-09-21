@@ -3094,41 +3094,32 @@
     "╰────────────────────────────────────────╯"
   ],
   "rust/button": [
-    "\u001b[38;2;250;250;250;48;2;37;99;235m  Button  \u001b[0m"
+    "\u001b[0m\u001b[38;2;250;250;250;48;2;37;99;235m  Save changes  \u001b[0m"
   ],
   "rust/button-sizes": [
-    "\u001b[38;2;250;250;250;48;2;37;99;235m Small \u001b[0m   \u001b[38;2;250;250;250;48;2;37;99;235m  Default  \u001b[0m   \u001b[38;2;250;250;250;48;2;37;99;235m   Large   \u001b[0m"
+    "\u001b[0m\u001b[38;2;250;250;250;48;2;37;99;235m Small \u001b[0m   \u001b[0m\u001b[38;2;250;250;250;48;2;37;99;235m  Default  \u001b[0m   \u001b[0m\u001b[38;2;250;250;250;48;2;37;99;235m   Large   \u001b[0m"
   ],
   "rust/button-variants": [
-    "\u001b[38;2;250;250;250;48;2;37;99;235m  Default  \u001b[0m   \u001b[38;2;250;250;250;48;2;63;63;70m  Secondary  \u001b[0m   \u001b[38;2;250;250;250;48;2;220;38;38m  Delete  \u001b[0m",
-    "\u001b[38;2;228;228;231;4m  [Outline]  \u001b[0m   \u001b[38;2;228;228;231m  Ghost  \u001b[0m   \u001b[38;2;96;165;250;4m  Link  \u001b[0m"
+    "\u001b[0m\u001b[38;2;250;250;250;48;2;37;99;235m  Default  \u001b[0m   \u001b[0m\u001b[38;2;250;250;250;48;2;63;63;70m  Secondary  \u001b[0m   \u001b[0m\u001b[38;2;250;250;250;48;2;220;38;38m  Delete  \u001b[0m",
+    "",
+    "\u001b[0m\u001b[38;2;228;228;231;4m  [Outline]  \u001b[0m   \u001b[0m\u001b[38;2;228;228;231m  Ghost  \u001b[0m   \u001b[0m\u001b[38;2;96;165;250;4m  Link  \u001b[0m"
   ],
   "rust/key-bar": [
-    "╭─ Key Bar───────────────────────────────╮",
-    "│ Rust-rendered terminal component       │",
-    "│ Example: Key Bar                       │",
-    "│ Docs variant: Rust                     │",
-    "│   Ready                           ✓    │",
-    "│   Interactive Rust example             │",
-    "╰────────────────────────────────────────╯"
+    "\u001b[0m\u001b[33mq\u001b[0m \u001b[0m\u001b[97mQuit\u001b[0m  \u001b[0m\u001b[33m↑↓\u001b[0m \u001b[0m\u001b[97mMove\u001b[0m  \u001b[0m\u001b[33m↵\u001b[0m \u001b[0m\u001b[97mSelect\u001b[0m"
   ],
   "rust/panel": [
-    "╭─ Panel─────────────────────────────────╮",
-    "│ Rust-rendered terminal component       │",
-    "│ Example: Panel                         │",
-    "│ Docs variant: Rust                     │",
-    "│   Ready                           ✓    │",
-    "│   Interactive Rust example             │",
-    "╰────────────────────────────────────────╯"
+    "\u001b[0m\u001b[36m╭Activity────────────────────────────────╮\u001b[0m",
+    "\u001b[0m\u001b[36m│\u001b[0mWorkers online: 4                       \u001b[0m\u001b[36m│\u001b[0m",
+    "\u001b[0m\u001b[36m│\u001b[0mBuild finished · 3.2s                   \u001b[0m\u001b[36m│\u001b[0m",
+    "\u001b[0m\u001b[36m│\u001b[0m                                        \u001b[0m\u001b[36m│\u001b[0m",
+    "\u001b[0m\u001b[36m│\u001b[0m                                        \u001b[0m\u001b[36m│\u001b[0m",
+    "\u001b[0m\u001b[36m│\u001b[0m                                        \u001b[0m\u001b[36m│\u001b[0m",
+    "\u001b[0m\u001b[36m╰Esc Back────────────────────────────────╯\u001b[0m"
   ],
   "rust/select-list": [
-    "╭─ Select List───────────────────────────╮",
-    "│ Rust-rendered terminal component       │",
-    "│ Example: Select List                   │",
-    "│ Docs variant: Rust                     │",
-    "│   NAME          STATUS       VALUE     │",
-    "│   alpha         ready          12      │",
-    "│   beta          running        24      │",
-    "╰────────────────────────────────────────╯"
+    "Overview",
+    "\u001b[0m\u001b[38;2;255;255;255;48;2;37;99;235mComponents                                \u001b[0m",
+    "Themes",
+    "Settings"
   ]
 }

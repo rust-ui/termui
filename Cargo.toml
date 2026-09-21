@@ -3,7 +3,7 @@ resolver = "2"
 members = [
     "crates/termui-widgets",
     "crates/termui-renderer",
-    "crates/termui-button-interactive",
+    "crates/termui-registry",
 ]
 
 [workspace.package]

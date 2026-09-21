@@ -28,6 +28,6 @@ The iframe viewport was 370 px tall, while `#terminal` stayed fixed at 320 px. R
 
 ## Files
 
-- `crates/termui-button-interactive/index.html`
+- `crates/termui-registry/index.html`
 - `public/demos/button-interactive/`
 - `CHANGELOG.md`

@@ -2,13 +2,14 @@
 
 Term/UI is part of the Rust/UI ecosystem. It provides Rust terminal UI components and keeps the source site's Next.js documentation and component-site UI. Static preview frames come from a small native Rust renderer. The interactive button demo runs Ratatui in the browser through Ratzilla and WebAssembly.
 
-The static Rust renderer generates `lib/rust-renderer/previews.generated.json`. The Ratzilla demo source lives in `crates/termui-button-interactive`; its prebuilt WebAssembly assets live in `public/demos/button-interactive` so production builds do not need a Rust toolchain.
+`termui-renderer` draws Ratatui frames through `TestBackend`; `termui-registry/src/demos` holds one `demo_*.rs` file per demo, including interactive demos, and generates `lib/termui-registry/previews.generated.json`. The docs-driven build fails if a static Rust preview has no registered renderer. Checked-in WebAssembly assets live in `public/demos/button-interactive`, so production builds do not need a Rust toolchain.
 
 ## Structure
 
 - `crates/termui-widgets` — copyable Rust widgets.
-- `crates/termui-renderer` — Rust frame generator for site previews.
-- `crates/termui-button-interactive` — live Ratatui button demo compiled to WebAssembly with Ratzilla.
+- `crates/termui-renderer` — Ratatui buffer-to-ANSI renderer.
+- `crates/termui-registry` — one source file per demo, exact demo ID registry, and frame generator.
+- `crates/termui-registry/src/demos/demo_button_interactive.rs` — interactive Ratatui button demo compiled to WebAssembly with Ratzilla.
 - `app`, `components`, `content`, `lib`, `registry`, `public` — Term/UI web app, docs, and registry assets.
 - `__TMP/termcn` — local termcn source used for UI parity comparisons.
 
