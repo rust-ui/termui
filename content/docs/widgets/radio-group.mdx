@@ -1,0 +1,34 @@
+---
+title: Radio Group
+description: Bordered choice cards with a clear selected state.
+---
+
+`RadioCard` presents one option in a radio group. Your app owns the selected option and updates each card's state.
+
+<RustDemo
+  name="radio-group"
+  title="Radio Group"
+  fontSize={16}
+  code={`use termui_widgets::radio_card::RadioCard;
+
+RadioCard::new("Standard", "Balanced palette")
+    .selected(selected == 0)
+    .render(frame, standard_area);
+RadioCard::new("High contrast", "Stronger borders")
+    .selected(selected == 1)
+    .render(frame, contrast_area);`}
+/>
+
+## Source
+
+<ComponentSource src="crates/termui-widgets/src/radio_card.rs" title="radio_card.rs" language="rs" collapsible={false} />
+
+## Usage
+
+```rust
+use termui_widgets::radio_card::RadioCard;
+
+RadioCard::new("Standard", "Balanced palette")
+    .selected(true)
+    .render(frame, area);
+```

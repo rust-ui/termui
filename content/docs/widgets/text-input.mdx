@@ -1,0 +1,32 @@
+---
+title: Text Input
+description: Single-line input field with focused and placeholder states.
+---
+
+`TextInput` draws a single-line field with a label and optional placeholder. Your app owns the value, focus, and key handling.
+
+<RustDemo
+  name="text-input"
+  title="Text Input"
+  fontSize={16}
+  code={`use termui_widgets::text_input::TextInput;
+
+TextInput::new("Email")
+    .value("ada@example.com")
+    .focused(true)
+    .render(frame, area);`}
+/>
+
+## Source
+
+<ComponentSource src="crates/termui-widgets/src/text_input.rs" title="text_input.rs" language="rs" collapsible={false} />
+
+## Usage
+
+```rust
+use termui_widgets::text_input::TextInput;
+
+TextInput::new("Workspace")
+    .placeholder("Choose a name")
+    .render(frame, area);
+```
