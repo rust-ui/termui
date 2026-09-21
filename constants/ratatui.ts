@@ -9,6 +9,12 @@ export const RATATUI_COMPONENTS = [
     title: "Button",
   },
   {
+    description: "Composable bordered card with header, action, content, and footer regions.",
+    name: "card",
+    source: "crates/termui-widgets/src/card.rs",
+    title: "Card",
+  },
+  {
     description: "Rounded panel shell for Ratatui widgets, with optional top and bottom titles.",
     name: "panel",
     source: "crates/termui-widgets/src/panel.rs",

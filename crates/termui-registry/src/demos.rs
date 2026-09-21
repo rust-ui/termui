@@ -6,6 +6,8 @@ mod demo_button;
 mod demo_button_sizes;
 #[path = "demos/demo_button_variants.rs"]
 mod demo_button_variants;
+#[path = "demos/demo_card.rs"]
+mod demo_card;
 #[path = "demos/demo_color_picker.rs"]
 mod demo_color_picker;
 #[path = "demos/demo_dialog.rs"]
@@ -27,6 +29,7 @@ const DEMOS: &[(&str, DemoRenderer)] = &[
     ("rust/button", demo_button::render),
     ("rust/button-sizes", demo_button_sizes::render),
     ("rust/button-variants", demo_button_variants::render),
+    ("rust/card", demo_card::render),
     ("rust/color-picker", demo_color_picker::render),
     ("rust/dialog", demo_dialog::render),
     ("rust/panel", demo_panel::render),

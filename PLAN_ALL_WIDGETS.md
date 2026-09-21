@@ -4,6 +4,7 @@
 |---|---|
 | Breadcrumbs | ⚠️ Waiting |
 | Button | ✅ Done |
+| Card | ✅ Done |
 | Calendar | ⚠️ Waiting |
 | Chart | ⚠️ Waiting |
 | Checkbox | ⚠️ Waiting |
@@ -60,6 +61,18 @@
 ```
 
 The box represents the button's blue area.
+
+## Card
+
+```text
+╭────────────────────────────────────────╮
+│ Card Title              Card Action    │
+│ Card Description                       │
+│ Card Content                           │
+│────────────────────────────────────────│
+│ Card Footer                            │
+╰────────────────────────────────────────╯
+```
 
 ## Calendar
 

@@ -1,0 +1,72 @@
+---
+title: Card
+description: Composable bordered card with header, action, content, and footer regions.
+---
+
+Build a card from named regions. `Card` draws the rounded shell and returns layout areas; the header splits title, description, and optional action, while content and footer accept Ratatui widgets.
+
+<RustDemo
+  name="card"
+  title="Card · Composable sections"
+  rows={9}
+  fontSize={14}
+  code={`use ratatui::{
+  layout::Alignment,
+  style::{Color, Modifier, Style},
+  widgets::Paragraph,
+};
+use termui_widgets::card::{
+  Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle,
+};
+
+let areas = Card::new()
+  .header_rows(2)
+  .footer_rows(2)
+  .render(frame, area);
+let header = CardHeader::new()
+  .description_rows(1)
+  .action_width(14)
+  .layout(areas.header);
+
+CardTitle::new("Card Title").render(frame, header.title);
+CardDescription::new("Card Description").render(frame, header.description);
+CardAction::new(
+  Paragraph::new("Card Action")
+    .alignment(Alignment::Right)
+    .style(Style::default().fg(Color::Cyan).add_modifier(Modifier::UNDERLINED)),
+).render(frame, header.action);
+CardContent::new(Paragraph::new("Card Content")).render(frame, areas.content);
+CardFooter::new(Paragraph::new("Card Footer")).render(frame, areas.footer);`}
+/>
+
+## Components
+
+- `Card` draws a rounded border and splits its inner area into header, content, and footer. Set `header_rows` and `footer_rows` to fit your content; remaining rows go to content.
+- `CardHeader::layout` returns title, description, and action areas. Set description row count and action width to match child widgets.
+- `CardTitle` and `CardDescription` provide heading and muted supporting styles.
+- `CardAction` renders any Ratatui `Widget` in the header's action area.
+- `CardContent` renders a Ratatui widget with one cell of horizontal padding by default.
+- `CardFooter` draws a separator, then renders its widget with horizontal padding.
+
+## Source
+
+<ComponentSource src="crates/termui-widgets/src/card.rs" title="card.rs" language="rs" collapsible={false} />
+
+## Usage
+
+```rust
+let areas = Card::new()
+    .header_rows(2)
+    .footer_rows(2)
+    .render(frame, area);
+let header = CardHeader::new()
+    .description_rows(1)
+    .action_width(14)
+    .layout(areas.header);
+
+CardTitle::new("Project").render(frame, header.title);
+CardDescription::new("Recent activity").render(frame, header.description);
+CardAction::new(Paragraph::new("Open")).render(frame, header.action);
+CardContent::new(Paragraph::new("3 builds completed")).render(frame, areas.content);
+CardFooter::new(Paragraph::new("Updated just now")).render(frame, areas.footer);
+```

@@ -4,6 +4,7 @@
 //! dependency.
 
 pub mod button;
+pub mod card;
 pub mod color_picker;
 pub mod dialog;
 pub mod panel;
