@@ -6,7 +6,7 @@ Notable Term/UI changes are recorded here. Format follows [Keep a Changelog](htt
 
 ### Added
 
-- Add local per-component tests for Button interactions and Card's Rust preview.
+- Add local per-component tests for Button and Text Input interactions, plus Card's Rust preview.
 - Added 35 planned widgets with copyable Rust source, documentation pages, and checked-in terminal previews.
 - Added modular area, bar, line, pie, radar, radial, and tooltip charts with Rust-rendered gallery previews, family routes, and a code sheet.
 - Added an interactive Ratatui Text Input demo with click, typing, field switching, and Backspace behavior; checked in its WebAssembly assets.
