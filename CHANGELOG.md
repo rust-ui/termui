@@ -14,6 +14,8 @@ Notable Term/UI changes are recorded here. Format follows [Keep a Changelog](htt
 
 ### Changed
 
+- Added a Usage section after Source on each widget page.
+- Moved the button example into a dedicated Usage section after its source.
 - Replaced Carbon Ads in the documentation with a Rustify CTA linking to `rustify.rs`.
 - Added Ratatui widget pages under flat `/docs/widgets/*` routes with the termcn sidebar navigation and searchable widget source.
 - Reduced public documentation to four core pages, redirected retired catalog routes to the registry, and retained the source-site changelog history.

@@ -10,3 +10,19 @@ description: Selectable terminal rows with a full-width active-row highlight.
 ## Source
 
 <ComponentSource src="crates/termui-widgets/src/select_list.rs" title="select_list.rs" language="rs" collapsible={false} />
+
+## Usage
+
+```rust
+use ratatui::{
+    style::{Color, Style},
+    text::Line,
+};
+use termui_widgets::select_list::SelectList;
+
+let items = vec![Line::from("Overview"), Line::from("Settings")];
+
+SelectList::new(&items, 1)
+    .selection_style(Style::default().fg(Color::White).bg(Color::Blue))
+    .render(frame, area);
+```

@@ -5,6 +5,14 @@ description: Shadcn-inspired terminal button with six color and style variants.
 
 `Button` supports shadcn-inspired `Default`, `Secondary`, `Destructive`, `Outline`, `Ghost`, and `Link` variants. Your app owns focus, keyboard input, and activation.
 
+<TerminalFrame title="Button variants" src="button" height={150} />
+
+## Source
+
+<ComponentSource src="crates/termui-widgets/src/button.rs" title="button.rs" language="rs" collapsible={false} />
+
+## Usage
+
 ```rust
 use termui_widgets::button::{Button, ButtonVariant};
 
@@ -13,9 +21,3 @@ Button::new("Save")
     .focused(true)
     .render(frame, area);
 ```
-
-<TerminalFrame title="Button variants" src="button" height={150} />
-
-## Source
-
-<ComponentSource src="crates/termui-widgets/src/button.rs" title="button.rs" language="rs" collapsible={false} />

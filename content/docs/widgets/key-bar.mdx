@@ -10,3 +10,15 @@ description: Keyboard hint bar for terminal app shortcuts.
 ## Source
 
 <ComponentSource src="crates/termui-widgets/src/key_bar.rs" title="key_bar.rs" language="rs" collapsible={false} />
+
+## Usage
+
+```rust
+use ratatui::style::{Color, Style};
+use termui_widgets::key_bar::KeyBar;
+
+KeyBar::new(vec![("q", "Quit"), ("↑↓", "Move"), ("↵", "Select")])
+    .key_style(Style::default().fg(Color::Yellow))
+    .label_style(Style::default().fg(Color::White))
+    .render(frame, area);
+```
