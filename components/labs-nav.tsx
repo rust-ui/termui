@@ -306,7 +306,7 @@ const LabsNavDesktop = () => {
                 "shadow-[0_1px_0_0_var(--border)]",
                 "before:absolute before:inset-x-0 before:-top-3 before:h-3 before:content-['']",
                 "data-[motion^=from-]:animate-none data-[motion^=to-]:animate-none",
-                "data-[state=closed]:hidden md:fixed md:w-screen dark:bg-black"
+                "md:fixed md:w-screen dark:bg-black"
               )}
             >
               <div className="container-wrapper px-6">

@@ -31,6 +31,7 @@ Notable Term/UI changes are recorded here. Format follows [Keep a Changelog](htt
 
 ### Changed
 
+- Add a slash separator after the Labs menu trigger.
 - Route interactive demos through one shared HTML shell; preserve per-demo Rust binaries and WebAssembly assets.
 - Keep the visible changelog focused on Term/UI updates; remove inherited release history.
 - Moved the `termui-widgets` crate into `crates/termui-registry/src/widgets` and updated its workspace, dependency, and source references.
@@ -61,6 +62,7 @@ Notable Term/UI changes are recorded here. Format follows [Keep a Changelog](htt
 
 ### Fixed
 
+- Let Labs NavigationMenu finish its 300ms close animation before hiding.
 - Restore NavigationMenu open/close animations when `viewport=false`.
 - Gate Tooltip enter animations on Radix's `delayed-open` and `instant-open` states; keep exit animation on `closed`.
 - Use checked, overflow-safe sizing for scrollbars and Ratatui ratio constraints.

@@ -47,8 +47,10 @@ export const SiteHeader = () => (
               </Link>
             </Button>
           </BrandContextMenu>
-          <span className="text-muted-foreground/50 ml-1">/</span>
           <LabsNav />
+          <span aria-hidden="true" className="text-muted-foreground/50">
+            /
+          </span>
         </div>
         <MainNav items={navItems} className="hidden lg:flex" />
         <div className="ml-auto flex items-center gap-1 md:gap-2 md:flex-1 md:justify-end">
