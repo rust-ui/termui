@@ -14,7 +14,7 @@ Notable TERMUI changes are recorded here. Format follows [Keep a Changelog](http
 ### Changed
 
 - Replaced cloud-platform deployment with the shared-apps Docker, Docker Hub, SSH, Nginx, and Certbot deployment path.
-- Aligned the pnpm pin with RUSTIFY at 11.24.0 so the local Corepack install can launch it.
+- Upgraded the pinned pnpm toolchain to 12.5.1 and locked its Corepack binary metadata.
 - Copied the termcn site UI and content while omitting its Sponsor page and navigation link.
 - Replaced browser terminal runtimes and generated WebAssembly demos with static Rust-rendered frames.
 - Aligned pnpm supply-chain protections with RUSTIFY; upgraded Next.js to 16.3.3 after the production audit found two critical advisories.
