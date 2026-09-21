@@ -1,8 +1,8 @@
-use ratatui::Frame;
 use ratatui::layout::Rect;
 use ratatui::style::{Color, Modifier, Style};
 use ratatui::text::{Line, Span};
 use ratatui::widgets::Paragraph;
+use ratatui::Frame;
 
 /// A compact terminal button. The parent app owns focus and activation.
 #[must_use]
@@ -12,6 +12,7 @@ pub struct Button<'a> {
     focused: bool,
     disabled: bool,
     variant: ButtonVariant,
+    size: ButtonSize,
 }
 
 /// Shadcn-inspired terminal button variants.
@@ -24,6 +25,25 @@ pub enum ButtonVariant {
     Outline,
     Ghost,
     Link,
+}
+
+/// Horizontal padding for a terminal button.
+#[derive(Clone, Copy, Debug, Default, PartialEq, Eq)]
+pub enum ButtonSize {
+    Sm,
+    #[default]
+    Default,
+    Lg,
+}
+
+impl ButtonSize {
+    const fn padding(self) -> usize {
+        match self {
+            Self::Sm => 0,
+            Self::Default => 1,
+            Self::Lg => 2,
+        }
+    }
 }
 
 impl ButtonVariant {
@@ -52,11 +72,17 @@ impl<'a> Button<'a> {
             focused: false,
             disabled: false,
             variant: ButtonVariant::Default,
+            size: ButtonSize::Default,
         }
     }
 
     pub fn variant(mut self, variant: ButtonVariant) -> Self {
         self.variant = variant;
+        self
+    }
+
+    pub fn size(mut self, size: ButtonSize) -> Self {
+        self.size = size;
         self
     }
 
@@ -86,12 +112,14 @@ impl<'a> Button<'a> {
         };
         let content = match self.variant {
             ButtonVariant::Default | ButtonVariant::Secondary | ButtonVariant::Destructive => {
-                format!(" {} ", self.label)
+                self.label.to_string()
             }
             ButtonVariant::Outline => format!("[{}]", self.label),
             ButtonVariant::Ghost => self.label.to_string(),
             ButtonVariant::Link => self.label.to_string(),
         };
+        let padding = " ".repeat(self.size.padding());
+        let content = format!("{padding}{content}{padding}");
         Line::from(Span::styled(content, style))
     }
 

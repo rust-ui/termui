@@ -26,7 +26,14 @@ for (const base of bases.filter((entry) => entry.isDirectory())) {
 }
 
 names.sort();
-names.push("rust/button", "rust/key-bar", "rust/panel", "rust/select-list");
+names.push(
+  "rust/button",
+  "rust/button-sizes",
+  "rust/button-variants",
+  "rust/key-bar",
+  "rust/panel",
+  "rust/select-list"
+);
 names.sort();
 const result = spawnSync(
   "cargo",
