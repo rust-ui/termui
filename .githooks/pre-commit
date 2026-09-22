@@ -4,7 +4,3 @@ set -eu
 if git diff --cached --name-only | grep -Eq '\.(cjs|js|json|jsonc|mjs|mts|ts|tsx)$'; then
   pnpm check:quality:precommit
 fi
-
-if git diff --cached --name-only | grep -Eq '(^Cargo\.(lock|toml)$|^crates/.+\.rs$)'; then
-  cargo fmt --all -- --check
-fi

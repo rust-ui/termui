@@ -1,4 +1,10 @@
 #!/bin/sh
 set -eu
 
+cargo fmt --all
+if ! git diff --quiet -- '*.rs' Cargo.lock Cargo.toml; then
+  git add -- '*.rs' Cargo.lock Cargo.toml
+  git commit -m "chore: cargo fmt"
+fi
+
 pnpm check:quality
