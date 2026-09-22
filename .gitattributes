@@ -1,0 +1,2 @@
+# wasm-bindgen browser glue is generated from Rust demo binaries.
+public/demos/**/*.js linguist-generated=true

@@ -36,6 +36,7 @@ Notable Term/UI changes are recorded here. Format follows [Keep a Changelog](htt
 
 ### Changed
 
+- Marked checked-in wasm-bindgen JavaScript glue as generated so GitHub language stats reflect authored source.
 - Expanded the ten Ratatui articles with production-focused answer-first sections, FAQ depth, decision callouts, primary sources, and contextual internal links.
 - Reduced the article launch set to ten production-focused Ratatui guides; removed the beginner first-app and Cursive comparison pages.
 - Removed legacy upstream provenance references from project documentation.
