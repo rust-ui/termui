@@ -1,0 +1,29 @@
+---
+title: "Terminal UI UX: Navigation, Focus, and Accessibility"
+description: "Design usable terminal interfaces with clear navigation, visible focus, keyboard discoverability, and resilient states."
+keywords: ["terminal UI design", "TUI design patterns", "terminal app keyboard navigation"]
+category: "production"
+order: 11
+publish_date: "2026-09-22"
+author: "Max Wells"
+author_image: "/articles/author-max-wells.webp"
+short_title_thumbnail: "Terminal UX"
+---
+
+Terminal users move quickly with a keyboard and often work in small windows, limited colors, or remote sessions. Good TUI UX makes the current action and next action obvious.
+
+## Make navigation visible
+
+Give every interactive screen a predictable focus order. Show focus with a border, marker, or inverse style, and keep the cue when color is unavailable. Display shortcuts near actions and provide a help screen for less common commands.
+
+## Design the full state set
+
+Plan loading, empty, error, success, and disabled states before styling the happy path. Explain what happened and what action is possible next. Preserve user input when validation fails.
+
+## Respect terminal limits
+
+Use responsive layouts from the available `Rect`. Keep labels short, avoid relying on color alone, and test Unicode width and narrow terminals. [Ratatui layouts](/articles/ratatui-layout-constraints-flex-resizing) and [forms](/articles/ratatui-forms-text-input-validation-focus) show these constraints in code.
+
+## Review with real tasks
+
+Ask someone to complete a task without reading the implementation. Watch where focus disappears, which key they expect, and whether errors explain recovery. Improve the flow before adding more widgets.

@@ -1,0 +1,42 @@
+---
+title: "Ratatui Input Handling: Keyboard, Mouse, and Event Loops"
+description: "Build a reliable Ratatui event loop for keyboard and mouse input, redraws, quitting, and terminal cleanup."
+keywords: ["Ratatui keyboard input", "Ratatui event handling", "Crossterm key events"]
+category: "engineering"
+order: 7
+publish_date: "2026-09-22"
+author: "Max Wells"
+author_image: "/articles/author-max-wells.webp"
+short_title_thumbnail: "Input & Events"
+---
+
+Terminal input becomes manageable when the event loop has one job: translate events into app actions. Rendering then consumes state after an action, rather than reacting to input in every widget.
+
+## Own the terminal lifecycle
+
+Enter raw mode and alternate-screen mode before the first draw. Put restoration in a guard or a final cleanup function, and restore it on normal quit and errors.
+
+## Map events to actions
+
+Keep backend-specific events at the boundary. Convert a Crossterm key into an app action such as `MoveUp`, `Submit`, or `Quit`.
+
+```rust
+enum Action { MoveUp, MoveDown, Submit, Quit }
+
+fn action_for_key(key: crossterm::event::KeyCode) -> Option<Action> {
+    match key {
+        crossterm::event::KeyCode::Char('q') => Some(Action::Quit),
+        crossterm::event::KeyCode::Up => Some(Action::MoveUp),
+        crossterm::event::KeyCode::Down => Some(Action::MoveDown),
+        _ => None,
+    }
+}
+```
+
+## Decide when to redraw
+
+Redraw after state changes or on a controlled tick. Avoid an unbounded redraw loop when no input or data changed. Mouse coordinates are relative to the terminal viewport, so compare them with the widget rectangle you rendered.
+
+## Handle resize and shutdown
+
+The next draw receives the new frame area. Keep layout decisions in the renderer and test small rectangles. For background work without blocking input, continue with [async Ratatui and Tokio](/articles/async-ratatui-tokio-background-tasks).

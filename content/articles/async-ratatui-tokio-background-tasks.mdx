@@ -1,0 +1,38 @@
+---
+title: "Async Ratatui with Tokio: Channels, Tasks, and Redraws"
+description: "Connect Tokio background work to a synchronous Ratatui render loop with channels, cancellation, and graceful shutdown."
+keywords: ["async Ratatui", "Ratatui Tokio", "Rust TUI background task"]
+category: "engineering"
+order: 8
+publish_date: "2026-09-22"
+author: "Max Wells"
+author_image: "/articles/author-max-wells.webp"
+short_title_thumbnail: "Async Terminal UIs"
+---
+
+Async work helps when a terminal app waits on network, files, or subprocesses. Keep terminal I/O and drawing in the UI loop, and send data across an explicit channel.
+
+## Separate worker and UI ownership
+
+The worker owns its client and sends messages. The UI owns app state and decides when to redraw. This boundary prevents a task from borrowing a frame or writing to the terminal concurrently.
+
+```rust
+enum UiMessage { Progress(u16), Finished(Result<String, String>) }
+
+let (tx, mut rx) = tokio::sync::mpsc::channel(32);
+tokio::spawn(async move {
+    let _ = tx.send(UiMessage::Progress(25)).await;
+});
+```
+
+## Integrate without freezing input
+
+Poll terminal events with a bounded timeout, then drain available messages. Apply each message to state and redraw at a controlled rate. Do not call blocking network or filesystem APIs from the draw path.
+
+## Cancel and shut down
+
+Keep a cancellation signal and stop workers before restoring the terminal. Surface errors as state the user can read. A loading indicator should explain stale data and completion, not hide failures.
+
+## When async is the wrong tool
+
+Small local calculations do not need Tokio. Start with the synchronous [Ratatui event loop](/articles/ratatui-keyboard-mouse-event-loop), add a worker only when blocking work makes input feel slow, and test the message boundary independently.

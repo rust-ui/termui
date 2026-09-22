@@ -244,9 +244,11 @@ export const mdxComponents = {
     <h2
       id={children
         ?.toString()
-        .replaceAll(" ", "-")
-        .replaceAll("'", "")
-        .replaceAll("?", "")
+        .normalize("NFKD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/[^a-zA-Z0-9\s-]/g, "")
+        .trim()
+        .replace(/\s+/g, "-")
         .toLowerCase()}
       className={cn(
         "[&+]*:[code]:text-xl mt-10 scroll-m-28 font-heading text-xl font-medium tracking-tight first:mt-0 lg:mt-12 [&+.steps]:mt-0! [&+.steps>h3]:mt-4! [&+h3]:mt-6! [&+p]:mt-4!",

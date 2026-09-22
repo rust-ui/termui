@@ -1,0 +1,48 @@
+---
+title: "Build Your First Rust TUI with Ratatui"
+description: "Build a small interactive terminal app in Rust with Ratatui, from terminal setup to a working event loop."
+keywords: ["Ratatui tutorial", "Rust TUI tutorial", "build terminal UI Rust"]
+category: "building"
+order: 1
+publish_date: "2026-09-22"
+author: "Max Wells"
+author_image: "/articles/author-max-wells.webp"
+short_title_thumbnail: "First Ratatui App"
+---
+
+Ratatui applications are small when their responsibilities stay clear: the app owns state, the event loop turns input into actions, and the renderer draws the current state. This guide builds that first vertical slice.
+
+## Create the project
+
+Use a current Rust toolchain and add Ratatui with Crossterm for terminal input and output.
+
+```bash
+cargo new status-tui
+cd status-tui
+cargo add ratatui crossterm
+```
+
+Keep terminal initialization and restoration in one place. If the process exits with raw mode enabled, the user's shell can become difficult to use.
+
+## Render app state
+
+```rust
+use ratatui::{Frame, widgets::{Block, Borders, Paragraph}};
+
+struct App { running: bool, message: String }
+
+fn draw(frame: &mut Frame, app: &App) {
+    let block = Block::default().title(" Status ").borders(Borders::ALL);
+    frame.render_widget(Paragraph::new(app.message.as_str()).block(block), frame.area());
+}
+```
+
+The draw function is pure from the app's point of view: it reads state and renders widgets. Your first screen can stay simple while the state model grows.
+
+## Add input and shutdown
+
+Read a key, update state, then draw again. Map `q` to shutdown and always restore the terminal in a final cleanup path. For a reusable input pattern, continue with [Ratatui input handling](/articles/ratatui-keyboard-mouse-event-loop).
+
+## What to build next
+
+Add a layout from [Ratatui layout constraints](/articles/ratatui-layout-constraints-flex-resizing), then compose widgets from the [Term/UI widget docs](/docs/widgets). Test rendering without a real terminal using [TestBackend](/articles/test-ratatui-apps-testbackend).

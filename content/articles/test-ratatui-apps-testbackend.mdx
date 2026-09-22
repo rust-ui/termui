@@ -1,0 +1,39 @@
+---
+title: "How to Test Ratatui Applications with TestBackend"
+description: "Test Ratatui state transitions and rendered terminal buffers with TestBackend, without opening a real terminal."
+keywords: ["test Ratatui app", "Ratatui TestBackend", "Rust TUI unit testing"]
+category: "engineering"
+order: 9
+publish_date: "2026-09-22"
+author: "Max Wells"
+author_image: "/articles/author-max-wells.webp"
+short_title_thumbnail: "TestBackend Tests"
+---
+
+Ratatui's `TestBackend` renders into an in-memory buffer. Use it to test app state and visible cells quickly, then reserve real-terminal tests for lifecycle and backend behavior.
+
+## Keep update and render separate
+
+An update function consumes an action and changes state. A render function reads state and writes widgets. This split makes failures local and keeps tests independent of terminal dimensions.
+
+```rust
+use ratatui::{backend::TestBackend, Terminal};
+
+let backend = TestBackend::new(40, 10);
+let mut terminal = Terminal::new(backend)?;
+terminal.draw(|frame| draw(frame, &app))?;
+let buffer = terminal.backend().buffer();
+assert_eq!(buffer.cell((1, 1)).unwrap().symbol(), "O");
+```
+
+## Assert meaningful output
+
+Check a title, selected row, validation message, or status value. Avoid snapshots of every cell unless the exact geometry is the behavior under test. Test empty and narrow layouts as separate cases.
+
+## Cover state transitions
+
+Send actions through the same update function used by the event loop. Test selection bounds, form validation, async message application, and quit behavior without a running terminal.
+
+## Know the boundary
+
+Integration tests still matter for raw mode, alternate-screen restoration, and backend-specific mouse behavior. Use [Ratatui input handling](/articles/ratatui-keyboard-mouse-event-loop) to keep those concerns isolated.

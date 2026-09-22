@@ -1,0 +1,37 @@
+---
+title: "Ratatui Charts: Plot Live Data in a Terminal"
+description: "Choose the right Ratatui chart widget and render terminal data with readable axes, labels, and refresh behavior."
+keywords: ["Ratatui charts", "Ratatui chart widget", "Rust terminal graph"]
+category: "widgets"
+order: 6
+publish_date: "2026-09-22"
+author: "Max Wells"
+author_image: "/articles/author-max-wells.webp"
+short_title_thumbnail: "Terminal Charts"
+---
+
+Terminal charts are most useful when they show a decision, not every data point. Pick a chart family based on the question the reader needs to answer.
+
+## Pick the chart family
+
+Use a line chart for trends over time, bars for comparison, an area chart for volume, and a sparkline for a compact signal. Pie and radar charts need careful labels because terminals provide less room for annotation.
+
+## Keep data and drawing separate
+
+Store timestamped values in app state and derive the visible window before drawing. Set explicit axis bounds and label formats. When a new point arrives, append it, discard values outside the window, and request a redraw.
+
+```rust
+use ratatui::widgets::{Axis, Chart, Dataset, GraphType};
+
+let dataset = Dataset::default().graph_type(GraphType::Line).data(&points);
+let chart = Chart::new(vec![dataset]).x_axis(Axis::default()).y_axis(Axis::default());
+frame.render_widget(chart, area);
+```
+
+## Design for narrow terminals
+
+Reduce labels before shrinking the plot to zero. Keep units and time range visible. A [Sparkline](/docs/widgets/sparkline) can be a better narrow-screen fallback than a crowded chart.
+
+## Test changing data
+
+Use deterministic fixtures for rendering tests, then test refresh and empty states separately. See the [chart gallery](/docs/widgets/chart) for current Term/UI examples.

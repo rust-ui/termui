@@ -1,0 +1,32 @@
+---
+title: "Ratatui vs Cursive: Choosing a Rust TUI Framework"
+description: "Compare Ratatui and Cursive by rendering model, widgets, state ownership, events, extensibility, and learning curve."
+keywords: ["Ratatui vs Cursive", "Rust TUI frameworks", "Ratatui alternatives"]
+category: "production"
+order: 10
+publish_date: "2026-09-22"
+author: "Max Wells"
+author_image: "/articles/author-max-wells.webp"
+short_title_thumbnail: "Ratatui vs Cursive"
+---
+
+Ratatui and Cursive solve the same broad problem with different programming models. Choose based on how much control your application needs over rendering, state, and integration.
+
+## Rendering and state
+
+Ratatui is a render-immediate toolkit: your app owns state and draws a frame from it. Cursive provides a higher-level view tree and event-driven callbacks. Ratatui fits teams that want explicit layout and rendering; Cursive can be faster for a conventional view hierarchy.
+
+## Compare the decision points
+
+| Question | Ratatui | Cursive |
+| --- | --- | --- |
+| Layout control | Explicit rectangles and constraints | View tree layout |
+| State ownership | Application-owned | Views and callbacks commonly own behavior |
+| Widget style | Compose primitives and custom widgets | Reusable views and layers |
+| Event integration | Map backend events in your loop | Dispatch through the view tree |
+
+Verify crate versions and APIs against each project's current documentation before choosing. The ecosystem and maintenance story can change.
+
+## Pick a direction
+
+Choose Ratatui when terminal rendering, custom interaction, or shared state boundaries matter most. Choose Cursive when a ready-made view hierarchy matches your application. For a Ratatui start, follow [the first app tutorial](/articles/build-first-rust-tui-ratatui) and browse [Term/UI widgets](/docs/widgets).

@@ -10,6 +10,8 @@ One line per reusable project lesson. Format: `YYYY-MM-DD [domain] avoid X, do Y
 ## Inbox
 
 - 2026-09-22 [termui/integrations] load live external counters through a client resource backed by a cached server endpoint; static layouts otherwise freeze the value at build time.
+- 2026-09-22: Keep article content under `content/articles`, with the Fumadocs source as the single metadata and MDX body source.
+
 - 2026-09-21 [termui/content] mirror RUSTIFY's validated Fumadocs article model under `domains/` and `app/(seo)/`, but adapt author claims, CTAs, and UI to Term/UI's independent product.
 - 2026-09-21 [termui/refactors] update test fixtures and generators alongside domain moves; lint/typecheck can pass while runtime checks still read old paths.
 - 2026-09-21 [termui/overlays] hit-test outside clicks against `OverlayState::overlay_rect` after child controls; inside clicks and triggers must keep their own behavior.

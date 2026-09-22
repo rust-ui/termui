@@ -75,7 +75,7 @@ export const createPageMetadata = (options: CreatePageMetadataOptions): Metadata
     },
     ...(noIndex && {
       robots: {
-        follow: false,
+        follow: true,
         index: false,
       },
     }),

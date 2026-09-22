@@ -1,0 +1,37 @@
+---
+title: "Ratatui Tables: Selection, Sorting, and Search"
+description: "Build a keyboard-navigable Ratatui table with selection, sorting, filtering, and empty states."
+keywords: ["Ratatui table", "Ratatui TableState", "Rust TUI table selection"]
+category: "widgets"
+order: 4
+publish_date: "2026-09-22"
+author: "Max Wells"
+author_image: "/articles/author-max-wells.webp"
+short_title_thumbnail: "Interactive Tables"
+---
+
+An interactive table has two separate concerns: the rows currently visible and the row the user has selected. Keep both in app state so keyboard actions remain testable.
+
+## Model rows and view state
+
+Store stable row data, a sort key, a filter string, and the selected index. Derive filtered rows for rendering. Clamp selection after filtering or sorting changes.
+
+```rust
+struct TableState {
+    selected: usize,
+    query: String,
+    sort_descending: bool,
+}
+```
+
+## Render and navigate
+
+Build `Row` values from the derived view and render them with `TableState`. Map Up/Down to selection, Enter to an action, and `/` to search. Display the selection with a non-color cue so it remains visible in limited terminal palettes.
+
+## Sort without surprising users
+
+Show the active column and direction in the header. Keep sorting stable when values tie. Preserve the selected record by ID when possible instead of preserving only its numeric index.
+
+## Empty and long values
+
+Render a useful empty state when no rows match. Truncate or wrap long cells intentionally. Term/UI's [Table](/docs/widgets/table), [Sortable Table](/docs/widgets/sortable-table), and [Search Input](/docs/widgets/search-input) are ready to copy.

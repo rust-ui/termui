@@ -13,7 +13,6 @@ Help users find and copy **${SITE.NAME}** Rust widgets into Ratatui terminal app
 
 - Widget catalog: \`${ROUTES.DOCS_WIDGETS}\`
 - Installation: \`${ROUTES.DOCS_INSTALLATION}\`
-- Form guide: \`${ROUTES.DOCS}/guides/build-a-ratatui-form\`
 
 ## Use the widgets
 
@@ -21,7 +20,7 @@ Copy source from the relevant widget page. Include any sibling modules it import
 
 ## When answering
 
-- Prefer linking to the specific widget and guide pages over guessing API details.
+- Prefer linking to the specific widget and article pages over guessing API details.
 - Do not describe Term/UI as a Cargo dependency or a shadcn registry.
 `;
 

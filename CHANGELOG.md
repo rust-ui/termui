@@ -6,8 +6,10 @@ Notable Term/UI changes are recorded here. Format follows [Keep a Changelog](htt
 
 ### Added
 
+- Added the Ratatui SEO article foundation with validated article content, author routes, and indexable editorial pages.
+- Removed the standalone docs guides section; form guidance now lives in the article library.
 - Added a composable right/left Drawer with profile-trigger demo, close button, Escape, and overlay-bounds outside-click dismissal; dismissible Toasts now close on outside click too.
-- Added a Ratatui form composition guide built from copyable widgets and app-owned state.
+- Added a Ratatui form composition article built from copyable widgets and app-owned state.
 - Added keyboard-driven Ratzilla demos for stateful controls, pickers, navigation, text views, tables, chart tooltips, and overlays; checked in their WebAssembly assets.
 - Added four independent interactive Toast demos; each opens from its centered trigger and shows its notification bottom-right.
 - Added `ButtonShape::{Rectangular, Rounded}`; buttons default to rectangular fills.
@@ -34,6 +36,7 @@ Notable Term/UI changes are recorded here. Format follows [Keep a Changelog](htt
 
 ### Changed
 
+- Added a Trendtrack-style navbar hover animation with local halo and text motion for desktop links.
 - Updated the GitHub star counter to load after hydration through a cached server endpoint, with loading and failure states that avoid displaying a false zero.
 - Moved Installation directly after Docs in the main navigation.
 - Mentioned the Rust/UI ecosystem and linked to rust-ui.com in the README.

@@ -1,0 +1,39 @@
+---
+title: "Build a Terminal Dashboard in Rust with Ratatui"
+description: "Compose cards, charts, lists, and tables into a readable Rust terminal dashboard with Ratatui."
+keywords: ["Ratatui dashboard", "Rust terminal dashboard", "Ratatui charts table"]
+category: "building"
+order: 2
+publish_date: "2026-09-22"
+author: "Max Wells"
+author_image: "/articles/author-max-wells.webp"
+short_title_thumbnail: "Terminal Dashboard"
+---
+
+A good terminal dashboard answers three questions quickly: what is healthy, what changed, and what needs attention. Ratatui gives you primitives; your layout and data model create the hierarchy.
+
+## Start with a data model
+
+Keep metrics independent from rendering. A small model makes refresh behavior predictable.
+
+```rust
+struct Dashboard {
+    requests: u64,
+    error_rate: f64,
+    recent_events: Vec<String>,
+}
+```
+
+Format values before they reach widgets. The renderer should decide placement and style, not fetch data or mutate state.
+
+## Compose the screen
+
+Use a vertical layout for a header, body, and footer. Split the body into metric cards, a chart, and a recent-events list. A table belongs below the chart when users need row-level detail. See [layout constraints and resizing](/articles/ratatui-layout-constraints-flex-resizing) for layouts that survive narrow terminals.
+
+## Refresh without visual noise
+
+Choose an explicit refresh interval. Preserve selected rows and scroll positions while replacing data. If data arrives from a worker, send owned messages to the UI loop instead of rendering from a background task.
+
+## Make the dashboard useful
+
+Show units, time windows, empty states, and stale-data hints. Test at a wide terminal and at the smallest supported size. The [chart docs](/docs/widgets/chart), [table docs](/docs/widgets/table), and [loading state](/docs/widgets/loading-state) provide copyable building blocks.

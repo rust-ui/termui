@@ -186,7 +186,7 @@ Keyword phrases below are intent hypotheses, not verified volume estimates. Vali
 - **Angle:** A small interactive task/status app from `cargo new` through terminal rendering; explain the minimum app state and draw loop.
 - **Outline:** install/prerequisites; dependency setup; terminal init/restore; app state; layout and first widgets; event loop; run/resize/quit; next steps.
 - **Proof:** tested code matching the locked Ratatui version; a real checked-in terminal screenshot/frame; clear copy-and-run instructions.
-- **Internal links:** installation docs, widget catalog, Button, List, Text Input, form guide.
+- **Internal links:** installation docs, widget catalog, Button, List, Text Input, form article.
 - **Avoid overlap:** keep it to a complete first vertical slice. Reserve dashboards, async, and detailed event architecture for their own guides.
 
 ### 2. Build a Terminal Dashboard in Rust with Ratatui
@@ -198,7 +198,7 @@ Keyword phrases below are intent hypotheses, not verified volume estimates. Vali
 - **Angle:** Compose summary cards, a chart, a recent-events list, and a table around a coherent sample dataset.
 - **Outline:** dashboard layout; reusable panel regions; metric/chart/table composition; data refresh boundary; resize behavior; final app and extensions.
 - **Proof:** a real visual preview at wide and narrow terminal sizes; complete, tested example source.
-- **Internal links:** chart docs, Card, Table, Sparkline, layout guide, chart gallery.
+- **Internal links:** chart docs, Card, Table, Sparkline, layout article, chart gallery.
 - **Avoid overlap:** show composition and dashboard information hierarchy; link out for each widget's API details.
 
 ### 3. Ratatui Layouts: Constraints, Flex, and Resizing
@@ -222,7 +222,7 @@ Keyword phrases below are intent hypotheses, not verified volume estimates. Vali
 - **Angle:** Build a keyboard-navigable table with app-owned selection, sorting, and a simple search/filter state.
 - **Outline:** rows/columns; `TableState`; selection and scrolling; sort state; search integration; empty/long-cell states; testing.
 - **Proof:** runnable Rust sample plus wide/narrow preview and meaningful keyboard behavior.
-- **Internal links:** Table, Sortable Table, Search Input, List, keyboard event guide.
+- **Internal links:** Table, Sortable Table, Search Input, List, keyboard event article.
 - **Avoid overlap:** focus exclusively on table workflows; don't duplicate generic input widget docs.
 
 ### 5. Build Ratatui Forms with Text Input, Validation, and Focus
@@ -234,7 +234,7 @@ Keyword phrases below are intent hypotheses, not verified volume estimates. Vali
 - **Angle:** Compose Term/UI's copyable form controls into a useful form; explain that app state and validation remain app-owned.
 - **Outline:** field state; labels/errors; focus order; typing and submit; validation; keyboard navigation; accessible state cues; integration example.
 - **Proof:** tested input flow including invalid, valid, and focused states; show the exact source copied by the reader.
-- **Internal links:** Text Input, Text Area, Checkbox, Select List, Radio Card, form composition guide.
+- **Internal links:** Text Input, Text Area, Checkbox, Select List, Radio Card, form composition article.
 - **Avoid overlap:** demonstrate composition and state ownership, not a catalog of every input widget.
 
 ### 6. Ratatui Charts: Plot Live Data in a Terminal
@@ -306,7 +306,7 @@ Keyword phrases below are intent hypotheses, not verified volume estimates. Vali
 - **Angle:** Practical design rules for keyboard-first interaction, focus visibility, labels, errors, color, and reduced assumptions about terminal size.
 - **Outline:** information hierarchy; navigation model; focus order and visible focus; keyboard discoverability; color contrast and non-color cues; empty/error/loading states; terminal dimensions.
 - **Proof:** before/after screenshots or frames and a concrete accessibility review checklist; avoid unsupported claims about assistive technology behavior.
-- **Internal links:** Help Screen, Menu, Tabs, Tooltip, Dialog, form guide, layout guide.
+- **Internal links:** Help Screen, Menu, Tabs, Tooltip, Dialog, form article, layout article.
 - **Avoid overlap:** UX patterns, not an API tutorial for each widget.
 
 ### 12. Shipping a Rust TUI Across Terminals and Platforms

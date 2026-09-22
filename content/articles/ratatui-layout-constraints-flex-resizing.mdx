@@ -1,0 +1,39 @@
+---
+title: "Ratatui Layouts: Constraints, Flex, and Resizing"
+description: "Use Ratatui Layout constraints and Flex to build terminal interfaces that resize without overflow."
+keywords: ["Ratatui layout constraints", "Ratatui Flex", "responsive terminal UI Rust"]
+category: "building"
+order: 3
+publish_date: "2026-09-22"
+author: "Max Wells"
+author_image: "/articles/author-max-wells.webp"
+short_title_thumbnail: "Layouts & Resizing"
+---
+
+Terminal space changes constantly. Ratatui layouts stay reliable when each region has a clear sizing rule and nested layouts receive the rectangle returned by their parent.
+
+## Choose constraints deliberately
+
+Use fixed lengths for borders and controls, percentages for proportional regions, and `Min` or `Max` when content must remain usable. Ratios work well for sibling panels that should grow together.
+
+```rust
+use ratatui::layout::{Constraint, Direction, Flex, Layout};
+
+let [header, body, footer] = Layout::vertical([
+    Constraint::Length(3),
+    Constraint::Min(1),
+    Constraint::Length(1),
+]).areas(frame.area());
+```
+
+## Split nested regions
+
+Pass `body` to a second layout instead of calculating coordinates yourself. A two-panel view can use `Flex::SpaceBetween` when the gap matters or a simple horizontal split when panels should touch.
+
+## Handle small terminals
+
+Read the available `Rect` before adding columns. At narrow widths, stack panels or hide secondary labels. Never assume a fixed terminal width. Validate representative rectangles with [TestBackend](/articles/test-ratatui-apps-testbackend).
+
+## Common mistakes
+
+Avoid nested percentages that round to zero, fixed widths for long labels, and rendering outside the supplied area. The [Resizable Layout](/docs/widgets/resizable-layout) widget shows a reusable interaction pattern.

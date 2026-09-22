@@ -68,7 +68,7 @@ Before writing a guide, inspect the current top results for â€œRatatui widgets,â
 - Aligned shared site description and source-code/organization JSON-LD with the copyable Rust widget product; removed inaccurate site-wide FAQ markup and unrelated web-stack keywords.
 - Removed generated sitemap `lastModified` values because source modification dates are not available.
 - Added Ratatui-aware metadata to docs and chart pages; improved the widget hub, introduction, installation workflow, and six priority widget pages with distinct use cases and contextual links.
-- Published one copy-ready Ratatui form guide with contextual links, using the pilot approach because Search Console data is unavailable.
+- Published one copy-ready Ratatui form article with contextual links, using the pilot approach because Search Console data is unavailable.
 - Updated the GitHub README to link directly to the widget catalog and installation guide, and clarified that widgets are copyable Rust modules rather than a published crate.
 - Removed the unused Ink/OpenTUI registry, browser MCP install flow, registry API surfaces, and TSX demo pipeline; retained Rust widget previews, checked-in Ratzilla assets, and the site theme selector.
 - Kept all existing widget URLs and preserved the docs changelog source directory.
