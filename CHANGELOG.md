@@ -36,7 +36,7 @@ Notable Term/UI changes are recorded here. Format follows [Keep a Changelog](htt
 
 ### Changed
 
-- Added a Trendtrack-style navbar hover animation with local halo and text motion for desktop links.
+- Added a Rustify-style navbar hover animation with local halo and text motion for desktop links.
 - Updated the GitHub star counter to load after hydration through a cached server endpoint, with loading and failure states that avoid displaying a false zero.
 - Moved Installation directly after Docs in the main navigation.
 - Mentioned the Rust/UI ecosystem and linked to rust-ui.com in the README.
