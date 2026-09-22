@@ -6,6 +6,7 @@ Notable Term/UI changes are recorded here. Format follows [Keep a Changelog](htt
 
 ### Added
 
+- Added a proposed privacy-conscious PostHog analytics plan with typed Term/UI events, engagement and bot safeguards, and a clear separation from Google Search Console.
 - Added the Ratatui SEO article foundation with validated article content, author routes, and indexable editorial pages.
 - Removed the standalone docs guides section; form guidance now lives in the article library.
 - Added a composable right/left Drawer with profile-trigger demo, close button, Escape, and overlay-bounds outside-click dismissal; dismissible Toasts now close on outside click too.
