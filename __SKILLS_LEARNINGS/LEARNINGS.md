@@ -9,6 +9,7 @@ One line per reusable project lesson. Format: `YYYY-MM-DD [domain] avoid X, do Y
 
 ## Inbox
 
+- 2026-09-22 [termui/deploy] keep canonical domain, Nginx hostnames, Certbot SANs, health checks, and absolute URLs synchronized when moving production domains.
 - 2026-09-22 [termui/integrations] load live external counters through a client resource backed by a cached server endpoint; static layouts otherwise freeze the value at build time.
 - 2026-09-22 [termui/repository] mark checked-in wasm-bindgen JavaScript glue as `linguist-generated` so GitHub language stats measure authored source.
 - 2026-09-22: Keep article content under `content/articles`, with the Fumadocs source as the single metadata and MDX body source.
@@ -20,7 +21,7 @@ One line per reusable project lesson. Format: `YYYY-MM-DD [domain] avoid X, do Y
 - 2026-09-21 [termui/widgets] compose stateful overlays from parent-owned state, trigger, content, and close controls; let the app route input so each part stays reusable.
 - 2026-09-21 [termui/demos] route independent Ratzilla binaries through one shared static shell, but keep wasm-bindgen JS glue per binary because generated imports vary.
 - 2026-09-21 [termui/demos] keep the Ratzilla terminal element flush with its viewport; padding shrinks the DOM grid while backend mouse coordinates still scale against the full viewport.
-- 2026-09-21 [termui/brand] treat Term/UI as an independent Ratatui product; use `termui.rustify.app` as canonical domain and describe widgets as copyable Rust source modules.
+- 2026-09-21 [termui/brand] treat Term/UI as an independent Ratatui product; use `termui.rs` as canonical domain and describe widgets as copyable Rust source modules.
 - 2026-09-21 [termui/toolchain] keep `packageManager` aligned with the installed pnpm major; Corepack follows the repo pin even when a newer global pnpm exists.
 - 2026-09-21 [termui/docs] check Fumadocs route groups when moving docs; `(root)` does not create a distinct URL segment, so same-slug pages collide.
 - 2026-09-21 [termui/types] derive route and widget types from centralized catalogs; avoid duplicated string literals that drift as the catalog grows.

@@ -3,7 +3,7 @@
 **Status:** Proposed implementation plan
 **Prepared:** 2026-09-21
 **Product:** Term/UI
-**Canonical origin:** `https://termui.rustify.app`
+**Canonical origin:** `https://termui.rs`
 
 ## 1. Objective
 
@@ -16,7 +16,7 @@ This plan defines the system and a focused launch of 10 articles. Finish and rev
 ## 2. Guardrails
 
 - Write the site, article, metadata, and UI copy in English.
-- Use `termui.rustify.app` for all canonical and absolute URLs. Keep Term/UI an independent product; do not inherit Rustify product CTAs or branding.
+- Use `termui.rs` for all canonical and absolute URLs. Keep Term/UI an independent product; do not inherit Rustify product CTAs or branding.
 - Preserve Term/UI's existing shadcn UI, site shell, theme behavior, and visual conventions. Reuse RUSTIFY's information architecture and behavior; adapt the presentation to Term/UI.
 - Describe Term/UI accurately: copyable, customizable Ratatui widget source and Rust-rendered previews. Do not imply it is a published Cargo crate.
 - Do not introduce a dependency until the existing Fumadocs, Zod, Next.js, and shared UI mechanisms have been checked.
@@ -333,7 +333,7 @@ Keyword phrases below are intent hypotheses, not verified volume estimates. Vali
 - Article metadata uses its true canonical path, article social type, published/modified dates, and the author name. Set all nested Open Graph/Twitter fields deliberately; Next.js metadata objects do not always deep-merge nested objects as authors expect ([Next.js metadata API](https://nextjs.org/docs/app/api-reference/functions/generate-metadata)).
 - Give all public editorial routes `index,follow`; do not apply `noindex` to any of the 10 articles, four category archives, hub, or valid author profiles. Query-parameter filter states remain non-editorial duplicates: point them to the clean hub canonical and keep them out of the sitemap.
 - Use `generateMetadata` for slug-dependent articles. Return the page-specific generated OG image or a real authored image, with dimensions and useful alt text.
-- Canonical URLs use `https://termui.rustify.app`, with one trailing-slash policy consistent across metadata, internal links, sitemap, and redirects. Canonical tags and sitemap entries must agree ([Google canonicalization](https://developers.google.com/search/docs/crawling-indexing/canonicalization)).
+- Canonical URLs use `https://termui.rs`, with one trailing-slash policy consistent across metadata, internal links, sitemap, and redirects. Canonical tags and sitemap entries must agree ([Google canonicalization](https://developers.google.com/search/docs/crawling-indexing/canonicalization)).
 - Do not add keyword meta tags or try to rank each filter/sort permutation.
 
 ### Structured data
@@ -454,7 +454,7 @@ Keyword phrases below are intent hypotheses, not verified volume estimates. Vali
 
 ### Search and sharing
 
-- [ ] Each public route has a unique title/description and correct self-canonical on `termui.rustify.app`.
+- [ ] Each public route has a unique title/description and correct self-canonical on `termui.rs`.
 - [ ] Filter query views cannot become duplicate indexable pages.
 - [ ] Sitemap lists all canonical launch articles, all four category pages, the hub, and valid author pages with honest dates.
 - [ ] JSON-LD validates and exactly reflects visible author/date/title/breadcrumb data.

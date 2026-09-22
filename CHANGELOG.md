@@ -36,6 +36,7 @@ Notable Term/UI changes are recorded here. Format follows [Keep a Changelog](htt
 
 ### Changed
 
+- Switched the canonical Term/UI domain and shared-apps TLS deployment from `termui.rustify.app` to `termui.rs`.
 - Matched the desktop Labs dropdown to the compact Rust/UI two-column layout.
 - Marked checked-in wasm-bindgen JavaScript glue as generated so GitHub language stats reflect authored source.
 - Expanded the ten Ratatui articles with production-focused answer-first sections, FAQ depth, decision callouts, primary sources, and contextual internal links.

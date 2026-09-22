@@ -13,7 +13,7 @@ Primary audience: Rust developers already building, or choosing to build, a term
 
 ### Strong foundation
 
-- Canonical product domain is termui.rustify.app. Existing route aliases redirect to current docs routes.
+- Canonical product domain is termui.rs. Existing route aliases redirect to current docs routes.
 - seo/metadata.ts centralizes canonical URLs, descriptions, Open Graph, and Twitter metadata. Widget and chart pages generate page-specific metadata.
 - app/sitemap.ts and app/robots.txt/route.ts exist. Robots allows crawling and names the sitemap.
 - Docs are statically rendered. Site has 45 individual widget pages, Rust source, and Rust-generated previews.
@@ -77,7 +77,7 @@ Phase 1 repository work is complete. Phase 2 priority pages are improved; remain
 
 ### Phase 0 — Establish evidence and indexing baseline
 
-- Verify ownership/access for Google Search Console and Bing Webmaster Tools for https://termui.rustify.app. Add the canonical sitemap in each console if absent.
+- Verify ownership/access for Google Search Console and Bing Webmaster Tools for https://termui.rs. Add the canonical sitemap in each console if absent.
 - Review the live SERP for the priority query groups and record result types, competing component libraries, terminology, and gaps. Use autocomplete/community language as input, then validate with Search Console; do not buy keyword tools or add a new package just for the audit.
 - In Search Console, export the last 3–6 months of queries and pages. Group branded vs non-branded queries; record impressions, clicks, CTR, average position, and indexing status for the homepage, widget hub, each widget page, installation, and chart pages.
 - Inspect important URLs with URL Inspection: homepage, widget hub, Button, Text Input, Dialog, Charts, and Installation. Confirm crawl allowed, HTTP 200, rendered text, index eligibility, selected canonical, and mobile rendering.

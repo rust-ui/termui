@@ -1,4 +1,4 @@
-export const FALLBACK_SITE_ORIGIN = "https://termui.rustify.app" as const;
+export const FALLBACK_SITE_ORIGIN = "https://termui.rs" as const;
 
 const getBaseUrl = () => {
   if (process.env.NODE_ENV !== "production") {

@@ -55,7 +55,7 @@ export const getStargazerCount = async (): Promise<number> => {
     {
       headers: {
         Accept: "application/vnd.github+json",
-        "User-Agent": "termui.rustify.app",
+        "User-Agent": "termui.rs",
         "X-GitHub-Api-Version": "2022-11-28",
       },
       next: { revalidate: 3_600 },

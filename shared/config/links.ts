@@ -9,5 +9,5 @@ const GITHUB_URL = `https://github.com/${GITHUB.org}/${GITHUB.repo}`;
 export const LINK = {
   GITHUB: GITHUB_URL,
   LICENSE: `${GITHUB_URL}/blob/${GITHUB.branch}/LICENSE`,
-  PORTFOLIO: "https://termui.rustify.app",
+  PORTFOLIO: "https://termui.rs",
 } as const;

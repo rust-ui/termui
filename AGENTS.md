@@ -1,7 +1,7 @@
 # Term/UI agent guide
 
 - Keep project documentation and generated user-facing copy in English.
-- Treat Term/UI as an independent Ratatui product. Use `termui.rustify.app` as canonical domain. Widgets are copyable Rust source modules, not a published Cargo crate.
+- Treat Term/UI as an independent Ratatui product. Use `termui.rs` as canonical domain. Widgets are copyable Rust source modules, not a published Cargo crate.
 - Add a concise entry under `## [Unreleased]` in `CHANGELOG.md` for every visible or architectural change.
 - Add reusable project lessons to `__SKILLS_LEARNINGS/LEARNINGS.md`; keep one dated line per lesson.
 - Preserve the existing UI and behavior. Sponsor page and Sponsor link stay omitted.

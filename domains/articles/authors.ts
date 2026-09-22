@@ -16,7 +16,7 @@ export const ARTICLE_AUTHORS: ArticleAuthor[] = [
     avatar: "/articles/author-max-wells.webp",
     socials: [
       { label: "GitHub", href: "https://github.com/rust-ui/termui" },
-      { label: "Term/UI", href: "https://termui.rustify.app" },
+      { label: "Term/UI", href: "https://termui.rs" },
     ],
   },
 ];

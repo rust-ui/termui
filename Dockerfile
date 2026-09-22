@@ -5,7 +5,7 @@ WORKDIR /app
 RUN corepack enable
 COPY . .
 ENV NEXT_TELEMETRY_DISABLED=1
-ENV SITE_URL=https://termui.rustify.app
+ENV SITE_URL=https://termui.rs
 RUN --mount=type=cache,id=termui-pnpm-store,target=/pnpm/store \
     pnpm install --frozen-lockfile \
     && pnpm build:production
