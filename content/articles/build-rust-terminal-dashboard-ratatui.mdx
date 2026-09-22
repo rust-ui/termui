@@ -12,6 +12,10 @@ short_title_thumbnail: "Terminal Dashboard"
 
 A good terminal dashboard answers three questions quickly: what is healthy, what changed, and what needs attention. Ratatui gives you primitives; your layout and data model create the hierarchy.
 
+*By Max Wells, creator of [Rust/UI](https://rust-ui.com) and [Rustify](https://rustify.rs).*
+
+> **TL;DR:** Model dashboard data separately from rendering, compose readable cards, charts, and tables, refresh on a controlled interval, and design for empty, stale, and narrow-terminal states.
+
 ## Start with a data model
 
 Keep metrics independent from rendering. A small model makes refresh behavior predictable.

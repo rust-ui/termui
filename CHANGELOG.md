@@ -37,7 +37,9 @@ Notable Term/UI changes are recorded here. Format follows [Keep a Changelog](htt
 ### Changed
 
 - Removed legacy upstream provenance references from project documentation.
-- Added a linked Max Wells creator byline to article headers.
+- Added linked Max Wells creator bylines and concise TL;DR summaries to every SEO article.
+- Fixed article table-of-contents labels rendering as [object Object].
+- Added regression coverage for structured MDX table-of-contents titles.
 - Added a Rustify-style navbar hover animation with local halo and text motion for desktop links.
 - Updated the GitHub star counter to load after hydration through a cached server endpoint, with loading and failure states that avoid displaying a false zero.
 - Moved Installation directly after Docs in the main navigation.

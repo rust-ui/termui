@@ -12,6 +12,10 @@ short_title_thumbnail: "Ship a Rust TUI"
 
 Shipping a terminal UI means testing the terminal around your app, not only the widgets. Capabilities, fonts, widths, resize events, and cleanup all affect the release.
 
+*By Max Wells, creator of [Rust/UI](https://rust-ui.com) and [Rustify](https://rustify.rs).*
+
+> **TL;DR:** Ship reliable Rust TUIs by checking terminal capabilities, Unicode and width behavior, resize handling, cleanup on every exit path, and platform packaging.
+
 ## Check terminal capabilities
 
 Detect color and Unicode assumptions through the selected backend and document a supported terminal matrix. Provide readable fallbacks when true color or special glyphs are unavailable.

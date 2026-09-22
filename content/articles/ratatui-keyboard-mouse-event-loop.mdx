@@ -12,6 +12,10 @@ short_title_thumbnail: "Input & Events"
 
 Terminal input becomes manageable when the event loop has one job: translate events into app actions. Rendering then consumes state after an action, rather than reacting to input in every widget.
 
+*By Max Wells, creator of [Rust/UI](https://rust-ui.com) and [Rustify](https://rustify.rs).*
+
+> **TL;DR:** Keep backend events at the boundary, map them to app actions, redraw after meaningful state changes, and handle resize plus terminal cleanup on every exit path.
+
 ## Own the terminal lifecycle
 
 Enter raw mode and alternate-screen mode before the first draw. Put restoration in a guard or a final cleanup function, and restore it on normal quit and errors.

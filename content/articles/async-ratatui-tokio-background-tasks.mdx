@@ -12,6 +12,10 @@ short_title_thumbnail: "Async Terminal UIs"
 
 Async work helps when a terminal app waits on network, files, or subprocesses. Keep terminal I/O and drawing in the UI loop, and send data across an explicit channel.
 
+*By Max Wells, creator of [Rust/UI](https://rust-ui.com) and [Rustify](https://rustify.rs).*
+
+> **TL;DR:** Keep terminal I/O and rendering in the UI loop; move blocking work to Tokio tasks, send owned messages through channels, redraw on controlled updates, and cancel workers cleanly.
+
 ## Separate worker and UI ownership
 
 The worker owns its client and sends messages. The UI owns app state and decides when to redraw. This boundary prevents a task from borrowing a frame or writing to the terminal concurrently.

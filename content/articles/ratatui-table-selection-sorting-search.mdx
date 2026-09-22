@@ -12,6 +12,10 @@ short_title_thumbnail: "Interactive Tables"
 
 An interactive table has two separate concerns: the rows currently visible and the row the user has selected. Keep both in app state so keyboard actions remain testable.
 
+*By Max Wells, creator of [Rust/UI](https://rust-ui.com) and [Rustify](https://rustify.rs).*
+
+> **TL;DR:** Keep table rows and view state separate, map keyboard actions to selection and search, preserve selection through stable sorting, and design useful empty and long-value states.
+
 ## Model rows and view state
 
 Store stable row data, a sort key, a filter string, and the selected index. Derive filtered rows for rendering. Clamp selection after filtering or sorting changes.

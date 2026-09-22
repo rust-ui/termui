@@ -12,6 +12,10 @@ short_title_thumbnail: "First Ratatui App"
 
 Ratatui applications are small when their responsibilities stay clear: the app owns state, the event loop turns input into actions, and the renderer draws the current state. This guide builds that first vertical slice.
 
+*By Max Wells, creator of [Rust/UI](https://rust-ui.com) and [Rustify](https://rustify.rs).*
+
+> **TL;DR:** Build a first Ratatui app around owned state, an event loop that maps input to actions, a renderer that draws state, and one reliable terminal cleanup path.
+
 ## Create the project
 
 Use a current Rust toolchain and add Ratatui with Crossterm for terminal input and output.

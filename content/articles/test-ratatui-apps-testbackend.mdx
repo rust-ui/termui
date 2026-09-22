@@ -12,6 +12,10 @@ short_title_thumbnail: "TestBackend Tests"
 
 Ratatui's `TestBackend` renders into an in-memory buffer. Use it to test app state and visible cells quickly, then reserve real-terminal tests for lifecycle and backend behavior.
 
+*By Max Wells, creator of [Rust/UI](https://rust-ui.com) and [Rustify](https://rustify.rs).*
+
+> **TL;DR:** Test Ratatui by separating update from render, using TestBackend for fast in-memory assertions, checking meaningful output, and reserving integration tests for terminal lifecycle behavior.
+
 ## Keep update and render separate
 
 An update function consumes an action and changes state. A render function reads state and writes widgets. This split makes failures local and keeps tests independent of terminal dimensions.

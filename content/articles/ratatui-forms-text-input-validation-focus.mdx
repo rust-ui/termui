@@ -12,6 +12,10 @@ short_title_thumbnail: "Terminal Forms"
 
 Terminal forms work when focus is obvious and validation is close to the field that needs attention. Widgets render controls; your app owns values, focus, and submit rules.
 
+*By Max Wells, creator of [Rust/UI](https://rust-ui.com) and [Rustify](https://rustify.rs).*
+
+> **TL;DR:** Let app state own form values, focus, and validation; make keyboard movement visible and predictable, then validate at submit or field boundaries with actionable errors.
+
 ## Define field state
 
 Represent each field's value and validation separately from its visual widget. Keep a focus enum rather than scattering booleans across the screen.

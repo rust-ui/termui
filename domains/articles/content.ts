@@ -3,6 +3,7 @@ import { cache } from "react";
 import { getAuthorByName } from "@/domains/articles/authors";
 import type { ArticleCategory } from "@/domains/articles/categories";
 import { articleSource } from "@/domains/articles/source";
+import { tocTitleToText } from "@/domains/articles/toc";
 
 export type ArticleSummary = {
   slug: string;
@@ -75,7 +76,13 @@ export const getArticleBySlug = cache(async (slug: string): Promise<Article | nu
     ...summary,
     headings: page.data.toc.map((heading) => ({
       id: heading.url.slice(1),
-      text: String(heading.title),
+      text:
+        tocTitleToText(heading.title) ||
+        heading.url
+          .slice(1)
+          .split("-")
+          .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+          .join(" "),
       level: heading.depth,
     })),
     body: page.data.body,

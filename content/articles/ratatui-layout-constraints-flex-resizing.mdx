@@ -12,6 +12,10 @@ short_title_thumbnail: "Layouts & Resizing"
 
 Terminal space changes constantly. Ratatui layouts stay reliable when each region has a clear sizing rule and nested layouts receive the rectangle returned by their parent.
 
+*By Max Wells, creator of [Rust/UI](https://rust-ui.com) and [Rustify](https://rustify.rs).*
+
+> **TL;DR:** Build resilient Ratatui layouts from the available frame area, choose constraints deliberately, pass child regions to nested layouts, and adapt when terminals become narrow.
+
 ## Choose constraints deliberately
 
 Use fixed lengths for borders and controls, percentages for proportional regions, and `Min` or `Max` when content must remain usable. Ratios work well for sibling panels that should grow together.
