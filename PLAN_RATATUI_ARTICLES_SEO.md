@@ -17,7 +17,7 @@ This plan defines the system and a coordinated launch of 12 articles. Finish and
 
 - Write the site, article, metadata, and UI copy in English.
 - Use `termui.rustify.app` for all canonical and absolute URLs. Keep Term/UI an independent product; do not inherit Rustify product CTAs or branding.
-- Preserve Term/UI's existing shadcn UI, site shell, theme behavior, and copied termcn visual conventions. Reuse RUSTIFY's information architecture and behavior; adapt the presentation to Term/UI.
+- Preserve Term/UI's existing shadcn UI, site shell, theme behavior, and visual conventions. Reuse RUSTIFY's information architecture and behavior; adapt the presentation to Term/UI.
 - Describe Term/UI accurately: copyable, customizable Ratatui widget source and Rust-rendered previews. Do not imply it is a published Cargo crate.
 - Do not introduce a dependency until the existing Fumadocs, Zod, Next.js, and shared UI mechanisms have been checked.
 - Do not publish articles that merely rephrase docs, repeat one query target, invent benchmarks, or claim hands-on experience without evidence.

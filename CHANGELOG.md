@@ -36,6 +36,8 @@ Notable Term/UI changes are recorded here. Format follows [Keep a Changelog](htt
 
 ### Changed
 
+- Removed legacy upstream provenance references from project documentation.
+- Added a linked Max Wells creator byline to article headers.
 - Added a Rustify-style navbar hover animation with local halo and text motion for desktop links.
 - Updated the GitHub star counter to load after hydration through a cached server endpoint, with loading and failure states that avoid displaying a false zero.
 - Moved Installation directly after Docs in the main navigation.
@@ -51,7 +53,7 @@ Notable Term/UI changes are recorded here. Format follows [Keep a Changelog](htt
 - Add an Ecosystem column with Rust/UI, Leptos UI, and Rustify links.
 - Add a slash separator after the Labs menu trigger.
 - Route interactive demos through one shared HTML shell; preserve per-demo Rust binaries and WebAssembly assets.
-- Keep the visible changelog focused on Term/UI updates; remove inherited release history.
+- Keep the visible changelog focused on Term/UI updates; remove unrelated release history.
 - Moved the `termui-widgets` crate into `crates/termui-registry/src/widgets` and updated its workspace, dependency, and source references.
 - Extract Resizable Layout interaction state and input handling from its renderer; derive state labels with Strum.
 - Keep chart legends within plot bounds in area and line chart previews.
@@ -62,7 +64,6 @@ Notable Term/UI changes are recorded here. Format follows [Keep a Changelog](htt
 - Reject widget docs that use `TerminalFrame` without a Preview/Code switcher.
 - Generate Ratzilla demo entry HTML from one shared template and MDX references.
 - Show whether each widget demo is interactive or static beside its Preview/Code tabs.
-- Adopted termcn’s geometric logo mark with a custom R, updating the favicon family and downloadable Term/UI logo.
 - Rebuilt Dialog as composable trigger, content, header, title, description, footer, and close components; added a Ratzilla demo with a blue trigger that opens on click.
 - Removed the KeyBar widget, page, component catalog entry, and preview.
 - Renamed the Rust Radio Group page and preview to Radio Card; disable text selection in static terminal previews while leaving code samples selectable.
@@ -75,8 +76,8 @@ Notable Term/UI changes are recorded here. Format follows [Keep a Changelog](htt
 - Added a Usage section after Source on each widget page.
 - Moved the button example into a dedicated Usage section after its source.
 - Replaced Carbon Ads in the documentation with a Rustify CTA linking to `rustify.rs`.
-- Added Ratatui widget pages under flat `/docs/widgets/*` routes with the termcn sidebar navigation and searchable widget source.
-- Reduced public documentation to four core pages, redirected retired catalog routes to the registry, and retained the source-site changelog history.
+- Added Ratatui widget pages under flat `/docs/widgets/*` routes with sidebar navigation and searchable widget source.
+- Reduced public documentation to four core pages, redirected retired catalog routes to the registry, and retained the existing changelog history.
 
 ### Fixed
 
@@ -89,10 +90,9 @@ Notable Term/UI changes are recorded here. Format follows [Keep a Changelog](htt
 - Set Term/UI as an independent product with `termui.rustify.app` as its canonical site, registry, SEO, and deployment origin.
 - Replaced cloud-platform deployment with the shared-apps Docker, Docker Hub, SSH, Nginx, and Certbot deployment path.
 - Upgraded the pinned pnpm toolchain to 12.5.1 and locked its Corepack binary metadata.
-- Copied the termcn site UI and content while omitting its Sponsor page and navigation link.
 - Replaced browser terminal runtimes and generated WebAssembly demos with static Rust-rendered frames.
 - Aligned pnpm supply-chain protections with RUSTIFY; upgraded Next.js to 16.3.3 after the production audit found two critical advisories.
-- Kept Term/UI's existing Ratatui component pages and source while moving them into the termcn documentation shell.
+- Kept Term/UI's existing Ratatui component pages and source while moving them into the documentation shell.
 
 ### Fixed
 
@@ -105,4 +105,4 @@ Notable Term/UI changes are recorded here. Format follows [Keep a Changelog](htt
 
 ## Source history
 
-The copied website changelog remains under [`content/docs/(root)/changelog/`](content/docs/(root)/changelog/).
+The website changelog remains under [`content/docs/(root)/changelog/`](content/docs/(root)/changelog/).
