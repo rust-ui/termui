@@ -34,6 +34,8 @@ Notable Term/UI changes are recorded here. Format follows [Keep a Changelog](htt
 
 ### Changed
 
+- Updated the GitHub star counter to load after hydration through a cached server endpoint, with loading and failure states that avoid displaying a false zero.
+- Moved Installation directly after Docs in the main navigation.
 - Mentioned the Rust/UI ecosystem and linked to rust-ui.com in the README.
 - Simplified the README to a centered logo, short description, and docs link.
 - Reorganized app source into feature-owned `domains/` and cross-feature `shared/` modules; kept Next.js `app/` and shadcn UI at the repository root.

@@ -49,29 +49,29 @@ export const getStargazers = unstable_cache(
   { revalidate: 86_400 },
 );
 
-export const getStargazerCount = unstable_cache(
-  async () => {
-    try {
-      const response = await fetch(
-        `https://api.github.com/repos/${GITHUB.org}/${GITHUB.repo}`,
-        {
-          headers: {
-            Accept: "application/vnd.github+json",
-            "X-GitHub-Api-Version": "2022-11-28",
-          },
-        },
-      );
+export const getStargazerCount = async (): Promise<number> => {
+  const response = await fetch(
+    `https://api.github.com/repos/${GITHUB.org}/${GITHUB.repo}`,
+    {
+      headers: {
+        Accept: "application/vnd.github+json",
+        "User-Agent": "termui.rustify.app",
+        "X-GitHub-Api-Version": "2022-11-28",
+      },
+      next: { revalidate: 3_600 },
+    },
+  );
 
-      if (!response.ok) {
-        return 0;
-      }
+  if (!response.ok) {
+    throw new Error(`GitHub API returned ${response.status}`);
+  }
 
-      const json = (await response.json()) as { stargazers_count?: number };
-      return Number(json?.stargazers_count) || 0;
-    } catch {
-      return 0;
-    }
-  },
-  ["github-stargazer-count"],
-  { revalidate: 86_400 },
-);
+  const json = (await response.json()) as { stargazers_count?: number };
+  const count = json.stargazers_count;
+
+  if (typeof count !== "number" || !Number.isInteger(count) || count < 0) {
+    throw new Error("GitHub API returned an invalid star count");
+  }
+
+  return count;
+};
