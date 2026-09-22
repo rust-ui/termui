@@ -36,6 +36,7 @@ Notable Term/UI changes are recorded here. Format follows [Keep a Changelog](htt
 
 ### Changed
 
+- Reduced the article launch set to ten production-focused Ratatui guides; removed the beginner first-app and Cursive comparison pages.
 - Removed legacy upstream provenance references from project documentation.
 - Matched article share controls to the Rustify SVG brand icons for copy, X, WhatsApp, and LinkedIn.
 - Added linked Max Wells creator bylines and concise TL;DR summaries to every SEO article.

@@ -11,7 +11,7 @@ Build a complete, maintainable English article section for developers searching 
 
 The deliverable is a useful article library, not a set of keyword landing pages. Each article must solve a distinct task, show working Rust examples, and connect readers to the matching Term/UI documentation and copyable widget source.
 
-This plan defines the system and a coordinated launch of 12 articles. Finish and review the full cohort before publishing all articles, category pages, and author pages together in one production release. It does not claim traffic/search volume; validate the 12 query intents against Google Search Console and current search results before drafting.
+This plan defines the system and a focused launch of 10 articles. Finish and review the full cohort before publishing all articles, category pages, and author pages together in one production release. It does not claim traffic/search volume; validate the 10 query intents against Google Search Console and current search results before drafting.
 
 ## 2. Guardrails
 
@@ -96,7 +96,7 @@ shared/config/routes.ts                 # Central /articles and /authors paths
 Add an `articles` Fumadocs collection for `content/articles/*.mdx`. Keep its schema small, explicit, and build-validated. Proposed required frontmatter:
 
 ```yaml
-title: "Build Your First Rust TUI with Ratatui"
+title: "Build a Terminal Dashboard in Rust with Ratatui"
 short_title_thumbnail: "First Ratatui App"
 description: "Build a small interactive terminal app in Rust with Ratatui..."
 keywords: ["Ratatui tutorial", "Rust TUI"]
@@ -111,7 +111,7 @@ Optional fields: `keywords`, `last_updated`, `image`, and `image_alt`. `keywords
 
 Use a compact closed category enum: `building`, `widgets`, `engineering`, and `production`. Assign exactly three distinct launch articles to each category. Every category page gets a unique, useful introduction and curated article list, so all four category pages can be indexable at launch.
 
-Assign `order: 1..12` in the sequence below; article 1 is featured, articles 2–5 are the initial spotlight, and the remaining list follows that explicit order. After launch, sort new pieces by publication date and then order.
+Assign `order: 1..10` in the sequence below; article 1 is featured, articles 2–5 are the initial spotlight, and the remaining list follows that explicit order. After launch, sort new pieces by publication date and then order.
 
 Requirements:
 
@@ -164,32 +164,20 @@ Every published article must:
 7. Carry a named author, publish date, and a genuine update date only when updated materially.
 8. Be reviewed against current Google Search Console queries and the live SERP. Do not fabricate query volume or guarantee rankings.
 
-Google's guidance favors useful, reliable, people-first pages grounded in first-hand knowledge; it warns against scaled pages that exist mainly to capture search variations ([people-first content](https://developers.google.com/search/docs/fundamentals/creating-helpful-content), [spam policies](https://developers.google.com/search/docs/essentials/spam-policies)). Publish the 12-piece cohort only when every article and category page meets that quality bar; do not release partial batches.
+Google's guidance favors useful, reliable, people-first pages grounded in first-hand knowledge; it warns against scaled pages that exist mainly to capture search variations ([people-first content](https://developers.google.com/search/docs/fundamentals/creating-helpful-content), [spam policies](https://developers.google.com/search/docs/essentials/spam-policies)). Publish the 10-piece cohort only when every article and category page meets that quality bar; do not release partial batches.
 
-## 6. Coordinated SEO launch: 12 article briefs
+## 6. Coordinated SEO launch: 10 article briefs
 
 Keyword phrases below are intent hypotheses, not verified volume estimates. Validate them with Search Console, autocomplete, and current result pages before drafting. Keep the article title, H1, slug, outline, and internal links aligned to that one intent. Launch the complete set together; every article must be ready before the release date.
 
 | Category | Launch articles | Count |
 | --- | --- | ---: |
-| Building | First Rust TUI, terminal dashboard, Ratatui layouts | 3 |
+| Building | Terminal dashboard, Ratatui layouts | 2 |
 | Widgets | Tables, forms, charts | 3 |
 | Engineering | Input/event loop, async with Tokio, TestBackend testing | 3 |
-| Production | Framework comparison, terminal UX, cross-platform release | 3 |
+| Production | Terminal UX, cross-platform release | 2 |
 
-### 1. Build Your First Rust TUI with Ratatui
-
-- **Primary intent:** `Ratatui tutorial`; beginner wants a working first app.
-- **Supporting phrases:** `Rust TUI tutorial`, `build terminal UI Rust`, `Ratatui getting started`.
-- **Slug:** `build-first-rust-tui-ratatui`.
-- **Category:** `building`.
-- **Angle:** A small interactive task/status app from `cargo new` through terminal rendering; explain the minimum app state and draw loop.
-- **Outline:** install/prerequisites; dependency setup; terminal init/restore; app state; layout and first widgets; event loop; run/resize/quit; next steps.
-- **Proof:** tested code matching the locked Ratatui version; a real checked-in terminal screenshot/frame; clear copy-and-run instructions.
-- **Internal links:** installation docs, widget catalog, Button, List, Text Input, form article.
-- **Avoid overlap:** keep it to a complete first vertical slice. Reserve dashboards, async, and detailed event architecture for their own guides.
-
-### 2. Build a Terminal Dashboard in Rust with Ratatui
+### 1. Build a Terminal Dashboard in Rust with Ratatui
 
 - **Primary intent:** `Ratatui dashboard`; developer wants a dashboard implementation.
 - **Supporting phrases:** `Rust terminal dashboard`, `TUI dashboard Rust`, `Ratatui charts table`.
@@ -201,7 +189,7 @@ Keyword phrases below are intent hypotheses, not verified volume estimates. Vali
 - **Internal links:** chart docs, Card, Table, Sparkline, layout article, chart gallery.
 - **Avoid overlap:** show composition and dashboard information hierarchy; link out for each widget's API details.
 
-### 3. Ratatui Layouts: Constraints, Flex, and Resizing
+### 2. Ratatui Layouts: Constraints, Flex, and Resizing
 
 - **Primary intent:** `Ratatui layout`; developer needs reliable layout sizing.
 - **Supporting phrases:** `Ratatui Layout constraints`, `Ratatui Flex`, `responsive terminal UI Rust`.
@@ -213,7 +201,7 @@ Keyword phrases below are intent hypotheses, not verified volume estimates. Vali
 - **Internal links:** Resizable Layout, Split Pane, Tabs, dashboard, official Ratatui layout docs.
 - **Avoid overlap:** cover layout primitives and resize strategy; leave widget implementation to widget articles.
 
-### 4. Ratatui Tables: Selection, Sorting, and Search
+### 3. Ratatui Tables: Selection, Sorting, and Search
 
 - **Primary intent:** `Ratatui table`; developer needs an interactive data table.
 - **Supporting phrases:** `Ratatui TableState`, `Rust TUI table selection`, `Ratatui table sorting`.
@@ -225,7 +213,7 @@ Keyword phrases below are intent hypotheses, not verified volume estimates. Vali
 - **Internal links:** Table, Sortable Table, Search Input, List, keyboard event article.
 - **Avoid overlap:** focus exclusively on table workflows; don't duplicate generic input widget docs.
 
-### 5. Build Ratatui Forms with Text Input, Validation, and Focus
+### 4. Build Ratatui Forms with Text Input, Validation, and Focus
 
 - **Primary intent:** `Ratatui form`; developer wants form controls in a terminal.
 - **Supporting phrases:** `Ratatui text input`, `Rust TUI form validation`, `Ratatui focus management`.
@@ -237,7 +225,7 @@ Keyword phrases below are intent hypotheses, not verified volume estimates. Vali
 - **Internal links:** Text Input, Text Area, Checkbox, Select List, Radio Card, form composition article.
 - **Avoid overlap:** demonstrate composition and state ownership, not a catalog of every input widget.
 
-### 6. Ratatui Charts: Plot Live Data in a Terminal
+### 5. Ratatui Charts: Plot Live Data in a Terminal
 
 - **Primary intent:** `Ratatui charts`; developer wants to visualize data in a TUI.
 - **Supporting phrases:** `Ratatui chart widget`, `Rust terminal graph`, `Ratatui sparkline`.
@@ -249,7 +237,7 @@ Keyword phrases below are intent hypotheses, not verified volume estimates. Vali
 - **Internal links:** chart gallery and family pages, Sparkline, dashboard, progress widgets.
 - **Avoid overlap:** answer when to use each chart and show composition; defer full API docs to widget pages.
 
-### 7. Ratatui Input Handling: Keyboard, Mouse, and Event Loops
+### 6. Ratatui Input Handling: Keyboard, Mouse, and Event Loops
 
 - **Primary intent:** `Ratatui keyboard input`; developer wants controls to respond to user input.
 - **Supporting phrases:** `Ratatui event handling`, `crossterm key events`, `Ratatui mouse support`.
@@ -258,10 +246,10 @@ Keyword phrases below are intent hypotheses, not verified volume estimates. Vali
 - **Angle:** Explain terminal setup, event reading, key mapping, app state updates, redraw decisions, and mouse-coordinate pitfalls.
 - **Outline:** terminal lifecycle; event loop; key press/repeat/release distinctions supported by current APIs; map events to actions; mouse capture and coordinates; quit and restore reliably.
 - **Proof:** runnable example with keyboard behavior, plus mouse behavior only where supported by the chosen backend.
-- **Internal links:** first-app tutorial, Dialog, Drawer, Toast, Resizable Layout, official Crossterm docs.
+- **Internal links:** Dialog, Drawer, Toast, Resizable Layout, dashboard article, official Crossterm docs.
 - **Avoid overlap:** establish synchronous event handling; defer async channels and background tasks to article 8.
 
-### 8. Async Ratatui with Tokio: Channels, Tasks, and Redraws
+### 7. Async Ratatui with Tokio: Channels, Tasks, and Redraws
 
 - **Primary intent:** `async Ratatui`; developer wants background work without freezing a terminal UI.
 - **Supporting phrases:** `Ratatui Tokio`, `Rust TUI background task`, `async terminal UI`.
@@ -270,10 +258,10 @@ Keyword phrases below are intent hypotheses, not verified volume estimates. Vali
 - **Angle:** Show a safe boundary between async workers and a synchronous terminal event/render loop, using channels and explicit refresh policy.
 - **Outline:** when async is warranted; task ownership; channels; cancellation/shutdown; event-loop integration; redraw rate; error propagation; avoid blocking terminal I/O.
 - **Proof:** a small live-status example with graceful exit and documented dependency/API versions.
-- **Internal links:** first-app tutorial, event handling, dashboard, progress/loading widgets.
+- **Internal links:** event handling, dashboard, progress/loading widgets.
 - **Avoid overlap:** don't re-teach the basic event loop; focus on concurrent data and lifecycle.
 
-### 9. How to Test Ratatui Applications with TestBackend
+### 8. How to Test Ratatui Applications with TestBackend
 
 - **Primary intent:** `test Ratatui app`; developer wants repeatable UI tests.
 - **Supporting phrases:** `Ratatui TestBackend`, `Rust TUI unit testing`, `test terminal UI Rust`.
@@ -282,22 +270,10 @@ Keyword phrases below are intent hypotheses, not verified volume estimates. Vali
 - **Angle:** Test application state transitions and rendered buffers without a real terminal, then identify where integration tests remain necessary.
 - **Outline:** separate update/render; construct a test frame/backend; assert buffer cells; test selection/validation; snapshots and brittleness; terminal lifecycle integration tests.
 - **Proof:** tests that run using repository-compatible crate versions; show exact commands and expected assertions.
-- **Internal links:** Button/Text Input tests or source pages, first-app tutorial, forms, tables.
+- **Internal links:** Button/Text Input tests or source pages, event handling, forms, tables.
 - **Avoid overlap:** distinguish pure render/state tests from browser tests for Term/UI's demos.
 
-### 10. Ratatui vs Cursive: Choosing a Rust TUI Framework
-
-- **Primary intent:** `Ratatui vs Cursive`; developer is evaluating Rust terminal UI frameworks.
-- **Supporting phrases:** `Rust TUI frameworks`, `Ratatui alternatives`, `Cursive vs Ratatui`.
-- **Slug:** `ratatui-vs-cursive-rust-tui`.
-- **Category:** `production`.
-- **Angle:** Fair comparison by rendering model, widgets, state ownership, event integration, extensibility, maintenance, and learning curve.
-- **Outline:** who each fits; accurate comparison table; minimal examples from both; ecosystem and version check; decision matrix; migration/caveats.
-- **Proof:** verify versions, APIs, licenses, maintenance, and claims against each project's official repository/docs on publication day.
-- **Internal links:** first-app tutorial, widget catalog, relevant upstream projects.
-- **Avoid overlap:** compare Rust libraries only. Do not mislabel non-Rust tools like Bubble Tea as Rust alternatives or make unsupported performance claims.
-
-### 11. Terminal UI UX: Navigation, Focus, and Accessibility
+### 9. Terminal UI UX: Navigation, Focus, and Accessibility
 
 - **Primary intent:** `terminal UI design`; developer wants a usable TUI interaction model.
 - **Supporting phrases:** `TUI design patterns`, `terminal app keyboard navigation`, `accessible terminal UI`.
@@ -309,7 +285,7 @@ Keyword phrases below are intent hypotheses, not verified volume estimates. Vali
 - **Internal links:** Help Screen, Menu, Tabs, Tooltip, Dialog, form article, layout article.
 - **Avoid overlap:** UX patterns, not an API tutorial for each widget.
 
-### 12. Shipping a Rust TUI Across Terminals and Platforms
+### 10. Shipping a Rust TUI Across Terminals and Platforms
 
 - **Primary intent:** `cross-platform Rust TUI`; developer is preparing a terminal app for users.
 - **Supporting phrases:** `Rust TUI unicode`, `terminal color support`, `Ratatui terminal resize`, `ship Rust terminal app`.
@@ -329,7 +305,7 @@ Keyword phrases below are intent hypotheses, not verified volume estimates. Vali
 - `/articles/[slug]`: one static route per published article; unknown slugs return a real 404.
 - `/articles/category/[category]`: four static category landing pages, each with three launch articles and a distinct, useful introduction. All four are indexable.
 - `/authors` and `/authors/[slug]`: substantive, indexable byline index/profile pages; every byline links to its profile.
-- All public editorial routes (`/articles`, all 12 article pages, all four category pages, `/authors`, and valid author profiles) ship with `index,follow`, self-canonicals, crawlable HTML links, and sitemap entries. Google chooses final index inclusion; the implementation must not block these pages with `noindex`, robots rules, or missing links.
+- All public editorial routes (`/articles`, all 10 article pages, all four category pages, `/authors`, and valid author profiles) ship with `index,follow`, self-canonicals, crawlable HTML links, and sitemap entries. Google chooses final index inclusion; the implementation must not block these pages with `noindex`, robots rules, or missing links.
 - Add at least one normal HTML link to `/articles` from existing Term/UI navigation, footer, or a relevant landing page. Add contextual links from docs and related articles. Don't rely on sitemap discovery alone.
 - Use category filter query parameters only as a usability aid. Ignore invalid category values and apply `noindex,follow` to parameterized hub views while retaining the clean `/articles` canonical.
 
@@ -355,7 +331,7 @@ Keyword phrases below are intent hypotheses, not verified volume estimates. Vali
 
 - Use the existing `createPageMetadata` in `app/(seo)/_lib/metadata.ts` for unique title, description, canonical, Open Graph, and Twitter metadata.
 - Article metadata uses its true canonical path, article social type, published/modified dates, and the author name. Set all nested Open Graph/Twitter fields deliberately; Next.js metadata objects do not always deep-merge nested objects as authors expect ([Next.js metadata API](https://nextjs.org/docs/app/api-reference/functions/generate-metadata)).
-- Give all public editorial routes `index,follow`; do not apply `noindex` to any of the 12 articles, four category archives, hub, or valid author profiles. Query-parameter filter states remain non-editorial duplicates: point them to the clean hub canonical and keep them out of the sitemap.
+- Give all public editorial routes `index,follow`; do not apply `noindex` to any of the 10 articles, four category archives, hub, or valid author profiles. Query-parameter filter states remain non-editorial duplicates: point them to the clean hub canonical and keep them out of the sitemap.
 - Use `generateMetadata` for slug-dependent articles. Return the page-specific generated OG image or a real authored image, with dimensions and useful alt text.
 - Canonical URLs use `https://termui.rustify.app`, with one trailing-slash policy consistent across metadata, internal links, sitemap, and redirects. Canonical tags and sitemap entries must agree ([Google canonicalization](https://developers.google.com/search/docs/crawling-indexing/canonicalization)).
 - Do not add keyword meta tags or try to rank each filter/sort permutation.
@@ -373,10 +349,10 @@ Keyword phrases below are intent hypotheses, not verified volume estimates. Vali
 ### Sitemap, crawl, and index policy
 
 - Extend `app/(seo)/sitemap.ts`; preserve existing home/docs/chart entries.
-- Include all 12 canonical article URLs, all four category URLs, `/articles`, `/authors`, and valid author profiles. Use actual `last_updated` or `publish_date`; never current build time.
+- Include all 10 canonical article URLs, all four category URLs, `/articles`, `/authors`, and valid author profiles. Use actual `last_updated` or `publish_date`; never current build time.
 - Keep query-string filters out of the sitemap. Do not include draft, preview, empty-category, or duplicate routes.
 - Keep `robots.txt` public behavior unchanged and ensure its sitemap URL remains the canonical Term/UI sitemap. Sitemap submission is a discovery hint, not an indexing guarantee ([sitemap guidance](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap)).
-- New article routes must be statically rendered at build time when the content is local and immutable; keep route generation bounded to the 12 validated MDX files and four known categories.
+- New article routes must be statically rendered at build time when the content is local and immutable; keep route generation bounded to the 10 validated MDX files and four known categories.
 
 ### Open Graph images
 
@@ -389,10 +365,10 @@ Keyword phrases below are intent hypotheses, not verified volume estimates. Vali
 ### Phase 0 — Validate editorial targets
 
 - [ ] Review Search Console queries/pages for Ratatui, Rust TUI, terminal UI, and current widget docs.
-- [ ] Check live SERPs and query phrasing for all 12 briefs; record one intent and one primary page per cluster.
+- [ ] Check live SERPs and query phrasing for all 10 briefs; record one intent and one primary page per cluster.
 - [ ] Check current docs/routes for overlap; adjust or drop briefs that would duplicate an existing page.
-- [ ] Finish query validation and source research for all 12 before implementation reaches release readiness.
-- [ ] If a brief fails validation, replace it with a distinct, evidence-supported brief while preserving the 12-piece launch cohort and four categories.
+- [ ] Finish query validation and source research for all 10 before implementation reaches release readiness.
+- [ ] If a brief fails validation, replace it with a distinct, evidence-supported brief while preserving the 10-piece launch cohort and four categories.
 
 **Done when:** briefs have non-overlapping intents, named reader tasks, and a realistic evidence/source plan.
 
@@ -410,7 +386,7 @@ Keyword phrases below are intent hypotheses, not verified volume estimates. Vali
 ### Phase 2 — Public article routes and site shell
 
 - [ ] Add the `(seo)` layout and article layout without duplicate root/site header/footer output.
-- [ ] Add article hub, all 12 static slug routes, all four category routes, author index/profile routes, and 404 behavior.
+- [ ] Add article hub, all 10 static slug routes, all four category routes, author index/profile routes, and 404 behavior.
 - [ ] Render initial hub content and category/article links in server HTML; implement filter/search enhancement with invalid query handling and `noindex,follow` metadata.
 - [ ] Reuse shadcn and current Term/UI components. Match existing light/dark theme and responsive behavior.
 - [ ] Add the article hub to a visible site entry point and add contextual links from relevant docs pages.
@@ -431,27 +407,27 @@ Keyword phrases below are intent hypotheses, not verified volume estimates. Vali
 - [ ] Generate unique metadata and self-canonicals for hub, category, article, and author routes.
 - [ ] Add Article/BlogPosting, BreadcrumbList, CollectionPage/ItemList, and Person JSON-LD where content supports them.
 - [ ] Add hub, category, author, and per-article generated OG images plus optional real hero-image support.
-- [ ] Extend sitemap with all 12 articles, all four categories, the hub, and valid author routes using real publication/update dates.
+- [ ] Extend sitemap with all 10 articles, all four categories, the hub, and valid author routes using real publication/update dates.
 - [ ] Audit `robots.txt`, canonical origin, image URLs, metadata on production domain, and internal links.
 
 **Done when:** no duplicate canonical targets, missing metadata, broken assets, invalid JSON-LD, or query-param sitemap URLs remain.
 
 ### Phase 5 — Prepare the single launch cohort
 
-- [ ] Draft and technically review all 12 articles before the production launch.
+- [ ] Draft and technically review all 10 articles before the production launch.
 - [ ] Compile/run every code example against repository-compatible Ratatui versions.
 - [ ] Complete all four category introductions, author pages, thumbnails/OG assets, metadata, internal links, and sitemap entries before release.
 - [ ] Set each `publish_date` to the actual shared release date; never pre-publish part of the cohort or backdate articles.
 - [ ] Stage every article, category, author page, navigation link, and sitemap change for one coordinated production deployment.
 - [ ] Revisit `last_updated` only when code/API, upstream facts, or substantial editorial guidance changes.
 
-**Done when:** all 12 articles and every supporting index/category/author page pass review and can ship in the same release; none depends on a later content batch.
+**Done when:** all 10 articles and every supporting index/category/author page pass review and can ship in the same release; none depends on a later content batch.
 
 ### Phase 6 — Release and ongoing measurement
 
 - [ ] Run repository `pnpm check:quality` and production `pnpm build:production`; verify articles do not require Rust demo generation/toolchain unless an article asset actually does.
 - [ ] Inspect generated HTML for title, description, canonical, visible text, links, OG/Twitter tags, and JSON-LD.
-- [ ] Verify all 12 article URLs, all four category URLs, the hub, author pages, sitemap, and robots response on the production deployment.
+- [ ] Verify all 10 article URLs, all four category URLs, the hub, author pages, sitemap, and robots response on the production deployment.
 - [ ] Confirm every intended editorial URL returns 200, has a self-canonical, is not blocked or `noindex`, appears in crawlable HTML links and the sitemap, and has valid metadata/schema.
 - [ ] Submit/update the sitemap in Search Console on launch day; monitor indexing, impressions, clicks, CTR, and query/page match. Google controls actual index inclusion; submission cannot guarantee it.
 - [ ] Review articles after Ratatui or backend/API changes; remove or redirect retired slugs rather than silently changing published URLs.
@@ -472,7 +448,7 @@ Keyword phrases below are intent hypotheses, not verified volume estimates. Vali
 - [ ] Term/UI brand/domain and shadcn/theme behavior preserved; no Rustify career CTA or sponsor surface appears.
 - [ ] Articles remain MDX in `content/articles/`; docs and changelog sources remain where they are.
 - [ ] Zod catches bad metadata/categories/author/image paths at build time.
-- [ ] Hub, all 12 detail pages, all four category pages, and author pages are statically generated and return correct 404s.
+- [ ] Hub, all 10 detail pages, all four category pages, and author pages are statically generated and return correct 404s.
 - [ ] Existing site header/footer appear exactly once on every article/author route.
 - [ ] Keyboard navigation, reduced viewport widths, code copy, and image alt behavior work.
 
