@@ -1,6 +1,6 @@
 ---
-title: "Ratatui Tables: Selection, Sorting, and Search"
-description: "Build a keyboard-navigable Ratatui table with selection, sorting, filtering, and empty states."
+title: "Ratatui Tables: Selection, Sorting, and Search in Rust 2026"
+description: "Build a keyboard-navigable Ratatui table with stable selection, sorting, filtering, long-cell handling, empty states, and testable app state."
 keywords: ["Ratatui table", "Ratatui TableState", "Rust TUI table selection"]
 category: "widgets"
 order: 3
@@ -14,28 +14,132 @@ An interactive table has two separate concerns: the rows currently visible and t
 
 *By Max Wells, creator of [Rust/UI](https://rust-ui.com) and [Rustify](https://rustify.rs).*
 
-> **TL;DR:** Keep table rows and view state separate, map keyboard actions to selection and search, preserve selection through stable sorting, and design useful empty and long-value states.
+> **TL;DR:** A production Ratatui table separates stable row data from view state, so filtering, sorting, selection, and scrolling do not corrupt one another.
+> - **Keep selection semantic**: preserve a row ID when sorting or filtering changes the visible index
+> - **Use a clear keyboard contract** for movement, search, sort, and activation
+> - **Render empty and truncated states** deliberately; never leave a blank table unexplained
+> - **Test transitions** after every action that can change the visible rows
 
-## Model rows and view state
 
-Store stable row data, a sort key, a filter string, and the selected index. Derive filtered rows for rendering. Clamp selection after filtering or sorting changes.
+## Who should use this table guide?
+
+**This guide is for engineers building terminal views over real records: deployment lists, logs, incidents, jobs, or configuration entries.** It assumes the table is part of an operational workflow, so selection, filtering, and empty states matter more than a static grid.
+
+The key design decision is to separate stable row identity from the visible index. Once users can filter or sort, an index is only a temporary position and cannot safely represent the selected record.
+
+## How should table state be modeled?
+
+**Keep source rows, view state, and selected identity separate.** Store a sort key, filter query, and selected row ID, then derive visible rows for rendering. Clamp or clear selection when a filter removes the selected record.
 
 ```rust
 struct TableState {
-    selected: usize,
+    selected_id: Option<u64>,
     query: String,
     sort_descending: bool,
 }
 ```
 
-## Render and navigate
+A `TableState` from Ratatui controls viewport and scrolling, but your app still owns the meaning of a selected record. This distinction lets the UI preserve a deployment or incident selection even when its numeric position changes.
 
-Build `Row` values from the derived view and render them with `TableState`. Map Up/Down to selection, Enter to an action, and `/` to search. Display the selection with a non-color cue so it remains visible in limited terminal palettes.
+The [Table](/docs/widgets/table), [Sortable Table](/docs/widgets/sortable-table), and [Search Input](/docs/widgets/search-input) docs provide copyable pieces. Compose them around one state model instead of letting each widget own a conflicting query or index.
 
-## Sort without surprising users
+## How should keyboard navigation behave?
 
-Show the active column and direction in the header. Keep sorting stable when values tie. Preserve the selected record by ID when possible instead of preserving only its numeric index.
+**Define a small action contract and make every transition visible.** Up and Down move through visible rows, `/` focuses search, Enter opens or activates the selected record, and Escape returns from search or detail. The contract should remain stable when the table becomes empty.
 
-## Empty and long values
+Show the current sort key and direction in the header. Preserve selection by ID after sorting when possible; if that ID is filtered out, show an explicit “no matching selection” state and move focus to the first visible row only when the user action requires it.
 
-Render a useful empty state when no rows match. Truncate or wrap long cells intentionally. Term/UI's [Table](/docs/widgets/table), [Sortable Table](/docs/widgets/sortable-table), and [Search Input](/docs/widgets/search-input) are ready to copy.
+| Action | State change | Visible feedback |
+| --- | --- | --- |
+| Up/Down | selected ID changes | marker and row style |
+| `/` | search focus opens | query label and cursor |
+| sort | visible order changes | column and direction |
+| Enter | record action | detail or confirmation |
+| Escape | focus returns | previous selection restored |
+
+## How do you handle long cells and empty results?
+
+**Design truncation and empty states as part of the table contract.** A long path can be shortened with an ellipsis while preserving the full value in a detail panel. Do not let one unbounded cell push every other column out of the frame.
+
+When no rows match, explain whether the dataset is empty or the filter is too strict. Keep the query visible and provide a clear way to clear it. A table that silently shows a blank rectangle makes an operator question both the data and the UI.
+
+Test narrow widths with the [layout guide](/articles/ratatui-layout-constraints-flex-resizing). A table should choose which columns survive rather than compressing all text until no value can be read.
+
+## How should sorting and search stay fast?
+
+**Filter and sort owned data before rendering, then keep formatting out of the hot draw path.** For a few hundred rows, straightforward stable sorting is usually enough. For larger data, debounce remote search or move expensive indexing to a worker and send a new owned result to the UI loop.
+
+Do not mutate the source order to implement a temporary sort. Keep the canonical records stable so clearing the sort restores a predictable view and selected IDs remain meaningful.
+
+> **Bottom line**: A useful terminal table is a state model with a renderer attached. Stable identity and explicit empty behavior matter more than decorative borders.
+
+## How should a table pipeline handle real data?
+
+**Normalize, filter, sort, and paginate in a predictable pipeline before converting rows into Ratatui cells.** Keep domain records owned by the app, then derive a visible row list from the current query, sort key, and page size.
+
+Ratatui’s [`TableState`](https://docs.rs/ratatui/latest/ratatui/widgets/struct.TableState.html) stores view state, but your app should own the selected identity. A stable pipeline lets the UI preserve a selected ID even when a refresh inserts a new record. It also gives the backend a clean seam: local data can use `sort_unstable_by`, while a remote table can send the same query parameters to an API. Keep the active query and sort direction in state so a reload does not reset the operator’s context.
+
+For incident tables, include a timestamp, severity, owner, and stable identifier before adding optional columns. The [dashboard guide](/articles/build-rust-terminal-dashboard-ratatui) uses this same signal-first rule. If a cell contains a long path or error message, render a shortened form and expose the full value in a detail view or copy action.
+
+## Which table shortcuts and mistakes should teams review?
+
+**Review shortcuts as part of the table contract, because selection bugs often come from ambiguous input rather than rendering.** Up and down should move through visible rows, `Home` and `End` should have clear scope, and a filter change should announce whether the selected record still exists.
+
+Do not bind sorting to a header click alone when the app is keyboard-first. Do not use row index as a durable identity. Do not report “no results” for a failed query; show an error state with a retry action. These distinctions matter when a table drives a destructive action such as restarting a job or revoking access.
+
+A production review can replay one sequence: type a query, reverse the sort, refresh data, move selection, and clear the query. Assert the selected ID and visible status after every step. This catches more costly regressions than checking one static screenshot.
+
+> **Bottom line**: Stable identity beats clever table rendering. Preserve the selected record through every query, sort, refresh, and resize transition.
+
+## Why does table behavior matter professionally?
+
+**A robust table shows that you understand identity, state, and safe operator actions.** Tables often sit directly in front of destructive or time-sensitive workflows, so selection semantics matter more than decorative borders.
+
+Documenting stable IDs, empty states, and refresh behavior gives reviewers evidence that the component can handle real records. It also makes the table reusable across an internal tool, a support console, or a portfolio project without rewriting its core state model.
+## Frequently Asked Questions
+
+### Should selection use an index or an ID?
+
+Use an ID for application meaning and an index only for the current visible viewport. Sorting and filtering change indices; stable IDs preserve the selected record when the view changes.
+
+An index is only a view position; it changes after sorting or filtering. Store a stable record ID and derive the visible index each render. This lets a refresh preserve intent even when rows arrive in a different order.
+
+### How do I keep a selected row after filtering?
+
+Check whether the selected ID remains in the filtered result. Keep it if present; otherwise clear it or move to a documented fallback and show why the previous selection is no longer visible.
+
+After filtering, keep the selected ID if it remains visible; otherwise choose the first visible row and announce the change. Never leave a stale index pointing at a different record after the query changes.
+
+### What is a good empty table state?
+
+Say whether no records exist or the current query matched nothing, keep the query visible, and offer a clear action. Blank space provides no diagnosis.
+
+Show the query and result count, then explain whether zero rows means no matches, no data, or a failed request. A retry action belongs beside the error, while an empty search result can offer a clear-filter key.
+
+### Should search run locally or remotely?
+
+Use local filtering when the dataset is small and already loaded. Use remote search when data volume or freshness requires it, but keep loading, error, and stale states in the same table model.
+
+Local search gives instant feedback for small datasets. Remote search is better when records exceed memory or freshness matters, but debounce requests and show pending state. Keep the same query model so users do not learn two table behaviors.
+
+### How many columns fit in a terminal?
+
+There is no universal count. Keep the identity and action columns first, collapse secondary metadata, and move full details to a focused view. Test the smallest supported width.
+
+Column count depends on the minimum readable width of each value, not the number of fields available. Promote key fields, truncate secondary text, and open a detail view for the rest. A stable selected marker is more valuable than one extra column.
+
+### How do I test sorting and selection together?
+
+Apply a sort action, assert the visible order, then assert that the selected ID remains the same. Repeat after filtering and an empty result with [TestBackend](/articles/test-ratatui-apps-testbackend).
+
+Replay filtering, sorting, refresh, and navigation as one action sequence. Assert both the semantic ID and the rendered marker. This catches the common bug where visible rows are correct but selection points to the previous index.
+
+## Sources and next steps
+
+
+- [Ratatui Table API](https://docs.rs/ratatui/latest/ratatui/widgets/struct.Table.html)
+- [Ratatui TableState API](https://docs.rs/ratatui/latest/ratatui/widgets/struct.TableState.html)
+- [Term/UI Table](/docs/widgets/table)
+- [Term/UI Sortable Table](/docs/widgets/sortable-table)
+
+Continue with [input handling](/articles/ratatui-keyboard-mouse-event-loop), [forms](/articles/ratatui-forms-text-input-validation-focus), and [dashboard composition](/articles/build-rust-terminal-dashboard-ratatui).

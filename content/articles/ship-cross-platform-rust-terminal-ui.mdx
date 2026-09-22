@@ -1,7 +1,7 @@
 ---
-title: "Shipping a Rust TUI Across Terminals and Platforms"
-description: "Prepare a Ratatui application for release with terminal capability checks, resize handling, Unicode, cleanup, and packaging."
-keywords: ["cross-platform Rust TUI", "Ratatui Unicode", "terminal color support"]
+title: "Ship a Rust TUI: Cross-Platform Terminal Release Checklist 2026"
+description: "Prepare a Ratatui application for release with capability checks, Unicode width, resize handling, cleanup, packaging, and a practical test matrix."
+keywords: ["cross-platform Rust TUI", "Ratatui Unicode", "ship Rust terminal app"]
 category: "production"
 order: 10
 publish_date: "2026-09-22"
@@ -14,20 +14,120 @@ Shipping a terminal UI means testing the terminal around your app, not only the 
 
 *By Max Wells, creator of [Rust/UI](https://rust-ui.com) and [Rustify](https://rustify.rs).*
 
-> **TL;DR:** Ship reliable Rust TUIs by checking terminal capabilities, Unicode and width behavior, resize handling, cleanup on every exit path, and platform packaging.
+> **TL;DR:** Shipping a Rust TUI means validating the terminal environment around Ratatui: capabilities, width, Unicode, resize, cleanup, and packaging.
+> - **Define a support matrix** for terminals, operating systems, color, and Unicode assumptions
+> - **Measure display width**, never byte length, when placing text
+> - **Restore terminal state** on quit, errors, and panic paths
+> - **Ship reproducible binaries** with clear backend requirements and release notes
 
-## Check terminal capabilities
 
-Detect color and Unicode assumptions through the selected backend and document a supported terminal matrix. Provide readable fallbacks when true color or special glyphs are unavailable.
+## Who should use this release guide?
 
-## Handle resize and width
+**This guide is for teams preparing a Ratatui binary for people who use different terminals, operating systems, fonts, and window sizes.** It treats shipping as an environment problem, not only a Cargo command.
 
-Recompute layouts from each frame area. Test double-width characters, combining marks, long paths, and narrow panes. Never use byte length as display width.
+The expensive failures happen after the demo: a double-width path breaks alignment, a panic leaves raw mode enabled, or a color assumption makes a status unreadable over SSH. A release checklist makes those cases testable before users find them.
 
-## Restore on every exit path
+## Which terminal capabilities should you support?
 
-Leave raw mode and alternate-screen mode on success, `q`, errors, and panics where your terminal setup requires it. Add a small integration test for cleanup and a [TestBackend suite](/articles/test-ratatui-apps-testbackend) for visible behavior.
+**Define a support matrix before choosing colors, Unicode symbols, mouse behavior, or alternate-screen assumptions.** Record the terminals and operating systems you will support, then state what happens when true color, Unicode width, or mouse capture is unavailable.
 
-## Package and document
+| Capability | Verify | Fallback |
+| --- | --- | --- |
+| color depth | backend and environment | semantic styles with fewer colors |
+| Unicode width | representative glyphs and fonts | ASCII marker or shorter label |
+| mouse input | capture support and coordinates | keyboard navigation |
+| terminal size | minimum rows and columns | stacked or reduced layout |
+| alternate screen | setup and restoration | clear exit instructions |
 
-Build release binaries for the platforms you support, include install and upgrade instructions, and state backend requirements. Keep a changelog entry for behavior changes. The [event-loop guide](/articles/ratatui-keyboard-mouse-event-loop) covers reliable input and shutdown boundaries.
+A support matrix is more useful than claiming “cross-platform” without naming the tested surface. Keep backend-specific code at the boundary so the app state and widgets remain portable.
+
+## Why do Unicode and width break terminal layouts?
+
+**Display width is not byte length, and a string that looks short in source can occupy multiple cells.** Test combining marks, emoji only if you support them, CJK wide characters, long paths, and truncated labels in the actual terminals you target.
+
+Measure or wrap text using terminal-aware behavior, keep important values away from hard-coded columns, and preserve a readable fallback. The [layout guide](/articles/ratatui-layout-constraints-flex-resizing) covers the rectangle side; release testing must cover the font and terminal side too.
+
+## How should cleanup work on every exit path?
+
+**Raw mode, alternate screen, hidden cursor, and mouse capture must be restored after success, q, errors, and panics where your setup requires them.** Put cleanup in one guard or shutdown function and make it safe to call once.
+
+Exercise normal quit and a forced error. If a worker is involved, stop it before restoring the terminal so no late output is written after the screen is returned to the shell. The [event-loop guide](/articles/ratatui-keyboard-mouse-event-loop) provides the action and lifecycle boundary.
+
+## What belongs in a release test matrix?
+
+**Test behavior at the smallest supported size and on each capability combination that changes the user-visible result.** Include startup, resize, empty data, long labels, color fallback, Unicode fallback, mouse-disabled navigation, and cleanup after an error.
+
+Package release binaries with backend requirements, configuration paths, and an upgrade note. Keep the terminal app's changelog focused on behavior users can observe. For render assertions, use [TestBackend](/articles/test-ratatui-apps-testbackend); for lifecycle, use a real terminal or pseudo-terminal harness.
+
+> **Bottom line**: A cross-platform TUI is a tested set of fallbacks. The binary is only ready when users can recover from unsupported capabilities.
+
+## How should a release support matrix be written?
+
+**Name the terminal, operating system, width, color mode, and input assumptions you actually support.** “Cross-platform” is not a test case. A useful matrix might cover macOS Terminal, Windows Terminal, a Linux SSH session, 80 by 24, 120 by 40, Unicode enabled, and a plain ASCII fallback.
+
+Record capability decisions next to the release process. Ratatui backends expose different terminal boundaries, so keep the supported matrix explicit. If mouse reporting is optional, document the keyboard path. If truecolor is optional, define the fallback palette. If a font lacks a symbol, choose a replacement glyph rather than allowing a status marker to disappear.
+
+Run the matrix against built artifacts, not only `cargo run`. Packaging can change working directories, environment variables, signal handling, and dynamic library behavior. A short smoke script that launches, resizes, triggers an error, and exits cleanly catches failures a widget unit test cannot.
+
+## What shipping shortcuts should be rejected?
+
+**Reject shortcuts that make the terminal dirty or make a failure unrecoverable.** Leaving raw mode enabled after a panic is a release blocker because the next shell command inherits broken input behavior. Assuming UTF-8 width from `String::len()` is another blocker for box drawing, CJK text, and emoji.
+
+Do not claim support for every terminal when the app depends on one keyboard protocol. Do not make a network check mandatory for a local screen that could explain an offline state. Do not hide the version and bug-report path; operators need enough context to report a failure from a remote host.
+
+Before release, capture a plain-text session transcript for the smallest supported terminal. It is a durable regression artifact and a useful portfolio proof that the product was tested outside a screenshot.
+
+> **Bottom line**: Release quality is recovery quality. Unsupported color, Unicode, mouse, or terminal features need a clear fallback and a tested exit path.
+
+## Why does release engineering matter professionally?
+
+**Cross-platform terminal support shows that you can own the last mile after the Rust code compiles.** Capability fallbacks, width tests, cleanup, packaging, and bug-report paths are the work users experience as reliability.
+
+A documented support matrix is also a useful team artifact. It makes tradeoffs visible to reviewers and prevents accidental promises when a new backend, font, or operating system enters the release process.
+## Frequently Asked Questions
+
+### Is Ratatui itself cross-platform?
+
+Ratatui renders through a backend, so portability depends on the backend, terminal capabilities, and your layout assumptions. Document the supported matrix and test the behaviors that differ instead of relying on the crate name alone.
+
+Ratatui draws cells, but the backend and terminal decide capabilities. Test the actual combinations you promise, including SSH and a multiplexer if those are part of the support story.
+
+### How small can the terminal be?
+
+Choose a minimum based on the task, then make that size explicit. Keep title, focus, primary action, and quit/back navigation visible; stack or hide secondary detail below the threshold.
+
+Choose a minimum where the primary task still works, often 80 by 24 for a terminal app. Below that, show a compact message or collapse detail instead of letting borders and labels overlap.
+
+### How do I avoid Unicode alignment bugs?
+
+Use display-width-aware layout and test wide, combining, and fallback glyphs in the terminals you support. Never use byte length as a cell coordinate.
+
+Use display-width-aware measurement and test CJK, combining marks, emoji, and ASCII fallback. A string length count is not a terminal column count, so it cannot guarantee aligned borders.
+
+### What should happen after a panic?
+
+Restore terminal state before returning control to the shell, then preserve the original panic information. A cleanup guard or hook should be tested separately from rendering.
+
+Install a panic hook or guard that restores raw mode and the alternate screen before delegating to the normal panic reporter. Exercise the path in a disposable process so the release shell remains usable.
+
+### Should mouse support be mandatory?
+
+Usually no. Keyboard access should complete the core task, while mouse support improves discoverability where the backend supports it. Keep hit testing and keyboard actions equivalent.
+
+Mouse support is optional when every action has a keyboard path. Document the fallback and test it. Remote users often disable mouse reporting, and accessibility tools may expose keyboard events more reliably.
+
+### What release artifact should I document?
+
+Name the binary, supported operating systems, terminal assumptions, configuration path, install or upgrade command, and known limitations. This prevents users from treating a missing capability as an application bug.
+
+Document binary name, supported targets, terminal assumptions, config path, version output, and bug-report command. A release artifact is incomplete if an operator cannot identify what they ran.
+
+## Sources and next steps
+
+
+- [Ratatui backend concepts](https://ratatui.rs/concepts/backends/)
+- [Crossterm terminal commands](https://docs.rs/crossterm/latest/crossterm/terminal/)
+- [Unicode display width guidance](https://docs.rs/unicode-width/latest/unicode_width/)
+- [Term/UI installation](/docs/installation)
+
+Continue with [event loops](/articles/ratatui-keyboard-mouse-event-loop), [responsive layouts](/articles/ratatui-layout-constraints-flex-resizing), and [TestBackend](/articles/test-ratatui-apps-testbackend).

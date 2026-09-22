@@ -1,6 +1,6 @@
 ---
-title: "Ratatui Layouts: Constraints, Flex, and Resizing"
-description: "Use Ratatui Layout constraints and Flex to build terminal interfaces that resize without overflow."
+title: "Ratatui Layouts in Rust: Constraints, Flex, and Resizing 2026"
+description: "Use Ratatui Layout constraints and Flex to build terminal interfaces that preserve hierarchy, avoid overflow, and adapt to small windows."
 keywords: ["Ratatui layout constraints", "Ratatui Flex", "responsive terminal UI Rust"]
 category: "building"
 order: 2
@@ -14,30 +14,136 @@ Terminal space changes constantly. Ratatui layouts stay reliable when each regio
 
 *By Max Wells, creator of [Rust/UI](https://rust-ui.com) and [Rustify](https://rustify.rs).*
 
-> **TL;DR:** Build resilient Ratatui layouts from the available frame area, choose constraints deliberately, pass child regions to nested layouts, and adapt when terminals become narrow.
+> **TL;DR:** Ratatui layouts stay production-safe when every region has an explicit sizing rule and the renderer responds to the frame area instead of assuming a fixed terminal.
+> - **Use fixed lengths** for borders and short controls, and flexible constraints for content that must absorb growth
+> - **Prefer nested layouts** over hand-calculated coordinates so resize behavior remains local and testable
+> - **Design narrow states** before adding a second panel or long label
+> - **Test geometry** with representative rectangles, including the smallest supported terminal
 
-## Choose constraints deliberately
+## Who is this layout guide for?
 
-Use fixed lengths for borders and controls, percentages for proportional regions, and `Min` or `Max` when content must remain usable. Ratios work well for sibling panels that should grow together.
+**This guide is for engineers whose Ratatui screen works at one terminal size and fails as soon as a pane, label, or remote session changes.** It focuses on layout decisions that survive real operator environments: narrow SSH windows, split panes, long paths, and resize events.
+
+The important shift is to treat layout as a contract. Each region gets a sizing rule, each child receives the rectangle its parent allocated, and the renderer remains the only place that turns state into geometry. That structure makes layout behavior reviewable and testable.
+
+## Which Ratatui constraint should you choose?
+
+**Use fixed lengths for stable chrome, flexible minimums for content, and percentages or ratios only when the relationship matters.** A `Length(3)` header is predictable; a `Min(1)` body can absorb growth; a percentage is useful when siblings should scale together.
+
+| Requirement | Constraint pattern | Good fit | Risk |
+| --- | --- | --- | --- |
+| fixed header/footer | `Length` | title bars, status lines | clips if content grows |
+| fill remaining space | `Min` | logs, tables, main panes | can starve siblings |
+| proportional split | `Percentage`, `Ratio` | preview/editor, two panels | rounding at narrow widths |
+| cap a region | `Max` | sidebars, help text | unused space if paired poorly |
+
+A useful review question is: what happens when this region receives one row or one column? If the answer is “the child panics or becomes unreadable,” the constraint is not complete yet.
+
+## How should nested layouts be composed?
+
+**Pass the parent rectangle into a child layout and keep each split close to the content it owns.** This avoids a coordinate system spread across the renderer and prevents a later header change from invalidating every child position.
 
 ```rust
-use ratatui::layout::{Constraint, Direction, Flex, Layout};
+use ratatui::layout::{Constraint, Flex, Layout};
 
 let [header, body, footer] = Layout::vertical([
     Constraint::Length(3),
     Constraint::Min(1),
     Constraint::Length(1),
-]).areas(frame.area());
+])
+.flex(Flex::Start)
+.areas(frame.area());
+
+let [main, side] = Layout::horizontal([
+    Constraint::Min(1),
+    Constraint::Length(28),
+])
+.areas(body);
 ```
 
-## Split nested regions
+The exact split is less important than the ownership boundary. The dashboard owns its body regions, the form owns its field columns, and a resizable panel owns its divider. See the [Resizable Layout](/docs/widgets/resizable-layout) and [Split Pane](/docs/widgets/split-pane) widgets for copyable interaction patterns.
 
-Pass `body` to a second layout instead of calculating coordinates yourself. A two-panel view can use `Flex::SpaceBetween` when the gap matters or a simple horizontal split when panels should touch.
+## What is the correct narrow-terminal strategy?
 
-## Handle small terminals
+**Collapse secondary information before you compress primary information.** At a narrow width, hide a legend, stack a side panel below the main content, or shorten a label before reducing the main table to unreadable cells.
 
-Read the available `Rect` before adding columns. At narrow widths, stack panels or hide secondary labels. Never assume a fixed terminal width. Validate representative rectangles with [TestBackend](/articles/test-ratatui-apps-testbackend).
+Measure the available `Rect` on every draw. Do not use byte length to decide whether text fits; Unicode display width can differ from string length. Keep a minimum width for interactive controls and let the user reach secondary detail through a dialog, help screen, or lower section.
 
-## Common mistakes
+> **Bottom line**: Responsive terminal design is prioritization. The best layout keeps the primary decision visible and moves secondary detail out of the way.
 
-Avoid nested percentages that round to zero, fixed widths for long labels, and rendering outside the supplied area. The [Resizable Layout](/docs/widgets/resizable-layout) widget shows a reusable interaction pattern.
+## How should layout behavior be tested?
+
+**Test representative rectangles as inputs to the renderer.** Use wide, normal, narrow, and one-row or one-column cases. Assert meaningful anchors such as a title, a focused control, and a footer status rather than snapshotting every cell by default.
+
+`TestBackend` makes these checks deterministic. Pair geometry tests with the [event-loop guide](/articles/ratatui-keyboard-mouse-event-loop) when resize changes focus or selection. The goal is not to guarantee one perfect layout at every width; it is to guarantee that the application stays understandable and safe.
+
+## How should you choose constraints for a real screen?
+
+**Choose constraints from content contracts, then verify the result at the smallest supported width.** A header needs a bounded height, a primary list needs the remaining space, and a detail pane needs either a minimum width or a deliberate collapse rule.
+
+Start by writing the contract in plain language. Ratatui’s [`Layout`](https://docs.rs/ratatui/latest/ratatui/layout/struct.Layout.html) API then gives you the primitives to encode it. Write the contract as: “the title always fits,” “the selected row remains visible,” or “the inspector disappears below 100 columns.” Encode those rules with `Length`, `Min`, `Max`, and `Fill` rather than a chain of guessed percentages. `Flex::SpaceBetween` is useful for distributing spare room, but it cannot rescue content whose minimum width was never considered.
+
+Nested layouts should pass the child `Rect` down to the next component. This keeps components independent from the terminal origin and makes a 120 by 40 TestBackend frame behave like a real window. The [dashboard article](/articles/build-rust-terminal-dashboard-ratatui) shows this pattern with cards, charts, and tables.
+
+## What layout mistakes make a TUI feel broken?
+
+**Most layout failures come from treating every region as equally important.** Equal-width columns waste space when one panel contains short status values and another contains long diagnostic text. Percentages also create rounding surprises when borders consume the last few cells.
+
+Do not solve overflow by silently clipping labels. Shorten secondary copy, move detail behind a key, or stack regions at a breakpoint. Do not compute coordinates in event handlers; resize events should update the frame area and let the next render derive rectangles again. Do not test only a large terminal: 80 by 24 remains a common SSH and CI shape.
+
+A useful review asks what survives when width is removed in 10-column steps. Keep the title, current mode, selected item, and recovery action visible longest. That priority order turns responsive behavior into an explicit product decision rather than accidental truncation.
+
+> **Bottom line**: A layout rule is production-ready when it names what remains visible as width disappears. Encode that priority in constraints and tests.
+
+## Why does layout quality matter professionally?
+
+**Responsive terminal layout is evidence that you can design for real environments instead of one screenshot.** Teams running SSH sessions, CI jobs, and split panes care whether the primary task remains usable as space changes.
+
+A well-tested layout also reduces maintenance cost. Clear content contracts let another engineer add a panel without breaking selection or hiding errors. That is a practical signal of production readiness in a Rust portfolio or internal tooling review.
+## Frequently Asked Questions
+
+### Is Flex required for every Ratatui layout?
+
+No. `Flex` clarifies how leftover space is distributed, but ordinary vertical and horizontal layouts are enough for many screens. Add it when alignment or spacing is part of the visual contract.
+
+Flex helps distribute spare space, but it is not a replacement for `Min` and `Max`. Use it when the relationship is “share remaining space”; use explicit constraints when a region has a readable minimum or a fixed chrome height.
+
+### Should a sidebar use a fixed width?
+
+Usually yes when its controls and labels have a known minimum. Give the main region `Min(1)` and collapse or move the sidebar below the main content when the terminal cannot support both.
+
+A fixed sidebar is appropriate when labels or navigation need a stable width. Add a minimum and a collapse rule for small terminals. A percentage sidebar is better when the detail pane must scale with a user-controlled width.
+
+### Why do percentage layouts fail on small terminals?
+
+Integer cell geometry leaves little room for rounding. Two percentages can produce a zero-width child or an unusable border. Test the smallest supported rectangle and prefer fixed minimums around interactive content.
+
+Percentages round to cells after borders and nested regions consume space. At 80 columns, a 30% pane may not leave enough room for its title or focus marker. Assert the smallest supported rectangle in tests.
+
+### How do I handle a terminal resize event?
+
+Store state, not rectangles. The next draw receives a new frame area, so recompute every layout from that area and preserve selection or focus in app state.
+
+Handle resize as input that changes the frame area, then derive every child rectangle during the next draw. Do not cache coordinates in app state; cached geometry becomes stale after terminal multiplexers or window managers resize the pane.
+
+### Is manual coordinate math ever appropriate?
+
+Only for a tightly bounded custom renderer where the coordinate contract is explicit. For ordinary screens, nested `Layout` constraints are easier to review and adapt.
+
+Manual coordinates are valid for a tiny fixed overlay or a custom chart grid, but keep them inside a component that receives a `Rect`. Use layouts for page structure so borders, padding, and breakpoints remain reviewable.
+
+### What should be visible at the smallest size?
+
+Keep the title, current action, focused target, and a way to quit or go back. Defer charts, hints, and secondary metadata until there is enough room.
+
+Keep the title, mode, selected item, and recovery action visible first. Secondary help can collapse into `?`, and diagnostics can move into a detail view. The smallest state should still tell the user what happened and what key works next.
+
+## Sources and next steps
+
+
+- [Ratatui layout documentation](https://docs.rs/ratatui/latest/ratatui/layout/struct.Layout.html)
+- [Ratatui Flex documentation](https://docs.rs/ratatui/latest/ratatui/layout/enum.Flex.html)
+- [Term/UI Resizable Layout](/docs/widgets/resizable-layout)
+- [Term/UI Split Pane](/docs/widgets/split-pane)
+
+Continue with [terminal UX](/articles/terminal-ui-design-navigation-focus-accessibility), [dashboard composition](/articles/build-rust-terminal-dashboard-ratatui), and [TestBackend](/articles/test-ratatui-apps-testbackend).

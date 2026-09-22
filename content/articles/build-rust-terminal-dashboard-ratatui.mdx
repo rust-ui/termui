@@ -1,6 +1,6 @@
 ---
-title: "Build a Terminal Dashboard in Rust with Ratatui"
-description: "Compose cards, charts, lists, and tables into a readable Rust terminal dashboard with Ratatui."
+title: "Build a Production Rust Terminal Dashboard with Ratatui in 2026"
+description: "Build a readable Ratatui dashboard with metric cards, charts, tables, refresh boundaries, empty states, and layouts that survive narrow terminals."
 keywords: ["Ratatui dashboard", "Rust terminal dashboard", "Ratatui charts table"]
 category: "building"
 order: 1
@@ -14,30 +14,133 @@ A good terminal dashboard answers three questions quickly: what is healthy, what
 
 *By Max Wells, creator of [Rust/UI](https://rust-ui.com) and [Rustify](https://rustify.rs).*
 
-> **TL;DR:** Model dashboard data separately from rendering, compose readable cards, charts, and tables, refresh on a controlled interval, and design for empty, stale, and narrow-terminal states.
+> **TL;DR:** A production Ratatui dashboard needs a small state model, an explicit refresh boundary, and a layout that stays useful when the terminal shrinks.
+> - **Best first screen**: status cards for fast scanning, one trend chart for change, and a table for investigation
+> - **Refresh rule**: workers produce owned data; the UI loop decides when state changes become visible
+> - **Failure rule**: show stale, loading, empty, and error states instead of leaving a blank panel
+> - **Production test**: render the same view at wide, narrow, empty, and degraded data sizes
 
-## Start with a data model
+## Who should use this dashboard guide?
 
-Keep metrics independent from rendering. A small model makes refresh behavior predictable.
+**This guide is for Rust engineers building internal tools, operations consoles, or local developer products where a terminal is the fastest interface.** It assumes you can read basic Rust and want a dashboard that remains useful after the demo: predictable refreshes, explicit stale data, and a layout that can be tested without a live backend.
+
+The target is not a screenshot with four colorful boxes. A useful dashboard lets an operator answer three questions in order: is the system healthy, what changed, and where should I investigate? That hierarchy is why this article composes cards, a chart, a recent-event list, and a table instead of treating every widget as equal.
+
+## Which data belongs in each dashboard region?
+
+**Put high-signal summaries above the fold, trends beside them, and investigation detail below.** A metric card should answer one question in a glance; a chart should explain movement; a table should preserve enough context to act.
+
+| Region | Best question | Ratatui primitive | Failure to avoid |
+| --- | --- | --- | --- |
+| Status cards | Is the service healthy now? | `Paragraph`, `Block` | unlabeled values with no time window |
+| Trend chart | What changed over time? | `Chart`, `Sparkline` | unreadable axes or an arbitrary window |
+| Recent events | What happened last? | `List` | newest event hidden below stale noise |
+| Detail table | What should I inspect? | `Table` | selection that breaks after filtering |
+
+A production dashboard also names units and freshness. The [Ratatui widget model](https://ratatui.rs/concepts/widgets/) keeps rendering composable, but the application still owns those display states. “42” is not a useful metric until the screen says whether it means requests per second, milliseconds, or open incidents. Add a collection timestamp and a stale marker when the producer has not delivered a fresh snapshot.
+
+> **Bottom line**: The dashboard is valuable when its information order matches an operator decision. More widgets do not create more signal.
+
+## How should refresh and failure state work?
+
+**Keep data acquisition outside the render function and apply complete snapshots in the UI loop.** A worker can fetch or compute a `DashboardSnapshot`, but only the app state decides when the snapshot replaces the current view.
+
+This boundary gives every panel the same timestamp and prevents half-refreshed screens. If the chart has new points but the table still shows old rows, the user cannot tell whether the system changed or the UI is inconsistent. Store `updated_at`, `is_stale`, and the last error beside the data so the renderer can explain the situation.
 
 ```rust
-struct Dashboard {
-    requests: u64,
-    error_rate: f64,
-    recent_events: Vec<String>,
+struct DashboardState {
+    snapshot: Option<DashboardSnapshot>,
+    last_updated: Option<std::time::Instant>,
+    error: Option<String>,
+    loading: bool,
 }
 ```
 
-Format values before they reach widgets. The renderer should decide placement and style, not fetch data or mutate state.
+Treat loading, empty, stale, and error as real states. A blank panel is ambiguous; “No events in the selected window” is actionable. The same rule applies to a backend timeout: keep the last known values visible, mark them stale, and show the recovery action rather than replacing useful context with a spinner.
 
-## Compose the screen
+## How do you make a Ratatui dashboard survive narrow terminals?
 
-Use a vertical layout for a header, body, and footer. Split the body into metric cards, a chart, and a recent-events list. A table belongs below the chart when users need row-level detail. See [layout constraints and resizing](/articles/ratatui-layout-constraints-flex-resizing) for layouts that survive narrow terminals.
+**Choose a minimum useful layout, then collapse secondary detail when the frame area cannot support it.** Read the available `Rect` on every draw and give the body to a nested layout instead of storing absolute coordinates.
 
-## Refresh without visual noise
+At a wide size, cards can sit in a row above a two-column body. At a narrow size, stack the cards and move the event list below the primary chart. Do not shrink every label until it becomes unreadable. A deliberate narrow state is easier to operate than a wide layout squeezed into two columns.
 
-Choose an explicit refresh interval. Preserve selected rows and scroll positions while replacing data. If data arrives from a worker, send owned messages to the UI loop instead of rendering from a background task.
+The [Ratatui layouts guide](/articles/ratatui-layout-constraints-flex-resizing) covers constraint choices. For copyable building blocks, use the [Card](/docs/widgets/card), [Chart](/docs/widgets/chart), [Table](/docs/widgets/table), and [Loading State](/docs/widgets/loading-state) docs.
 
-## Make the dashboard useful
+## What should production testing cover?
 
-Show units, time windows, empty states, and stale-data hints. Test at a wide terminal and at the smallest supported size. The [chart docs](/docs/widgets/chart), [table docs](/docs/widgets/table), and [loading state](/docs/widgets/loading-state) provide copyable building blocks.
+**Test the dashboard as a state machine, not only as a visual snapshot.** Feed a normal snapshot, an empty snapshot, a stale snapshot, and an error into the same update path used by the application.
+
+Render at a wide rectangle and at the smallest supported rectangle. Assert that the title, freshness marker, and selected row remain visible. Use [TestBackend](/articles/test-ratatui-apps-testbackend) for deterministic buffer assertions, then reserve end-to-end checks for the real data adapter and terminal lifecycle.
+
+Why this matters professionally: operators trust a dashboard only when its stale and failure states are honest. That reliability is the difference between a demo and an internal tool that a team can use during an incident.
+
+## What does a production dashboard state model look like?
+
+**Model the dashboard as a small state machine with a complete snapshot and explicit display status.** Keep transport responses, derived metrics, selection, and view flags separate so a failed refresh cannot erase the last useful values.
+
+A practical model has `Loading`, `Ready`, `Stale`, `Empty`, and `Failed` display states. The renderer receives one immutable view model for a frame. It does not inspect a client, await a future, or infer freshness from whether a vector happens to be empty. This separation makes the same state usable by a Ratatui renderer, a TestBackend test, and a log formatter for headless operation.
+
+For example, an operations console can keep a 30-second freshness threshold while a release dashboard may accept five minutes. Put that threshold in configuration and show it beside the timestamp. The operator should know whether a green card means “healthy now” or “last healthy six minutes ago.”
+
+## Which dashboard mistakes cause the most operational pain?
+
+**The expensive mistakes are misleading freshness, unstable ordering, and layouts that hide the recovery action.** A dashboard that looks polished in a seeded demo can still fail during an incident when data arrives late, rows change order, or the terminal is 80 columns wide.
+
+Avoid using color alone for health, because a monochrome SSH session may remove the distinction. Avoid recomputing totals from partially refreshed panels, because users then compare values from different timestamps. Avoid clearing data on timeout, because disappearance looks like recovery failure rather than a collector problem.
+
+Review each screen with a concrete operator task: acknowledge an incident, find the noisiest service, or compare the last two deploys. If the task needs more than one unexplained keypress, add a visible shortcut or help row. That task-based review produces a better portfolio signal than another decorative chart.
+
+> **Bottom line**: Design for stale, empty, narrow, and failed states before adding another panel. Operators remember whether the screen helped them recover.
+
+## Why does dashboard work matter professionally?
+
+**A reliable terminal dashboard demonstrates systems judgment, not only widget fluency.** It shows that you can turn changing service data into an interface an operator can trust during an incident.
+
+A portfolio project becomes stronger when it documents freshness thresholds, failure behavior, narrow-terminal decisions, and tests. Those details map to the work teams pay experienced Rust engineers to do: reduce operational ambiguity, make tools recoverable, and ship interfaces that survive outside a laptop demo.
+## Frequently Asked Questions
+
+### Should a Ratatui dashboard poll or subscribe to updates?
+
+Polling is simpler for low-frequency metrics; subscriptions fit event-heavy systems. Choose the model that gives the UI a bounded update rate and a clear stale threshold. The renderer should never depend on the producer's timing.
+
+For a low-rate internal tool, a 1–5 second poll is usually enough; for incident telemetry, subscribe to events but still cap redraws. Keep the sampling policy separate from rendering so changing the backend does not change screen behavior.
+
+### How many panels should a terminal dashboard have?
+
+Use the fewest panels that support the operator's decision. Four regions can be enough: status, trend, recent events, and detail. Add a fifth only when it removes a real investigation step rather than adding decoration.
+
+Panel count should follow the operator workflow, not a dashboard template. If a fifth panel needs a dedicated explanation, it probably belongs behind a detail action. Preserve one stable “where do I look next?” region on every screen.
+
+### Should charts show live data or a fixed window?
+
+Use a fixed visible window with an explicit time range. A moving window keeps the screen readable; a selectable range helps investigation. Always label the range so a value is not mistaken for an all-time total.
+
+A fixed window makes rate and latency trends comparable. A live window is useful during triage, but show its end timestamp and sampling interval. For historical analysis, let the user pause or widen the range instead of forcing the chart to move under them.
+
+### How do I show stale data?
+
+Keep the last known values, show the timestamp, and add a visible stale or disconnected state. Clearing the panel hides the difference between “no data” and “the collector failed.”
+
+Keep stale values when they are safer than blank values, then expose the age and the recovery action. Clear data only when the domain says the value is invalid, such as an expired credential or a deleted resource.
+
+### Can a dashboard share state with a web service?
+
+Yes. Keep the terminal app's state model independent from transport. Decode service responses into owned Rust types, then send snapshots or domain messages to the UI loop.
+
+Use a transport adapter that maps service responses into the dashboard snapshot. This keeps authentication, retries, and serialization out of widgets and lets a local fixture drive the same renderer during tests.
+
+### What is the first production test to add?
+
+Test one normal snapshot and one failed refresh through the update function, then assert the rendered status and stale marker with TestBackend. This catches more regressions than a screenshot of the happy path.
+
+Add a normal snapshot and a failed refresh first, then cover narrow width and empty data. Those tests protect the operator contract: current status remains visible, stale state is explicit, and the next action is discoverable.
+
+## Sources and next steps
+
+
+- [Ratatui documentation](https://ratatui.rs/)
+- [Ratatui Chart API](https://docs.rs/ratatui/latest/ratatui/widgets/struct.Chart.html)
+- [Term/UI Chart widgets](/docs/widgets/chart)
+- [Term/UI Table widgets](/docs/widgets/table)
+
+Continue with [Ratatui layouts](/articles/ratatui-layout-constraints-flex-resizing), [async background tasks](/articles/async-ratatui-tokio-background-tasks), and [cross-platform shipping](/articles/ship-cross-platform-rust-terminal-ui).

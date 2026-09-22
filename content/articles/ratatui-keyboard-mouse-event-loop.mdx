@@ -1,6 +1,6 @@
 ---
-title: "Ratatui Input Handling: Keyboard, Mouse, and Event Loops"
-description: "Build a reliable Ratatui event loop for keyboard and mouse input, redraws, quitting, and terminal cleanup."
+title: "Ratatui Input Handling: Keyboard, Mouse, and Event Loops 2026"
+description: "Design a reliable Ratatui event loop that maps Crossterm input to actions, redraws only when needed, handles resize, and restores the terminal."
 keywords: ["Ratatui keyboard input", "Ratatui event handling", "Crossterm key events"]
 category: "engineering"
 order: 6
@@ -14,18 +14,30 @@ Terminal input becomes manageable when the event loop has one job: translate eve
 
 *By Max Wells, creator of [Rust/UI](https://rust-ui.com) and [Rustify](https://rustify.rs).*
 
-> **TL;DR:** Keep backend events at the boundary, map them to app actions, redraw after meaningful state changes, and handle resize plus terminal cleanup on every exit path.
+> **TL;DR:** A production Ratatui event loop translates backend events into app actions, updates state in one place, and redraws only when state or layout changes.
+> - **Keep terminal lifecycle ownership explicit** from raw mode to restoration
+> - **Map keys to actions** so widgets do not each implement their own event rules
+> - **Treat mouse coordinates as frame geometry**, not global screen coordinates
+> - **Handle resize and quit paths** as normal state transitions, including errors
 
-## Own the terminal lifecycle
 
-Enter raw mode and alternate-screen mode before the first draw. Put restoration in a guard or a final cleanup function, and restore it on normal quit and errors.
+## Who should use this event-loop guide?
 
-## Map events to actions
+**This guide is for Rust engineers building terminal applications where keyboard input, mouse behavior, resize, and cleanup must remain predictable under real use.** It focuses on the boundary between Crossterm events and app actions, because that boundary is where UI behavior becomes maintainable.
 
-Keep backend-specific events at the boundary. Convert a Crossterm key into an app action such as `MoveUp`, `Submit`, or `Quit`.
+A reliable event loop is a production feature. If a key sometimes redraws and sometimes does not, or an error leaves raw mode enabled, users lose trust before they notice the widget styling.
+
+## What should the event loop own?
+
+**The event loop should translate input into actions and leave rendering to the state it updates.** Widgets should not each decide what a raw key means. A single action enum lets keyboard shortcuts, mouse clicks, tests, and future backends converge on the same update path.
 
 ```rust
-enum Action { MoveUp, MoveDown, Submit, Quit }
+enum Action {
+    MoveUp,
+    MoveDown,
+    Submit,
+    Quit,
+}
 
 fn action_for_key(key: crossterm::event::KeyCode) -> Option<Action> {
     match key {
@@ -37,10 +49,104 @@ fn action_for_key(key: crossterm::event::KeyCode) -> Option<Action> {
 }
 ```
 
-## Decide when to redraw
+The update function receives an action and changes state. Crossterm documents the backend event types that enter this boundary in its [event API](https://docs.rs/crossterm/latest/crossterm/event/). The renderer reads state. This split makes a table selection, a focused form field, and a dialog open state testable without pretending that every interaction is a terminal-specific detail.
 
-Redraw after state changes or on a controlled tick. Avoid an unbounded redraw loop when no input or data changed. Mouse coordinates are relative to the terminal viewport, so compare them with the widget rectangle you rendered.
+| Event source | Boundary | State result | Redraw rule |
+| --- | --- | --- | --- |
+| Keyboard | key event to `Action` | navigation, submit, quit | redraw when state changes |
+| Mouse | coordinates to focused action | selection or focus change | redraw after hit-test result |
+| Resize | backend resize event | new frame area | redraw with recomputed layout |
+| Worker message | channel to domain action | data, error, or stale state | coalesce bursts, render latest |
 
-## Handle resize and shutdown
+## How should terminal lifecycle be managed?
 
-The next draw receives the new frame area. Keep layout decisions in the renderer and test small rectangles. For background work without blocking input, continue with [async Ratatui and Tokio](/articles/async-ratatui-tokio-background-tasks).
+**Initialize raw mode and alternate-screen state once, then restore them through one guard or cleanup boundary.** Put setup before the first draw and cleanup on normal quit, input errors, draw errors, and panic paths where your application requires it.
+
+Keep the lifecycle code close to the application entry point. A child widget should not enable raw mode, hide the cursor, or restore the screen behind the app's back. This avoids double cleanup and makes the exit contract visible to a reviewer.
+
+The [shipping guide](/articles/ship-cross-platform-rust-terminal-ui) covers platform and terminal capability checks. The lifecycle boundary here is the foundation those checks rely on.
+
+## When should a Ratatui app redraw?
+
+**Redraw after a state change or on a bounded tick, not in an unbounded loop.** Poll events with a timeout, process all available messages, update state, and render once. If no input or data changed, a controlled tick can still refresh a clock or animation without spinning the CPU.
+
+A redraw policy should also define what happens when a worker sends many updates. Drain messages, coalesce progress, and render the latest meaningful state. For async work, continue with [Tokio background tasks](/articles/async-ratatui-tokio-background-tasks) instead of blocking the event loop.
+
+## How do mouse and resize events fit?
+
+**Treat mouse coordinates as positions inside the frame rectangle and treat resize as a normal state change.** Compare the event coordinates with the widget area you rendered; do not assume the terminal starts at the origin of your business layout.
+
+On resize, keep selection, scroll offset, and focus in app state, then recompute layout from the new frame area. The [layout guide](/articles/ratatui-layout-constraints-flex-resizing) shows why storing rectangles in state creates stale geometry.
+
+> **Bottom line**: One action path, one lifecycle owner, and one redraw policy make terminal interaction predictable enough to test and operate.
+
+## How should actions be organized as an application grows?
+
+**Map terminal events to domain actions before updating state.** A `KeyCode::Char('q')` event can become `Action::Quit`, while the same action can later come from a command palette, mouse click, or test fixture. Widgets then render state and do not own business rules.
+
+Keep the action enum small and observable: navigation, submit, cancel, refresh, resize, and quit are better seams than dozens of widget-specific callbacks. A reducer-style `update(action)` function gives the team one place to decide whether an event changes state and whether the next frame needs drawing.
+
+For a multi-pane app, route actions using the current focus mode. A table can consume arrows while a text editor consumes them as cursor movement. The [forms guide](/articles/ratatui-forms-text-input-validation-focus) shows why focus is application state. This routing layer also makes keymaps configurable without rewriting render code.
+
+## Which event-loop failures appear only in production?
+
+**The hardest failures are leaked terminal modes, unbounded redraws, and input that disappears during slow work.** A loop that blocks on a network call can stop resize and quit events; a loop that redraws on every tick can waste CPU and make remote SSH sessions feel unusable.
+
+Use a bounded poll interval, drain available events when appropriate, and return terminal ownership through one cleanup path. If drawing fails, record the error and restore the terminal before returning it to the shell. If a worker is slow, send a status action rather than blocking the input loop.
+
+Test action sequences, not just individual handlers: focus a pane, resize, submit, receive an error, then quit. This catches ordering bugs that unit tests for `handle_key()` cannot see. It also documents the behavior future contributors must preserve.
+
+> **Bottom line**: Input architecture is lifecycle architecture. One owner for events, terminal modes, and redraw decisions prevents the failures users cannot debug from the screen.
+
+## Why does event-loop design matter professionally?
+
+**A disciplined event loop proves you can own lifecycle boundaries and make interaction behavior testable.** Those are the same skills needed for long-running tools that must remain responsive while workers, signals, and terminal capabilities change.
+
+The action and cleanup seams also lower team risk. New commands can be added without teaching every widget about Crossterm, and failures can return the shell to a usable state. That is a stronger engineering signal than a large keymap alone.
+## Frequently Asked Questions
+
+### Should every key be handled in the widget that receives it?
+
+No. Translate backend events into app actions at the boundary, then let the update function decide what the action does. This keeps shortcuts consistent and makes keyboard behavior testable without a terminal.
+
+Widgets should receive actions or focused input state, not decide application-wide behavior. Central routing keeps keymaps consistent and allows the same command to be tested without constructing a terminal event.
+
+### How long should event polling wait?
+
+Use a bounded timeout that keeps input responsive while allowing periodic redraws or message processing. The exact duration depends on animation and workload; avoid a busy loop when no state changed.
+
+Choose a timeout that keeps quit and resize responsive while avoiding a busy loop. A slow remote session may need a longer wait, but redraw immediately when state changes instead of relying on a fixed tick for every frame.
+
+### How do I handle key repeats?
+
+Follow the event fields supported by the selected backend and define whether repeats move selection, insert text, or trigger one action. Test the chosen behavior rather than assuming all terminals report repeats identically.
+
+Key repeat can generate many identical actions. Make navigation idempotent, coalesce redraws, and guard destructive actions with an explicit confirmation state. Never assume one physical press equals one event.
+
+### Where should mouse hit testing live?
+
+The UI state or interaction layer should own hit testing against the rectangles produced during the current render. Keep those rectangles current after resize and avoid global coordinate assumptions.
+
+Hit testing belongs beside the layout that produced the rectangles. Pass the current frame geometry to the mouse router so clicks follow resized panes and do not depend on stale coordinates.
+
+### What must happen when draw fails?
+
+Return through the same cleanup boundary used for normal quit. Restore raw mode, alternate screen, cursor, and mouse capture as required, then surface the original error to the caller.
+
+On draw failure, restore raw mode and alternate-screen state before returning the error. Preserve the original error for logs, but do not leave the user with a corrupted shell.
+
+### Should a resize redraw immediately?
+
+Yes, when the backend reports it. Recompute layout on the next frame and preserve semantic state such as selected row or focused field. Do not preserve old rectangles.
+
+Resize should invalidate geometry and trigger a draw of the new frame. If data is also arriving, apply both changes through the same update boundary so the next screen is internally consistent.
+
+## Sources and next steps
+
+
+- [Crossterm event documentation](https://docs.rs/crossterm/latest/crossterm/event/)
+- [Ratatui Terminal API](https://docs.rs/ratatui/latest/ratatui/struct.Terminal.html)
+- [Term/UI Resizable Layout](/docs/widgets/resizable-layout)
+- [Term/UI Dialog](/docs/widgets/dialog)
+
+Continue with [async work](/articles/async-ratatui-tokio-background-tasks), [forms](/articles/ratatui-forms-text-input-validation-focus), and [TestBackend](/articles/test-ratatui-apps-testbackend).

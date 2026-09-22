@@ -1,6 +1,6 @@
 ---
-title: "Terminal UI UX: Navigation, Focus, and Accessibility"
-description: "Design usable terminal interfaces with clear navigation, visible focus, keyboard discoverability, and resilient states."
+title: "Terminal UI UX in Rust: Navigation, Focus, and Accessibility 2026"
+description: "Design usable Ratatui terminal interfaces with visible focus, keyboard discoverability, resilient states, color-independent cues, and clear hierarchy."
 keywords: ["terminal UI design", "TUI design patterns", "terminal app keyboard navigation"]
 category: "production"
 order: 9
@@ -14,20 +14,119 @@ Terminal users move quickly with a keyboard and often work in small windows, lim
 
 *By Max Wells, creator of [Rust/UI](https://rust-ui.com) and [Rustify](https://rustify.rs).*
 
-> **TL;DR:** Make terminal UX usable with visible focus, discoverable keyboard actions, complete loading and error states, color-independent cues, and layouts that survive narrow screens.
+> **TL;DR:** Accessible terminal UX makes the current action, focus target, and recovery path visible without depending on color, terminal width, or mouse input.
+> - **Design keyboard-first**: every action needs a discoverable key and a stable focus order
+> - **Show all state categories**: loading, empty, error, success, disabled, and stale
+> - **Use non-color cues** for focus, selection, and severity
+> - **Review with real tasks** at narrow widths before adding visual polish
 
-## Make navigation visible
 
-Give every interactive screen a predictable focus order. Show focus with a border, marker, or inverse style, and keep the cue when color is unavailable. Display shortcuts near actions and provide a help screen for less common commands.
+## Who is this terminal UX guide for?
 
-## Design the full state set
+**This guide is for engineers whose Ratatui interface is technically correct but still makes users ask what is focused, what key works, or whether a request failed.** It targets operator tools and internal products where clarity and recovery matter more than decorative density.
 
-Plan loading, empty, error, success, and disabled states before styling the happy path. Explain what happened and what action is possible next. Preserve user input when validation fails.
+Terminal UX is a system of cues. The current action, available next action, and recovery path should remain understandable on a small window, a limited palette, and a keyboard-only session.
 
-## Respect terminal limits
+## How should navigation be made visible?
 
-Use responsive layouts from the available `Rect`. Keep labels short, avoid relying on color alone, and test Unicode width and narrow terminals. [Ratatui layouts](/articles/ratatui-layout-constraints-flex-resizing) and [forms](/articles/ratatui-forms-text-input-validation-focus) show these constraints in code.
+**Give every interactive screen a predictable focus order and a visible current target.** Use a border, marker, inverse style, or label in addition to color. Keep primary actions in a stable location and expose less common shortcuts through a help screen or hint.
 
-## Review with real tasks
+A navigation contract should answer: what does Tab do, what does Enter do, how does the user go back, and how do they quit? The [event-loop guide](/articles/ratatui-keyboard-mouse-event-loop) can implement those actions, while this guide defines how they should feel.
 
-Ask someone to complete a task without reading the implementation. Watch where focus disappears, which key they expect, and whether errors explain recovery. Improve the flow before adding more widgets.
+| UX question | Reliable cue | Failure mode |
+| --- | --- | --- |
+| What is focused? | border, marker, or inverse style | color-only highlight |
+| What can I do next? | key hint or labeled action | hidden shortcuts |
+| Did the action work? | status message or state change | silent mutation |
+| How do I recover? | error plus next action | generic failure text |
+
+## Which states must a production TUI design?
+
+**Plan loading, empty, error, success, disabled, and stale states before styling the happy path.** Each state should explain what happened and what action is possible next. Preserve user input when validation fails and preserve last known data when a refresh becomes stale.
+
+Use [Loading State](/docs/widgets/loading-state), [Empty State](/docs/widgets/empty-state), [Dialog](/docs/widgets/dialog), and [Toast](/docs/widgets/toast) when their interaction model matches the situation. Do not use a toast for an error that requires a decision; put the error next to the affected content or open a dialog with a clear action.
+
+## How do color and terminal limits affect accessibility?
+
+**Every critical cue needs a non-color equivalent.** A red border can be paired with “Error:” text; a selected row can have a marker; a disabled action can have a reason. Keep labels short enough for narrow windows and avoid requiring true color for meaning.
+
+Review double-width characters, reduced palettes, remote latency, and a terminal that cannot show the full layout. At a narrow size, stack regions and preserve the focused task instead of shrinking every label. The [layout article](/articles/ratatui-layout-constraints-flex-resizing) covers the geometry decisions.
+
+## How should UX be reviewed with real tasks?
+
+**Ask a person to complete a real task without reading the implementation, then record where focus, feedback, or recovery disappears.** Test a normal flow, an invalid input, an empty result, a delayed request, and a quit action. A screenshot review alone cannot reveal whether a user knows what to press next.
+
+Keep a short interaction checklist in the repository and repeat it after changing focus order or status language. This is a high-value practice for internal tools because the cost is minutes while the cost of a confusing incident screen is much higher.
+
+> **Bottom line**: Accessible terminal UX is explicit state plus visible recovery. Color and polish can support the model, but they cannot replace it.
+
+## How should a TUI express hierarchy without visual noise?
+
+**Give every screen one primary task, one current location, and one obvious recovery path.** A title identifies the mode, a focus marker identifies the target, and a status or help row identifies the next legal action. Everything else is secondary until the user asks for it.
+
+Use spacing, borders, symbols, and stable placement as separate signals. The [Ratatui concepts guide](https://ratatui.rs/concepts/) provides the rendering vocabulary; the UX contract decides which signal carries meaning. A selected row can use a marker and inverse style; an error can use an icon and text; a disabled action can remain visible with its reason. This survives monochrome terminals and makes recordings understandable without color.
+
+Review the hierarchy at 80 columns before adding decorative panels. If the current task is hidden below a dashboard of metrics, the interface is serving the implementation instead of the operator. The [layout guide](/articles/ratatui-layout-constraints-flex-resizing) gives the sizing tools; this article defines the priority order those tools should preserve.
+
+## Which UX mistakes make experienced users slow down?
+
+**Experienced users lose time when focus moves invisibly, shortcuts change by screen, or errors disappear before they can act.** Consistency beats cleverness: keep quit, help, navigation, and cancel semantics stable across panes.
+
+Avoid mouse-only discovery. Avoid a status message that vanishes before a remote user can read it. Avoid using the same key for destructive and non-destructive actions without a confirmation state. Keep a short command reference available through `?` or a visible footer, and make the current mode explicit when key meaning changes.
+
+Test with task scripts rather than asking whether the screen “looks nice.” Time how many actions it takes to find an item, recover from an error, and return to the main view. Those observations reveal navigation debt early and produce concrete fixes for a production roadmap.
+
+> **Bottom line**: Accessibility is a navigation contract. If a user cannot name the current focus and next action in plain text, the design is incomplete.
+
+## Why does terminal UX matter professionally?
+
+**Clear focus and recovery behavior demonstrate product judgment alongside Rust implementation skill.** Internal tools succeed when operators can complete a task quickly under narrow windows, low color, remote latency, or partial failure.
+
+A task-based UX review gives a team actionable evidence: where users hesitate, which shortcuts conflict, and which errors disappear too soon. Those findings guide better engineering decisions than visual polish alone.
+## Frequently Asked Questions
+
+### Can a terminal UI be accessible without a mouse?
+
+Yes. Core tasks should be complete with keyboard actions, visible focus, labeled shortcuts, and a predictable back/quit path. Mouse support can improve speed but should not be the only route.
+
+Keyboard access works when every action has a stable key, focus order is predictable, and the current mode is visible. Mouse can accelerate experts, but it must not be the only route to a command.
+
+### How should focus be shown?
+
+Use at least one non-color cue such as a border, marker, cursor, or explicit label. Keep the cue visible in a limited palette and at narrow widths.
+
+Combine a marker, inverse style, and a nearby label or help hint. A cursor that changes only color disappears in monochrome and low-contrast terminals.
+
+### Where should errors appear?
+
+Place the error near the field or region that needs repair, state the rule, and explain the next action. Use a toast only for transient information that does not require a decision.
+
+Keep errors near the affected control when correction is local, and in a persistent status region when the problem affects the whole screen. Include the action that can recover, such as retry or cancel.
+
+### How do I design an empty state?
+
+Say whether there is no data or the current filter matched nothing, then show the next useful action. Keep search or filter input available when clearing it can recover the view.
+
+Explain why there are no rows and what key changes the state. Distinguish empty data, an active filter with zero matches, loading, and failed loading; each state needs a different next action.
+
+### Should status messages be persistent?
+
+Persist messages that explain current state, such as stale data or a validation error. Use transient notifications for confirmations that do not change what the user must do next.
+
+Persist messages that matter until they are acknowledged or superseded. Ephemeral messages are fine for “copied” feedback, but a failed save should remain visible with its retry path.
+
+### How do I review a TUI with real users?
+
+Give a concrete task, remove implementation hints, observe key expectations and recovery attempts, and test at the smallest supported terminal size. Turn repeated confusion into a changed label, focus rule, or help hint.
+
+Observe real task completion: finding a record, changing focus, recovering from failure, and quitting. Notes about hesitation or wrong keypresses are more useful than a generic visual review.
+
+## Sources and next steps
+
+
+- [Ratatui concepts](https://ratatui.rs/concepts/)
+- [Term/UI Help Screen](/docs/widgets/help-screen)
+- [Term/UI Tooltip](/docs/widgets/tooltip)
+- [Term/UI Dialog](/docs/widgets/dialog)
+
+Continue with [forms](/articles/ratatui-forms-text-input-validation-focus), [layouts](/articles/ratatui-layout-constraints-flex-resizing), and [shipping](/articles/ship-cross-platform-rust-terminal-ui).
