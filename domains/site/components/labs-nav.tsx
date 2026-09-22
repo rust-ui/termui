@@ -44,8 +44,16 @@ interface LinkAnimationProps {
   onMouseLeave: () => void;
 }
 
-const SectionTitle = ({ children }: { children: React.ReactNode }) => (
-  <div className="text-sm font-medium text-muted-foreground">{children}</div>
+const SectionTitle = ({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) => (
+  <div className={cn("text-sm font-medium text-muted-foreground", className)}>
+    {children}
+  </div>
 );
 
 const ExternalLinkLabel = ({
@@ -92,11 +100,13 @@ const LatestCard = ({
   item,
   nameClassName,
   textClassName,
+  desktop = false,
   children,
 }: {
   item: LabsNavLinkItem;
   nameClassName?: string;
   textClassName?: string;
+  desktop?: boolean;
   children: (props: LinkAnimationProps & { content: React.ReactNode }) => React.ReactNode;
 }) => {
   const { iconRef, onMouseEnter, onMouseLeave } =
@@ -106,8 +116,10 @@ const LatestCard = ({
     <>
       <span
         className={cn(
-          "flex items-center justify-center gap-2 rounded-md bg-muted text-base font-medium",
-          nameClassName ?? "min-h-24 w-full",
+          desktop
+            ? "flex size-9 items-center justify-center rounded-md bg-muted"
+            : "flex items-center justify-center gap-2 rounded-md bg-muted text-base font-medium",
+          nameClassName ?? (desktop ? "" : "min-h-24 w-full"),
         )}
       >
         {item.logo ? (
@@ -118,7 +130,7 @@ const LatestCard = ({
               aria-hidden="true"
               width={48}
               height={48}
-              className="size-8 dark:hidden"
+              className={cn(desktop ? "size-5" : "size-8", "dark:hidden")}
             />
             <Image
               src={item.logo.dark}
@@ -126,25 +138,37 @@ const LatestCard = ({
               aria-hidden="true"
               width={48}
               height={48}
-              className="hidden size-8 dark:block"
+              className={cn("hidden dark:block", desktop ? "size-5" : "size-8")}
             />
           </>
         ) : null}
-        {item.name}
+        {!desktop ? item.name : null}
       </span>
+      {desktop ? <span className="text-sm font-medium">{item.name}</span> : null}
       {item.description ? (
         <span
           className={cn(
-            "inline-flex items-center gap-1 text-sm text-foreground",
+            desktop
+              ? "text-xs text-muted-foreground"
+              : "inline-flex items-center gap-1 text-sm text-foreground",
             textClassName,
           )}
         >
           {item.description}
-          <ArrowUpRightIcon ref={iconRef} size={16} className="inline-flex shrink-0" />
+          {!desktop ? (
+            <ArrowUpRightIcon ref={iconRef} size={16} className="inline-flex shrink-0" />
+          ) : null}
         </span>
-      ) : (
+      ) : !desktop ? (
         <ExternalLinkLabel name={item.name} iconRef={iconRef} />
-      )}
+      ) : null}
+      {desktop ? (
+        <ArrowUpRightIcon
+          ref={iconRef}
+          size={14}
+          className="absolute top-3 right-3 text-muted-foreground"
+        />
+      ) : null}
     </>
   );
 
@@ -162,9 +186,9 @@ const DesktopSection = ({
   className?: string;
   listClassName?: string;
 }) => (
-  <div className={cn("flex flex-col gap-3 w-44", className)}>
-    <SectionTitle>{title}</SectionTitle>
-    <ul className={cn("columns-1 gap-1", listClassName)}>
+  <div className={cn("flex min-w-[120px] flex-col gap-2", className)}>
+    <SectionTitle className="text-xs">{title}</SectionTitle>
+    <ul className={cn("columns-1", listClassName)}>
       {items.map((item) => (
         <li key={item.href} className="w-full break-inside-avoid">
           <LabsNavLink item={item}>
@@ -173,13 +197,7 @@ const DesktopSection = ({
                 href={addQueryParams(item.href, UTM_PARAMS)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={cn(
-                  "flex w-full flex-row items-center gap-1 whitespace-nowrap rounded-none",
-                  "bg-transparent p-0 text-base font-normal leading-normal",
-                  "underline-offset-4 decoration-muted-foreground/50 decoration-1",
-                  "hover:bg-transparent hover:underline focus:bg-transparent focus:underline",
-                  "data-[active=true]:bg-transparent",
-                )}
+                className="flex w-full flex-row items-center gap-1 rounded-sm px-2 py-1.5"
                 onMouseEnter={onMouseEnter}
                 onMouseLeave={onMouseLeave}
               >
@@ -319,14 +337,14 @@ const LabsNavDesktop = () => {
               <div className="container-wrapper px-6">
                 <div className="flex gap-8 py-4 pl-3">
                   <div className="flex w-64 flex-col gap-3">
-                    <SectionTitle>Latest</SectionTitle>
-                    <LatestCard item={LABS_LATEST} nameClassName="min-h-8">
+                    <SectionTitle className="text-xs">Latest</SectionTitle>
+                    <LatestCard item={LABS_LATEST} desktop>
                       {({ content, onMouseEnter, onMouseLeave }) => (
                         <NavigationMenuLink
                           href={addQueryParams(LABS_LATEST.href, UTM_PARAMS)}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className={cn(latestCardClassName, "w-60 gap-2 p-3")}
+                          className="relative flex w-60 flex-col gap-2 rounded-md border p-3"
                           onMouseEnter={onMouseEnter}
                           onMouseLeave={onMouseLeave}
                         >
