@@ -1,7 +1,7 @@
 "use client";
 
+import { useTheme } from "next-themes";
 import type { CSSProperties } from "react";
-
 import previews from "@/domains/ratatui/registry/previews.generated.json";
 import { RATATUI_DEMO_BASE } from "@/domains/ratatui/config";
 import { useTerminalTheme } from "@/domains/terminal-themes/use-terminal-theme";
@@ -179,7 +179,14 @@ export const RatatuiDemoPreview = ({
   fontSize?: number;
 }) => {
   const [themeKey] = useTerminalTheme();
-  const theme = terminalThemeMap[themeKey];
+  const { resolvedTheme } = useTheme();
+
+  const effectiveThemeKey =
+    themeKey === "default" && resolvedTheme === "light"
+      ? "high-contrast-light"
+      : themeKey;
+
+  const theme = terminalThemeMap[effectiveThemeKey];
   const frame = (previews as Record<string, string[]>)[
     getPreviewKey(RATATUI_DEMO_BASE, name)
   ] ?? [`⚠ Preview not generated: ${name}`];
