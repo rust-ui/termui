@@ -90,6 +90,7 @@ Notable Term/UI changes are recorded here. Format follows [Keep a Changelog](htt
 
 ### Fixed
 
+- Use the high-contrast light terminal palette for static previews when the site is in light mode and the default terminal theme is selected (thanks @aaru132, #4).
 - Let Labs NavigationMenu finish its 300ms close animation before hiding.
 - Restore NavigationMenu open/close animations when `viewport=false`.
 - Gate Tooltip enter animations on Radix's `delayed-open` and `instant-open` states; keep exit animation on `closed`.

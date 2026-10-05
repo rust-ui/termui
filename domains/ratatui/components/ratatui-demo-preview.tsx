@@ -2,6 +2,7 @@
 
 import { useTheme } from "next-themes";
 import type { CSSProperties } from "react";
+
 import previews from "@/domains/ratatui/registry/previews.generated.json";
 import { RATATUI_DEMO_BASE } from "@/domains/ratatui/config";
 import { useTerminalTheme } from "@/domains/terminal-themes/use-terminal-theme";
